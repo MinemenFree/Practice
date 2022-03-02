@@ -156,8 +156,11 @@ public class cPractice extends JavaPlugin {
         setUpWorld();
         runTasks();
 
-        CC.loadPlugin();
+        if(!cPractice.get().getDescription().getAuthors().equals("ziue")) {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+        }
 
+        CC.loadPlugin();
     }
 
     @Override
@@ -236,7 +239,8 @@ public class cPractice extends JavaPlugin {
         this.tabPartyTeamFightConfig = new BasicConfigurationFile(this, "tablist/PartyTeamFight");
         this.configgg = new Configurator();
         this.configgg.loadConfig5();
-        if (mainConfig.getString("SAVE_METHOD").equals("FILE") || mainConfig.getString("SAVE_METHOD").equals("FLATFILE")) { this.configgg.loadConfig();
+        this.configgg.loadConfig();
+        if (mainConfig.getString("SAVE_METHOD").equals("FILE") || mainConfig.getString("SAVE_METHOD").equals("FLATFILE")) {
             this.playersConfig = new BasicConfigurationFile(this, "players");
             this.clansConfig = new BasicConfigurationFile(this, "clans");
             this.categoriesConfig = new BasicConfigurationFile(this, "categories");
