@@ -1,0 +1,22 @@
+#In this section you must add all the existing ranges on your server,
+#if you forget one when that person enters you will not stop skipping errors.
+groups:
+  Owner: '&4'
+  Manager: '&4'
+  Developer: '&b'
+  PlatformAdmin: '&c'
+  Admin: '&c'
+  SeniorMod: '&3'
+  Mod: '&3'
+  TrialMod: '&e'
+  Partner: '&d'
+  Famous: '&d'
+  Media: '&d'
+  YouTuber: '&5'
+  Lucifer: '&4'
+  Diamond: '&b'
+  Platinum: '&3'
+  Gold: '&6'
+  Silver: '&f'
+  Verified: '&2'
+  Default: '&a'

@@ -1,0 +1,796 @@
+COLORS:
+  MAIN: AQUA
+  MIDDLE: BLUE
+  SECONDARY: YELLOW
+WARNS:
+  BAN_ON_REACHED_WARNS: true
+  MAX_ACTIVE_WARNS_TO_REACH: 3
+  REMOVE_ALL_ACTIVE_WARNS_ON_BAN: true
+  BAN:
+    REASON: Max warns reached
+    DURATION: 3d
+BROADCASTS:
+  PERM-BAN:
+    MESSAGE: '&9<user> &bhas been permanently banned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  PERM-BAN-SILENT:
+    MESSAGE: '&9<user> &bhas been permanently &fsilent &bbanned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  TEMP-BAN:
+    MESSAGE: '&9<user> &bhas been temporarily banned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  TEMP-BAN-SILENT:
+    MESSAGE: '&9<user> &bhas been temporarily &fsilent &bbanned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  PERM-IP-BAN:
+    MESSAGE: '&9<user> &bhas been permanently IP-banned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  PERM-IP-BAN-SILENT:
+    MESSAGE: '&9<user> &bhas been permanently &fsilent &bIP-banned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  TEMP-IP-BAN:
+    MESSAGE: '&9<user> &bhas been temporarily IP-banned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  TEMP-IP-BAN-SILENT:
+    MESSAGE: '&9<user> &bhas been temporarily &fsilent &bIP-banned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  UNBAN:
+    MESSAGE: '&9<user> &bhas been unbanned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+  UNBAN-SILENT:
+    MESSAGE: '&9<user> &bhas been &fsilently &bunbanned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+  PERM-MUTE:
+    MESSAGE: '&9<user> &bhas been permanently muted by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  PERM-MUTE-SILENT:
+    MESSAGE: '&9<user> &bhas been permanently &fsilent &bmuted by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  TEMP-MUTE:
+    MESSAGE: '&9<user> &bhas been temporarily muted by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  TEMP-MUTE-SILENT:
+    MESSAGE: '&9<user> &bhas been temporarily &fsilent &bmuted by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  UNMUTE:
+    MESSAGE: '&9<user> &bhas been unmuted by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+  UNMUTE-SILENT:
+    MESSAGE: '&9<user> &bhas been &fsilently &bunmuted by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+  PERM-WARN:
+    MESSAGE: '&9<user> &bhas been warned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  PERM-WARN-SILENT:
+    MESSAGE: '&9<user> &bhas been &fsilently &bwarned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &bPermanent'
+  TEMP-WARN:
+    MESSAGE: '&9<user> &bhas been temporarily warned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  TEMP-WARN-SILENT:
+    MESSAGE: '&9<user> &bhas been temporarily &fsilent &bwarned by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+        - '&9Duration&7: &b<duration>'
+  BLACKLIST:
+    MESSAGE: '&4&L<user> &chas been blacklisted by &4&l<sender>&c.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&4Reason&7: &c<reason>'
+  UN-BLACKLIST:
+    MESSAGE: '&4&L<user> &chas been un-blacklisted by &4&l<sender>&c.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&4Reason&7: &c<reason>'
+  BLACKLIST-SILENT:
+    MESSAGE: '&4&L<user> &chas been &fsilently &cblacklisted by &4&l<sender>&c.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&4Reason&7: &c<reason>'
+  UN-BLACKLIST-SILENT:
+    MESSAGE: '&4&L<user> &chas been &fsilently &cun-blacklisted by &4&l<sender>&c.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&4Reason&7: &c<reason>'
+  KICK:
+    MESSAGE: '&9<user> &bhas been kicked by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+  KICK-SILENT:
+    MESSAGE: '&9<user> &bhas been &fsilent &bkicked by &9<sender>&b.'
+    HOVER:
+      ENABLED: true
+      MESSAGE:
+        - '&9Reason&7: &b<reason>'
+KICK-MESSAGES:
+  KICK:
+    - '&bYou have been kicked from &9<server> &bserver!'
+    - ''
+    - '&bReason&7: &9<reason>'
+    - '&bKicked by&7: &9<executedBy>'
+  BLACKLIST:
+    - '&cYour account is currently &4blacklisted &cfrom &4&lCrystal Network&c!'
+    - ''
+    - '&cReason&7: &4<reason>'
+    - '&cIP Relative&7: <IPRelative>'
+    - ''
+    - '&cYou can''t appeal for this punishment!'
+  BLACKLIST-OTHER:
+    - '&cYour account is currently &4blacklisted &cfrom &4&lCrystal Network&c!'
+    - '&cThis blacklist is associated with &4<bannedUser> &caccount!'
+    - ''
+    - '&cReason&7: &4<reason>'
+    - '&cIP Relative&7: <IPRelative>'
+    - ''
+    - '&cYou can''t appeal for this punishment!'
+  PERM-BAN:
+    - '&bYour account is currently &9permanently &bsuspended from &9&lCrystal Network&b!'
+    - ''
+    - '&bReason&7: &9<reason>'
+    - '&bIP Relative&7: <IPRelative>'
+    - ''
+    - '&bTo appeal visit&7: &9www.crystal.rip'
+  TEMP-BAN:
+    - '&bYour account is currently &9temporarily &bsuspended from &9&lCrystal Network&b!'
+    - ''
+    - '&bReason&7: &9<reason>'
+    - '&bDuration&7: &9<duration>'
+    - '&bTime until unban&7: &9<expire>'
+    - '&bIP Relative&7: <IPRelative>'
+    - ''
+    - '&bTo appeal visit&7: &9www.crystal.rip'
+  PERM-IP-BAN:
+    - '&bYour account is currently &bsuspended from &9&lCrystal Network&b!'
+    - '&bThis ban is associated with &9<bannedUser> &baccount!'
+    - ''
+    - '&bReason&7: &9<reason>'
+    - ''
+    - '&bTo appeal visit&7: &9www.crystal.rip'
+  TEMP-IP-BAN:
+    - '&bYour account is currently &bsuspended from &9&lCrystal Network&b!'
+    - '&bThis ban is associated with &9<bannedUser> &baccount!'
+    - ''
+    - '&bReason&7: &9<reason>'
+    - '&bDuration&7: &9<duration>'
+    - '&bTime until unban&7: &9<expire>'
+    - ''
+    - '&bTo appeal visit&7: &9www.crystal.rip'
+PUNISH-INFO-COMMAND-FORMAT:
+  - '&7&m---&8*&7&m-------------------------------------&8*&7&m---'
+  - '&9&l<name>''s &bpunishments info'
+  - ''
+  - '&bBans&7: &9<bans>'
+  - '&bMutes&7: &9<mutes>'
+  - '&bBlacklists&7: &9<blacklists>'
+  - '&bKicks&7: &9<kicks>'
+  - '&bWarns&7: &9<warns>'
+  - ''
+  - '&9Please type &b''/punishinfo warns''&7, &9to see info on warns!'
+  - '&9Please type &b''/punishinfo mutes''&7, &9to see info on mutes!'
+  - '&7&m---&8*&7&m-------------------------------------&8*&7&m---'
+PUNISH-INFO-COMMAND-WARNS-FORMAT:
+  - '&7&m---&8*&7&m-------------------------------------&8*&7&m---'
+  - '&9&l<name>''s &bactive warns info'
+  - ''
+  - '{warns}'
+  - ''
+  - '&7&m---&8*&7&m-------------------------------------&8*&7&m---'
+PUNISH-INFO-COMMAND-MUTES-FORMAT:
+  - '&7&m---&8*&7&m-------------------------------------&8*&7&m---'
+  - '&9&l<name>''s &bactive mutes info'
+  - ''
+  - '{mutes}'
+  - ''
+  - '&7&m---&8*&7&m-------------------------------------&8*&7&m---'
+PREFIX: '&9&lCrystal &7> '
+PLAYER_NOT_ONLINE: '{prefix} &cThat player is currently offline.'
+PLAYER_NOT_CONNECTED: '{prefix} &cPlayer by name &c&l<name> &cis not connected to
+  any of our data base servers.'
+NO_PERMISSION: '{prefix} &cYou don''t have permission to use that command.'
+USE_NUMBERS: '{prefix} &cPlease use numbers.'
+DOESNT-HAVE-DATA: '{prefix} &cWe don''t have any documentation saved about that user.
+  It seems that the user never joined any of our data base servers.'
+LOADING-OFFLINE-DATA: '{prefix} &aUser is not online, loading data, please wait..'
+LIST-ALL-FORMAT: '&fThere are &b<players>&7/&b<max> &fplayers online&7: {0}&f<list>'
+INVALID-TIME-DURATION: '{prefix} &fYou''ve entered invalid time duration. Please use
+  something like&7: &b1d&7,&b1d&7,&b1m&7,&b1s&f.'
+RANK:
+  ALEADY-EXISTS: '{prefix} &fRank &a<rank> &falready exists.'
+  CREATED: '{prefix} &fRank &a<rank> &fis now &asuccessfully &bcreated&f.'
+  DOESNT-EXISTS: '{prefix} &fRank &a<rank> &fdoesn''t exists.'
+  HAS-NO-PERMISSIONS: '{prefix} &fRank &a<rank> &fdoesn''t have any permissions set.'
+  PERMISSIONS: '{prefix} &fRank &a<rank> &fhave the following permissions&7: &b<permissions>&7
+    &8[&b<total> total&8]&7.'
+  CHANGES:
+    APPLIED: '{prefix} &fRank &a<rank> &fhas been updated with changes!'
+    ENTER-PERMISSION-SERVER: '{0}&fPlease enter the server you want for this permission.{0}&fPermission&7:
+      &b<permission>{0}&fType &c''cancel'' &fto cancel procedure.'
+  DELETED: '{prefix} &fRank &a<rank> &fis now &asuccessfully &bdeleted&f.'
+  PREFIX-SET: '{prefix} &fPrefix for &a<rank> &frank has been &asuccessfully &fupdated
+    to &f<prefix>&f.'
+  SUFFIX-SET: '{prefix} &fSuffix for &a<rank> &frank has been &asuccessfully &fupdated
+    to &f<suffix>&f.'
+  WEIGHT-SET: '{prefix} &fWeight for &a<rank> &frank has been &asuccessfully &fupdated
+    to &f<weight>&f.'
+  COLOR-SET: '{prefix} &fColor for &a<rank> &frank has been &asuccessfully &fupdated
+    to &f<color>&f.'
+  CHAT-COLOR-SET: '{prefix} &fChat color for &a<rank> &frank has been &asuccessfully
+    &fupdated to &f<color>&f.'
+  INVALID-COLOR: '{prefix} &fColor &a<color> &fis not a valid color for a rank.'
+  INVALID-WEIGHT: '{prefix} &fRank weight &a<weight> &fis not a valid weight for a
+    rank.'
+  COINS-COST-SET: '{prefix} &fCoins cost for &a<rank> &frank has been &asuccessfully
+    &fupdated to &f<amount>&f.'
+  INVALID-CHAT-COLOR: '{prefix} &fColor &a<color> &fis not a valid chat color for
+    a rank.'
+  INVALID-TYPE: '{prefix} &fYou have entered invalid rank type, available types: &b<types>&f.'
+  TYPE-SET: '{prefix} &fYou have set &b<rank>''s &ftype to &b<type>&f.'
+  ALREADY-HAVE-PERMISSION: '{prefix} &fRank &a<rank> &falready have permission &a<permission>&f.'
+  DOESNT-HAVE-PERMISSION: '{prefix} &fRank &a<rank> &fdoesn''t have permission &a<permission>&f.'
+  PERMISSION-SET: '{prefix} &fPermission &a<permission> &fhave been set to &btrue
+    &ffor &a<rank> &frank.'
+  PERMISSION-REMOVE: '{prefix} &fPermission &a<permission> &fhave been set to &cfalse
+    &ffor &a<rank> &frank.'
+  ALREADY-HAVE-INHERITANCE: '{prefix} &fRank &a<rank> &falready inherits &a<inheritance>
+    &frank.'
+  DOESNT-HAVE-INHERITANCE: '{prefix} &fRank &a<rank> &fdoesn''t have &a<inheritance>
+    &frank inherits.'
+  INHERITANCE-SET: '{prefix} &fRank &a<rank> &fnow inherits &a<inheritance> &frank.'
+  INHERITANCE-REMOVE: '{prefix} &fRank &a<rank> &fno longer inherits &a<inheritance>
+    &frank.'
+  DEFAULT-SET: '{prefix} &fYou have set &a<rank> &frank as default rank.'
+  NOT-BOLD: '{prefix} &fThat rank is not currently BOLD!'
+  NOT-ITALIC: '{prefix} &fThat rank is not currently ITALIC!'
+  ALREADY-BOLD: '{prefix} &fThat rank is already BOLD!'
+  ALREADY-ITALIC: '{prefix} &fThat rank is already ITALIC!'
+  BOLD-SET: '{prefix} &fYou have set &b<rank> &frank to &bBOLD&f!'
+  BOLD-UN-SET: '{prefix} &fYou have removed &bBOLD &ffrom &b<rank> &frank!'
+  NOT-PURCHASABLE: '{prefix} &fThat rank is not currently PURCHASABLE!'
+  ALREADY-PURCHASABLE: '{prefix} &fThat rank is already PURCHASABLE!'
+  PURCHASABLE-SET: '{prefix} &fYou have set &b<rank> &frank to be &bPURCHASABLE&f!'
+  PURCHASABLE-UN-SET: '{prefix} &fYou have removed &b<rank> &frank to be &bPURCHASABLE&f!'
+  NOT-BUNGEE: '{prefix} &fThat rank is not currently BUNGEE!'
+  ALREADY-BUNGEE: '{prefix} &fThat rank is already BUNGEE!'
+  BUNGEE-SET: '{prefix} &fYou have set &b<rank> &frank to be &bBUNGEE&f!'
+  BUNGEE-UN-SET: '{prefix} &fYou have removed &b<rank> &frank to be &bBUNGEE&f!'
+  ITALIC-SET: '{prefix} &fYou have set &b<rank> &frank to &bITALIC&f!'
+  ITALIC-UN-SET: '{prefix} &fYou have removed &bITALIC &ffrom &b<rank> &frank!'
+GRANT-PROCEDURE:
+  ENTER-DURATION: '{prefix} &fPlease enter duration time for this grant! Use &c''permanent''
+    &for &c''perm'' &ffor permenent.'
+  ENTER-REASON: '{prefix} &fPlease enter reason for this grant!'
+  ALREADY-HAVE-RANK: '{prefix} &fPlayer already have active grant with that rank,
+    use &c''/grants <player>'' &fto check it out.'
+  DURATION-RECORDED: '{0} {prefix} &aDuration has been &a&lrecorded&a.{0} &7[&b*&7]
+    &fDuration&7: &a<duration> {0} '
+  CANT-GRANT: '{prefix} &fYou can not grant that rank as it is higher than yours!'
+  CANT-REMOVE-OTHER: '{prefix} &cYou don''t have permission to remove grant that you
+    didn''t grant!'
+  CANT-GRANT-DISALLOWED: '{prefix} &cYou do not have permission to grant that rank!'
+  CANT-GRANT-DEFAULT: '{prefix} &fThat rank can''t be granted as it is default rank!'
+PLAYER:
+  ALREADY-HAVE-PERMISSION: '{prefix} &fPlayer &a<player> &falready have permission
+    &a<permission>&f.'
+  PERMISSION-SET: '{prefix} &fSuccessfully added &a<permission> &fpermission to &a<player>''s
+    &fdata.'
+  DOESNT-HAVE-PERMISSION: '{prefix} &fPlayer &a<player> &fdoesn''t have permission
+    &a<permission> &fto be unset.'
+  PERMISSION-REMOVED: '{prefix} &fSuccessfully removed &a<permission> &fpermission
+    from &a<player>''s &fdata.'
+SERVER-LOADING-KICK: '&cServer is currently loading up, please wait.'
+GRANT:
+  RANK-GRANTED-PERM: '{prefix} &fYou have &bpermanently &fgranted &a<rank> &frank
+    to &a<user>&f.'
+  RANK-GRANTED-TEMP: '{prefix} &fYou have &fgranted &a<rank> &frank to &a<user> &ffor
+    &b<time>&f.'
+  RANK-GRANTED-PERM-PLAYER: '{prefix} &fYou have been &bpermanently &fgranted &a<rank>
+    &frank.'
+  RANK-GRANTED-TEMP-PLAYER: '{prefix} &fYou have been &fgranted &a<rank> &frank for
+    &b<time>&f.'
+  RANK-REMOVED-SENDER: '{prefix} &fYou''ve have removed all &b<user>''s &fgrants with
+    &b<rank> &frank!'
+  RANK-REMOVED-TARGET: '{prefix} &fAll your grants with &b<rank> &frank have been
+    removed by &b<name>&f!'
+  RANK-DONT-HAVE: '{prefix} &b<user> &fdoesn''t have any grant with that rank!'
+REPORT-DOESNT-HAVE: '{prefix} &b<player> &fdoesn''t have any reports recorded.'
+REPORT-FORMAT: '&b[R] &6<player> &9reported &6<target> &9for &b<reason>&9.'
+REPORT-COOLDOWN: '{prefix} &9You''re on a &breport &9cooldown for another &b<seconds>
+  seconds&9.'
+REPORT-TO-PLAYER: '{prefix} &aYour report has been successfully sent to all staff.
+  We will take care about it.'
+REPORT-CANT-REPORT-YOURSELF: '{prefix} &aYou''re are not allowed to report yourself.'
+HELPOP-TO-PLAYER: '{prefix} &aYour helpop has been successfully sent to all staff.'
+HELPOP-FORMAT: '&2[H] &a<player> &9requsted staff help for &b<reason>&9.'
+HELPOP-COOLDOWN: '{prefix} &9You''re on a &bhelpop &9cooldown for another &b<seconds>
+  seconds&9.'
+GAMEMODE:
+  ALREADY-HAVE: '{prefix} &bYour gamemode is already &9<gamemode>&b.'
+  UPDATED: '{prefix} &bYour gamemode has been updated to &9<gamemode>&b'
+  ALREADY-HAVE-OTHER: '{prefix} &9<player>''s &bgamemode is already set to &9<gamemode>&b.'
+  UPDATED-OTHER-SENDER: '{prefix} &9<player>''s &bgamemode has been updated to &9<gamemode>&b'
+  UPDATED-OTHER-TARGET: '{prefix} &bYour gamemode has been updated to &9<gamemode>
+    &bby &9<sender>&b.'
+  WRONG: '{prefix} &bThat''s not a valid gamemode.'
+GOD-MODE:
+  ENABLED: '{prefix} &bGod Mode is now &aenabled&b.'
+  DISABLED: '{prefix} &bGod Mode is now &cdisabled&b.'
+STAFF-MESSAGES:
+  CONNECT: '&b[S] &a<player> &9has joined &b<server>&9.'
+  SWITCH: '&b[S] &a<player> &9joined &b<server> &9from &b<from>&9.'
+  DISCONNECT: '&b[S] &a<player> &9disconnected from &b<server>&9.'
+STAFF-CHAT:
+  ENABLED: '{prefix} &bStaff chat has been &aenabled&b.'
+  DISABLED: '{prefix} &bStaff chat has been &cdisabled&b.'
+  FORMAT: '&b[SC] &9[<server>] &9<player>&7: &f<message>'
+ADMIN-CHAT:
+  ENABLED: '{prefix} &bAdmin chat has been &aenabled&b.'
+  DISABLED: '{prefix} &bAdmin chat has been &cdisabled&b.'
+  FORMAT: '&c[AC] &9[<server>] &9<player>&7: &c<message>'
+TAGS:
+  NO-ACCESS: '{prefix} &bYou don''t have permission to use tags&7. &bPurchase rank
+    &9@<store> &bto grant access&9!'
+  DONT-HAVE-APPLIED: '{prefix} &bYou don''t have any tag applied!'
+  ALREADY-HAVE-APPLIED: '{prefix} &bYour tag is already set to &9<tag>&b!'
+  TAG-APPLIED: '{prefix} &bYou have applied &9<tag> &btag to yourself.'
+  TAG-REMOVED: '{prefix} &bYou have removed your tag.'
+  COLOR-CHANGED: '{prefix} &bYou have set your tag color to <color>&b.'
+  COMMAND:
+    ALREADY-CREATED: '{prefix} &fTag &b<name> &fis already created.'
+    CREATED: '{prefix} &fTag &b<name> &fhas been successfully created.'
+    DONT-EXISTS: '{prefix} &fTag &b<name> &fdoes not exists!'
+    DELETED: '{prefix} &fTag &b<name> &fhas been deleted.'
+    INVALID-COLOR: '{prefix} &fYou''ve entered wrong chat color.'
+    PREFIX-SET: '{prefix} &fPrefix for &b<name> &ftag has been updated to &b<prefix>&f'
+    COLOR-SET: '{prefix} &fColor for &b<name> &ftag has been updated to &b<color>&f'
+    TAGS-EXPORTED: '{prefix} &fTags have been exported to &btags.yml&f.'
+    TAGS-IMPORTED: '{prefix} &fTags have been imported from &btags.yml&f.'
+NAME-COLOR:
+  NO-ACCESS: '{prefix} &bYou don''t have permission to change your name color&7. &bPurchase
+    rank &9@<store> &bto gain access&9!'
+  CHANGED: '{prefix} &bYou have changed your name color to &a<color>&b!'
+  RESET: '{prefix} &bYou have reseted your name color to &a<color>&b!'
+CHAT-COLOR:
+  NO-ACCESS: '{prefix} &bYou don''t have permission to change your chat color&7. &bPurchase
+    rank &9@<store> &bto gain access&9!'
+  CHANGED: '{prefix} &bYou have changed your chat color to &a<color>&b!'
+  RESET: '{prefix} &bYou have reseted your chat color to &a<color>&b!'
+MESSAGE-FORMAT:
+  TO-SENDER: '&7(&9To &7[&b<target_server>&7] &c<target>&7): &f<message>'
+  TO-TARGET: '&7(&9From &7[&b<sender_server>&7] &c<sender>&7): &f<message>'
+MESSAGES:
+  HAVE-MESSAGES-TOGGLED-OFF: '{prefix} &cYou have your messages turned &c&lOFF&c.'
+  HAVE-MESSAGES-TOGGLED-OFF-TARGET: '{prefix} &c&l<target> &chas their messages turned
+    &c&lOFF&c.'
+  CANT-SEND-YOURSELF: '{prefix} &cYou can''t message yourself.'
+  IGNORING-TARGET: '{prefix} &9<target> &bis currently ignoring you and you may not
+    send message at the moment.'
+  IGNORING-SENDER: '{prefix} &bYou are currently ignoring &9<target> &band can''t
+    send message at the moment.'
+  TOGGLED-ON: '{prefix} &bYou have now your private messages &9enabled&b.'
+  TOGGLED-OFF: '{prefix} &bYou have now your private messages &9disabled&b.'
+  IGNORE:
+    LIST-EMPTY: '{prefix} &bYou''re not currently ignoring anyone.'
+    ALREADY-IGNORING: '{prefix} &bYou are already ignoring &9<player>&b.'
+    NOT-IGNORING: '{prefix} &bYou are currently not ignoring &9<player>&b.'
+    IGNORED: '{prefix} &bYou have &asuccessfully &badded &9<player> &bto your ignore
+      list.'
+    UN-IGNORED: '{prefix} &bYou have &asuccessfully &bremoved &9<player> &bfrom your
+      ignore list.'
+  TOGGLED-ON-SOUNDS: '{prefix} &bYou have now your private messages sounds &9enabled&b.'
+  TOGGLED-OFF-SOUNDS: '{prefix} &bYou have now your private messages sounds &9disabled&b.'
+SERVER-MANAGER:
+  INVALID-SERVER: '{prefix} &bThats not a valid server&7. &bServers&7: &9<servers>'
+  COMMAND-PERFORMED-ALL: '{prefix} &bYou have runned console command on every server&7.
+    &7(&9<command>&7)'
+  COMMAND-PERFORMED-SERVER: '{prefix} &bYou have runned console command on &9<server>
+    &bserver&7. &7(&9<command>&7)'
+  SERVER-LIST: '{prefix} &bCurrently available servers&7: &9<servers>'
+  SERVER-ONLINE: '{prefix} &7[&4ServerManager&7] &b<server> &9has just came &aonline
+    &band will be joinable in &b5 seconds&9!'
+  SERVER-OFFLINE: '{prefix} &7[&4ServerManager&7] &b<server> &9has just went &coffline
+    &9and is no longer joinable&9!'
+FREEZE:
+  TARGET: '{prefix} &bYou have been &9frozen &bby &2{player}&b.'
+  PLAYER: '{prefix} &bYou have successfully &9freeze &2{target}&b.'
+UNFREEZE:
+  TARGET: '{prefix} &bYou have been &9unfrozen &bby &2{player}&b.'
+  PLAYER: '{prefix} &bYou have successfully &9unfreeze &2{target}&b.'
+LEFT-FROZEN: '&b[S] &9[<server>] &a<name> &9left while frozen.'
+PANIC:
+  COMMAND-COOLDOWN: '{prefix} &bYou''re on a panic command cooldown for another &9<time>&b!'
+  ALREADY-IN-PANIC: '{prefix} &bYou''re already in panic mode. Your panic will expire
+    in &9<time>&b!'
+  USED: '{prefix} &bYou have used your panic, now you''re frozen for &9<time>&b. &cStaff
+    has been alerted!'
+  STAFF: '&7[&4&lPANIC&7] &c[<server>] &4&l<name> &bjust used panic ability by typing
+    &c/panic&b.'
+  UNPANIC:
+    NOT-IN-PANIC: '{prefix} &9<player> &bis not currently in panic.'
+    TO-SENDER: '{prefix} &9<player> &bis no longer in panic.'
+    TO-TARGET: '{prefix} &bYour panic has been removed by &9<sender>&b.'
+BROADCAST-FORMAT: '&7[&bBroadcast&7] &9<message>'
+ALERT-FORMAT: '&7[&4Alert&7] &9<message>'
+INVENTORY-CLEAR:
+  SELF: '{prefix} &bYou have cleared your inventory. &7(&9<total> total items&7)'
+  OTHER-SENDER: '{prefix} &bYou have cleared &9<target>''s &binventory. &7(&9<total>
+    total items&7)'
+  OTHER-TARGET: '{prefix} &bYour inventory has been cleared by &9<player>&b. &7(&9<total>
+    total items&7)'
+PING:
+  SELF: '{prefix} &bYour ping&7: &9<ping> ms'
+  OTHER: '{prefix} &9<target>''s &bping&7: &9<ping> ms'
+HEAL: '{prefix} &9<target> &bhas been successfully healed.'
+FEED: '{prefix} &9<target> &bhas been successfully fed.'
+SKULL:
+  INV-FULL: '{prefix} &bYour inventory is currently full.'
+  GIVEN: '{prefix} &bYou have received &9<name>''s &bskull.'
+  CLICK: '{prefix} &bYou''ve clicked &9<name>''s &bhead.'
+MORE:
+  INVALID-ITEM: '{prefix} &bYou can''t be holding air.'
+  SUCCESS: '{prefix} &bSuccessfully set hand item amount to it''s max amount&b.'
+TELEPORT:
+  TO-TARGET: '{prefix} &bYou''ve been teleported to &9<target>&b.'
+  INVALID-COORDS: '{prefix} &bYou have entered invalid coordinates.'
+  TO-COORDS: '{prefix} &bYou''ve been teleported to &9x:<x>&7, &9y:<y>&7, &9z:<z>&b.'
+  HERE:
+    SENDER: '{prefix} &bYou have teleported &9<target> &bto yourself.'
+    TARGET: '{prefix} &9<player> &bteleported you to their location.'
+  WORLD:
+    INVALID-WORLD: '{prefix} &bYou have entered invalid world.'
+    ALREADY-IN-WORLD: '{prefix} &bYou are already in that world.'
+    SUCESS: '{prefix} &bYou''ve been teleported to &9<world> &bworld.'
+  TELEPORT-ALL-TO-SENDER: '{prefix} &fYou''ve teleported all players to your location.'
+  TELEPORT-ALL-TO-TARGET: '{prefix} &fYou''ve been teleported to &a<sender>&f.'
+  OFFLINE-PLAYER-FAILED: '{prefix} &cWe couldn''t find location of offline player
+    named &c&l<name>&c!'
+RENAME:
+  INVALID-ITEM: '{prefix} &bYou can''t be holding  air.'
+  RENAMED: '{prefix} &bItem has been renamed to &9<name>&b.'
+LORE:
+  INVALID-ITEM: '{prefix} &bYou can''t be holding  air.'
+  ADDED: '{prefix} &bYou have added new lore to your item.'
+LORE-REMOVE:
+  INVALID-ITEM: '{prefix} &bYou can''t be holding  air.'
+  FAIL: '{prefix} &bIt seems that your item doesn''t have that lore.'
+  REMOVED: '{prefix} &bYou have removed lore with numbder &9<number> &bfrom item.'
+FILTER:
+  CANT-SEND: '{prefix} &cYour message contains blocked word(s) and can''t be  sent!'
+  STAFF-ALERT: '&7[&cFiltered&7] &9[<server>] &b<player>&7: &f<message>'
+  STAFF-ALERT-PRIVATE: '&7[&cFiltered&7] &b<sender> &7-> &b<target>&7: &f<message>'
+CHAT:
+  MUTED: '{prefix} &bGlobal chat has been &9disabled &bby &9&l<player>&b.'
+  UN-MUTED: '{prefix} &bGlobal chat has been &9enabled &bby &9&l<player>&b.'
+  SLOW: '{prefix} &bGlobal chat has been &9delayed &bto &9<seconds> seconds &bby &9&l<player>&b.'
+  ON-DELAY: '{prefix} &bYou''re on a chat delay for another &9<seconds> second(s)&b.'
+  ALREADY-MUTED: '{prefix} &bChat is already muted.'
+  ALREADY-UN-MUTED: '{prefix} &bChat is already unmuted.'
+  CANT-SEND: '{prefix} &bGlobal chat is currently &9disabled&b.'
+  CLEARED: '{prefix} &bGlobal chat have been cleared by &9<player>&b.'
+SUDO:
+  COMMAND: '{prefix} &bYou have made &9<player> &bto perform &9<command> &bcommand.'
+  CHAT: '{prefix} &bYou have made &9<player> &bto type &9<message> &bin chat.'
+FLY:
+  ENABLED: '{prefix} &bFlight mode for &9<player> &bhas been &aenabled&b.'
+  DISABLED: '{prefix} &bFlight mode for &9<player> &bhas been &cdisabled&b.'
+  NO-PERMISSION-OTHER: '{prefix} &cYou don''t have permission to toggle fly for other
+    players!'
+MEDIA:
+  DISCORD: '{prefix} &bOur discord server: &9<discord>'
+  TEAMSPEAK: '{prefix} &bOur teamspeak server: &9<teamspeak>'
+  TWITTER: '{prefix} &bOur twitter: &9<twitter>'
+  STORE: '{prefix} &bOur store: &9<store>'
+STAFF-ROLLBACK:
+  WIPING: '{prefix} &aWiping all &2<type>&a, please wait...'
+  NO-HISTORY: '{prefix} &aThat player doesn''t have &2<type> &aperformed.'
+  WIPED: '{prefix} &aSuccessfully wiped &2<amount> <type> &afrom &2<name> &adatabase.
+    &7(&a<active> Active&7, &a<expired> Expired&7)'
+VANISH:
+  VANISHED: '&b[S] &9You have just &aenabled &9vanish mode.'
+  VANISHED-OTHER: '&b[S] &9You have just &aenabled &f<target>''s &9vanish mode.'
+  VANISHED-OTHER_TARGET: '&b[S] &9Your vanish has been &aenabled &9by &f<player>&9!'
+  UN-VANISHED: '&b[S] &9You have just &cdisabled &9vanish mode.'
+  UN-VANISHED-OTHER: '&b[S] &9You have just &cdisabled &f<target>''s &9vanish mode.'
+  UN-VANISHED-OTHER_TARGET: '&b[S] &9Your vanish has been &cdisabled &9by &f<player>&9!'
+STAFF-MODE:
+  RANDOM-TELEPORT:
+    SUCCESS: '{prefix} &bYou have been randomly teleported to &9<target>&b!'
+    FAIL: '{prefix} &bThere is no enough non-staff players to find.'
+  TELEPORTED-TO-PLAYER: '{prefix} &bYou have been teleported to &9<target>&b!'
+  NO-ONLINE-PLAYERS: '{prefix} &bThere is no online non-staff players.'
+  ENABLED: '{prefix} &bYou have successfully &aenabled &byour staff mode.'
+  ENABLED-OTHER: '{prefix} &bYou have successfully &aenabled &f<target>''s &bstaff
+    mode.'
+  ENABLED-OTHER-TARGET: '{prefix} &bYour staffmode has been &aenabled &bby &f<player>&b!'
+  DISABLED: '{prefix} &bYou have successfully &cdisabled &byour staff mode.'
+  DISABLED-OTHER: '{prefix} &bYou have successfully &cdisabled &f<target>''s &bstaff
+    mode.'
+  DISABLED-OTHER-TARGET: '{prefix} &bYour staffmode has been &cdisabled &bby &f<player>&b!'
+TOP:
+  ALREADY-AT-TOP: '{prefix} &bYou''re already at or above the highest block at your
+    location.'
+  TELEPORTED: '{prefix} &bYou have been teleported to the &9highest &blocation at
+    your position.'
+MASSAY-SUCCESS: '{prefix} &bYou have successfully made everyone to type &9<message>'
+SPEED:
+  LIMIT: '{prefix} &bSpeed limit can''t be under 1 or above 10'
+  WALK-SET: '{prefix} &bYou have set your &9walk speed &bto &9<amount>&b.'
+  FLY-SET: '{prefix} &bYou have set your &9fly speed &bto &9<amount>&b.'
+REPAIR:
+  ITEM-NULL: '{prefix} &bYou can''t repair air or non repairable item, please put
+    something repairable in your hand!'
+  ITEM-ALREADY-REPAIRED: '{prefix} &bItem in your hand is already repaired.'
+  ITEM-REPAIRED: '{prefix} &bYou have repaired item in your hand.'
+  ARMOR-REPAIRED: '{prefix} &bYou have repaired your armor.'
+  ALL-REPAIRED: '{prefix} &bYou have repaired all of your items.'
+JOIN-SPAWN-SET: '{prefix} &aYou have updated join location for aqua core.'
+JOIN-SPAWN-NOTE: '{prefix} &cPlease note that the join teleport in configuration is
+  disabled, enable it if you want it to take effect.'
+PLAYTIME:
+  SELF: '{prefix} &fYour playtime is &b<playtime> &fon this server.'
+  OTHER: '{prefix} &b<player> &fplaytime is &b<playtime> &fon this server.'
+BLACKLISTED-PERMISSIONS:
+  ALREADY-ADDED: '{prefix} &bThat permission is already blacklisted.'
+  ADDED: '{prefix} &bYou have added &9<permission> &bto blacklisted permissions.'
+  DONT-EXISTS: '{prefix} &bThat permission is not currently blacklisted.'
+  REMOVED: '{prefix} &bYou have removed &9<permission> &bfrom blacklisted permissions.'
+BAN-EVADING-ALERT: '{prefix} &9<player> &bjoined &9<server> &band might be ban evading&b!
+  &7(&bAlts&7: &a<alts>&7)'
+CHAT-MENTION: '{0} {prefix} &b<player> &9has just mention you in a chat! {0} '
+COINS:
+  PURCHASE-NOT-ENOUGH: '{prefix} &fYou don''t have enough coins to purchase any of
+    purchasable ranks!'
+  NO-RANK-TO-PURCHASE: '{prefix} &fThere is no ranks that can be currently purchased!'
+  SET: '{prefix} &fYou have successfully set &b<player>''s &fcoins to &b<amount>&f.'
+  RANK-PURCHASED: '{prefix} &fYou have purchased &b<rank> &frank for &b30 days. &fNow
+    you have &b<coins> coins&f.'
+JOINED-VANISHED: '{prefix} &bYou have joined vanished with your vanish priority at
+  &9<priority> %&b.'
+NOTE:
+  ADDED: '{prefix} &bNote with id &9#<id> &bhas been added to &9<player>&b.'
+  INVALID-ID: '{prefix} &cThat''s not a valid note id. Use /notes <player> to check
+    ids.'
+  REMOVED: '{prefix} &bNote with id &9#<id> &bhas been removed from &9<player>&b.'
+  DONT-HAVE: '{prefix} &bThat player has no notes saved.'
+  CLEARED: '{prefix} &fYou have cleared &b<player>''s &fnotes!'
+BACK:
+  CANT-FIND: '{prefix} &cWe couldn''t find your back location.'
+  TELEPORTED: '{prefix} &bYou''ve been teleported to your last location.'
+DAY-SET: '{prefix} &aTime updated to day.'
+NIGHT-SET: '{prefix} &aTime updated to night.'
+SUNSET-SET: '{prefix} &aTime updated to sunset.'
+GLOBAL-CHAT-TOGGLED: '{prefix} &aYou have toggled your global chat!'
+MENTIONS-TOGGLED: '{prefix} &aYou have toggled your mentions!'
+TIPS-TOGGLED: '{prefix} &aYou have toggled your tips!'
+SOCIAL-SPY:
+  ENABLED: '{prefix} &bSocial spy is now &aenabled&b.'
+  DISABLED: '{prefix} &bSocial spy is now &cdisabled&b.'
+  FORMAT: '&7[&4SocialSpy&7] &b<sender> &7-> &b<target>&7: &f<message>'
+NICK:
+  DONT-HAVE-APPLID: '{prefix} &cYou don''t have any nick applied.'
+  REMOVED: '{prefix} &aYou have removed your nick.'
+  APPLIED: '{prefix} &aYour nick is now &2<nick>'
+  LONGER-THAN-16-CHARS: '{prefix} &cYour nick can''t be longer than 16 chars.'
+  SPECIAL-CHARACTERS: '{prefix} &cYou''re not allowed to use special characters in
+    your nick.'
+HAVENT-PLAYED-BEFORE: '{prefix} &cWe couldn''t find that player in our data base.
+  It seems that the player never joined any of our data base servers.'
+NO_CONSOLE: '{prefix} &cFor player usage only.'
+WRONG_DATE_FORMAT: '{prefix} &bYou have entered wrong date format. &9Example &7(&b1d&7,
+  &b1h&7, &b1m&7)&b.'
+CANT:
+  BAN-PERMANENT: '{prefix} &cYou are not allowed to execute permanent ban!'
+  MUTE-PERMANENT: '{prefix} &cYou are not allowed to execute permanent mute!'
+BAN:
+  ALREADY-BANNED: '{prefix} &bUser by name &7''&9<user>&7'' &bis already banned.'
+  NOT-BANNED: '{prefix} &bUser by name &7''&9<user>&7'' &bis not currently banned.'
+BLACKLIST:
+  ALREADY-BLACKLISTED: '{prefix} &bUuser by name &7''&9<user>&7'' &bis already blacklisted.'
+  NOT-BLACKLISTED: '{prefix} &bUser by name &7''&9<user>&7'' &bis not currently blacklisted.'
+MUTE:
+  ALREADY-MUTED: '{prefix} &bUser by name &7''&9<user>&7'' &bis already muted.'
+  NOT-MUTED: '{prefix} &bUser by name &7''&9<user>&7'' &bis not currently muted.'
+  BEEN-MUTED-PERM: '{prefix} &bYou have been &fpermanently muted &bby &9<sender> &bfor
+    &9<reason>&b. &bTo check your status for this mute do &9/punishinfo&b.'
+  BEEN-MUTED-TEMP: '{prefix} &bYou have been &ftemporarily muted &bby &9<sender> &bfor
+    &9<reason> &bfor &9<duration>&b. &bTo check your status for this mute do &9/punishinfo&b.'
+  CANT-TALK-TEMP: '{prefix} &bYou are currently muted for another &f<duration>&b.
+    &bTo check your status for this mute do &9/punishinfo&b.'
+  CANT-TALK-PERM: '{prefix} &bYou are muted forever. &bTo check your status for this
+    mute do &9/punishinfo&b.'
+WARN:
+  BEEN-WARNED-PERM: '{prefix} &bYou have been &fpermanently warned &bby &9<sender>
+    &bfor &9<reason>&b. &bTo check your status on warns do &9/punishinfo&b.'
+  BEEN-WARNED-TEMP: '{prefix} &bYou have been &ftemporarily warned &bby &9<sender>
+    &bfor &9<reason> &bfor &9<duration>&b. &bTo check your status on warns do &9/punishinfo&b.'
+JOIN-BANNED: '{prefix} &b<player> &9tried to join but is &bBANNED&b. &7(&b<expire>&7)'
+JOIN-BLACKLISTED: '{prefix} &4<player> &ctried to join but is &4BLACKLISTED&c. &7(&c<expire>&7)'
+REAL-NAME-MESSAGE: '{prefix} &a<nick>''s &breal name is &a<name>&b'
+CANT-PUNISH: '&cYou don''t have enough priority to punish that player!'
+MAINTENANCE:
+  KICK: '&cThe server is currently under maintenance.{0}Follow our Twitter for more
+    information.'
+  TOGGLED-ON: '{prefix} &fYou have &6enabled &fmaintenance. &7(&b<server>&7)'
+  TOGGLED-OFF: '{prefix} &fYou have &6disabled &fmaintenance. &7(&b<server>&7)'
+  INVALID-SERVER: '{prefix} &fWe couldn''t find that server data.'
+  ALREADY-ON: '{prefix} &fMaintenance for &b<server> &fis already &aON&f!'
+  ALREADY-OFF: '{prefix} &fMaintenance for &b<server> &fis already &cOFF&f!'
+SILENT-CHEST: '{prefix} &7Opening &cchest &7silently.'
+ALL-PLAYERS: '{prefix} &fYou currently have &b<count> &fof unique player documentations.'
+STAFF-ANNOUNCE-FORMAT: '&7[&6Staff Announce&7] &f<player>&7: &c<message>'
+EXP-SET: '{prefix} &fYou have set &6<player>''s &fexp level to &6<exp>&f.'
+ENCHANT:
+  MUST-HOLD-ITEM: '{prefix} &fYou must hold item in order to enchant.'
+  ENCHANT-MUST-BE-POSITIVE: '{prefix} &fEnchant level must be positive.'
+  MAXIMUM-LEVEL-EXCEEDED: '{prefix} &fYour maximum level for enchant is &6<level>&f.'
+  WRONG-ENCHANTMENT: '{prefix} &fYou''ve entered wrong enchantment.'
+  ITEM-IS-NOT-ENCHANTED: '{prefix} &fYour item does not have that enchantment.'
+  REMOVED: '{prefix} &fYou''ve removed &6<enchant> &fenchantment from your item.'
+  ADDED: '{prefix} &fYou''ve added &6<enchant> &fenchantment to your item.'
+STAFF-AUTH:
+  CANT-EXECUTE-COMMANDS: '{prefix} &fYou must authenticate yourself with &6/2fa &fbefore
+    executing any other commands!'
+  CANT-USE-CHAT: '{prefix} &fYou must authenticate yourself with &6/2fa &fbefore using
+    chat!'
+  NO-NEED-TO-VERIFY: '{prefix} &aYou''re already authenticated and don''t need to
+    do it now!'
+  WRONG-KEY: '{prefix} &cThe code you''ve entered is wrong!'
+  VERIFIED: '{0}                   &7(( &a&lVerified &7)){0}&aYou have been authenticated
+    with your code! {0} '
+SET-SLOTS-COMMAND: '{prefix} &fYou have updated max players amount from &c&l<from>
+  &fto &6&l<amount>&f!'
+DISGUISE:
+  ALREADY-DISGUISED: '{prefix} &cYou''re already disguised as &f<name>&c!'
+  RANK-ERROR: '{prefix} &cWe couldn''t find or you don''t have permission to disguise
+    with that rank!'
+  GLOBAL-PLAYER-FOUND: '{prefix} &cWe''ve detected player with that name connected
+    to our network servers. Please use another name!'
+  SUCCESS:
+    RANK: '{prefix} &fYou have &asuccessfully &fdisguised yourself as &b<name> &fwith
+      the skin of &b<skin> &fand with rank &b<rank>&f.'
+    NO-RANK: '{prefix} &fYou have &asuccessfully &fdisguised yourself as &b<name>
+      &fwith the skin of &b<skin>&f.'
+  WRONG-NAME-PATTERN: '{prefix} &cYou have entered wrong name pattern, try another
+    name'
+UN-DISGUISE:
+  NOT-DISGUISED: '{prefix} &cYou''re currently not disguised!'
+  NOT-DISGUISED-OTHER: '{prefix} &cPlayer &c&l<target> &cis not currently disguised!'
+  SUCCESS: '{prefix} &fYou''re no longer disguised!'
+  SUCCESS-OTHER-SENDER: '{prefix} &aYou have successfully &bun-disguised &f<name>&a!'
+  SUCCESS-OTHER-TARGET: '{prefix} &aYou''ve been &bun-disguised &aby &f<sender>&a!'
+  AUTO: '{prefix} &fYou have been automatically &bun-disguised &fbecase a player with
+    your disguised name joined one of our servers!'
+DISGUISE-INFO:
+  NONE: '{prefix} &b<name> &cis not currently disguised!'
+  FOUND: '{prefix} &b<name> &fis currently disguised as &9<disguised>&f!'
+DISGUISE-CACHED: '{prefix} &aYou have successfully added &f<name> &ato disguise info.
+  Name should now be available in ''/disguise'' menu!'
+DISGUISE-CACHED-ALREADY-EXISTS: '{prefix} &aCache with that name already exists!'
+HIDE-STAFF:
+  'ON': '{prefix} &fYou are &anow hiding &fstaff players&f!'
+  'OFF': '{prefix} &fYou are &cno longer hiding &fstaff players&f!'
+CLEAR-PERMISSIONS:
+  DATA-NOT-FOUND: '{prefix} &cWe couldn''t find data of &c&l<name>&c!'
+  DONT-HAVE-ANY: '{prefix} &b<name> &fdoesn''t have any permissions set.'
+  CLEARED-TARGET: '{prefix} &fYour permissions have been cleared by &b<sender>&f!'
+  CLEARED-SENDER: '{prefix} &fYou have cleared permissions of &b<target>&f!'
+CLEAR-ALTS:
+  DATA-NOT-FOUND: '{prefix} &cWe couldn''t find data of &c&l<name>&c!'
+  DONT-HAVE-ANY: '{prefix} &b<name> &fdoesn''t have any alts.'
+  CLEARED-SENDER: '{prefix} &fYou have cleared alts of &b<target>&f!'
+SWITCH-COMMAND:
+  INVALID-SERVER: '{prefix} &cThat not a valid server to connect to. Available servers:
+    <servers>'
+  CONNECTING: '{prefix} &fConnecting you to &6<server>&f..'
+JUMP-TO-COMMAND:
+  CANT-FIND-PLAYER: '{prefix} &cWe couldn''t found any player connect to our servers
+    by that name.'
+  SAME-SERVER: '{prefix} &cYou are already at that player''s server.'
+  CONNECTING: '{prefix} &fConnecting you to &6<player>''s &fserver..'
+STAFF-LOGS:
+  STAFF-MODE-ENTER: '&7[&bStaff Log&7] &f<player> &7just entered staffmode.'
+  STAFF-MODE-LEAVE: '&7[&bStaff Log&7] &f<player> &7just disabled staffmode.'
+  PLAYER-TELEPORT: '&7[&bStaff Log&7] &f<player> &7just teleported to &b<target>''s
+    &7location.'
+  PLAYER-VANISH: '&7[&bStaff Log&7] &f<player> &7just vanished.'
+  PLAYER-UN-VANISH: '&7[&bStaff Log&7] &f<player> &7just un-vanished.'
+  PLAYER-VANISH-OTHER: '&7[&bStaff Log&7] &f<player> &7just vanished &b<target>&7.'
+  PLAYER-UN-VANISH-OTHER: '&7[&bStaff Log&7] &f<player> &7just un-vanished &b<target>&7.'
+  PLAYER-DISGUISE: '&7[&bStaff Log&7] &f<player> &7just disguised as &b<name>&7.'
+  PLAYER-FREEZE: '&7[&bStaff Log&7] &7[&b<server>&7] &f<target> &7has been frozen
+    by &f<player>'
+  PLAYER:
+    UN-FREEZE: '&7[&bStaff Log&7] &7[&b<server>&7] &f<target> &7has been un-frozen
+      by &f<player>'
+BUILD-MODE:
+  'ON': '{prefix} &fYour build mode is now &aenabled&f!'
+  'OFF': '{prefix} &fYour build mode is now &cdisabled&f!'
+REBOOT:
+  SECONDS: '&7[&4&lReboot&7] &cServer is rebooting in &b<seconds> second(s)&c!'
+  MINUTES: '&7[&4&lReboot&7] &cServer is rebooting in &b<minutes> minute(s)&c!'
+  FINISHED: '&7[&4&lReboot&7] &cServer is now rebooting'
+  NOT-RUNNING: '&7[&4&lReboot&7] &cReboot is currently not running!'
+  ALREADY-RUNNING: '&7[&4&lReboot&7] &cReboot is already running, use ''/reboot cancel''
+    instead!'
+  STOPPED: '&7[&4&lReboot&7] &cYou have stopped rebooting!'
+  STARTED: '&7[&4&lReboot&7] &aYou have started reboot.'
+PLAYER-PERMISSIONS-UPDATE: '{prefix} &aYour permissions have been updated.'

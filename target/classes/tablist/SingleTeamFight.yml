@@ -1,0 +1,245 @@
+TABLIST:
+  LEFT:
+    '1':
+      text: '{bars}'
+      head: '{gray}'
+    '2':
+      text: ''
+      head: ''
+    '3':
+      text: ''
+      head: ''
+    '4':
+      text: ''
+      head: ''
+    '5':
+      text: '&a&lYou'
+      head: ''
+    '6':
+      text: '{player-fight}'
+      head: ''
+    '7':
+      text: ''
+      head: ''
+    '8':
+      text: ''
+      head: ''
+    '9':
+      text: ''
+      head: ''
+    '10':
+      text: ''
+      head: ''
+    '11':
+      text: ''
+      head: ''
+    '12':
+      text: ''
+      head: ''
+    '13':
+      text: ''
+      head: ''
+    '14':
+      text: ''
+      head: ''
+    '15':
+      text: ''
+      head: ''
+    '16':
+      text: ''
+      head: ''
+    '17':
+      text: ''
+      head: ''
+    '18':
+      text: ''
+      head: ''
+    '19':
+      text: ''
+      head: ''
+    '20':
+      text: '{bars}'
+      head: '{gray}'
+  CENTER:
+    '1':
+      text: '{bars}'
+      head: '{gray}'
+    '2':
+      text: '&9&lSeason 1'
+      head: '&7{online}/{slots}'
+    '3':
+      text: ''
+      head: ''
+    '4':
+      text: ''
+      head: ''
+    '5':
+      text: ''
+      head: ''
+    '6':
+      text: ''
+      head: ''
+    '7':
+      text: '&9&lMatch Info'
+      head: ''
+    '8':
+      text: '&7Duration: &f{duration}'
+      head: ''
+    '9':
+      text: '&7Kit: &f{kit}'
+      head: ''
+    '10':
+      text: '&7Arena Name: &f{arena-name}'
+      head: ''
+    '11':
+      text: '&7Arena Author: &f{arena-author}'
+      head: ''
+    '12':
+      text: ''
+      head: ''
+    '13':
+      text: ''
+      head: ''
+    '14':
+      text: ''
+      head: ''
+    '15':
+      text: ''
+      head: ''
+    '16':
+      text: ''
+      head: ''
+    '17':
+      text: ''
+      head: ''
+    '18':
+      text: ''
+      head: ''
+    '19':
+      text: ''
+      head: ''
+    '20':
+      text: '{bars}'
+      head: '{gray}'
+  RIGHT:
+    '1':
+      text: '{bars}'
+      head: '{gray}'
+    '2':
+      text: ''
+      head: ''
+    '3':
+      text: ''
+      head: ''
+    '4':
+      text: ''
+      head: ''
+    '5':
+      text: '&9&lOpponent'
+      head: ''
+    '6':
+      text: '{opponent-player}'
+      head: ''
+    '7':
+      text: ''
+      head: ''
+    '8':
+      text: ''
+      head: ''
+    '9':
+      text: ''
+      head: ''
+    '10':
+      text: ''
+      head: ''
+    '11':
+      text: ''
+      head: ''
+    '12':
+      text: ''
+      head: ''
+    '13':
+      text: ''
+      head: ''
+    '14':
+      text: ''
+      head: ''
+    '15':
+      text: ''
+      head: ''
+    '16':
+      text: ''
+      head: ''
+    '17':
+      text: ''
+      head: ''
+    '18':
+      text: ''
+      head: ''
+    '19':
+      text: ''
+      head: ''
+    '20':
+      text: '{bars}'
+      head: '{gray}'
+  EXTERNAL-RIGHT:
+    '1':
+      text: '{bars}'
+      head: '{gray}'
+    '2':
+      text: ''
+      head: ''
+    '3':
+      text: ''
+      head: ''
+    '4':
+      text: ''
+      head: ''
+    '5':
+      text: ''
+      head: ''
+    '6':
+      text: ''
+      head: ''
+    '7':
+      text: ''
+      head: ''
+    '8':
+      text: ''
+      head: ''
+    '9':
+      text: '&4&lYour Information'
+      head: '{player}'
+    '10':
+      text: ' &7➥ &9Name&7: &f{name}'
+      head: ''
+    '11':
+      text: ' &7➥ &9Rank&7: &f{rank-suffix}'
+      head: ''
+    '12':
+      text: ' &7➥ &9Ping&7: &f{ping}'
+      head: ''
+    '13':
+      text: ''
+      head: ''
+    '14':
+      text: ''
+      head: ''
+    '15':
+      text: ''
+      head: ''
+    '16':
+      text: ''
+      head: ''
+    '17':
+      text: ''
+      head: ''
+    '18':
+      text: ''
+      head: ''
+    '19':
+      text: ''
+      head: ''
+    '20':
+      text: '{bars}'
+      head: '{gray}'

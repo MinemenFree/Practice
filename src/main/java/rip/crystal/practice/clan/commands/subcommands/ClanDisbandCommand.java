@@ -1,0 +1,54 @@
+package rip.crystal.practice.clan.commands.subcommands;
+
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.clan.Clan;
+import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.api.command.BaseCommand;
+import rip.crystal.api.command.Command;
+import rip.crystal.api.command.CommandArgs;
+import org.bukkit.entity.Player;
+
+public class ClanDisbandCommand extends BaseCommand {
+
+    @Command(name = "clan.disband", aliases = {"clan.remove", "clan.delete"})
+    @Override
+    public void onCommand(CommandArgs commandArgs) {
+        Player player = commandArgs.getPlayer();
+        String[] args = commandArgs.getArgs();
+
+        if (args.length != 0) {
+            if (player.hasPermission("hysteria.clan.disband")) {
+                Clan clan = Clan.getByName(args[0]);
+                if (clan == null) {
+                    player.sendMessage(CC.RED + "Please insert a valid Clan.");
+                    return;
+                }
+
+                clan.disband(player);
+            } else {
+                player.sendMessage(CC.RED + "You do not have permissions to disband other clans.");
+            }
+            return;
+        }
+
+        Profile profile = Profile.get(player.getUniqueId());
+        Clan clan = profile.getClan();
+        if (profile.getClan() == null) {
+            new MessageFormat(Locale.CLAN_ERROR_PLAYER_NOT_FOUND
+                    .format(profile.getLocale()))
+                    .send(player);
+            return;
+        }
+        else if (!profile.getClan().getLeader().equals(player.getUniqueId())) {
+            player.sendMessage(CC.RED + "You do not leader to disband this clan");
+            return;
+        }
+        profile.getClan().disband(player);
+        if(clan.getMembers().isEmpty()) {
+            return;
+        }
+        clan.getMembers().remove(clan.getMembers());
+    }
+}

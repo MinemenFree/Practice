@@ -1,0 +1,38 @@
+package rip.crystal.practice.kit.command;
+
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.api.command.BaseCommand;
+import rip.crystal.api.command.Command;
+import rip.crystal.api.command.CommandArgs;
+import org.bukkit.entity.Player;
+
+public class KitRulesCommand extends BaseCommand {
+
+	@Command(name = "kit.rules", permission = "hysteria.kit.admin")
+	@Override
+	public void onCommand(CommandArgs commandArgs) {
+		Player player = commandArgs.getPlayer();
+
+		player.sendMessage(CC.CHAT_BAR);
+		player.sendMessage(CC.translate("&4&lKit Rules"));
+		player.sendMessage(CC.translate(""));
+		player.sendMessage(CC.translate("&4Settings:"));
+		player.sendMessage(CC.translate(" &7- &cHealthregeneration &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cNofalldamage &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cEffects &f(add/remove/list)"));
+		player.sendMessage(CC.translate(" &7- &cShowhealth &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cEditoritems &f(blank)"));
+		player.sendMessage(CC.translate(" &7- &cKBProfile &f(profile)"));
+		player.sendMessage(CC.translate(" &7- &cRanked &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cHitdelay &f(int)"));
+		player.sendMessage(CC.translate(""));
+		player.sendMessage(CC.translate("&4Gamemodes:"));
+		player.sendMessage(CC.translate(" &7- &cParkour &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cBridge &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cSpleef &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cBuild &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cSumo &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cHCF &f(true/false)"));
+		player.sendMessage(CC.CHAT_BAR);
+	}
+}

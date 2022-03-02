@@ -1,0 +1,179 @@
+HOTBAR_ITEMS:
+  QUEUE_JOIN_UNRANKED:
+    SLOT: 8
+    MATERIAL: IRON_SWORD
+    DURABILITY: 0
+    NAME: '&9&lUnranked Queue'
+    LORE: []
+  QUEUE_JOIN_RANKED:
+    SLOT: 9
+    MATERIAL: DIAMOND_SWORD
+    DURABILITY: 0
+    NAME: '&9&lRanked Queue'
+    LORE: []
+  QUEUES_JOIN:
+    SLOT: 9
+    MATERIAL: DIAMOND_SWORD
+    DURABILITY: 0
+    NAME: '&9&lQueues'
+    LORE: []
+  FFA_JOIN:
+    SLOT: 3
+    MATERIAL: NETHER_STAR
+    DURABILITY: 0
+    NAME: '&9&lJoin FFA'
+    LORE: []
+  QUEUE_LEAVE:
+    SLOT: 1
+    MATERIAL: INK_SACK
+    DURABILITY: 1
+    NAME: '&c&lLeave Queue'
+    LORE: []
+  PARTY_EVENTS:
+    SLOT: 9
+    MATERIAL: DIAMOND_SWORD
+    DURABILITY: 0
+    NAME: '&9&lParty Events'
+    LORE: []
+  PARTY_CREATE:
+    SLOT: 5
+    MATERIAL: NAME_TAG
+    DURABILITY: 0
+    NAME: '&9&lCreate Party'
+    LORE: []
+  PARTY_DISBAND:
+    SLOT: 1
+    MATERIAL: BLAZE_POWDER
+    DURABILITY: 1
+    NAME: '&c&lDisband Party'
+    LORE: []
+  PARTY_LEAVE:
+    SLOT: 1
+    MATERIAL: BLAZE_POWDER
+    DURABILITY: 1
+    NAME: '&c&lLeave Party'
+    LORE: []
+  PARTY_INFORMATION:
+    SLOT: 5
+    MATERIAL: SKULL_ITEM
+    DURABILITY: 3
+    NAME: '&9&lParty Information'
+    LORE: []
+  CLASS_SELECT:
+    SLOT: 2
+    MATERIAL: DIAMOND
+    DURABILITY: 0
+    NAME: '&9&lHCF Kits'
+    LORE: []
+  OTHER_PARTIES:
+    SLOT: 2
+    MATERIAL: CHEST
+    DURABILITY: 0
+    NAME: '&9&lOther Parties'
+    LORE: []
+  KIT_EDITOR:
+    SLOT: 1
+    MATERIAL: BOOK
+    DURABILITY: 0
+    NAME: '&9&lKit Editor'
+    LORE: []
+  SPECTATE_STOP:
+    SLOT: 9
+    MATERIAL: INK_SACK
+    DURABILITY: 1
+    NAME: '&c&lStop Spectating'
+    LORE: []
+  VIEW_INVENTORY:
+    SLOT: 0
+    MATERIAL: BOOK
+    DURABILITY: 0
+    NAME: '&9&lView Inventory'
+    LORE: []
+  EVENT_JOIN:
+    SLOT: 8
+    MATERIAL: NETHER_STAR
+    DURABILITY: 0
+    NAME: '&9&lJoin Event'
+    LORE: []
+  EVENT_LEAVE:
+    SLOT: 9
+    MATERIAL: NETHER_STAR
+    DURABILITY: 0
+    NAME: '&c&lLeave Event'
+    LORE: []
+  MAP_SELECTION:
+    MATERIAL: MAP
+    DURABILITY: 0
+    NAME: '&9&l%MAP%'
+    LORE: []
+  REMATCH_REQUEST:
+    SLOT: 3
+    MATERIAL: BLAZE_POWDER
+    DURABILITY: 0
+    NAME: '&9&lRequest Rematch'
+    LORE: []
+  REMATCH_ACCEPT:
+    SLOT: 3
+    MATERIAL: DIAMOND
+    DURABILITY: 0
+    NAME: '&9&lAccept Rematch'
+    LORE: []
+  KIT_SELECTION:
+    MATERIAL: ENCHANTED_BOOK
+    DURABILITY: 0
+    NAME: '&9&l%KIT%'
+    LORE: []
+  EVENT_SELECT:
+    SLOT: 8
+    MATERIAL: LEASH
+    DURABILITY: 0
+    NAME: '&9&lHost Event'
+    LORE: []
+  LEADERBOARD_MENU:
+    SLOT: 2
+    MATERIAL: SKULL_ITEM
+    DURABILITY: 0
+    NAME: '&9&lLeaderboard'
+    LORE: []
+  RANDOM_TELEPORT:
+    SLOT: 8
+    MATERIAL: STICK
+    DURABILITY: 0
+    NAME: '&9&lRandom Teleport'
+    LORE: []
+  HIDE_ALL_PLAYERS:
+    SLOT: 5
+    MATERIAL: NAME_TAG
+    DURABILITY: 0
+    NAME: '&9&lHide Players'
+    LORE: []
+  RESET:
+    SLOT: 9
+    MATERIAL: REDSTONE
+    DURABILITY: 0
+    NAME: '&9&lReset'
+    LORE: []
+  COMPASS:
+    SLOT: 1
+    MATERIAL: COMPASS
+    DURABILITY: 0
+    NAME: '&9&lPush Forward'
+    LORE: []
+  ONLINE_STAFF:
+    SLOT: 2
+    MATERIAL: PAPER
+    DURABILITY: 0
+    NAME: '&9&lOnline Staff'
+    LORE: []
+  VIEW_INVENTORYSTAFF:
+    SLOT: 3
+    MATERIAL: NETHER_STAR
+    DURABILITY: 0
+    NAME: '&9&lInspect Inventory'
+    LORE: []
+  FREEZE:
+    SLOT: 7
+    MATERIAL: PACKED_ICE
+    DURABILITY: 0
+    NAME: '&9&lFreeze'
+    LORE: []

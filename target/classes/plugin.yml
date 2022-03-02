@@ -1,0 +1,6 @@
+main: rip.crystal.practice.cPractice
+name: hPractice
+version: 1.0.0-SNAPSHOT
+authors: ["ziue"]
+depend:
+  - HolographicDisplays
