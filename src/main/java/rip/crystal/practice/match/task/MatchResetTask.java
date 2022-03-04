@@ -1,5 +1,6 @@
 package rip.crystal.practice.match.task;
 
+import org.bukkit.World;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.utilities.TaskUtil;
 import com.sk89q.worldedit.EditSession;
@@ -16,12 +17,50 @@ public class MatchResetTask extends BukkitRunnable {
 
 	private final Match match;
 
-	@Override
 	public void run() {
+		if (this.match.getKit().getGameRules().isBuild() || this.match.getKit().getGameRules().isHcftrap() || this.match.getKit().getGameRules().isBridge() || this.match.getKit().getGameRules().isSpleef()) {
+			EditSession editSession;
+			if (!this.match.getPlacedBlocks().isEmpty()) {
+				editSession = new EditSession(BukkitUtil.getLocalWorld((World)this.match.getArena().getSpawnA().getWorld()), Integer.MAX_VALUE);
+				editSession.setFastMode(true);
+				for (Location location : this.match.getPlacedBlocks()) {
+					try {
+						editSession.setBlock(new Vector((double)location.getBlockX(), (double)location.getBlockY(), location.getZ()), new BaseBlock(0));
+					}
+					catch (Exception exception) {
+						exception.printStackTrace();
+					}
+				}
+				editSession.flushQueue();
+				this.match.getPlacedBlocks().clear();
+				this.match.getArena().setActive(false);
+			}
+			if (!this.match.getChangedBlocks().isEmpty()) {
+				editSession = new EditSession(BukkitUtil.getLocalWorld(this.match.getArena().getSpawnA().getWorld()), Integer.MAX_VALUE);
+				editSession.setFastMode(true);
+				for (BlockState blockState : this.match.getChangedBlocks()) {
+					try {
+						editSession.setBlock(new Vector(blockState.getLocation().getBlockX(), blockState.getLocation().getBlockY(), blockState.getLocation().getZ()), new BaseBlock(blockState.getTypeId(), (int)blockState.getRawData()));
+					}
+					catch (Exception exception) {
+						exception.printStackTrace();
+					}
+				}
+				editSession.flushQueue();
+				if (this.match.getKit().getGameRules().isBuild() || this.match.getKit().getGameRules().isHcftrap() || this.match.getKit().getGameRules().isSpleef()) {
+					this.match.getChangedBlocks().clear();
+					this.match.getArena().setActive(false);
+				}
+			}
+			this.cancel();
+		}
+	}
 
-		/*
-		Reset Placed Blocks for Build Rule
-		 */
+}
+
+
+	/*@Override
+	public void run() {
 
 		if (match.getKit().getGameRules().isBuild() && match.getPlacedBlocks().size() > 0) {
 			EditSession editSession = new EditSession(BukkitUtil.getLocalWorld(match.getArena().getSpawnA().getWorld()), 500);
@@ -44,9 +83,6 @@ public class MatchResetTask extends BukkitRunnable {
 			});
 
 		}
-			/*
-			Reset Changed Blocks for Build Rule
-		 	*/
 
 		if (match.getKit().getGameRules().isBuild() && match.getChangedBlocks().size() > 0) {
 			EditSession editSession = new EditSession(BukkitUtil.getLocalWorld(match.getArena().getSpawnA().getWorld()), 500);
@@ -78,7 +114,7 @@ public class MatchResetTask extends BukkitRunnable {
 			cancel();
 		}
 	}
-}
+}*/
 
 /*for (BlockState blockState : match.getChangedBlocks()) {
 	try {

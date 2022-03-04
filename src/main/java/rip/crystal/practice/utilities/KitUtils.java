@@ -45,7 +45,7 @@ public class KitUtils {
         ItemStack[] armorRed = InventoryUtil.leatherArmor(Color.RED);
         ItemStack[] armorBlue = InventoryUtil.leatherArmor(Color.BLUE);
         Kit kit;
-        if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
+        if (teamMatch.getParticipantB().containsPlayer(player.getUniqueId())) {
             //player.getInventory().setArmorContents(armorRed);
             kit = Kit.getByName("HCFRaider");
             player.getInventory().setArmorContents(Objects.requireNonNull(kit).getKitLoadout().getArmor());

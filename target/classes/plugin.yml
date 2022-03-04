@@ -1,5 +1,5 @@
 main: rip.crystal.practice.cPractice
-name: hPractice
+name: cPractice
 version: 1.0.0-SNAPSHOT
 authors: ["ziue"]
 depend:

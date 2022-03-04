@@ -1,11 +1,14 @@
 package rip.crystal.practice.nametags;
 
+import org.bukkit.Bukkit;
+import rip.crystal.api.task.TaskManager;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.profile.Profile;
 import rip.crystal.practice.profile.ProfileState;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.profile.file.impl.MYSQLListener;
 
 public class hPracticeTags extends NametagProvider {
 
@@ -17,6 +20,7 @@ public class hPracticeTags extends NametagProvider {
     public NametagInfo fetchNametag(Player target, Player viewer) {
         Profile targetProfile = Profile.get(target.getUniqueId());
         Profile viewerProfile = Profile.get(viewer.getUniqueId());
+
         if (viewerProfile.getState() == ProfileState.LOBBY || viewerProfile.getState() == ProfileState.QUEUEING) {
             if (viewerProfile.getParty() != null && viewerProfile.getParty().containsPlayer(target.getUniqueId())) {
                 return createNametag(ChatColor.valueOf(cPractice.get().getMainConfig().getString("NAMETAGS.PARTY_COLOR")).toString(), "");

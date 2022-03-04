@@ -17,6 +17,7 @@ rip\crystal\practice\arena\command\ArenaSelectionCommand.class
 rip\crystal\practice\essentials\command\staff\ClearCommand.class
 rip\crystal\practice\essentials\command\staff\MoreCommand.class
 rip\crystal\practice\event\game\menu\EventHostMenu$SelectEventButton.class
+rip\crystal\practice\knockback\impl\dSpigot.class
 rip\crystal\practice\party\PartyEvent.class
 rip\crystal\practice\utilities\effect\ParticleEffect.class
 rip\crystal\practice\event\impl\gulag\GulagGameLogic.class
@@ -80,6 +81,7 @@ rip\crystal\practice\category\commands\subcommands\SetPointsCommand.class
 rip\crystal\practice\kit\command\KitSetIconCommand.class
 rip\crystal\practice\knockback\impl\Default.class
 rip\crystal\practice\utilities\TimeUtil.class
+rip\crystal\api\utilities\KnockbackProfiler.class
 rip\crystal\practice\queue\menus\QueueSelectKitMenu.class
 rip\crystal\practice\profile\hotbar\Hotbar.class
 rip\crystal\practice\event\command\EventSetLobbyCommand.class

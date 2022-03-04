@@ -18,27 +18,22 @@ import java.util.Set;
 public class AbilityManager {
 
     private Beacon beacon;
+    private Cookie cookie;
+    private Rocket rocket;
+    private TimeWarp timeWarp;
     private GuardianAngel guardianAngel;
     private Combo combo;
+    private TankIngot tankIngot;
     private EffectDisabler effectDisabler;
-    private NinjaStar ninjaStar;
-    private PocketBard pocketBard;
     private Scrammbler scrammbler;
     private Strength strength;
     private SwapperAxe swapperAxe;
     private Switcher switcher;
-    private TankIngot tankIngot;
-    //private Waypoint waypoint;
+    private NinjaStar ninjaStar;
+    private PocketBard pocketBard;
     private AntiTrapper antitrapper;
-    private Cookie cookie;
-    private Rocket rocket;
-    private TimeWarp timeWarp;
 
     public AbilityManager() {
-        this.register();
-    }
-
-    private void register() {
         this.beacon = new Beacon();
         this.guardianAngel = new GuardianAngel();
         this.combo = new Combo();
@@ -51,11 +46,11 @@ public class AbilityManager {
         this.swapperAxe = new SwapperAxe();
         this.switcher = new Switcher();
         this.tankIngot = new TankIngot();
-        //this.waypoint = new Waypoint();
         this.rocket = new Rocket();
         this.cookie = new Cookie();
         this.timeWarp = new TimeWarp();
     }
+
 
     public void load() {
         Ability.getAbilities().forEach(Ability::register);

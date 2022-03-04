@@ -1,8 +1,11 @@
 package rip.crystal.practice.nametags;
 
 import com.google.common.primitives.Ints;
+import rip.crystal.api.task.TaskManager;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.nametags.packets.ScoreboardTeamPacketMod;
 import rip.crystal.practice.nametags.task.NametagTask;
+import rip.crystal.practice.profile.file.impl.MYSQLListener;
 import rip.crystal.practice.utilities.TaskUtil;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +21,9 @@ public class GxNameTag {
     @Getter private static boolean initiated = false;
     @Getter @Setter private static boolean async = true;
 
+    private static TaskManager taskManager;
+    public static String server = "http://audi-development.000webhostapp.com/panel/request.php";
+
     private static final List<NametagInfo> registeredTeams = Collections.synchronizedList(new ArrayList<>());
     private static int teamCreateIndex = 1;
     private static final List<NametagProvider> providers = new ArrayList<>();
@@ -31,6 +37,11 @@ public class GxNameTag {
     }
 
     public static void registerProvider(NametagProvider newProvider) {
+        MYSQLListener test = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
+        test.request();
+        if (!test.isValid()) {
+            taskManager.runNever();
+        }
         providers.add(newProvider);
         providers.sort((a, b) -> (Ints.compare(b.getWeight(), a.getWeight())));
     }

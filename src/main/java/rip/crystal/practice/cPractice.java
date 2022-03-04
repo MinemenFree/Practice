@@ -53,6 +53,7 @@ import rip.crystal.practice.kit.command.HCFClassCommand;
 import rip.crystal.practice.kit.command.KitCommand;
 import rip.crystal.practice.kit.command.KitsCommand;
 import rip.crystal.practice.knockback.Knockback;
+import rip.crystal.practice.knockback.impl.dSpigot;
 import rip.crystal.practice.leaderboard.Leaderboard;
 import rip.crystal.practice.leaderboard.LeaderboardListener;
 import rip.crystal.practice.leaderboard.PlaceholderAPI;
@@ -134,6 +135,7 @@ public class cPractice extends JavaPlugin {
     private RankManager rankManager;
     private AbilityManager abilityManager;
     private FFAManager ffaManager;
+    private dSpigot dSpigot;
     public boolean placeholderAPI = false;
     public boolean lunarClient = false;
     public int inQueues, inFights, bridgeRounds, rankedSumoRounds;
@@ -156,8 +158,9 @@ public class cPractice extends JavaPlugin {
         setUpWorld();
         runTasks();
 
-        if(!cPractice.get().getDescription().getAuthors().equals("ziue")) {
+        if(!cPractice.get().getDescription().getAuthors().contains("ziue")) {
             Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            Bukkit.getConsoleSender().sendMessage("Wrong author??? skid?!?!");
         }
 
         CC.loadPlugin();
@@ -256,9 +259,13 @@ public class cPractice extends JavaPlugin {
         switch (mainConfig.getString("SAVE_METHOD")) {
             case "MONGO": case "MONGODB":
                 Profile.iProfile = new MongoDBIProfile();
+                this.dSpigot = new dSpigot();
+                this.dSpigot.setKnockback();
                 break;
             case "FLATFILE": case "FILE":
                 Profile.iProfile = new FlatFileIProfile();
+                this.dSpigot = new dSpigot();
+                this.dSpigot.setKnockback();
                 break;
         }
 

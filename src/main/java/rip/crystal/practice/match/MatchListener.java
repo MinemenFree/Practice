@@ -42,11 +42,15 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 import org.spigotmc.SpigotConfig;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 
 public class MatchListener implements Listener {
+
+	private static final LinkedList<Material> interactuadles = new LinkedList<Material>(Arrays.asList(Material.ACACIA_DOOR, Material.ACACIA_FENCE_GATE, Material.ANVIL, Material.BEACON, Material.BED, Material.BIRCH_DOOR, Material.BIRCH_FENCE_GATE, Material.BOAT, Material.BREWING_STAND, Material.COMMAND, Material.CHEST, Material.DARK_OAK_DOOR, Material.DARK_OAK_FENCE_GATE, Material.DAYLIGHT_DETECTOR, Material.DAYLIGHT_DETECTOR_INVERTED, Material.DISPENSER, Material.DROPPER, Material.ENCHANTMENT_TABLE, Material.ENDER_CHEST, Material.FENCE_GATE, Material.FURNACE, Material.HOPPER, Material.HOPPER_MINECART, Material.ITEM_FRAME, Material.JUNGLE_DOOR, Material.JUNGLE_FENCE_GATE, Material.LEVER, Material.MINECART, Material.NOTE_BLOCK, Material.POWERED_MINECART, Material.REDSTONE_COMPARATOR, Material.REDSTONE_COMPARATOR_OFF, Material.REDSTONE_COMPARATOR_ON, Material.SIGN, Material.SIGN_POST, Material.STORAGE_MINECART, Material.TRAP_DOOR, Material.TRAPPED_CHEST, Material.WALL_SIGN, Material.WOOD_BUTTON, Material.WOOD_DOOR));
 
 	@EventHandler
 	public void onPortal(PlayerPortalEvent event) {
@@ -128,276 +132,92 @@ public class MatchListener implements Listener {
 		});
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-	public void onBlockPlaceEvent(BlockPlaceEvent event) {
-		Player player = event.getPlayer();
+	@EventHandler(ignoreCancelled=true)
+	public void onBlockPlaceEvent(BlockPlaceEvent blockPlaceEvent) {
+		Player player = blockPlaceEvent.getPlayer();
 		Profile profile = Profile.get(player.getUniqueId());
-
 		if (profile.getState() == ProfileState.FIGHTING) {
 			Match match = profile.getMatch();
-			BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
-			if (match.getKit().getGameRules().isBuild() && match.getState() == MatchState.PLAYING_ROUND || match.getState() == MatchState.STARTING_ROUND) {
+			if ((match.getKit().getGameRules().isBuild() || match.getKit().getGameRules().isHcftrap() && ((BasicTeamMatch)match).getParticipantA().containsPlayer(player.getUniqueId())) && match.getState() == MatchState.PLAYING_ROUND || match.getState() == MatchState.STARTING_ROUND) {
 				if (match.getKit().getGameRules().isSpleef()) {
-					event.setCancelled(true);
+					blockPlaceEvent.setCancelled(true);
 					return;
 				}
-				/*if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
-					event.setCancelled(true);
-					player.sendMessage(CC.translate("&cYou are not allowed to interact with blocks!"));
-				} else {*/
-					Arena arena = match.getArena();
-					int x = (int) event.getBlockPlaced().getLocation().getX();
-					int y = (int) event.getBlockPlaced().getLocation().getY();
-					int z = (int) event.getBlockPlaced().getLocation().getZ();
-
-					if (y > arena.getMaxBuildHeight()) {
-						new MessageFormat(Locale.ARENA_REACHED_MAXIMUM
-								.format(profile.getLocale()))
-								.send(player);
-//					player.sendMessage(CC.RED + "You have reached the maximum build height.");
-						event.setCancelled(true);
-						return;
-					}
-
-					if (arena instanceof StandaloneArena) {
-						StandaloneArena standaloneArena = (StandaloneArena) arena;
-						if (standaloneArena.getSpawnBlue() != null && standaloneArena.getSpawnBlue().contains(event.getBlockPlaced())) {
-							event.setCancelled(true);
-							return;
-						}
-						if (standaloneArena.getSpawnRed() != null && standaloneArena.getSpawnRed().contains(event.getBlockPlaced())) {
-							event.setCancelled(true);
-							return;
-						}
-					}
-
-					if (x >= arena.getX1() && x <= arena.getX2() && y >= arena.getY1() && y <= arena.getY2() &&
-							z >= arena.getZ1() && z <= arena.getZ2()) {
-						match.getPlacedBlocks().add(event.getBlock().getLocation());
-						Location down = event.getBlock().getLocation().subtract(0, 1, 0);
-						if (down.getBlock().getType() == Material.GRASS) {
-							match.getChangedBlocks().add(down.getBlock().getState());
-						}
-					} else {
-						new MessageFormat(Locale.ARENA_BUILD_OUTSIDE
-								.format(profile.getLocale()))
-								.send(player);
-						event.setCancelled(true);
-					//}
-				}
-			} else {
-				event.setCancelled(true);
-			}
-		} else {
-			if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
-				event.setCancelled(true);
-			}
-		}
-	}
-		/*if (profile.getState() == ProfileState.FIGHTING) {
-			Match match = profile.getMatch();
-			BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
-			if (match.getKit().getGameRules().isBaseRaiding()) {
-				if(teamMatch.getState() == MatchState.PLAYING_ROUND || teamMatch.getState() == MatchState.STARTING_ROUND) {
-					if (teamMatch.getParticipantB().containsPlayer(player.getUniqueId())) {
-						event.setCancelled(true);
-					} else {
-						Arena arena = match.getArena();
-						int x = (int) event.getBlockPlaced().getLocation().getX();
-						int y = (int) event.getBlockPlaced().getLocation().getY();
-						int z = (int) event.getBlockPlaced().getLocation().getZ();
-
-						if (y > arena.getMaxBuildHeight()) {
-							new MessageFormat(Locale.ARENA_REACHED_MAXIMUM
-									.format(profile.getLocale()))
-									.send(player);
-							//					player.sendMessage(CC.RED + "You have reached the maximum build height.");
-							event.setCancelled(true);
-							return;
-						}
-
-						if (arena instanceof StandaloneArena) {
-							StandaloneArena standaloneArena = (StandaloneArena) arena;
-							if (standaloneArena.getSpawnBlue() != null && standaloneArena.getSpawnBlue().contains(event.getBlockPlaced())) {
-								event.setCancelled(true);
-								return;
-							}
-							if (standaloneArena.getSpawnRed() != null && standaloneArena.getSpawnRed().contains(event.getBlockPlaced())) {
-								event.setCancelled(true);
-								return;
-							}
-						}
-
-						if (x >= arena.getX1() && x <= arena.getX2() && y >= arena.getY1() && y <= arena.getY2() && z >= arena.getZ1() && z <= arena.getZ2()) {
-							teamMatch.getPlacedBlocks().add(event.getBlock().getLocation());
-							Location down = event.getBlock().getLocation().subtract(0, 1, 0);
-							if (down.getBlock().getType() == Material.GRASS) {
-								teamMatch.getChangedBlocks().add(down.getBlock().getState());
-							}
-						} else {
-							new MessageFormat(Locale.ARENA_BUILD_OUTSIDE
-									.format(profile.getLocale()))
-									.send(player);
-							event.setCancelled(true);
-						}
-					}
-				}
-			} else if (match.getKit().getGameRules().isBuild() && match.getState() == MatchState.PLAYING_ROUND || match.getState() == MatchState.STARTING_ROUND) {
-				if (match.getKit().getGameRules().isSpleef()) {
-					event.setCancelled(true);
-					return;
-				}
-
 				Arena arena = match.getArena();
-				int x = (int) event.getBlockPlaced().getLocation().getX();
-				int y = (int) event.getBlockPlaced().getLocation().getY();
-				int z = (int) event.getBlockPlaced().getLocation().getZ();
-
-				if (y > arena.getMaxBuildHeight()) {
-					new MessageFormat(Locale.ARENA_REACHED_MAXIMUM
-							.format(profile.getLocale()))
-							.send(player);
-//					player.sendMessage(CC.RED + "You have reached the maximum build height.");
-					event.setCancelled(true);
+				int n = (int)blockPlaceEvent.getBlockPlaced().getLocation().getX();
+				int n2 = (int)blockPlaceEvent.getBlockPlaced().getLocation().getY();
+				int n3 = (int)blockPlaceEvent.getBlockPlaced().getLocation().getZ();
+				if (n2 > arena.getMaxBuildHeight()) {
+					new MessageFormat(Locale.ARENA_REACHED_MAXIMUM.format(profile.getLocale())).send(player);
+					blockPlaceEvent.setCancelled(true);
 					return;
 				}
-
 				if (arena instanceof StandaloneArena) {
-					StandaloneArena standaloneArena = (StandaloneArena) arena;
-					if (standaloneArena.getSpawnBlue() != null && standaloneArena.getSpawnBlue().contains(event.getBlockPlaced())) {
-						event.setCancelled(true);
+					StandaloneArena standaloneArena = (StandaloneArena)arena;
+					if (standaloneArena.getSpawnBlue() != null && standaloneArena.getSpawnBlue().contains(blockPlaceEvent.getBlockPlaced())) {
+						blockPlaceEvent.setCancelled(true);
 						return;
 					}
-					if (standaloneArena.getSpawnRed() != null && standaloneArena.getSpawnRed().contains(event.getBlockPlaced())) {
-						event.setCancelled(true);
+					if (standaloneArena.getSpawnRed() != null && standaloneArena.getSpawnRed().contains(blockPlaceEvent.getBlockPlaced())) {
+						blockPlaceEvent.setCancelled(true);
 						return;
 					}
 				}
-
-				if (x >= arena.getX1() && x <= arena.getX2() && y >= arena.getY1() && y <= arena.getY2() &&
-				    z >= arena.getZ1() && z <= arena.getZ2()) {
-					match.getPlacedBlocks().add(event.getBlock().getLocation());
-					Location down = event.getBlock().getLocation().subtract(0, 1, 0);
-					if(down.getBlock().getType() == Material.GRASS){
-						match.getChangedBlocks().add(down.getBlock().getState());
-					}
-				} else {
-					new MessageFormat(Locale.ARENA_BUILD_OUTSIDE
-							.format(profile.getLocale()))
-							.send(player);
-					event.setCancelled(true);
-				}
-			} else {
-				event.setCancelled(true);
-			}
-		} else {
-			if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
-				event.setCancelled(true);
-			}
-		}
-	}*/
-
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-	public void onBlockBreakEvent(BlockBreakEvent event) {
-		Player player = event.getPlayer();
-		Profile profile = Profile.get(player.getUniqueId());
-		if (profile.getState() == ProfileState.FIGHTING) {
-			Match match = profile.getMatch();
-			BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
-
-
-			if (match.getKit().getGameRules().isBuild() && match.getState() == MatchState.PLAYING_ROUND) {
-				if (match.getKit().getGameRules().isSpleef()) {
-					if (event.getBlock().getType() == Material.SNOW_BLOCK || event.getBlock().getType() == Material.SNOW) {
-						match.getChangedBlocks().add(event.getBlock().getState());
-
-						event.getBlock().setType(Material.AIR);
-						player.getInventory().addItem(new ItemStack(Material.SNOW_BALL, 4));
-						player.updateInventory();
+				if (arena.contains(n, n2, n3)) {
+					if (blockPlaceEvent.getBlockReplacedState() == null || blockPlaceEvent.getBlockReplacedState().getType() == Material.AIR) {
+						match.getPlacedBlocks().add(blockPlaceEvent.getBlock().getLocation());
 					} else {
-						event.setCancelled(true);
+						match.getChangedBlocks().add(blockPlaceEvent.getBlockReplacedState());
 					}
-				}
-				else if (!match.getPlacedBlocks().remove(event.getBlock().getLocation())) {
-					event.setCancelled(true);
-				}
-			} else {
-				event.setCancelled(true);
-			}
-
-			if (teamMatch.getKit().getGameRules().isHcftrap() && match.getState() == MatchState.PLAYING_ROUND) {
-				if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
-					event.setCancelled(true);
-					player.sendMessage(CC.translate("&cYou are not allowed to interact with blocks!"));
 				} else {
-					event.setCancelled(false);
-					teamMatch.getChangedBlocks().add(event.getBlock().getState());
-				}
-				if (!teamMatch.getPlacedBlocks().remove(event.getBlock().getLocation()) && !teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
-					event.setCancelled(false);
-					teamMatch.getChangedBlocks().add(event.getBlock().getState());
+					new MessageFormat(Locale.ARENA_BUILD_OUTSIDE.format(profile.getLocale())).send(player);
+					blockPlaceEvent.setCancelled(true);
 				}
 			} else {
-				event.setCancelled(true);
+				blockPlaceEvent.setCancelled(true);
 			}
-		} else {
-			if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
-				event.setCancelled(true);
-			}
+		} else if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
+			blockPlaceEvent.setCancelled(true);
 		}
 	}
 
-		/*if (profile.getState() == ProfileState.FIGHTING) {
+	@EventHandler(priority=EventPriority.HIGHEST, ignoreCancelled=true)
+	public void onBlockBreakEvent(BlockBreakEvent blockBreakEvent) {
+		Player player = blockBreakEvent.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
+		if (profile.getState() == ProfileState.FIGHTING) {
 			Match match = profile.getMatch();
-			BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
-			if (match.getKit().getGameRules().isBaseRaiding()) {
-				if (teamMatch.getState() == MatchState.PLAYING_ROUND || teamMatch.getState() == MatchState.STARTING_ROUND) {
-					if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
-						event.setCancelled(false);
-						match.getChangedBlocks().add(event.getBlock().getState());
-					} else {
-						event.setCancelled(true);
-						player.sendMessage(CC.translate("&cYou are not allowed to interact with blocks!"));
-					/*if (!match.getPlacedBlocks().remove(event.getBlock().getLocation())) {
-						event.setCancelled(true);
-					}*/
-					/*}
-				}
-			} else if (match.getKit().getGameRules().isBuild() && match.getState() == MatchState.PLAYING_ROUND) {
+			if ((match.getKit().getGameRules().isBuild() || match.getKit().getGameRules().isSpleef() || match.getKit().getGameRules().isHcftrap() && ((BasicTeamMatch)match).getParticipantA().containsPlayer(player.getUniqueId())) && match.getState() == MatchState.PLAYING_ROUND) {
 				if (match.getKit().getGameRules().isSpleef()) {
-					if (event.getBlock().getType() == Material.SNOW_BLOCK || event.getBlock().getType() == Material.SNOW) {
-						match.getChangedBlocks().add(event.getBlock().getState());
-
-						event.getBlock().setType(Material.AIR);
+					if (blockBreakEvent.getBlock().getType() == Material.SNOW_BLOCK || blockBreakEvent.getBlock().getType() == Material.SNOW) {
+						match.getChangedBlocks().add(blockBreakEvent.getBlock().getState());
+						blockBreakEvent.getBlock().setType(Material.AIR);
 						player.getInventory().addItem(new ItemStack(Material.SNOW_BALL, 4));
 						player.updateInventory();
 					} else {
-						event.setCancelled(true);
+						blockBreakEvent.setCancelled(true);
 					}
-				} else if (!match.getPlacedBlocks().remove(event.getBlock().getLocation())) {
-					event.setCancelled(true);
+				} else if (match.getKit().getGameRules().isHcftrap()) {
+					if (match.getPlacedBlocks().contains(blockBreakEvent.getBlock().getLocation())) {
+						match.getPlacedBlocks().remove(blockBreakEvent.getBlock().getLocation());
+					} else if (match.getChangedBlocks().stream().noneMatch(blockState -> blockState.getLocation().equals(blockBreakEvent.getBlock().getLocation()))) {
+						match.getChangedBlocks().add(blockBreakEvent.getBlock().getState());
+					}
+					if (!blockBreakEvent.getBlock().getDrops().isEmpty()) {
+						match.getDroppedItems().add(blockBreakEvent.getBlock().getLocation().getWorld().dropItemNaturally(blockBreakEvent.getBlock().getLocation(), blockBreakEvent.getBlock().getDrops().stream().findFirst().orElse(null)));
+					}
+					blockBreakEvent.getBlock().setType(Material.AIR);
+					blockBreakEvent.setCancelled(true);
+				} else if (!match.getPlacedBlocks().remove(blockBreakEvent.getBlock().getLocation())) {
+					blockBreakEvent.setCancelled(true);
 				}
 			} else {
-				event.setCancelled(true);
+				blockBreakEvent.setCancelled(true);
 			}
-
-		//}
-		// Cancel event if player is in lobby, spectating mode or is queueing.
-		/*if(profile.getState() == ProfileState.LOBBY || profile.getState() == ProfileState.QUEUEING || profile.getState() == ProfileState.SPECTATING || player.getGameMode() != GameMode.CREATIVE) {
-			event.setCancelled(true);
+		} else if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
+			blockBreakEvent.setCancelled(true);
 		}
-		/*else { // If the player isn't fighting
-			if (player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
-				event.setCancelled(true);
-			}
-		}*/
-		/*} else {
-			if (player.getGameMode() != GameMode.CREATIVE) {
-				event.setCancelled(true);
-			}
-			//event.setCancelled(true);
-		}
-	}*/
+	}
 
 	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	public void onBucketEmptyEvent(PlayerBucketEmptyEvent event) {
@@ -1207,92 +1027,97 @@ public class MatchListener implements Listener {
 	@EventHandler
 	public void onPlayerInteractEvent(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 		ItemStack itemStack = event.getItem();
 
-		if (itemStack != null && event.getAction() == Action.RIGHT_CLICK_AIR || itemStack != null && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-			Profile profile = Profile.get(player.getUniqueId());
+		if ((event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) && (profile = Profile.get(player.getUniqueId())).getState() == ProfileState.FIGHTING) {
+			Match match = profile.getMatch();
 
 			if (profile.getState() == ProfileState.FIGHTING) {
-				Match match = profile.getMatch();
-				//BasicTeamMatch matchTrap = (BasicTeamMatch) profile.getMatch();
 
-				if (Hotbar.fromItemStack(itemStack) == HotbarItem.SPECTATE_STOP) {
-					match.onDisconnect(player);
-					return;
-				}
+				if (itemStack != null) {
+					if (Hotbar.fromItemStack(itemStack) == HotbarItem.SPECTATE_STOP) {
+						match.onDisconnect(player);
+						return;
+					}
 
-				// Kit Selection
-				if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasDisplayName()) {
-					ItemStack kitItem = Hotbar.getItems().get(HotbarItem.KIT_SELECTION).getItemStack();
+					// Kit Selection
+					if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasDisplayName()) {
+						ItemStack kitItem = Hotbar.getItems().get(HotbarItem.KIT_SELECTION).getItemStack();
 
-					if (itemStack.getType() == kitItem.getType() &&
-					    itemStack.getDurability() == kitItem.getDurability()) {
-						Matcher matcher = HotbarItem.KIT_SELECTION.getPattern().
-								matcher(itemStack.getItemMeta().getDisplayName());
+						if (itemStack.getType() == kitItem.getType() &&
+								itemStack.getDurability() == kitItem.getDurability()) {
+							Matcher matcher = HotbarItem.KIT_SELECTION.getPattern().
+									matcher(itemStack.getItemMeta().getDisplayName());
 
-						if (matcher.find()) {
-							String kitName = matcher.group(2);
-							KitLoadout kitLoadout = null;
+							if (matcher.find()) {
+								String kitName = matcher.group(2);
+								KitLoadout kitLoadout = null;
 
-							if (kitName.equals("Default")) {
-								kitLoadout = match.getKit().getKitLoadout();
-							} else {
-								for (KitLoadout find : profile.getKitData().get(match.getKit()).getLoadouts()) {
-									if (find != null && find.getCustomName().equals(kitName)) {
-										kitLoadout = find;
+								if (kitName.equals("Default")) {
+									kitLoadout = match.getKit().getKitLoadout();
+								} else {
+									for (KitLoadout find : profile.getKitData().get(match.getKit()).getLoadouts()) {
+										if (find != null && find.getCustomName().equals(kitName)) {
+											kitLoadout = find;
+										}
 									}
 								}
-							}
 
-							if (kitLoadout != null) {
-								//player.sendMessage(Locale.MATCH_GIVE_KIT.format(kitLoadout.getCustomName()));
-								new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale()))
-									.add("{kit_name}", kitLoadout.getCustomName())
-									.send(player);
-								if (match.getKit().getGameRules().isBridge()) {
-									player.getInventory().setContents(kitLoadout.getContents());
-									KitUtils.giveBridgeKit(player);
-									profile.setSelectedKit(kitLoadout);
-								} else if (match.getKit().getGameRules().isHcftrap()) {
-									player.getInventory().setContents(kitLoadout.getContents());
-									KitUtils.giveBaseRaidingKit(player);
-									profile.setSelectedKit(kitLoadout);
-								} else {
-									player.getInventory().setArmorContents(kitLoadout.getArmor());
-									player.getInventory().setContents(kitLoadout.getContents());
+								if (kitLoadout != null) {
+									//player.sendMessage(Locale.MATCH_GIVE_KIT.format(kitLoadout.getCustomName()));
+									new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale()))
+											.add("{kit_name}", kitLoadout.getCustomName())
+											.send(player);
+									if (match.getKit().getGameRules().isBridge()) {
+										player.getInventory().setContents(kitLoadout.getContents());
+										KitUtils.giveBridgeKit(player);
+										profile.setSelectedKit(kitLoadout);
+									} else if (match.getKit().getGameRules().isHcftrap()) {
+										player.getInventory().setContents(kitLoadout.getContents());
+										KitUtils.giveBaseRaidingKit(player);
+										profile.setSelectedKit(kitLoadout);
+									} else {
+										player.getInventory().setArmorContents(kitLoadout.getArmor());
+										player.getInventory().setContents(kitLoadout.getContents());
+									}
+									player.updateInventory();
+									event.setCancelled(true);
 								}
-								player.updateInventory();
-								event.setCancelled(true);
 							}
 						}
 					}
 				}
-
-				// A Raider
-				// B Trapper
-
-				/*if (match.getKit().getGameRules().isHcftrap()) {
-					if (matchTrap.getParticipantA().containsPlayer(player.getUniqueId())) {
-						if (player.getItemInHand().getType() == Material.POTION || player.getItemInHand().getType() == Material.ENDER_PEARL || player.getItemInHand().getType() == Material.BOW || player.getItemInHand().getType() == Material.COOKED_BEEF || player.getItemInHand().getType() == Material.GOLDEN_APPLE) {
-							if (event.getClickedBlock() == null)
-								return;
-							if (event.getClickedBlock().getType() == Material.FENCE_GATE || event.getClickedBlock().getType().name().contains("CHEST")) {
-								if (player.isSneaking())
-									return;
-								event.setCancelled(true);
-								return;
-							}
-							return;
-						}
-						event.setCancelled(true);
-					}
-				}*/
 			}
 		}
 	}
 
 	@EventHandler
-	public void onMathEnd(MatchEndEvent event){
+	public void onPlayerInteractHCFTrap(PlayerInteractEvent event) {
+		Player player = event.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
+		BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
+
+		if(teamMatch == null) {
+			return;
+		}
+
+		if(teamMatch.getKit().getGameRules().isHcftrap()) {
+			if(event.getItem() != null && event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.SPRUCE_FENCE_GATE && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+				if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
+					if (teamMatch.getChangedBlocks().stream().noneMatch(blockState -> blockState.getBlock().getLocation().equals(event.getClickedBlock().getLocation()))) {
+						teamMatch.getChangedBlocks().add(event.getClickedBlock().getState());
+					}
+				} else {
+					player.sendMessage(CC.translate("&cYou cannot interact as a raider."));
+					event.setCancelled(true);
+				}
+			}
+		}
+	}
+
+	@EventHandler
+	public void onMathEnd(MatchEndEvent event) {
 		Match match = event.getMatch();
 		match.getParticipants().forEach(matchGamePlayerGameParticipant -> {
 			matchGamePlayerGameParticipant.getPlayers().forEach(player -> {

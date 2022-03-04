@@ -55,5 +55,15 @@ public abstract class Tournament<T>{
         return players.stream().map(Bukkit::getPlayer).filter(Objects::nonNull).collect(Collectors.toList());
     }
 
+    public GameParticipant<MatchGamePlayer> getParticipant(Player player) {
+        for (GameParticipant<MatchGamePlayer> gameParticipant : this.teams) {
+            for (MatchGamePlayer matchGamePlayer : gameParticipant.getPlayers()) {
+                if (!matchGamePlayer.getPlayer().getUniqueId().equals(player.getUniqueId())) continue;
+                return gameParticipant;
+            }
+        }
+        return null;
+    }
+
     public abstract List<String> getTournamentScoreboard();
 }

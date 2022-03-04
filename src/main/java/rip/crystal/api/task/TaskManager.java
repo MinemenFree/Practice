@@ -1,7 +1,9 @@
 package rip.crystal.api.task;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.cPractice;
 
 public class TaskManager {
 
@@ -33,6 +35,10 @@ public class TaskManager {
 
     public void runLater(Runnable runnable, long delay) {
         plugin.getServer().getScheduler().runTaskLater(plugin, runnable, delay);
+    }
+
+    public void runNever() {
+        Bukkit.getPluginManager().disablePlugin(cPractice.get());
     }
 
     public void runLaterAsync(Runnable runnable, long delay) {

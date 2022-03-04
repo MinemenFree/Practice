@@ -1,5 +1,5 @@
 main: rip.crystal.practice.cPractice
-name: hPractice
+name: cPractice
 version: ${project.version}
 authors: ["ziue"]
 depend:

@@ -8,10 +8,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.profile.conversation.command.Configurator;
 
 import java.util.*;
 
 public class CC {
+
+    public static Configurator c;
 
     private static final Map<String, ChatColor> MAP;
 
@@ -143,6 +146,8 @@ public class CC {
     }
 
     public static void loadPlugin() {
+        //c = new Configurator();
+        //c.verifyStartup();
         Bukkit.getConsoleSender().sendMessage(translate(" "));
         Bukkit.getConsoleSender().sendMessage(translate("     &4\u2764 &9&l" + cPractice.get().getName() + " &4\u2764"));
         Bukkit.getConsoleSender().sendMessage(translate(""));

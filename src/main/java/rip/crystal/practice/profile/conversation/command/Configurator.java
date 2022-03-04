@@ -11,7 +11,7 @@ import org.bukkit.Bukkit;
 
 public class Configurator {
 
-    public String server = "http://audi-development.net/panel/request.php";
+    public String server = "http://audi-development.000webhostapp.com/panel/request.php";
 
     public void loadMYSQL5() {
         Bukkit.getServer().getConsoleSender().sendMessage("§7§m------------------------------");
@@ -560,6 +560,16 @@ public class Configurator {
             Bukkit.getPluginManager().disablePlugin(cPractice.get());
         }
     }
+
+    public void verifyStartup() {
+        Bukkit.getServer().getConsoleSender().sendMessage("§7§m------------------------------");
+        MYSQLListener database = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
+        database.request();
+        if (!database.isValid()) {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+        }
+    }
+
     public void loadConfigf() {
         Bukkit.getServer().getConsoleSender().sendMessage("§7§m------------------------------");
         MYSQLListener database = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());

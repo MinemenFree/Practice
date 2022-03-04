@@ -21,27 +21,15 @@ import rip.crystal.practice.utilities.PlayerUtil;
 
 public class TournamentListener implements Listener {
 
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void onPlayerQuitEvent(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        Profile profile = Profile.get(player.getUniqueId());
-        Tournament<?> tournament = Tournament.getTournament();
-        BasicTeamMatch match = profile.getBasicTeamMatch();
-        MatchGamePlayer playerA = new MatchGamePlayer(player.getUniqueId(), player.getName());
-
-        if(profile.isInTournament() && profile.getState() == ProfileState.TOURNAMENT) {
-            // End match
-            match.end();
-
-            // Remove player from tournament
+    @EventHandler(priority=EventPriority.HIGHEST)
+    public void onQuit(PlayerQuitEvent playerQuitEvent) {
+        if (Tournament.getTournament() != null && (Tournament.getTournament().getState() == TournamentState.STARTING || Tournament.getTournament().getState() == TournamentState.SELECTING_DUELS)) {
+            Player player = playerQuitEvent.getPlayer();
             Tournament.getTournament().getPlayers().remove(player.getUniqueId());
-
-            // Reset players' state
-            profile.setState(ProfileState.LOBBY);
-            profile.setInTournament(false);
-
-            PlayerUtil.reset(player);
-            player.teleport(cPractice.get().getEssentials().getSpawn());
+            Tournament.getTournament().getTeams().remove(Tournament.getTournament().getParticipant(player));
+            Tournament.getTournament().setState(TournamentState.STARTING);
+            Profile.get(player.getUniqueId()).setState(ProfileState.LOBBY);
+            Profile.get(player.getUniqueId()).setInTournament(false);
         }
     }
 }

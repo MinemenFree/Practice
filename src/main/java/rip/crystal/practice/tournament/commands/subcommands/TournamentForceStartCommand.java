@@ -27,6 +27,7 @@ public class TournamentForceStartCommand extends BaseCommand {
             player.sendMessage(ChatColor.RED + "No tournament found.");
             return;
         }
+
         if(!tournament.isStarted()) {
             tournament.start();
             player.sendMessage(ChatColor.RED + "You have force started the tournament!");
