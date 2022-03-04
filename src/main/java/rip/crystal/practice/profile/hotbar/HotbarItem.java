@@ -24,6 +24,8 @@ public enum HotbarItem {
 	EVENT_LEAVE("event leave"),
 	MAP_SELECTION(null),
 
+	FOLLOW(null),
+
 	REMATCH_REQUEST("rematch"),
 	REMATCH_ACCEPT("rematch"),
 

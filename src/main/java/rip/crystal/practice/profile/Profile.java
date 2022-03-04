@@ -20,6 +20,7 @@ import rip.crystal.practice.profile.file.IProfile;
 import rip.crystal.practice.profile.file.impl.FlatFileIProfile;
 import rip.crystal.practice.profile.file.impl.MongoDBIProfile;
 import rip.crystal.practice.cosmetics.impl.killeffects.KillEffectType;
+import rip.crystal.practice.profile.follow.Follow;
 import rip.crystal.practice.profile.meta.ProfileKitData;
 import rip.crystal.practice.profile.meta.ProfileKitEditorData;
 import rip.crystal.practice.profile.meta.ProfileRematchData;
@@ -79,6 +80,7 @@ public class Profile {
 	private Weight weight;
 	private KillEffectType killEffectType;
 	private TabType tabType = TabType.DEFAULT;
+	private Follow follow;
 
 	public Profile(UUID uuid) {
 		this.uuid = uuid;
@@ -235,6 +237,12 @@ public class Profile {
 		Profile profile = profiles.get(uuid);
 		if (profile == null) profile = new Profile(uuid);
 		return profile;
+	}
+
+	public void follow(Player player) {
+		this.follow = new Follow(this.uuid, player.getUniqueId(), player);
+		Follow.getFollows().put(this.uuid, this.follow);
+		this.follow.follow();
 	}
 
 	public static int getHostSlots(UUID uuid) {
