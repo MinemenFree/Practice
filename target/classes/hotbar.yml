@@ -177,3 +177,15 @@ HOTBAR_ITEMS:
     DURABILITY: 0
     NAME: '&9&lFreeze'
     LORE: []
+  VIEWTOURNAMENT:
+    SLOT: 3
+    MATERIAL: NETHER_STAR
+    DURABILITY: 0
+    NAME: '&9&lView Tournament'
+    LORE: []
+  LEAVETOURNAMENT:
+    SLOT: 7
+    MATERIAL: REDSTONE
+    DURABILITY: 0
+    NAME: '&c&lLeave Tournament'
+    LORE: []

@@ -19,9 +19,9 @@ public class PingFactorToggleCommand extends BaseCommand {
         Player player = commandArgs.getPlayer();
         //String[] args = commandArgs.getArgs();
         Profile profile = Profile.get(player.getUniqueId());
-        profile.getOptions().isUsingPingFactor(!profile.getOptions().isUsingPingFactor());
+        //profile.getOptions().isUsingPingFactor(!profile.getOptions().isUsingPingFactor());
 
-        if (profile.getOptions().isUsingPingFactor()) {
+        /*if (profile.getOptions().isUsingPingFactor()) {
             player.sendMessage(CC.CHAT_BAR);
             profile.setPingRange(50);
             player.sendMessage(CC.translate("&aYou have enabled ping factor."));
@@ -30,6 +30,6 @@ public class PingFactorToggleCommand extends BaseCommand {
             player.sendMessage(CC.CHAT_BAR);
             player.sendMessage(CC.translate("&cYou have disabled ping factor."));
             player.sendMessage(CC.CHAT_BAR);
-        }
+        }*/
     }
 }

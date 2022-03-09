@@ -437,7 +437,7 @@ public class cPractice extends JavaPlugin {
         new ToggleScoreboardCommand();
         new ToggleSoundsCommand();
         new ToggleSpectatorsCommand();
-        new PingFactorCommand();
+        //new PingFactorCommand();
         if (getMainConfig().getBoolean("MOD_MODE")) new StaffModeCommand();
     }
 

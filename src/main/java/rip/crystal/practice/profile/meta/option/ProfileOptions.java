@@ -13,6 +13,6 @@ public class ProfileOptions {
 	@Getter @Setter private boolean publicChatEnabled = true;
 	@Getter @Setter private boolean receivingNewConversations = true;
 	@Getter @Setter private boolean playingMessageSounds = true;
-	@Getter @Setter private boolean isUsingPingFactor = false;
+	//@Getter @Setter private boolean isUsingPingFactor = false;
 
 }

@@ -309,6 +309,7 @@ rip\crystal\practice\party\command\subcommands\PartyInfoCommand.class
 rip\crystal\practice\utilities\event\BaseEvent.class
 rip\crystal\practice\match\MatchSnapshot.class
 rip\crystal\practice\utilities\file\type\BasicConfigurationFile.class
+rip\crystal\practice\profile\menu\matchmaking\PingRangeButton.class
 rip\crystal\practice\kit\menu\KitManagementMenu$CreateKitButton.class
 rip\crystal\practice\profile\command\ViewMatchCommand.class
 rip\crystal\practice\event\game\EventGameLogic.class
@@ -430,6 +431,7 @@ rip\crystal\practice\utilities\playerversion\PlayerVersion.class
 rip\crystal\api\utilities\LocationUtil.class
 rip\crystal\practice\event\game\map\vote\EventGameMapVoteData.class
 rip\crystal\practice\party\classes\bard\BardEffect.class
+rip\crystal\practice\profile\menu\MatchMakingMenu.class
 rip\crystal\practice\utilities\TaskUtil.class
 rip\crystal\practice\tablist\TabAdapter$1.class
 rip\crystal\api\rank\Rank.class
@@ -584,7 +586,6 @@ rip\crystal\practice\profile\meta\option\menu\ProfileOptionsMenu.class
 rip\crystal\practice\utilities\menu\pagination\JumpToPageButton.class
 rip\crystal\practice\tablist\TabType.class
 rip\crystal\practice\shop\command\staff\impl\CoinsTakeCommand.class
-rip\crystal\practice\shop\command\staff\impl\CosmeticRemoveCommand.class
 rip\crystal\practice\arena\command\ArenaCreateCommand.class
 rip\crystal\practice\kit\menu\KitEditorMenu$LoadDefaultKitButton.class
 rip\crystal\practice\party\command\PartyCommand.class

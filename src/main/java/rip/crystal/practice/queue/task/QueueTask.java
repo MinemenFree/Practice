@@ -54,24 +54,13 @@ public class QueueTask implements Runnable {
 
                     Profile secondProfile = Profile.get(secondPlayer.getUniqueId());
 
-                    /*if (firstProfile.getOptions().isUsingPingFactor() || secondProfile.getOptions().isUsingPingFactor()) {
-                        if (PlayerUtil.getPing(firstPlayer) >= PlayerUtil.getPing(secondPlayer)) {
-                            if (PlayerUtil.getPing(firstPlayer) - PlayerUtil.getPing(secondPlayer) >= 50) {
-                                continue;
-                            }
-                        } else {
-                            if (PlayerUtil.getPing(secondPlayer) - PlayerUtil.getPing(firstPlayer) >= 50) {
-                                continue;
-                            }
-                        }
-                    }*/
 
-                    if(firstProfile.getOptions().isUsingPingFactor()) {
+                    if(/*firstProfile.getOptions().isUsingPingFactor() &&*/firstProfile.getPingRange() != -1) {
                         if(PlayerUtil.getPing(secondPlayer) > firstProfile.getPingRange()) {
                             return;
                         }
                     }
-                    if(secondProfile.getOptions().isUsingPingFactor()) {
+                    if(/*secondProfile.getOptions().isUsingPingFactor() &&*/secondProfile.getPingRange() != -1) {
                         if(PlayerUtil.getPing(firstPlayer) > secondProfile.getPingRange()) {
                             return;
                         }

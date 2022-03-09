@@ -73,7 +73,7 @@ public class Profile {
 	private Map<String, ClanInvite> invites;
 	private boolean inTournament, online, isFrozen;
 	private int fishHit;
-	private int pingRange;
+	private int pingRange = -1;
 	private List<MatchInfo> matches;
 	private Lang locale = Lang.getByAbbreviation(cPractice.get().getMainConfig().getString("DEFAULT_LANG"));
 	private KitLoadout selectedKit;

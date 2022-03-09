@@ -12,7 +12,7 @@ public class ProfileOptionsMenu extends Menu {
 
 	@Override
 	public String getTitle(Player player) {
-		return "&c&lOptions";
+		return "&7Options";
 	}
 
 	{
@@ -35,7 +35,7 @@ public class ProfileOptionsMenu extends Menu {
 		buttons.put(5, new AllowSpectatorsOptionButton());
 		buttons.put(6, new DuelRequestsOptionButton());
 		buttons.put(7, new CosmeticsOptionButton());
-		//buttons.put(39, new MatchMakingOptionButton());
+		buttons.put(8, new MatchMakingOptionButton());
 		return buttons;
 	}
 
