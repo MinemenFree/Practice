@@ -2,6 +2,7 @@ package rip.crystal.practice.match;
 
 import com.google.common.collect.Lists;
 import org.bukkit.*;
+import org.bukkit.material.TrapDoor;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.arena.Arena;
 import rip.crystal.practice.arena.impl.StandaloneArena;
@@ -42,10 +43,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 import org.spigotmc.SpigotConfig;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 
 public class MatchListener implements Listener {
@@ -1072,7 +1070,8 @@ public class MatchListener implements Listener {
 		if (profile.getState() == ProfileState.SPECTATING) event.setCancelled(true);
 
 		if(teamMatch.getKit().getGameRules().isHcftrap()) {
-			if(event.getItem() != null && event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.SPRUCE_FENCE_GATE && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+			if(event.getItem() != null && event.getClickedBlock() != null && (event.getClickedBlock().getType().name().contains("FENCE") || event.getClickedBlock().getState() instanceof TrapDoor || event.getClickedBlock().getType().name().contains("TRAP") || event.getClickedBlock().getType().name().contains("CHEST") || event.getClickedBlock().getType().name().contains("DOOR") || event.getClickedBlock().getType().equals(Material.BEACON) || event.getClickedBlock().getType().equals(Material.FURNACE) || event.getClickedBlock().getType().equals(Material.WORKBENCH) || event.getClickedBlock().getType().equals(Material.NOTE_BLOCK) || event.getClickedBlock().getType().equals(Material.JUKEBOX) || event.getClickedBlock().getType().equals(Material.ANVIL) || event.getClickedBlock().getType().equals(Material.HOPPER) || event.getClickedBlock().getType().equals(Material.BED_BLOCK) || event.getClickedBlock().getType().equals(Material.DROPPER) || event.getClickedBlock().getType().equals(Material.BREWING_STAND) && event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
+			//if(event.getItem() != null && event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.SPRUCE_FENCE_GATE && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 				if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
 					if (teamMatch.getChangedBlocks().stream().noneMatch(blockState -> blockState.getBlock().getLocation().equals(event.getClickedBlock().getLocation()))) {
 						teamMatch.getChangedBlocks().add(event.getClickedBlock().getState());

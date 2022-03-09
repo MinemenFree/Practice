@@ -35,7 +35,10 @@ public class MongoDBIProfile implements IProfile {
         document.put("lang", profile.getLocale().getAbbreviation());
         document.put("color", profile.getColor());
         document.put("coins", cPractice.get().getShopSystem().getCoins(profile.getUuid()));
-        document.put("killEffect", profile.getKillEffectType().getName());
+
+        if(profile.getKillEffectType() != null) {
+            document.put("killEffect", profile.getKillEffectType().getName());
+        }
 
         Document optionsDocument = new Document();
         optionsDocument.put("showScoreboard", profile.getOptions().showScoreboard());
