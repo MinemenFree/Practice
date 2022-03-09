@@ -6,6 +6,7 @@ import rip.crystal.practice.abilities.cooldown.AbilityCooldown;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.clan.Clan;
 import rip.crystal.practice.clan.ClanInvite;
+import rip.crystal.practice.cosmetics.impl.trails.TrailsEffectType;
 import rip.crystal.practice.duel.DuelProcedure;
 import rip.crystal.practice.duel.DuelRequest;
 import rip.crystal.practice.kit.Kit;
@@ -79,8 +80,11 @@ public class Profile {
 	private String name, color;
 	private Weight weight;
 	private KillEffectType killEffectType;
+	private TrailsEffectType trainsEffectType;
 	private TabType tabType = TabType.DEFAULT;
 	private Follow follow;
+	private int coins;
+
 
 	public Profile(UUID uuid) {
 		this.uuid = uuid;
@@ -260,4 +264,13 @@ public class Profile {
 
 		return slots;
 	}
+
+	public void addCoins(int coins) {
+		this.coins += coins;
+	}
+
+	public void removeCoins(int coins) {
+		this.coins -= coins;
+	}
+
 }

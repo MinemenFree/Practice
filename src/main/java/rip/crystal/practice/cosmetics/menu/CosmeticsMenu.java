@@ -21,7 +21,7 @@ public class CosmeticsMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return "&c&lCosmetics";
+        return "&9&lCosmetics";
     }
 
     {

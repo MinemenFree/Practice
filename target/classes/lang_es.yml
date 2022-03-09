@@ -5,9 +5,6 @@ CONVERSATION:
   RECEIVE_MESSAGE: '&7(From &r{sender_color}{sender_name}&7) {msg}'
 JOIN_MESSAGES:
   - '  '
-  - ' &7[&a+&7] &fBienvenido/a a &2&lPractice &b[Season 1]'
-  - ' &7[&a+&7] &fPara mayor información visita&7: &adiscord.gg/pandacommunity'
-  - '  '
 ARENA:
   REACHED_MAXIMUM: '&cHas alcanzado la altura máxima de construcción.'
   BUILD_OUTSIDE: '&c¡No puedes construir fuera de la arena!'

@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.clan.Clan;
+import rip.crystal.practice.cosmetics.impl.killeffects.KillEffectType;
 import rip.crystal.practice.kit.Kit;
 import rip.crystal.practice.kit.KitLoadout;
 import rip.crystal.practice.match.mongo.MatchInfo;
@@ -34,6 +35,7 @@ public class FlatFileIProfile implements IProfile {
 
         uuidSection.set("lang", profile.getLocale().getAbbreviation());
         uuidSection.set("color", profile.getColor());
+        uuidSection.set("coins", profile.getCoins());
 
         ConfigurationSection optionsSection = uuidSection.createSection("options");
         optionsSection.set("showScoreboard", profile.getOptions().showScoreboard());
@@ -110,6 +112,8 @@ public class FlatFileIProfile implements IProfile {
 
         if (section.contains("color")) profile.setColor(section.getString("color"));
 
+        if (section.contains("coins")) profile.setCoins(section.getInt("coins"));
+
         ConfigurationSection optionsSection = section.getConfigurationSection("options");
 
         profile.getOptions().showScoreboard(optionsSection.getBoolean("showScoreboard"));
@@ -130,6 +134,7 @@ public class FlatFileIProfile implements IProfile {
                 profileKitData.setElo(kitSection.getInt("elo"));
                 profileKitData.setWon(kitSection.getInt("won"));
                 profileKitData.setLost(kitSection.getInt("lost"));
+                profileKitData.setKillstreak(kitSection.getInt("winstreak"));
 
                 profile.getKitData().put(kit, profileKitData);
             }

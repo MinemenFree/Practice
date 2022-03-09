@@ -4,54 +4,34 @@ package rip.crystal.practice.profile.meta.option.button;
    Created on 05.11.2021
 */
 
-import rip.crystal.practice.cosmetics.impl.killeffects.menu.KillEffectsMenu;
+import rip.crystal.practice.cosmetics.impl.trails.menu.TrailsEffectsMenu;
 import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.meta.option.menu.ProfileOptionButton;
 import rip.crystal.practice.utilities.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.utilities.menu.Button;
 
-public class TrailsOptionsButton extends ProfileOptionButton {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TrailsOptionsButton extends Button {
     @Override
-    public ItemStack getEnabledItem(Player player) {
-        return new ItemBuilder(Material.BOW).build();
-    }
+    public ItemStack getButtonItem(Player player) {
 
-    @Override
-    public ItemStack getDisabledItem(Player player) {
-        return new ItemBuilder(Material.BOW).build();
-    }
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add("&eClick to open Trails Menu!");
 
-    @Override
-    public String getOptionName() {
-        return "&c&lTrails";
+        return new ItemBuilder(Material.BOW)
+                .name("&9&lTrail Effects")
+                .lore(lore)
+                .build();
     }
-
-    @Override
-    public String getDescription() {
-        return "";
-    }
-
-    @Override
-    public String getEnabledOption() {
-        return "";
-    }
-
-    @Override
-    public String getDisabledOption() {
-        return "";
-    }
-
-    @Override
-    public boolean isEnabled(Player player) {
-        return false;
-    }
-
     @Override
     public void clicked(Player player, ClickType clickType) {
         Profile profile = Profile.get(player.getUniqueId());
-        //new KillEffectsMenu().openMenu(player);
+        new TrailsEffectsMenu().openMenu(player);
     }
 }

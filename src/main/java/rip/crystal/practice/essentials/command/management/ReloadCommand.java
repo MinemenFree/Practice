@@ -8,9 +8,9 @@ import rip.crystal.api.command.CommandArgs;
 import lombok.val;
 import org.bukkit.command.CommandSender;
 
-public class HysteriaReloadCommand extends BaseCommand {
+public class ReloadCommand extends BaseCommand {
 
-    @Command(name = "hysteria", aliases = {"hpractice"}, inGameOnly = false, permission = "hysteria.owner")
+    @Command(name = "cpractice", aliases = {"cpractice"}, inGameOnly = false, permission = "hysteria.owner")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         CommandSender sender = commandArgs.getSender();
@@ -40,7 +40,7 @@ public class HysteriaReloadCommand extends BaseCommand {
             cPractice.get().getTabFFAConfig().reload();
             cPractice.get().getEssentials().setMotd(CC.translate(cPractice.get().getLangConfig().getStringList("MOTD")));
             val finish = System.currentTimeMillis();
-            sender.sendMessage(CC.translate("&cHysteria reloaded &7(" + (finish - start) + "ms)"));
+            sender.sendMessage(CC.translate("&9cPractice reloaded &7(" + (finish - start) + "ms)"));
             return;
         }
 

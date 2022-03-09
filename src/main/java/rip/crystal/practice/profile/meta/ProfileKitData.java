@@ -33,8 +33,7 @@ public class ProfileKitData {
 	public void incrementStreak() {
 		this.killstreak++;
 	}
-
-
+	
 	public void resetStreak() {
 		this.killstreak = 0;
 	}

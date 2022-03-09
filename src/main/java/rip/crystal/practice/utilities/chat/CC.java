@@ -146,22 +146,22 @@ public class CC {
     }
 
     public static void loadPlugin() {
-        //c = new Configurator();
-        //c.verifyStartup();
+        c = new Configurator();
+        c.verifyStartup();
         Bukkit.getConsoleSender().sendMessage(translate(" "));
-        Bukkit.getConsoleSender().sendMessage(translate("     &4\u2764 &9&l" + cPractice.get().getName() + " &4\u2764"));
+        Bukkit.getConsoleSender().sendMessage(translate("     &9&l" + cPractice.get().getName()));
         Bukkit.getConsoleSender().sendMessage(translate(""));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Author&7: &f" + cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Version&7: &f" + cPractice.get().getDescription().getVersion()));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Rank System&7: &f" + cPractice.get().getRankManager().getRankSystem()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Author&7: &f" + cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Version&7: &f" + cPractice.get().getDescription().getVersion()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Rank System&7: &f" + cPractice.get().getRankManager().getRankSystem()));
         Bukkit.getConsoleSender().sendMessage(translate(" "));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Spigot&7: &f" + cPractice.get().getServer().getName()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Spigot&7: &f" + cPractice.get().getServer().getName()));
         Bukkit.getConsoleSender().sendMessage(translate(" "));
         Bukkit.getConsoleSender().sendMessage(translate(" &9Loaded info"));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Arenas&7: &f" + Arena.getArenas().size()));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Kits&7: &f" + Kit.getKits().size()));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Kits Ranked&7: &f" + Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()));
-        Bukkit.getConsoleSender().sendMessage(translate(" &7\u27A5 &9Clans&7: &f" + Clan.getClans().size()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Arenas&7: &f" + Arena.getArenas().size()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Kits&7: &f" + Kit.getKits().size()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Kits Ranked&7: &f" + Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()));
+        Bukkit.getConsoleSender().sendMessage(translate(" &7| &9Clans&7: &f" + Clan.getClans().size()));
         Bukkit.getConsoleSender().sendMessage(translate(" "));
         Bukkit.getConsoleSender().sendMessage(CHAT_BAR);
     }

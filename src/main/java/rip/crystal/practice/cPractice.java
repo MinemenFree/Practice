@@ -19,6 +19,7 @@ import rip.crystal.practice.clan.ClanListener;
 import rip.crystal.practice.clan.commands.ClanCommand;
 import rip.crystal.practice.cosmetics.command.CosmeticsCommand;
 import rip.crystal.practice.cosmetics.impl.killeffects.command.KillEffectCommand;
+import rip.crystal.practice.cosmetics.impl.trails.command.TrailEffectCommand;
 import rip.crystal.practice.duel.command.*;
 import rip.crystal.practice.essentials.Essentials;
 import rip.crystal.practice.essentials.EssentialsListener;
@@ -26,7 +27,7 @@ import rip.crystal.practice.essentials.command.donator.RenameCommand;
 import rip.crystal.practice.essentials.command.donator.ShowAllPlayersCommand;
 import rip.crystal.practice.essentials.command.donator.ShowPlayerCommand;
 import rip.crystal.practice.essentials.command.management.AdminInformationCommand;
-import rip.crystal.practice.essentials.command.management.HysteriaReloadCommand;
+import rip.crystal.practice.essentials.command.management.ReloadCommand;
 import rip.crystal.practice.essentials.command.management.SetSlotsCommand;
 import rip.crystal.practice.essentials.command.management.SetSpawnCommand;
 import rip.crystal.practice.essentials.command.player.LangCommand;
@@ -91,6 +92,10 @@ import rip.crystal.practice.profile.modmode.commands.StaffModeCommand;
 import rip.crystal.practice.queue.Queue;
 import rip.crystal.practice.queue.QueueListener;
 import rip.crystal.practice.scoreboard.BoardAdapter;
+import rip.crystal.practice.shop.ShopSystem;
+import rip.crystal.practice.shop.command.CoinsCommand;
+import rip.crystal.practice.shop.command.ShopCommand;
+import rip.crystal.practice.shop.command.staff.CoinsStaffCommand;
 import rip.crystal.practice.tablist.TabAdapter;
 import rip.crystal.practice.tablist.impl.TabList;
 import rip.crystal.practice.tournament.TournamentListener;
@@ -136,6 +141,7 @@ public class cPractice extends JavaPlugin {
     private AbilityManager abilityManager;
     private FFAManager ffaManager;
     private dSpigot dSpigot;
+    private ShopSystem shopSystem;
     public boolean placeholderAPI = false;
     public boolean lunarClient = false;
     public int inQueues, inFights, bridgeRounds, rankedSumoRounds;
@@ -193,6 +199,8 @@ public class cPractice extends JavaPlugin {
         this.abilityManager.load();
 
         this.ffaManager = new FFAManager();
+
+        this.shopSystem = new ShopSystem();
 
         Hotbar.init();
         Kit.init();
@@ -356,7 +364,11 @@ public class cPractice extends JavaPlugin {
             new ReplyCommand();
         }
         new CosmeticsCommand();
+        new ShopCommand();
+        new CoinsCommand();
+        new CoinsStaffCommand();
         new KillEffectCommand();
+        new TrailEffectCommand();
         new TrollCommand();
         new FFACommand();
         new ArenaCommand();
@@ -388,7 +400,7 @@ public class cPractice extends JavaPlugin {
         new DayCommand();
         new GameModeCommand();
         new AbilityCommand();
-        new HysteriaReloadCommand();
+        new ReloadCommand();
         new HealCommand();
         new LangCommand();
         new LocationCommand();

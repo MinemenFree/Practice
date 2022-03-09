@@ -6,47 +6,29 @@ package rip.crystal.practice.profile.meta.option.button;
 
 import rip.crystal.practice.cosmetics.impl.killeffects.menu.KillEffectsMenu;
 import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.meta.option.menu.ProfileOptionButton;
 import rip.crystal.practice.utilities.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.utilities.menu.Button;
 
-public class DeathAnimationsOptionsButton extends ProfileOptionButton {
-    @Override
-    public ItemStack getEnabledItem(Player player) {
-        return new ItemBuilder(Material.GOLD_AXE).build();
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    public ItemStack getDisabledItem(Player player) {
-        return new ItemBuilder(Material.GOLD_AXE).build();
-    }
+public class DeathAnimationsOptionsButton extends Button {
 
     @Override
-    public String getOptionName() {
-        return "&c&lKill Effects";
-    }
+    public ItemStack getButtonItem(Player player) {
 
-    @Override
-    public String getDescription() {
-        return "Customize Kill Effects";
-    }
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add("&eClick to open Kill Effects Menu!");
 
-    @Override
-    public String getEnabledOption() {
-        return "Donator and would like some cool effects?";
-    }
-
-    @Override
-    public String getDisabledOption() {
-        return "Well, then this is for you :D.";
-    }
-
-    @Override
-    public boolean isEnabled(Player player) {
-        return false;
+        return new ItemBuilder(Material.LEATHER_CHESTPLATE)
+                .name("&9&lKill Effects")
+                .lore(lore)
+                .build();
     }
 
     @Override

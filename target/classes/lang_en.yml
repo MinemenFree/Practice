@@ -4,7 +4,7 @@ CONVERSATION:
   SEND_MESSAGE: '&7(To &r{target_color}{target_name}&7) {msg}'
   RECEIVE_MESSAGE: '&7(From &r{sender_color}{sender_name}&7) {msg}'
 JOIN_MESSAGES:
-- '  '
+  - '  '
 ARENA:
   REACHED_MAXIMUM: '&cYou have reached the maximum build height.'
   BUILD_OUTSIDE: '&cYou cannot build outside of the arena!'

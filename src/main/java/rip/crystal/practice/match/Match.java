@@ -230,21 +230,21 @@ public abstract class Match {
 							Partner Items
 						 */
 
-						profile.getPartneritem().applyCooldown(player, 0);
-						profile.getAntitrapper().applyCooldown(player, 0);
-						profile.getBeacom().applyCooldown(player, 0);
-						profile.getCookie().applyCooldown(player, 0);
-						profile.getEffectdisabler().applyCooldown(player, 0);
-						profile.getGuardianangel().applyCooldown(player, 0);
-						profile.getNinjastar().applyCooldown(player, 0);
-						profile.getPocketbard().applyCooldown(player, 0);
-						profile.getRocket().applyCooldown(player, 0);
-						profile.getScrammbler().applyCooldown(player, 0);
-						profile.getStrength().applyCooldown(player, 0);
-						profile.getSwapperaxe().applyCooldown(player, 0);
-						profile.getSwitcher().applyCooldown(player, 0);
-						profile.getTankingot().applyCooldown(player, 0);
-						profile.getTimewarp().applyCooldown(player, 0);
+						profile.getPartneritem().cooldownRemove(player);
+						profile.getAntitrapper().cooldownRemove(player);
+						profile.getBeacom().cooldownRemove(player);
+						profile.getCookie().cooldownRemove(player);
+						profile.getEffectdisabler().cooldownRemove(player);
+						profile.getGuardianangel().cooldownRemove(player);
+						profile.getNinjastar().cooldownRemove(player);
+						profile.getPocketbard().cooldownRemove(player);
+						profile.getRocket().cooldownRemove(player);
+						profile.getScrammbler().cooldownRemove(player);
+						profile.getStrength().cooldownRemove(player);
+						profile.getSwapperaxe().cooldownRemove(player);
+						profile.getSwitcher().cooldownRemove(player);
+						profile.getTankingot().cooldownRemove(player);
+						profile.getTimewarp().cooldownRemove(player);
 
 						if (getKit().getGameRules().isShowHealth()) {
 							Objective objective = player.getScoreboard().getObjective(DisplaySlot.BELOW_NAME);
@@ -311,7 +311,7 @@ public abstract class Match {
 			});
 		}
 
-		/*TaskUtil.run(() ->
+		TaskUtil.run(() ->
 				getParticipants().forEach(gameParticipant ->
 						gameParticipant.getPlayers().forEach(gamePlayer -> {
 							Player player = gamePlayer.getPlayer();
@@ -320,10 +320,10 @@ public abstract class Match {
 									player.addPotionEffect(effect);
 								}
 							}
-						})));*/
+						})));
 
 		// Set time data
-		//timeData = System.currentTimeMillis();
+		timeData = System.currentTimeMillis();
 	}
 
 	public abstract boolean canStartRound();
@@ -440,18 +440,18 @@ public abstract class Match {
 		Profile profile = Profile.get(dead.getUniqueId());
 
 		// Send defeat title to loser.
-		dead.sendTitle(new Title(
-				new MessageFormat(Locale.MATCH_LOSER_TITLE.format(profile.getLocale())).getMessage(),
-				new MessageFormat(Locale.MATCH_LOSER_SUBTITLE.format(profile.getLocale())).getMessage(), 20, 40, 20));
+		//dead.sendTitle(new Title(
+				//new MessageFormat(Locale.MATCH_LOSER_TITLE.format(profile.getLocale())).getMessage(),
+				//new MessageFormat(Locale.MATCH_LOSER_SUBTITLE.format(profile.getLocale())).getMessage(), 20, 40, 20));
 
 		if(killer != null) {
 			Profile winner = Profile.get(killer.getUniqueId());
 
 			// Send victory title to winner.
-			killer.sendTitle(new Title(
-					new MessageFormat(Locale.MATCH_WINNER_TITLE.format(profile.getLocale())).getMessage(),
-					new MessageFormat(Locale.MATCH_WINNER_SUBTITLE.format(profile.getLocale()))
-							.add("{loser}", dead.getPlayer().toString()).getMessage(), 20, 40, 20));
+			//killer.sendTitle(new Title(
+					//new MessageFormat(Locale.MATCH_WINNER_TITLE.format(profile.getLocale())).getMessage(),
+					//new MessageFormat(Locale.MATCH_WINNER_SUBTITLE.format(profile.getLocale()))
+							//.add("{loser}", dead.getPlayer().toString()).getMessage(), 20, 40, 20));
 
 
 			/*
@@ -466,6 +466,9 @@ public abstract class Match {
 					}
 				}
 			}
+
+			// Add coins to winner
+			winner.addCoins(10);
 		}
 
 		if (killer != null) { // If killer isn't null then add a kill to the player.

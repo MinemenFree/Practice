@@ -4,7 +4,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.clan.Clan;
+import rip.crystal.practice.cosmetics.impl.killeffects.KillEffectType;
 import rip.crystal.practice.kit.Kit;
 import rip.crystal.practice.kit.KitLoadout;
 import rip.crystal.practice.match.mongo.MatchInfo;
@@ -32,6 +34,8 @@ public class MongoDBIProfile implements IProfile {
 
         document.put("lang", profile.getLocale().getAbbreviation());
         document.put("color", profile.getColor());
+        document.put("coins", cPractice.get().getShopSystem().getCoins(profile.getUuid()));
+        document.put("killEffect", profile.getKillEffectType().getName());
 
         Document optionsDocument = new Document();
         optionsDocument.put("showScoreboard", profile.getOptions().showScoreboard());
@@ -114,6 +118,10 @@ public class MongoDBIProfile implements IProfile {
         if (document.containsKey("name")) profile.setName(document.getString("name"));
 
         if (document.containsKey("color")) profile.setColor(document.getString("color"));
+
+        if (document.containsKey("coins")) cPractice.get().getShopSystem().setCoins(profile.getUuid(), document.getInteger("coins"));
+
+        if (document.containsKey("killEffect")) profile.setKillEffectType(KillEffectType.getByName(document.getString("killEffect")));
 
         Document options = (Document) document.get("options");
 

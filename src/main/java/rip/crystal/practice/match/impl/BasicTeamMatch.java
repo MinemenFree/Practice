@@ -199,7 +199,7 @@ public class BasicTeamMatch extends Match {
 		losingParticipant.setEliminated(true);
 
 		if(canEndMatch()) {
-			winningParticipant.getPlayers().forEach(matchGamePlayer -> {
+			/*winningParticipant.getPlayers().forEach(matchGamePlayer -> {
 				Profile profile = Profile.get(matchGamePlayer.getUuid());
 				matchGamePlayer.getPlayer().sendTitle(new Title(
 						new MessageFormat(Locale.MATCH_WINNER_TITLE.format(profile.getLocale())).getMessage(),

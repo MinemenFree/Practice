@@ -76,7 +76,7 @@ public class ClanInviteCommand extends BaseCommand {
                 .send(player);
         Clickable clickable = new Clickable();
         clickable.add(new MessageFormat(Locale.CLAN_INVITE_RECEIVER.format(profile.getLocale()))
-                .add("{clan_name}", profile.getClan().getColoredName())
+                .add("{clan_nFame}", profile.getClan().getColoredName())
                 .toString());
         clickable.add(" &6C&6l&6i&6c&6k &6h&6e&6r&6e to enter", CC.translate("&bClick to enter"), "/clan join " +  profile.getClan().getName());
         clickable.sendToPlayer(target);

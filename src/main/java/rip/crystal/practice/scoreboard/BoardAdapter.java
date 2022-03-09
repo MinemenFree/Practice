@@ -3,11 +3,13 @@ package rip.crystal.practice.scoreboard;
 import com.google.common.collect.Lists;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.event.game.EventGame;
+import rip.crystal.practice.kit.Kit;
 import rip.crystal.practice.party.Party;
 import rip.crystal.practice.profile.Profile;
 import rip.crystal.practice.profile.ProfileListener;
 import rip.crystal.practice.profile.ProfileState;
 import rip.crystal.practice.profile.match.ScoreboardAdapter;
+import rip.crystal.practice.profile.meta.ProfileKitData;
 import rip.crystal.practice.profile.modmode.Modmode;
 import rip.crystal.practice.queue.QueueProfile;
 import rip.crystal.practice.scoreboard.impl.Assemble;
@@ -23,6 +25,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class BoardAdapter implements AssembleAdapter {
 
@@ -46,6 +49,7 @@ public class BoardAdapter implements AssembleAdapter {
 						.replace("{in-fights}", String.valueOf(cPractice.get().getInFights()))
 						.replace("{in-queues}", String.valueOf(cPractice.get().getInQueues()))
 						.replace("{division}", String.valueOf(getDivision(player)))
+						.replace("{coins}", String.valueOf(profile.getCoins()))
 						.replace("{elo}", String.valueOf(EloUtil.getGlobalElo(profile))));
 			});
 		}
@@ -139,84 +143,86 @@ public class BoardAdapter implements AssembleAdapter {
 
 	public String getDivision(final Player player) {
 		Profile profile = Profile.get(player.getUniqueId());
-		int kills = EloUtil.getGlobalElo(profile);
+		int elo = EloUtil.getGlobalElo(profile);
+
 		String division = "";
-		if (kills <= 1000) {
+
+		if (elo <= 1000) {
 			division = CC.GRAY + "Silver V";
 		}
-		if (kills >= 1000) {
+		if (elo >= 1000) {
 			division = CC.GRAY + "Silver IV";
 		}
-		if (kills >= 1050) {
+		if (elo >= 1050) {
 			division = CC.GRAY + "Silver III";
 		}
-		if (kills >= 1075) {
+		if (elo >= 1075) {
 			division = CC.GRAY + "Silver II";
 		}
-		if (kills >= 1100) {
+		if (elo >= 1100) {
 			division = CC.GRAY + "Silver I";
 		}
-		if (kills >= 1150) {
+		if (elo >= 1150) {
 			division = CC.YELLOW + "Gold V";
 		}
-		if (kills >= 1300) {
+		if (elo >= 1300) {
 			division = CC.YELLOW + "Gold IV";
 		}
-		if (kills >= 1350) {
+		if (elo >= 1350) {
 			division = CC.YELLOW + "Gold III";
 		}
-		if (kills >= 1400) {
+		if (elo >= 1400) {
 			division = CC.YELLOW + "Gold II";
 		}
-		if (kills >= 1450) {
+		if (elo >= 1450) {
 			division = CC.YELLOW + "Gold I";
 		}
-		if (kills >= 1500) {
+		if (elo >= 1500) {
 			division = CC.AQUA + "Platinum V";
 		}
-		if (kills >= 1600) {
+		if (elo >= 1600) {
 			division = CC.AQUA + "Platinum IV";
 		}
-		if (kills >= 1700) {
+		if (elo >= 1700) {
 			division = CC.AQUA + "Platinum III";
 		}
-		if (kills >= 1800) {
+		if (elo >= 1800) {
 			division = CC.AQUA + "Platinum II";
 		}
-		if (kills >= 1900) {
+		if (elo >= 1900) {
 			division = CC.AQUA + "Platinum I";
 		}
-		if (kills >= 2000) {
+		if (elo >= 2000) {
 			division = CC.GREEN + "Emerald V";
 		}
-		if (kills >= 2100) {
+		if (elo >= 2100) {
 			division = CC.GREEN + "Emerald IV";
 		}
-		if (kills >= 2200) {
+		if (elo >= 2200) {
 			division = CC.GREEN + "Emerald III";
 		}
-		if (kills >= 2300) {
+		if (elo >= 2300) {
 			division = CC.GREEN + "Emerald II";
 		}
-		if (kills >= 2400) {
+		if (elo >= 2400) {
 			division = CC.GREEN + "Emerald I";
 		}
-		if (kills >= 2500) {
+		if (elo >= 2500) {
 			division = CC.BLUE + "Sapphire V";
 		}
-		if (kills >= 2600) {
+		if (elo >= 2600) {
 			division = CC.BLUE + "Sapphire IV";
 		}
-		if (kills >= 2700) {
+		if (elo >= 2700) {
 			division = CC.BLUE + "Sapphire III";
 		}
-		if (kills >= 2800) {
+		if (elo >= 2800) {
 			division = CC.BLUE + "Sapphire II";
 		}
-		if (kills >= 2900) {
+		if (elo >= 2900) {
 			division = CC.BLUE + "Sapphire I";
 		}
-		if (kills >= 3000) {
+		if (elo >= 3000) {
 			division = CC.GOLD + "Champion";
 		}
 		return division;

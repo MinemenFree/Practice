@@ -1,50 +1,34 @@
 package rip.crystal.practice.profile.meta.option.button;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
-import rip.crystal.practice.cosmetics.impl.killeffects.menu.KillEffectsMenu;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.cosmetics.menu.CosmeticsMenu;
 import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.meta.option.menu.ProfileOptionButton;
 import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.TextSplitter;
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.menu.Button;
 
-public class CosmeticsOptionButton extends ProfileOptionButton {
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    public ItemStack getEnabledItem(Player player) {
-        return new ItemBuilder(Material.BLAZE_ROD).build();
-    }
-
-    @Override
-    public ItemStack getDisabledItem(Player player) {
-        return new ItemBuilder(Material.BLAZE_ROD).build();
-    }
+public class CosmeticsOptionButton extends Button {
 
     @Override
-    public String getOptionName() {
-        return "&b&lCosmetics";
-    }
+    public ItemStack getButtonItem(Player player) {
 
-    @Override
-    public String getDescription() {
-        return "";
-    }
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add("&eClick to open Cosmetics Menu!");
 
-    @Override
-    public String getEnabledOption() {
-        return "";
-    }
-
-    @Override
-    public String getDisabledOption() {
-        return "";
-    }
-
-    @Override
-    public boolean isEnabled(Player player) {
-        return false;
+        return new ItemBuilder(Material.LEATHER_CHESTPLATE)
+                .name("&9&lCosmetics")
+                .lore(lore)
+                .build();
     }
 
     @Override

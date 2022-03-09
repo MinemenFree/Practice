@@ -42,21 +42,19 @@ public class KitUtils {
     public static void giveBaseRaidingKit(Player player) {
         Profile profile = Profile.get(player.getUniqueId());
         BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
-        ItemStack[] armorRed = InventoryUtil.leatherArmor(Color.RED);
-        ItemStack[] armorBlue = InventoryUtil.leatherArmor(Color.BLUE);
         Kit kit;
-        if (teamMatch.getParticipantB().containsPlayer(player.getUniqueId())) {
-            //player.getInventory().setArmorContents(armorRed);
-            kit = Kit.getByName("HCFRaider");
-            player.getInventory().setArmorContents(Objects.requireNonNull(kit).getKitLoadout().getArmor());
+
+        if(teamMatch.getParticipantA() != null || teamMatch.getParticipantB() != null) {
+            if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
+                kit = Kit.getByName("HCFTrapper");
+            } else {
+                kit = Kit.getByName("HCFRaider");
+            }
+            assert kit != null;
+            player.getInventory().setArmorContents(kit.getKitLoadout().getArmor());
             player.getInventory().setContents(kit.getKitLoadout().getContents());
-        } else {
-            //player.getInventory().setArmorContents(armorBlue);
-            kit = Kit.getByName("HCFTrapper");
-            player.getInventory().setArmorContents(Objects.requireNonNull(kit).getKitLoadout().getArmor());
-            player.getInventory().setContents(kit.getKitLoadout().getContents());
+            player.updateInventory();
         }
-        player.updateInventory();
     }
 
 }

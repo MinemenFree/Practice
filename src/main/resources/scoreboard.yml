@@ -28,6 +28,7 @@ LINES:
     - '&fIn Queues&7: &9{in-queues}'
     - ''
     - '&fDivision&7: &9{division}'
+    - '&fCoins&7: &9{coins}'
   IN-QUEUE:
     - '{bars}'
     - '&9Searching for a match...'

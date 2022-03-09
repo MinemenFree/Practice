@@ -1,12 +1,12 @@
 HOTBAR_ITEMS:
   QUEUE_JOIN_UNRANKED:
-    SLOT: 8
+    SLOT: 1
     MATERIAL: IRON_SWORD
     DURABILITY: 0
     NAME: '&9&lUnranked Queue'
     LORE: []
   QUEUE_JOIN_RANKED:
-    SLOT: 9
+    SLOT: 2
     MATERIAL: DIAMOND_SWORD
     DURABILITY: 0
     NAME: '&9&lRanked Queue'
@@ -72,7 +72,7 @@ HOTBAR_ITEMS:
     NAME: '&9&lOther Parties'
     LORE: []
   KIT_EDITOR:
-    SLOT: 1
+    SLOT: 9
     MATERIAL: BOOK
     DURABILITY: 0
     NAME: '&9&lKit Editor'
@@ -84,13 +84,13 @@ HOTBAR_ITEMS:
     NAME: '&c&lStop Spectating'
     LORE: []
   VIEW_INVENTORY:
-    SLOT: 0
+    SLOT: 2
     MATERIAL: BOOK
     DURABILITY: 0
     NAME: '&9&lView Inventory'
     LORE: []
   EVENT_JOIN:
-    SLOT: 8
+    SLOT: 4
     MATERIAL: NETHER_STAR
     DURABILITY: 0
     NAME: '&9&lJoin Event'
@@ -130,7 +130,7 @@ HOTBAR_ITEMS:
     NAME: '&9&lHost Event'
     LORE: []
   LEADERBOARD_MENU:
-    SLOT: 2
+    SLOT: 7
     MATERIAL: SKULL_ITEM
     DURABILITY: 0
     NAME: '&9&lLeaderboard'

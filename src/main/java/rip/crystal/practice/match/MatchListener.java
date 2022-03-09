@@ -219,69 +219,36 @@ public class MatchListener implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
-	public void onBucketEmptyEvent(PlayerBucketEmptyEvent event) {
-		Player player = event.getPlayer();
+	@EventHandler(priority=EventPriority.LOW, ignoreCancelled=true)
+	public void onBucketEmptyEvent(PlayerBucketEmptyEvent playerBucketEmptyEvent) {
+		Player player = playerBucketEmptyEvent.getPlayer();
 		Profile profile = Profile.get(player.getUniqueId());
-
 		if (profile.getState() == ProfileState.FIGHTING) {
 			Match match = profile.getMatch();
-
-			if (match.getKit().getGameRules().isBuild() && match.getState() == MatchState.PLAYING_ROUND) {
+			if ((match.getKit().getGameRules().isBuild() || match.getKit().getGameRules().isHcftrap() && ((BasicTeamMatch)match).getParticipantA().containsPlayer(player.getUniqueId())) && match.getState() == MatchState.PLAYING_ROUND) {
 				Arena arena = match.getArena();
-				Block block = event.getBlockClicked().getRelative(event.getBlockFace());
-				int x = (int) block.getLocation().getX();
-				int y = (int) block.getLocation().getY();
-				int z = (int) block.getLocation().getZ();
-
-				if (y > arena.getMaxBuildHeight()) {
-					new MessageFormat(Locale.ARENA_REACHED_MAXIMUM
-							.format(profile.getLocale()))
-							.send(player);
-					event.setCancelled(true);
+				Block block = playerBucketEmptyEvent.getBlockClicked().getRelative(playerBucketEmptyEvent.getBlockFace());
+				int n = (int)block.getLocation().getX();
+				int n2 = (int)block.getLocation().getY();
+				int n3 = (int)block.getLocation().getZ();
+				if (n2 > arena.getMaxBuildHeight()) {
+					new MessageFormat(Locale.ARENA_REACHED_MAXIMUM.format(profile.getLocale())).send(player);
+					playerBucketEmptyEvent.setCancelled(true);
 					return;
 				}
-
-				if (x >= arena.getX1() && x <= arena.getX2() && y >= arena.getY1() && y <= arena.getY2() &&
-				    z >= arena.getZ1() && z <= arena.getZ2()) {
+				if (n >= arena.getX1() && n <= arena.getX2() && n2 >= arena.getY1() && n2 <= arena.getY2() && n3 >= arena.getZ1() && n3 <= arena.getZ2()) {
 					match.getPlacedBlocks().add(block.getLocation());
 				} else {
-					event.setCancelled(true);
+					playerBucketEmptyEvent.setCancelled(true);
 				}
 			} else {
-				event.setCancelled(true);
+				playerBucketEmptyEvent.setCancelled(true);
 			}
-
-			if (match.getKit().getGameRules().isHcftrap() && match.getState() == MatchState.PLAYING_ROUND) {
-				Arena arena = match.getArena();
-				Block block = event.getBlockClicked().getRelative(event.getBlockFace());
-				int x = (int) block.getLocation().getX();
-				int y = (int) block.getLocation().getY();
-				int z = (int) block.getLocation().getZ();
-
-				if (y > arena.getMaxBuildHeight()) {
-					new MessageFormat(Locale.ARENA_REACHED_MAXIMUM
-							.format(profile.getLocale()))
-							.send(player);
-					event.setCancelled(true);
-					return;
-				}
-
-				if (x >= arena.getX1() && x <= arena.getX2() && y >= arena.getY1() && y <= arena.getY2() &&
-						z >= arena.getZ1() && z <= arena.getZ2()) {
-					match.getPlacedBlocks().add(block.getLocation());
-				} else {
-					event.setCancelled(true);
-				}
-			} else {
-				event.setCancelled(true);
-			}
-		} else {
-			if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
-				event.setCancelled(true);
-			}
+		} else if (!player.isOp() || player.getGameMode() != GameMode.CREATIVE || profile.getState() == ProfileState.SPECTATING) {
+			playerBucketEmptyEvent.setCancelled(true);
 		}
 	}
+
 
 	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	public void onPlayerPickupItemEvent(PlayerPickupItemEvent event) {
@@ -1101,6 +1068,8 @@ public class MatchListener implements Listener {
 		if(teamMatch == null) {
 			return;
 		}
+
+		if (profile.getState() == ProfileState.SPECTATING) event.setCancelled(true);
 
 		if(teamMatch.getKit().getGameRules().isHcftrap()) {
 			if(event.getItem() != null && event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.SPRUCE_FENCE_GATE && event.getAction() == Action.RIGHT_CLICK_BLOCK) {

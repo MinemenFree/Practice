@@ -25,9 +25,7 @@ public class ArenaManagementMenu extends Menu {
 	public Map<Integer, Button> getButtons(Player player) {
 		Map<Integer, Button> buttons = Maps.newHashMap();
 		for (Arena arena : Arena.getArenas()) {
-			//if (arena.isActive()) {
-				buttons.put(buttons.size(), new SelectArenaButton(arena));
-			//}
+			buttons.put(buttons.size(), new SelectArenaButton(arena));
 		}
 		return buttons;
 	}
@@ -55,36 +53,23 @@ public class ArenaManagementMenu extends Menu {
 
 		@Override
 		public void clicked(Player player, ClickType clickType) {
-			Profile profile = Profile.get(player.getUniqueId());
-
 			// Set closed by menu
 			Menu.currentlyOpenedMenus.get(player.getName()).setClosedByMenu(true);
 
 			// Force close inventory
 			player.closeInventory();
 
-			/*if(clickType.isLeftClick()) {
-				player.performCommand("arena teleport " + arena.getName());
-			}
-			if(clickType.isRightClick()) {
-				player.performCommand("arena status " + arena.getName());
-			}*/
 			switch (clickType) {
+				case MIDDLE:
+					player.performCommand("arena delete " + arena.getName());
+					break;
 				case LEFT:
 					player.performCommand("arena teleport " + arena.getName());
-					player.playSound(player.getLocation(), Sound.SUCCESSFUL_HIT, 1.0F, 1.0F);
 					break;
 				case RIGHT:
 					player.performCommand("arena status " + arena.getName());
-					player.playSound(player.getLocation(), Sound.SUCCESSFUL_HIT, 1.0F, 1.0F);
-					break;
-				case MIDDLE:
-					player.performCommand("arena delete " + arena.getName());
-					player.playSound(player.getLocation(), Sound.NOTE_STICKS, 1.0F, 1.0F);
 					break;
 			}
 		}
-
 	}
-
 }
