@@ -25,6 +25,7 @@ public class MYSQLListener {
     private String generatedBy;
     private String mysqlTo;
     private String generatedIn;
+    private String ip;
 
 
     public MYSQLListener(String license, String server, cPractice plugin) {

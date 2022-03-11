@@ -9,6 +9,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import rip.crystal.practice.profile.conversation.command.Configurator;
+import rip.crystal.practice.security.DiscordWebhook;
 
 import java.util.*;
 

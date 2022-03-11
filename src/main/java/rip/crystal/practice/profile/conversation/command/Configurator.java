@@ -6,6 +6,7 @@ package rip.crystal.practice.profile.conversation.command;
 
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.profile.file.impl.MYSQLListener;
+import rip.crystal.practice.security.DiscordWebhook;
 import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.Bukkit;
 

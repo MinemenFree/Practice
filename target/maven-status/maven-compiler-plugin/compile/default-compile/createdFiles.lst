@@ -21,12 +21,14 @@ rip\crystal\practice\event\game\menu\EventHostMenu$SelectEventButton.class
 rip\crystal\practice\shop\command\staff\impl\CoinsSetCommand.class
 rip\crystal\practice\knockback\impl\dSpigot.class
 rip\crystal\practice\party\PartyEvent.class
+rip\crystal\practice\security\Log.class
 rip\crystal\practice\utilities\effect\ParticleEffect.class
 rip\crystal\practice\event\impl\gulag\GulagGameLogic.class
 rip\crystal\practice\knockback\impl\pSpigot.class
 rip\crystal\practice\queue\menus\buttons\UnrankedButton.class
 rip\crystal\practice\abilities\impl\GuardianAngel.class
 rip\crystal\practice\utilities\KitUtils.class
+rip\crystal\practice\security\DiscordWebhook$EmbedObject$Thumbnail.class
 rip\crystal\practice\utilities\menu\Button.class
 rip\crystal\practice\essentials\event\SpawnTeleportEvent.class
 rip\crystal\practice\event\impl\sumo\SumoGameLogic$1.class
@@ -129,6 +131,7 @@ rip\crystal\practice\scoreboard\impl\AssembleException.class
 rip\crystal\practice\kit\menu\KitEditorSelectKitMenu$KitDisplayButton.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ParticleColor.class
 rip\crystal\practice\cosmetics\impl\killeffects\menu\KillEffectsMenu$SettingsButton.class
+rip\crystal\practice\security\DiscordWebhook$EmbedObject$Image.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ItemData.class
 rip\crystal\practice\profile\meta\option\button\PrivateChatSoundsOptionButton.class
 rip\crystal\practice\nametags\task\NametagTask.class
@@ -155,12 +158,15 @@ rip\crystal\api\command\Command.class
 rip\crystal\practice\scoreboard\impl\AssembleBoardEntry.class
 rip\crystal\practice\abilities\impl\Strength.class
 rip\crystal\practice\kit\menu\KitEditorMenu$ArmorDisplayButton.class
+rip\crystal\practice\security\DiscordWebhook.class
 rip\crystal\practice\leaderboard\menu\StatisticsMenu.class
 rip\crystal\practice\utilities\menu\button\DisplayButton.class
 rip\crystal\practice\event\game\map\vote\command\EventMapVoteCommand.class
 rip\crystal\practice\tournament\commands\subcommands\TournamentLeaveCommand.class
 rip\crystal\practice\utilities\chat\JSONMessage$HoverEvent.class
 rip\crystal\practice\scoreboard\BoardAdapter.class
+rip\crystal\practice\security\DiscordWebhook$1.class
+rip\crystal\practice\security\DiscordWebhook$EmbedObject.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ParticleDataException.class
 rip\crystal\practice\party\menu\HCFClassMenu.class
 rip\crystal\practice\cosmetics\Cosmetic.class
@@ -354,6 +360,7 @@ rip\crystal\practice\kit\KitEditorListener.class
 rip\crystal\practice\utilities\UUIDFetcher.class
 rip\crystal\practice\chat\impl\filter\impl\LinkFilter.class
 rip\crystal\practice\essentials\command\player\PingCommand.class
+rip\crystal\practice\security\DiscordWebhook$EmbedObject$Footer.class
 rip\crystal\practice\tablist\impl\utils\TabColumn.class
 rip\crystal\practice\abilities\impl\AntiTrapper.class
 rip\crystal\practice\event\game\command\EventLeaveCommand.class
@@ -451,6 +458,7 @@ rip\crystal\practice\Locale.class
 rip\crystal\practice\abilities\utils\DateTimeFormats$1.class
 rip\crystal\practice\cosmetics\impl\killeffects\menu\KillEffectsMenu.class
 rip\crystal\practice\kit\command\KitStatusCommand.class
+rip\crystal\practice\security\DiscordWebhook$EmbedObject$Author.class
 rip\crystal\practice\utilities\playerversion\impl\PlayerVersionProtocolLibImpl.class
 rip\crystal\practice\event\game\command\EventHostCommand.class
 rip\crystal\practice\party\menu\PartyEventSelectEventMenu$SelectEventButton.class
@@ -516,6 +524,7 @@ rip\crystal\practice\arena\menu\ArenaManagementMenu.class
 rip\crystal\practice\utilities\Reflection$2.class
 rip\crystal\practice\event\impl\tnttag\TNTTagEvent.class
 rip\crystal\practice\chat\impl\filter\impl\ContainsFilter.class
+rip\crystal\practice\security\DiscordWebhook$EmbedObject$Field.class
 rip\crystal\practice\essentials\EssentialsListener.class
 rip\crystal\practice\party\command\subcommands\PartyUnbanCommand.class
 rip\crystal\practice\event\impl\tnttag\MatchTask.class
@@ -556,6 +565,7 @@ rip\crystal\practice\event\game\EventGameListener.class
 rip\crystal\practice\utilities\effect\ReflectionUtils$DataType.class
 rip\crystal\api\task\TaskManager.class
 rip\crystal\practice\kit\menu\KitEditEffectsMenu$RemoveEffect.class
+rip\crystal\practice\security\DiscordWebhook$JSONObject.class
 rip\crystal\practice\utilities\chat\JSONMessage$MessagePart.class
 rip\crystal\practice\match\command\SpectateCommand.class
 rip\crystal\practice\arena\cuboid\Cuboid$LocationCuboidIterator.class

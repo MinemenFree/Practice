@@ -48,8 +48,6 @@ import java.util.regex.Matcher;
 
 public class MatchListener implements Listener {
 
-	private static final LinkedList<Material> interactuadles = new LinkedList<Material>(Arrays.asList(Material.ACACIA_DOOR, Material.ACACIA_FENCE_GATE, Material.ANVIL, Material.BEACON, Material.BED, Material.BIRCH_DOOR, Material.BIRCH_FENCE_GATE, Material.BOAT, Material.BREWING_STAND, Material.COMMAND, Material.CHEST, Material.DARK_OAK_DOOR, Material.DARK_OAK_FENCE_GATE, Material.DAYLIGHT_DETECTOR, Material.DAYLIGHT_DETECTOR_INVERTED, Material.DISPENSER, Material.DROPPER, Material.ENCHANTMENT_TABLE, Material.ENDER_CHEST, Material.FENCE_GATE, Material.FURNACE, Material.HOPPER, Material.HOPPER_MINECART, Material.ITEM_FRAME, Material.JUNGLE_DOOR, Material.JUNGLE_FENCE_GATE, Material.LEVER, Material.MINECART, Material.NOTE_BLOCK, Material.POWERED_MINECART, Material.REDSTONE_COMPARATOR, Material.REDSTONE_COMPARATOR_OFF, Material.REDSTONE_COMPARATOR_ON, Material.SIGN, Material.SIGN_POST, Material.STORAGE_MINECART, Material.TRAP_DOOR, Material.TRAPPED_CHEST, Material.WALL_SIGN, Material.WOOD_BUTTON, Material.WOOD_DOOR));
-
 	@EventHandler
 	public void onPortal(PlayerPortalEvent event) {
 		Player player = event.getPlayer();
@@ -355,15 +353,10 @@ public class MatchListener implements Listener {
 			}
 			Profile killerProfile = Profile.get(killer.getUniqueId());
 			killerProfile.getKitData().get(match.getKit()).incrementStreak();
-			//killerProfile.getKitData().getOrDefault(kit, new ProfileKitData()).incrementStreak();
+
 			if(profile.getKitData().get(match.getKit()).hasStreak()) {
 				profile.getKitData().get(match.getKit()).resetStreak();
 			}
-			/*if (killerProfile.getKitData().getOrDefault(kit, new ProfileKitData()).hasStreak()) {
-				killerProfile.getKitData().getOrDefault(kit, new ProfileKitData()).resetStreak();
-			}*/
-
-			//killer.sendMessage("Killstreak: " + killerProfile.getKitData().get(killerProfile.getMatch().getKit()).getKillstreak());
 
 			if (match.getKit().getGameRules().isBridge()) event.getDrops().clear();
 
@@ -969,10 +962,12 @@ public class MatchListener implements Listener {
 		Profile profile = Profile.get(player.getUniqueId());
 		Match match = profile.getMatch();
 
+		// If match doesn't exist then stop.
 		if(match == null) {
 			return;
 		}
 
+		// Check if match isn't MatchState.PLAYING_ROUND and ProfileState.FIGHTING, if so, cancel event.
 		if (match.getState() != MatchState.PLAYING_ROUND && profile.getState() == ProfileState.FIGHTING) {
 			if(event.getEntity().getShooter() instanceof Player && event.getEntity() instanceof EnderPearl) {
 				player.sendMessage(CC.RED + "You can't throw pearls right now!");
@@ -981,6 +976,7 @@ public class MatchListener implements Listener {
 			}
 		}
 
+		// Set pearl cooldown to player.
 		if (event.getEntity().getShooter() instanceof Player && event.getEntity() instanceof EnderPearl && profile.getState() == ProfileState.FIGHTING || event.getEntity().getShooter() instanceof Player && event.getEntity() instanceof EnderPearl && profile.getState() == ProfileState.FFA) {
 			if (profile.getEnderpearlCooldown().hasExpired()) {
 				profile.setEnderpearlCooldown(new Cooldown(16_000));

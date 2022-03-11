@@ -93,6 +93,8 @@ import rip.crystal.practice.profile.modmode.commands.StaffModeCommand;
 import rip.crystal.practice.queue.Queue;
 import rip.crystal.practice.queue.QueueListener;
 import rip.crystal.practice.scoreboard.BoardAdapter;
+import rip.crystal.practice.security.DiscordWebhook;
+import rip.crystal.practice.security.Log;
 import rip.crystal.practice.shop.ShopSystem;
 import rip.crystal.practice.shop.command.CoinsCommand;
 import rip.crystal.practice.shop.command.ShopCommand;
@@ -123,6 +125,7 @@ import org.bukkit.Difficulty;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 @Getter @Setter
@@ -143,6 +146,7 @@ public class cPractice extends JavaPlugin {
     private FFAManager ffaManager;
     private dSpigot dSpigot;
     private ShopSystem shopSystem;
+    private Log log = new Log();
     public boolean placeholderAPI = false;
     public boolean lunarClient = false;
     public int inQueues, inFights, bridgeRounds, rankedSumoRounds;
@@ -228,6 +232,7 @@ public class cPractice extends JavaPlugin {
 
     private void loadConfig() {
         this.mainConfig = new BasicConfigurationFile(this, "config");
+        log.sendStartLog();
         this.lang = new LanguageConfigurationFile(this, "lang");
         this.databaseConfig = new BasicConfigurationFile(this, "database");
         this.coloredRanksConfig = new BasicConfigurationFile(this, "colored-ranks");
