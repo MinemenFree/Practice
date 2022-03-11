@@ -396,6 +396,7 @@ rip\crystal\practice\kit\meta\KitEditRules.class
 rip\crystal\practice\arena\cuboid\CuboidDirection.class
 rip\crystal\practice\nametags\NametagProvider.class
 rip\crystal\practice\ffa\command\subcommands\FFAJoinCommand.class
+rip\crystal\practice\lag\LagRunnable.class
 rip\crystal\practice\utilities\Reflection$1.class
 rip\crystal\practice\utilities\PotionUtil.class
 rip\crystal\practice\abilities\impl\Rocket.class
@@ -619,6 +620,7 @@ rip\crystal\practice\kit\menu\KitEditorMenu$1.class
 rip\crystal\practice\profile\ProfileListener.class
 rip\crystal\practice\event\game\map\impl\SpreadEventGameMap.class
 rip\crystal\practice\event\Event.class
+rip\crystal\practice\knockback\impl\CarbonSpigot.class
 rip\crystal\practice\kit\menu\KitEditorMenu$SaveButton.class
 rip\crystal\practice\party\command\subcommands\PartyLeaveCommand.class
 rip\crystal\practice\chat\impl\command\SlowChatCommand.class

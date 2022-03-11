@@ -9,14 +9,14 @@ import org.bukkit.entity.Player;
 
 public class AdminInformationCommand extends BaseCommand {
 
-    @Command(name = "admin", aliases = {"admininformation"}, permission = "hysteria.owner")
+    @Command(name = "admin", aliases = {"admininformation"}, permission = "cpractice.owner")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
         player.sendMessage(CC.CHAT_BAR);
-        player.sendMessage(CC.translate("&cPlugin: &r" + "cPractice"));
-        player.sendMessage(CC.translate("&cLicense: &r" + cPractice.get().getMainConfig().getString("LICENSE")));
-        player.sendMessage(CC.translate("&cDeveloper: &r" + "ziue"));
+        player.sendMessage(CC.translate("&9Plugin: &r" + "cPractice"));
+        player.sendMessage(CC.translate("&9License: &r" + cPractice.get().getMainConfig().getString("LICENSE")));
+        player.sendMessage(CC.translate("&9Developer: &r" + "ziue"));
         player.sendMessage(CC.CHAT_BAR);
     }
 }

@@ -137,14 +137,14 @@
 
         <!--lib-->
 
-        <!--
         <dependency>
-            <groupId>rip.crystal.api</groupId>
-            <artifactId>Panda</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>xyz.refine.spigot</groupId>
+            <artifactId>knockback</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/Carbon-Knockback_API.jar</systemPath>
         </dependency>
-        -->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

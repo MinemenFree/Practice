@@ -6,6 +6,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.event.game.EventGame;
 import rip.crystal.practice.event.game.EventGameState;
 import rip.crystal.practice.kit.Kit;
+import rip.crystal.practice.lag.LagRunnable;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.impl.BasicFreeForAllMatch;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
@@ -300,7 +301,8 @@ public class TabAdapter implements GhostlyAdapter {
                 .replace("{infight}", String.valueOf(plugin.getInFights()))
                 .replace("{event}", event)
                 .replace("{globalelo}", String.valueOf(EloUtil.getGlobalElo(profile)))
-                .replace("{tps}", format(Bukkit.spigot().getTPS()[0]));
+                .replace("{tps}", format(LagRunnable.getTPS()));
+                //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]));
         for (Kit kits : kit)
             string = string.replace("{" + kits.getName().toLowerCase() + "_elo}", String.valueOf(profile.getKitData().get(kits).getElo()));
         return string;
@@ -328,7 +330,8 @@ public class TabAdapter implements GhostlyAdapter {
                 .replace("{bars}", CC.TAB_BAR)
                 .replace("{players}", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size()))
                 .replace("{kit}", cPractice.get().getFfaManager().getKit().getName())
-                .replace("{tps}", format(Bukkit.spigot().getTPS()[0]));
+                .replace("{tps}", format(LagRunnable.getTPS()));
+                //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]));
         for (Kit kits : kit)
             string = string.replace("{" + kits.getName().toLowerCase() + "_elo}", String.valueOf(profile.getKitData().get(kits).getElo()));
         return string;

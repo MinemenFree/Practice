@@ -55,6 +55,7 @@ import rip.crystal.practice.kit.command.KitCommand;
 import rip.crystal.practice.kit.command.KitsCommand;
 import rip.crystal.practice.knockback.Knockback;
 import rip.crystal.practice.knockback.impl.dSpigot;
+import rip.crystal.practice.lag.LagRunnable;
 import rip.crystal.practice.leaderboard.Leaderboard;
 import rip.crystal.practice.leaderboard.LeaderboardListener;
 import rip.crystal.practice.leaderboard.PlaceholderAPI;
@@ -353,6 +354,8 @@ public class cPractice extends JavaPlugin {
                 new TournamentListener(),
                 new FFAListener()
         ).forEach(listener -> getServer().getPluginManager().registerEvents(listener, this));
+
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new LagRunnable(), 100L, 1L);
 
         if (getMainConfig().getBoolean("MOD_MODE")) getServer().getPluginManager().registerEvents(new ModmodeListener(), this);
     }

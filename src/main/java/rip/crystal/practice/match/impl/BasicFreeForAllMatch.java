@@ -4,6 +4,7 @@ import rip.crystal.practice.Locale;
 import rip.crystal.practice.arena.Arena;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.kit.Kit;
+import rip.crystal.practice.lag.LagRunnable;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.MatchSnapshot;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
@@ -159,7 +160,8 @@ public class BasicFreeForAllMatch extends Match {
 							.replace("{duration}", profile.getMatch().getDuration())
 							.replace("{state}", profile.getMatch().getState().name())
 							//.replace("{ranked}", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
-							.replace("{tps}", format(Bukkit.spigot().getTPS()[0]))));
+							.replace("{tps}", format(LagRunnable.getTPS()))));
+							//.replace("{tps}", format(Bukkit.spigot().getTPS()[0]))));
 		}
 
 		if (getParticipant(player) != null && !getGamePlayer(player).isDead()) {

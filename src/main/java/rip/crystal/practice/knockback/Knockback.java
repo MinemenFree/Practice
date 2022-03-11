@@ -31,6 +31,10 @@ public class Knockback {
                 knockbackProfiler = new gSpigot();
                 System.out.print("Hooked into gSpigot");
                 break;
+            case "CarbonSpigot":
+                knockbackProfiler = new CarbonSpigot();
+                System.out.print("Hooked into CarbonSpigot");
+                break;
             default:
                 knockbackProfiler = new Default();
                 System.out.print("You don't have a spigot compatible with Hysteria's Knockbacks");

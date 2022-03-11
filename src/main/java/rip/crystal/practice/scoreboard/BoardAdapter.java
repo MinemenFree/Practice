@@ -100,7 +100,7 @@ public class BoardAdapter implements AssembleAdapter {
 					//if(profile.getOptions().isUsingPingFactor()) {
 						lines.add(config.getString("LINES.PINGRANGE-QUEUE").replace("{range}", "" + profile.getPingRange()));
 					//}
-					//return;
+					return;
 				}
 				lines.add(line.replace("{queue}", queueProfile.getQueue().getQueueName())
 						.replace("{elapsed}", TimeUtil.millisToTimer(queueProfile.getPassed()))
