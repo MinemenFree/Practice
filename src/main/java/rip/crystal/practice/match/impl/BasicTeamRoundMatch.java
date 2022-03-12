@@ -1,14 +1,14 @@
 package rip.crystal.practice.match.impl;
 
-import rip.crystal.practice.arena.Arena;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.kit.Kit;
+import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.match.MatchState;
 import rip.crystal.practice.match.mongo.MatchInfo;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
-import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.participant.GameParticipant;
-import rip.crystal.practice.queue.Queue;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.*;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.elo.EloUtil;

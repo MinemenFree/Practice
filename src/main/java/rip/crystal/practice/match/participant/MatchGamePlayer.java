@@ -1,6 +1,6 @@
 package rip.crystal.practice.match.participant;
 
-import rip.crystal.practice.profile.participant.GamePlayer;
+import rip.crystal.practice.player.profile.participant.GamePlayer;
 import lombok.Getter;
 import lombok.Setter;
 

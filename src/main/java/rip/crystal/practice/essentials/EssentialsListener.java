@@ -24,7 +24,10 @@ public class EssentialsListener implements Listener {
 			"/me",
 			"/bukkit:me",
 			"/minecraft:",
-			"/minecraft:me"
+			"/minecraft:me",
+			"/about",
+			"/plugins",
+			"/pl"
 	);
 
 	@EventHandler(priority = EventPriority.LOWEST)

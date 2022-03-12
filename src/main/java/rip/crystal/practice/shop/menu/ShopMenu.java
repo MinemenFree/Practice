@@ -1,8 +1,6 @@
 package rip.crystal.practice.shop.menu;
 
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.profile.meta.option.button.DeathAnimationsOptionsButton;
-import rip.crystal.practice.profile.meta.option.button.TrailsOptionsButton;
 import rip.crystal.practice.shop.buttons.KillEffectsShopButton;
 import rip.crystal.practice.shop.buttons.TrailsEffectsShopButton;
 import rip.crystal.practice.utilities.ItemBuilder;

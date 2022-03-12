@@ -3,12 +3,12 @@ package rip.crystal.practice.shop.command.staff.impl;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import rip.crystal.api.chat.ChatUtil;
-import rip.crystal.api.command.BaseCommand;
-import rip.crystal.api.command.Command;
-import rip.crystal.api.command.CommandArgs;
-import rip.crystal.api.utilities.JavaUtil;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.api.chat.ChatUtil;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.api.utilities.JavaUtil;
+import rip.crystal.practice.player.profile.Profile;
 
 public class CoinsGiveCommand extends BaseCommand {
 

@@ -4,12 +4,10 @@ package rip.crystal.practice.shop.impl.killeffects.menu;
    Created on 30.11.2021
 */
 
-import me.activated.core.plugin.AquaCoreAPI;
 import org.bukkit.Bukkit;
-import org.bukkit.permissions.PermissionAttachment;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.cosmetics.impl.killeffects.KillEffectType;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.cosmetics.impl.killeffects.KillEffectType;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.TaskUtil;
 import rip.crystal.practice.utilities.chat.CC;

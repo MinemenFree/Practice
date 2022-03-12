@@ -1,0 +1,21 @@
+package rip.crystal.practice.player.cosmetics.command;
+/* 
+   Made by Hysteria Development Team
+   Created on 30.11.2021
+*/
+
+import rip.crystal.practice.player.cosmetics.menu.CosmeticsMenu;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import org.bukkit.entity.Player;
+
+public class CosmeticsCommand extends BaseCommand {
+
+    @Command(name="cosmetic", aliases = {"cosmetics", "cosm"})
+    @Override
+    public void onCommand(CommandArgs commandArgs) {
+        Player player = commandArgs.getPlayer();
+        new CosmeticsMenu().openMenu(player);
+    }
+}

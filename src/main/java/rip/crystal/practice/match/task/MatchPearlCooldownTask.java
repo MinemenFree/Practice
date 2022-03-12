@@ -2,8 +2,8 @@ package rip.crystal.practice.match.task;
 
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.ProfileState;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.MessageFormat;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;

@@ -1,12 +1,12 @@
 package rip.crystal.practice.essentials.command.player;
 
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.ProfileState;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.api.command.BaseCommand;
-import rip.crystal.api.command.Command;
-import rip.crystal.api.command.CommandArgs;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 public class SpawnCommand extends BaseCommand {

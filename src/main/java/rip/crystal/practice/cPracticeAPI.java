@@ -1,7 +1,7 @@
 package rip.crystal.practice;
 
-import rip.crystal.practice.knockback.Knockback;
-import rip.crystal.practice.knockback.KnockbackProfiler;
+import rip.crystal.practice.game.knockback.Knockback;
+import rip.crystal.practice.game.knockback.KnockbackProfiler;
 
 public class cPracticeAPI {
 

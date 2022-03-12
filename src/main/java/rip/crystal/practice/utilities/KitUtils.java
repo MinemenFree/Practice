@@ -1,14 +1,12 @@
 package rip.crystal.practice.utilities;
 
-import rip.crystal.practice.kit.Kit;
+import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.profile.Profile;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.Objects;
 
 public class KitUtils {
 

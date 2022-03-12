@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.shop.impl.trails.menu.TrailEffectsShopMenu;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;

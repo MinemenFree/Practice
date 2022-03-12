@@ -1,8 +1,8 @@
 package rip.crystal.practice.match.task;
 
 import rip.crystal.practice.match.Match;
-import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.ProfileState;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 

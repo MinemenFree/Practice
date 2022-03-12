@@ -1,6 +1,6 @@
 package rip.crystal.practice.shop.buttons;
 
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.shop.impl.killeffects.menu.KillEffectsShopMenu;
 import rip.crystal.practice.utilities.ItemBuilder;
 import org.bukkit.Material;

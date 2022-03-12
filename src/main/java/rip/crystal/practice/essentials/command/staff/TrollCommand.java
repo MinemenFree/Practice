@@ -5,9 +5,9 @@ package rip.crystal.practice.essentials.command.staff;
 */
 
 import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.api.command.BaseCommand;
-import rip.crystal.api.command.Command;
-import rip.crystal.api.command.CommandArgs;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;

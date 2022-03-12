@@ -2,7 +2,7 @@ package rip.crystal.practice.match.menu;
 
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.match.MatchSnapshot;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.*;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;

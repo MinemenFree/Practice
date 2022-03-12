@@ -1,15 +1,14 @@
 package rip.crystal.practice.utilities.chat;
 
-import rip.crystal.practice.arena.Arena;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.clan.Clan;
-import rip.crystal.practice.kit.Kit;
+import rip.crystal.practice.player.clan.Clan;
+import rip.crystal.practice.game.kit.Kit;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import rip.crystal.practice.profile.conversation.command.Configurator;
-import rip.crystal.practice.security.DiscordWebhook;
+import rip.crystal.practice.player.profile.conversation.command.Configurator;
 
 import java.util.*;
 

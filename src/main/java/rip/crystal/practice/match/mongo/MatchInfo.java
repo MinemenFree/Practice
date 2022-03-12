@@ -1,6 +1,6 @@
 package rip.crystal.practice.match.mongo;
 
-import rip.crystal.practice.kit.Kit;
+import rip.crystal.practice.game.kit.Kit;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

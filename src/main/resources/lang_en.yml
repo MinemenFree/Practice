@@ -158,7 +158,6 @@ MATCH:
   - '&c&lMatch Results&r &7(Click to view)'
   - '%INVENTORIES%'
   - '%ELO_CHANGES%'
-  - '%SPECTATORS%'
   - '&7&m------------------------------------------------'
   END_WINNER_INVENTORY: '&aWinner{context}&7: '
   END_LOSER_INVENTORY: '&cLoser{context}&7: '

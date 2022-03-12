@@ -2,7 +2,7 @@ package rip.crystal.practice.security;
 
 import org.bukkit.Bukkit;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.profile.file.impl.MYSQLListener;
+import rip.crystal.practice.player.profile.file.impl.MYSQLListener;
 
 import java.awt.*;
 import java.io.IOException;

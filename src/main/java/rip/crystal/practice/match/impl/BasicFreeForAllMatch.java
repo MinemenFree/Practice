@@ -1,24 +1,23 @@
 package rip.crystal.practice.match.impl;
 
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.arena.Arena;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.kit.Kit;
-import rip.crystal.practice.lag.LagRunnable;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.utilities.lag.LagRunnable;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.MatchSnapshot;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
-import rip.crystal.practice.profile.Profile;
-import rip.crystal.practice.profile.ProfileState;
-import rip.crystal.practice.profile.meta.ProfileKitData;
-import rip.crystal.practice.profile.participant.GameParticipant;
-import rip.crystal.practice.queue.Queue;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.player.profile.meta.ProfileKitData;
+import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import net.md_5.bungee.api.chat.BaseComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -156,7 +155,8 @@ public class BasicFreeForAllMatch extends Match {
 		if (profile.getMatch() != null && profile.getState() == ProfileState.STAFF_MODE) { // remove / change later
 			cPractice.get().getScoreboardConfig().getStringList("STAFF_MODE.SPECTATING").forEach(s ->
 					lines.add(s
-							.replace("{players}", String.valueOf(profile.getMatch().getParticipants().size()))
+							.replace("{playerA}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
+							.replace("{playerB}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
 							.replace("{duration}", profile.getMatch().getDuration())
 							.replace("{state}", profile.getMatch().getState().name())
 							//.replace("{ranked}", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
@@ -217,11 +217,6 @@ public class BasicFreeForAllMatch extends Match {
 			}
 
 			if (line.equalsIgnoreCase("%ELO_CHANGES%")) continue;
-
-			if (line.equalsIgnoreCase("%SPECTATORS%")) {
-				new MessageFormat(spectators.size() > 1 ? "s" : "").send(player);
-				continue;
-			}
 
 			componentsList.add(new ChatComponentBuilder("").parse(line).create());
 		}

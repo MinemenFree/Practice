@@ -1,10 +1,10 @@
 package rip.crystal.practice.shop.command.staff;
 
 import org.bukkit.command.CommandSender;
-import rip.crystal.api.chat.ChatUtil;
-import rip.crystal.api.command.BaseCommand;
-import rip.crystal.api.command.Command;
-import rip.crystal.api.command.CommandArgs;
+import rip.crystal.practice.api.chat.ChatUtil;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.shop.command.staff.impl.*;
 import rip.crystal.practice.utilities.chat.CC;
 

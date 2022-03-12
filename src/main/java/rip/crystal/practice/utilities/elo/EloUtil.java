@@ -1,7 +1,7 @@
 package rip.crystal.practice.utilities.elo;
 
-import rip.crystal.practice.kit.Kit;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.player.profile.Profile;
 
 import java.util.stream.Stream;
 

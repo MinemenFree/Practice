@@ -1,8 +1,8 @@
 package rip.crystal.practice.utilities;
 
-import rip.crystal.practice.arena.impl.StandaloneArena;
+import rip.crystal.practice.game.arena.impl.StandaloneArena;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.profile.Profile;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;

@@ -1,6 +1,6 @@
 package rip.crystal.practice.shop;
 
-import rip.crystal.practice.profile.Profile;
+import rip.crystal.practice.player.profile.Profile;
 
 import java.util.UUID;
 
