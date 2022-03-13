@@ -1,1 +1,114 @@
-npcs: {}
+LICENSE: ""
+
+BREAK_BLOCKS: false
+PLACE_BLOCKS: false
+ITEM_DROP: false
+ITEM_PICKUP: false
+INVENTORY_MOVE: false
+NO_DAMAGE: true
+NO_HUNGER: true
+MOB_SPAWNING: false
+DOUBLE_JUMP: true
+VOID_TELEPORT: true
+NO_RAIN: true
+ALWAYS_DAY: true
+JOIN_SPAWN_LOCATION: true
+LIST_COMMAND: true
+SPAWN_LOCATION: world,0,70,0,90,0
+SERVER_OFFLINE: "&cOffline&7"
+TABLIST: true
+RANK_PLUGIN: "Vault"
+ARMOR_RANK: true
+HIDE-ALL: false
+SCOREBOARD-UPDATE: 1
+TABLIST-UPDATE: 5
+SCOREBOARD-STATE: true
+
+JOIN_MESSAGE:
+  ENABLED: false
+  MESSAGE: "&8[&a+&8] &a{Player}"
+
+QUIT_MESSAGE:
+  ENABLED: false
+  MESSAGE: "&8[&c-&8] &c{Player}"
+
+PLAYER_MOTD:
+  ENABLED: false
+  MESSAGE:
+    - "&7&m----------------------"
+    - "&fWelcome &c{Player}&7!"
+    - ""
+    - " &fForums: &cforums.hy-pvp.com"
+    - " &fDiscord: &cdiscord.hy-pvp.com"
+    - " &fTeamSpeak: &cts.hy-pvp.com"
+    - "&7&m----------------------"
+
+PLAYER_CHAT:
+  LOCKED: false
+  BYPASS_PERM: "hhub.chat"
+  LOCKED_MESSAGE: "&cYou are not allowed to talk in hub!"
+  FORMAT: false
+  FORMAT_MESSAGE: "&7{Player}&8: &7{Message}"
+
+SCOREBOARD_TITLE: "&6&lAmbience &7(Hub-01)"
+SCOREBOARD:
+  - "&7&m-----------------"
+  - "&6&lRank"
+  - "&f{Rank}"
+  - " "
+  - "&6&lOnline"
+  - "&f{Online}"
+  - " {If<qn>}"
+  - "&6&lQueue:{If<qn>}"
+  - "&f{queue_position}/{queue_max}{If<qn>}"
+  - "{timer-space}"
+  - "{timer-format}&7:&6 {timer}"
+  - "&7&m-----------------"
+
+QUEUE_PLUGIN: "hHub"
+# Queue priorities: 1 highest - ... lowest.
+QUEUE_PRIORITY:
+  1:
+    PERMISSION: "Queue.One"
+  2:
+    PERMISSION: "Queue.Two"
+  3:
+    PERMISSION: "Queue.Three"
+# Update Timer is the time between each message of your queue position.
+QUEUE_UPDATER_TIME: 5
+# On server restart queue will automatically pause/unpause (true/false)
+AUTO-PAUSE: false
+QUEUE_UPDATER:
+  - " "
+  - "&fYou are position &c#{queue_position} &fin the &c{queue_name} &fqueue."
+  - "&fBuy a rank to get a higher queue priority!"
+  - " "
+QUEUE_LEAVE: "&fLeft the queue for &c{queue_name}."
+# Second between each join [Queue joins]
+QUEUE_RUNNER: 2
+# Players will join per seconds [Queue runner]
+QUEUE_JOINS: 2
+# Side Timer Messages
+SIDETIMER-ALREADY-EXIST: "&cThis timer already exist."
+SIDETIMER-DOESNT-EXIST: "&cThis timer doesn't exist."
+SIDETIMER-NOT-SHOWN: "&cTimer is not shown."
+SIDETIMER-NO-FORMAT: "&cThere is no format found for this timer."
+SIDETIMER-CREATED: "&a{timer} has been created."
+SIDETIMER-PAUSE: "&a{timer} has been {pause}."
+SIDETIMER-REMOVED: "&c{timer} has been removed."
+SIDETIMER-FORMAT: "&a{timer}'s format has been set to \"{format}&a\"."
+SIDETIMER-SHOW: "&a{timer} is now shown for everyone."
+SIDETIMER-UNSHOW: "&c{timer} is not shown for everyone."
+SIDETIMER-COMMAND: "&a{timer}'s command has been set to \"{command}\"."
+SIDETIMER-HELP:
+  - "&c/sidetimer create {timer}"
+  - "&c/sidetimer remove {timer}"
+  - "&c/sidetimer unshow {timer}"
+  - "&c/sidetimer show {timer} {time}"
+  - "&c/sidetimer cmd {timer} {command}"
+  - "&c/sidetimer format {timer} {format}"
+# World border
+BORDER:
+  ENABLED: false
+  POS1: 50,100,-50
+  POS2: -50,100,50

@@ -91,5 +91,5 @@ EVENT_MAPS:
 DEFAULT_HOST_SLOTS: 100
 HOST_SLOTS:
   '1':
-    PERMISSION: hpractice.ranks.gold
+    PERMISSION: cpractice.ranks.gold
     SLOTS: 100

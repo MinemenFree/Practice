@@ -71,13 +71,12 @@ public class EloUtil {
 		}
 	}
 
-	public static int getGlobalStreak(Profile profile) {
+	public static int getNoDebuffElo(Profile profile) {
 		int[] wrapper = new int[2];
-		Stream<Kit> kit = Kit.getKits().stream().filter(kits -> !kits.getGameRules().isRanked());
-		kit.forEach(kits -> {
-			wrapper[0] = wrapper[0] + 1;
-			wrapper[1] = wrapper[1] + profile.getKitData().get(kits).getKillstreak();
-		});
+		Kit kit = Kit.getByName("NoDebuff");
+		if(kit.getGameRules().isRanked()) {
+			profile.getKitData().get(kit).getElo();
+		}
 		try {
 			return (wrapper[1] / wrapper[0]);
 		} catch (Exception e) {

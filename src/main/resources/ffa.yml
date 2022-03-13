@@ -1,0 +1,14 @@
+MESSAGES:
+  PLAYER-DEATH: "&9{player} &fwas slain by &9{killer}"
+  PLAYER-JOIN:
+    - "{line}"
+    - "&9Practice FFA"
+    - "7&l✸ &9Kit: &f{kit}"
+    - "7&l✸ &9Players: &f{players}"
+    - ""
+    - "&7&l✸ &fTo leave the FFA Arena, use &9/ffa leave."
+    - "{line}"
+  PLAYER-JOIN-GLOBAL:
+    - "&9{player} &fhas joined FFA."
+  PLAYER-LEAVE-GLOBAL:
+    - "&9{player} &fhas left FFA."

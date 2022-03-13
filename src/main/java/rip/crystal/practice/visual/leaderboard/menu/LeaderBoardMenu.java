@@ -24,7 +24,7 @@ public class LeaderBoardMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return "&9&lStatistics";
+        return cPractice.get().getLeaderboardConfig().getString("INVENTORY.TITLE");
     }
 
     @Override

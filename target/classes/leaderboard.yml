@@ -1,4 +1,5 @@
 INVENTORY:
+  TITLE: "&9Statistics"
   GLOBAL_STATS:
     TITLE: "&bTop 10 Global"
     POSITIONS:

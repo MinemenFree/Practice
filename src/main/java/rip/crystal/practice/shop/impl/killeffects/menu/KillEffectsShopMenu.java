@@ -5,6 +5,7 @@ package rip.crystal.practice.shop.impl.killeffects.menu;
 */
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.cosmetics.impl.killeffects.KillEffectType;
 import rip.crystal.practice.player.profile.Profile;
@@ -25,7 +26,7 @@ public class KillEffectsShopMenu extends PaginatedMenu
 
     @Override
     public String getPrePaginatedTitle(final Player player) {
-        return "&9&lKill Effects Shop";
+        return ChatColor.DARK_GRAY + "Death Effects";
     }
 
     @Override
@@ -49,7 +50,7 @@ public class KillEffectsShopMenu extends PaginatedMenu
                     .name((this.type.hasPermission(player) ? (CC.translate("&a&l")) : "&c&l") + this.type.getName())
                     .durability((profile.getKillEffectType() == this.type) ? 5 : (this.type.hasPermission(player) ? 3 : 14))
                     .lore(CC.MENU_BAR)
-                    .lore(this.type.hasPermission(player) ? "&aYou already own this effect!" : "&cYou don't own this kill effect.")
+                    .lore(this.type.hasPermission(player) ? "&aYou already own this death effect!" : "&cYou don't own this death effect.")
                     .lore(this.type.hasPermission(player) ? "&aPrice: None!" : "&cPrice: &f" + this.type.getPrice())
                     .lore(CC.MENU_BAR)
                     .build();
@@ -60,7 +61,7 @@ public class KillEffectsShopMenu extends PaginatedMenu
             Profile profile = Profile.get(player.getUniqueId());
 
             if (this.type.hasPermission(player)) { // If player has permission.
-                player.sendMessage(CC.translate("&aYou already own this effect."));
+                player.sendMessage(CC.translate("&aYou already own this death effect."));
                 return;
             } else {
                 if(profile.getCoins() == type.getPrice() || profile.getCoins() > type.getPrice()) {

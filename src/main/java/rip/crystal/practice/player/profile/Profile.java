@@ -79,7 +79,7 @@ public class Profile {
 	private String name, color;
 	private Weight weight;
 	private KillEffectType killEffectType;
-	private TrailsEffectType trainsEffectType;
+	private TrailsEffectType trailsEffectType;
 	private TabType tabType = TabType.DEFAULT;
 	private Follow follow;
 	private int coins;

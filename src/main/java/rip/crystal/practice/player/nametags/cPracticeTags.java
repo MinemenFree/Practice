@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class cPracticeTags extends NametagProvider {
 
     public cPracticeTags() {
-        super("hPracticeTags", 1);
+        super("cPracticeTags", 1);
     }
 
     @Override

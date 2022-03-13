@@ -21,7 +21,7 @@ public class PartyAnnounceCommand extends BaseCommand {
 
     private boolean sendMessage;
 
-    @Command(name = "party.announce", aliases = {"p.announce"}, permission = "hpractice.party.announce")
+    @Command(name = "party.announce", aliases = {"p.announce"}, permission = "cpractice.party.announce")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

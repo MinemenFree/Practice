@@ -39,6 +39,8 @@ public class cPracticeCommand extends BaseCommand {
             cPractice.get().getTabPartyTeamFightConfig().reload();
             cPractice.get().getTabEventConfig().reload();
             cPractice.get().getTabFFAConfig().reload();
+            cPractice.get().getFfaConfig().reload();
+            cPractice.get().getMenuConfig().reload();
             cPractice.get().getEssentials().setMotd(CC.translate(cPractice.get().getLangConfig().getStringList("MOTD")));
             val finish = System.currentTimeMillis();
             sender.sendMessage(CC.translate("&9cPractice reloaded &7(" + (finish - start) + "ms)"));

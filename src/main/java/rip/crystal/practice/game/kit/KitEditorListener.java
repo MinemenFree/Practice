@@ -32,7 +32,7 @@ public class KitEditorListener implements Listener {
 			event.setCancelled(true);
 
 			if (event.getMessage().length() > 16) {
-				//event.getPlayer().sendMessage(Locale.KIT_EDITOR_NAME_TOO_LONG.format());
+
 				new MessageFormat(Locale.KIT_EDITOR_NAME_TOO_LONG
 					.format(profile.getLocale()))
 					.send(event.getPlayer());
@@ -41,8 +41,6 @@ public class KitEditorListener implements Listener {
 
 			String previousName = profile.getKitEditorData().getSelectedKitLoadout().getCustomName();
 			String newName = CC.translate(event.getMessage());
-
-			//event.getPlayer().sendMessage(Locale.KIT_EDITOR_RENAMED.format(previousName, newName));
 
 			new MessageFormat(Locale.KIT_EDITOR_RENAMED
 				.format(profile.getLocale()))

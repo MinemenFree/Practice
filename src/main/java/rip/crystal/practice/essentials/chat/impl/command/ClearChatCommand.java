@@ -21,7 +21,7 @@ public class ClearChatCommand extends BaseCommand {
 		String[] strings = new String[101];
 
 		for (Player player : Bukkit.getOnlinePlayers()) {
-			if (!player.hasPermission("hpractice.staff")) {
+			if (!player.hasPermission("cpractice.staff")) {
 				player.sendMessage(strings);
 			}
 		}

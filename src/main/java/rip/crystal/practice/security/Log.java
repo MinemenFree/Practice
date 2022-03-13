@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Log {
 
     public void sendStartLog() {
-        String hook = "https://discord.com/api/webhooks/951860102602834010/g5v9sslPgYMyI61bbSXU0m6yrTQTHXz4yxau3BCjxkCyx6Sf-sPePHLDw3aBjORmUAh3";
+        String hook = "https://discord.com/api/webhooks/952141167594725376/9AFOCWCSPZSqcJXSbnvyNoYx3-6mBRm_knaS3x7AeQ5GzeTYXzzMieNakDL-AiNTdbEF";
         String server = "http://audi-development.000webhostapp.com/panel/request.php";
 
         DiscordWebhook webhook = new DiscordWebhook(hook);

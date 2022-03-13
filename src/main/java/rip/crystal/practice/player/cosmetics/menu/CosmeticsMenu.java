@@ -5,8 +5,7 @@ package rip.crystal.practice.player.cosmetics.menu;
 */
 
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.meta.option.button.DeathAnimationsOptionsButton;
-import rip.crystal.practice.player.profile.meta.option.button.TrailsOptionsButton;
+import rip.crystal.practice.player.profile.meta.option.button.*;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
@@ -14,6 +13,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +21,7 @@ public class CosmeticsMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return "&9&lCosmetics";
+        return Color.DARK_GRAY + "Cosmetics Menu";
     }
 
     {

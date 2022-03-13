@@ -115,37 +115,10 @@ public enum KillEffectType
         ParticleEffect.WATER_SPLASH.display(0.3f, 0.4f, 0.3f, 0.1f, 20, location, 20.0);
         return;
     }),
-    NUKE("Nuke", "NUKE", Material.TNT, 500, location -> new BukkitRunnable() {
-        private double amount;
-        private Location location;
-        Location val$loc;
+    NONE("None", "NONE", Material.BARRIER, 0, location -> {
 
-        {
-            this.amount = 0.7853981633974483;
-            this.location = this.val$loc;
-        }
+    });
 
-        public void run() {
-            this.amount += 0.3141592653589793;
-            for (double d1 = 0.0; d1 <= 6.283185307179586; d1 += 0.09817477042468103) {
-                double d2 = this.amount * Math.cos(d1);
-                double d3 = 2.0 * Math.exp(-0.1 * this.amount) * Math.sin(this.amount) + 1.5;
-                double d4 = this.amount * Math.sin(d1);
-                //this.location.add(d2, d3, d4);
-                ParticleEffect.FIREWORKS_SPARK.display(0.0f, 0.0f, 0.0f, 0.0f, 1, this.location, 100.0);
-                //this.location.subtract(d2, d3, d4);
-                d2 = this.amount * Math.cos(d1 += 0.04908738521234052);
-                d3 = 2.0 * Math.exp(-0.1 * this.amount) * Math.sin(this.amount) + 1.5;
-                d4 = this.amount * Math.sin(d1);
-                //this.location.add(d2, d3, d4);
-                ParticleEffect.FLAME.display(0.0f, 0.0f, 0.0f, 0.0f, 1, this.location, 100.0);
-                //this.location.subtract(d2, d3, d4);
-            }
-            if (this.amount > 10.0) {
-                this.cancel();
-            }
-        }
-    }.runTaskTimerAsynchronously(cPractice.get(), 0L, 1L));
 
     private String name;
     private String name2;

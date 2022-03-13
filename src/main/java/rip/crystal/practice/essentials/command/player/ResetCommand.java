@@ -3,6 +3,7 @@ package rip.crystal.practice.essentials.command.player;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.api.command.BaseCommand;
@@ -22,6 +23,7 @@ public class ResetCommand extends BaseCommand {
         if (args.length == 0) {
             PlayerUtil.reset(player);
             player.teleport(cPractice.get().getEssentials().getSpawn());
+            Hotbar.giveHotbarItems(player);
             return;
         }
 
@@ -35,5 +37,6 @@ public class ResetCommand extends BaseCommand {
 
         PlayerUtil.reset(target);
         target.teleport(cPractice.get().getEssentials().getSpawn());
+        Hotbar.giveHotbarItems(player);
     }
 }

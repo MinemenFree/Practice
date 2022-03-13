@@ -4,6 +4,7 @@ package rip.crystal.practice.player.cosmetics.impl.killeffects.menu;
    Created on 30.11.2021
 */
 
+import org.bukkit.ChatColor;
 import rip.crystal.practice.player.cosmetics.impl.killeffects.KillEffectType;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.ItemBuilder;
@@ -23,7 +24,7 @@ public class KillEffectsMenu extends PaginatedMenu
 
     @Override
     public String getPrePaginatedTitle(final Player player) {
-        return "&c&lKill Effects";
+        return ChatColor.DARK_GRAY + "Death Effects";
     }
 
     @Override
@@ -48,10 +49,10 @@ public class KillEffectsMenu extends PaginatedMenu
                     .durability((profile.getKillEffectType() == this.type) ? 5 : (this.type.hasPermission(player) ? 3 : 14))
                     .lore(CC.MENU_BAR)
                     .lore("&7Left click to change your")
-                    .lore("&7kill effect to to " + "&c" + this.type.getName() + "&7.")
+                    .lore("&7death effect to to " + "&c" + this.type.getName() + "&7.")
                     .lore("")
-                    .lore("&7Selected Kill Effect: " + "&c" + ((profile.getKillEffectType() != null) ? profile.getKillEffectType().getName() : "&cNone"))
-                    .lore((profile.getKillEffectType() == this.type) ? "&aThat kill effect is already selected." : (this.type.hasPermission(player) ? "&7Click to select this kill effect." : "&cYou don't own this kill effect."))
+                    .lore("&7Selected Death Effect: " + "&c" + ((profile.getKillEffectType() != null) ? profile.getKillEffectType().getName() : "&cNone"))
+                    .lore((profile.getKillEffectType() == this.type) ? "&aThat death effect is already selected." : (this.type.hasPermission(player) ? "&7Click to select this death effect." : "&cYou don't own this death effect."))
                     .lore(CC.MENU_BAR)
                     .build();
         }
@@ -60,14 +61,14 @@ public class KillEffectsMenu extends PaginatedMenu
         public void clicked(final Player player, final ClickType clickType) {
             final Profile profile = Profile.get(player.getUniqueId());
             if (!this.type.hasPermission(player)) {
-                player.sendMessage(CC.translate("&fYou don't have the &c" + this.type.getName() + "&f kill effect. Purchase it at &c store.hy-pvp.com" + "&f."));
+                player.sendMessage(CC.translate("&fYou don't have the &c" + this.type.getName() + "&f death effect. Purchase it at &c store.hy-pvp.com" + "&f."));
             }
             else if (profile.getKillEffectType() == this.type) {
-                player.sendMessage(CC.translate("&c" + this.type.getName() + "&f kill effect is already selected."));
+                player.sendMessage(CC.translate("&c" + this.type.getName() + "&f death effect is already selected."));
             }
             else {
                 profile.setKillEffectType(this.type);
-                player.sendMessage(CC.translate("&c" + this.type.getName() + "&f is now set as your kill effect."));
+                player.sendMessage(CC.translate("&c" + this.type.getName() + "&f is now set as your death effect."));
             }
             player.closeInventory();
             TaskUtil.runAsync(profile::save);

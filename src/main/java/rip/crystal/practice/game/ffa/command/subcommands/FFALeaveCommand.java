@@ -33,7 +33,9 @@ public class FFALeaveCommand extends BaseCommand {
             return;
         }
 
-        this.broadcastMessage("&9" + player.getName() + " &fhas left FFA.");
+        for (String message : cPractice.get().getFfaConfig().getStringList("MESSAGES.PLAYER-LEAVE-GLOBAL")) {
+            this.broadcastMessage(CC.translate(message.replace("{player}", player.getName())));
+        }
 
         if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {
             KnockbackProfile knockbackProfile = SpigotConfig.getKbProfileByName("default");

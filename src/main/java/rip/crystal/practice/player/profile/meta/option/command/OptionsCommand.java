@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.profile.meta.option.command;
 
-import rip.crystal.practice.player.profile.meta.option.menu.ProfileOptionsMenu;
+import rip.crystal.practice.player.profile.menu.settings.SettingsMenu;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
@@ -12,6 +12,6 @@ public class OptionsCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
-		new ProfileOptionsMenu().openMenu(player);
+		new SettingsMenu().openMenu(player);
 	}
 }

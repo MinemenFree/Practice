@@ -106,7 +106,7 @@ public class Clan {
     }
 
     public void disband(Player player) {
-        if(!player.getUniqueId().equals(leader) && !player.hasPermission("hpractice.clan.disband")){
+        if(!player.getUniqueId().equals(leader) && !player.hasPermission("cpractice.clan.disband")){
             new MessageFormat(Locale.CLAN_ERROR_ONLY_OWNER
                     .format(Profile.get(player.getUniqueId()).getLocale()))
                     .send(player);

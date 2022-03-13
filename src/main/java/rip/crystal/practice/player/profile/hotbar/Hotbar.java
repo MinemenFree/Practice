@@ -78,7 +78,7 @@ public class Hotbar {
 						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_RANKED)] = getItem(HotbarItem.QUEUE_JOIN_RANKED);
 					}
 					itemStacks[getSlot(HotbarItem.KIT_EDITOR)] = getItem(HotbarItem.KIT_EDITOR);
-					itemStacks[getSlot(HotbarItem.FFA_JOIN)] = getItem(HotbarItem.FFA_JOIN);
+					itemStacks[getSlot(HotbarItem.SETTINGS)] = getItem(HotbarItem.SETTINGS);
 
 					if (activeRematch && activeEvent) {
 						if (profile.getRematchData().isReceive()) itemStacks[getSlot(HotbarItem.REMATCH_ACCEPT)] = getItem(HotbarItem.REMATCH_ACCEPT);

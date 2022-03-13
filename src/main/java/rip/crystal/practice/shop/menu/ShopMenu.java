@@ -1,5 +1,6 @@
 package rip.crystal.practice.shop.menu;
 
+import org.bukkit.ChatColor;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.shop.buttons.KillEffectsShopButton;
 import rip.crystal.practice.shop.buttons.TrailsEffectsShopButton;
@@ -17,7 +18,7 @@ public class ShopMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return "&9&lCosmetics Shop";
+        return ChatColor.DARK_GRAY + "Coins Shop";
     }
 
     {

@@ -152,10 +152,65 @@ public class Leaderboard {
                 new TopClanCategory(4));
 
         Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).forEach(kit -> {
-            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + kit.getName().toLowerCase() + "_elo}",
-                    30, new TopKitElo(kit.getName()));
-            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + kit.getName().toLowerCase() + "_name}",
-                    30, new TopKitName(kit.getName()));
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 0 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 0));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 1 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 1));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 2 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 2));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 3 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 3));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 4 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 4));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 5 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 5));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 6 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 6));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 7 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 7));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 8 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 8));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 9 + kit.getName().toLowerCase() + "_elo}",
+                    30, new TopKitElo(kit.getName(), 9));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 0 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 0));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 1 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 1));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 2 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 2));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 3 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 3));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 4 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 4));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 5 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 5));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 6 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 6));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 7 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 7));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 8 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 8));
+
+            HologramsAPI.registerPlaceholder(cPractice.get(), "{top" + 9 + kit.getName().toLowerCase() + "_name}",
+                    30, new TopKitName(kit.getName(), 9));
         });
     }
 

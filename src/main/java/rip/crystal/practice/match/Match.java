@@ -768,7 +768,7 @@ public abstract class Match {
 	public static void init() {
 		new MatchPearlCooldownTask().runTaskTimerAsynchronously(cPractice.get(), 2L, 2L);
 		new MatchSnapshotCleanupTask().runTaskTimerAsynchronously(cPractice.get(), 20L * 5, 20L * 5);
-		cPractice.get().getServer().getScheduler().runTaskTimer(cPractice.get(), new WaterCheckTask(), 20L, 8L);
+		cPractice.get().getServer().getScheduler().runTaskTimer(cPractice.get(), new MatchLiquidTask(), 20L, 8L);
 	}
 
 	public static void cleanup() {

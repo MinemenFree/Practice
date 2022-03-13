@@ -63,21 +63,21 @@ STAFF_MODE:
   SPECTATING:
     - '&9&lVIEWING MATCH'
     - ''
-    - ' &9Players&7: &f{players}'
+    - ' &9{playerA} &fvs &9{playerB}'
+    - ''
     - ' &9Duration&7: &f{duration}'
     - ' &9State&7: &f{state}'
     - ''
     - ' &9TPS&7: &f{tps}'
 FIGHTS:
   SPECTATING:
-    - '&9&lSpectating'
+    - '&9&lVIEWING MATCH'
     - ''
-    - ' &fPlayers: &9{players}'
+    - ' &9{playerA} &fvs &9{playerB}'
+    - ''
     - ' &fDuration&7: &9{duration}'
     - ' &fArena&7: &9{arena}'
     - ' &fKit&7: &9{kit}'
-    - ''
-    - ' &fOther Spectators&7: &9{spectators}'
   FFA:
     - '&fPlaying FFA:'
     - ' &9{kit}'

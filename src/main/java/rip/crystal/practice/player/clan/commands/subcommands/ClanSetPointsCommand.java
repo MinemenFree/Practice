@@ -14,7 +14,7 @@ public class ClanSetPointsCommand extends BaseCommand {
 
     private final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
-    @Command(name = "clan.setpoints", permission = "hpractice.command.clan.setpoints")
+    @Command(name = "clan.setpoints", permission = "cpractice.command.clan.setpoints")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

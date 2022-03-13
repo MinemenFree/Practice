@@ -2,16 +2,20 @@ package rip.crystal.practice;
 
 import rip.crystal.practice.essentials.abilities.AbilityManager;
 import rip.crystal.practice.essentials.abilities.command.AbilityCommand;
+import rip.crystal.practice.essentials.chat.cPracticeChatFormat;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.arena.ArenaListener;
 import rip.crystal.practice.game.arena.command.ArenaCommand;
 import rip.crystal.practice.game.arena.command.ArenasCommand;
-import rip.crystal.practice.essentials.chat.hPracticeChatFormat;
 import rip.crystal.practice.essentials.chat.impl.Chat;
 import rip.crystal.practice.essentials.chat.impl.ChatListener;
 import rip.crystal.practice.essentials.chat.impl.command.ClearChatCommand;
 import rip.crystal.practice.essentials.chat.impl.command.MuteChatCommand;
 import rip.crystal.practice.essentials.chat.impl.command.SlowChatCommand;
+import rip.crystal.practice.match.listeners.impl.MatchBuildListener;
+import rip.crystal.practice.match.listeners.impl.MatchPearlListener;
+import rip.crystal.practice.match.listeners.impl.MatchPlayerListener;
+import rip.crystal.practice.match.listeners.impl.MatchSpecialListener;
 import rip.crystal.practice.player.clan.Clan;
 import rip.crystal.practice.player.clan.ClanListener;
 import rip.crystal.practice.player.clan.commands.ClanCommand;
@@ -60,7 +64,7 @@ import rip.crystal.practice.visual.leaderboard.LeaderboardListener;
 import rip.crystal.practice.visual.leaderboard.PlaceholderAPI;
 import rip.crystal.practice.visual.leaderboard.commands.*;
 import rip.crystal.practice.match.Match;
-import rip.crystal.practice.match.MatchListener;
+import rip.crystal.practice.match.listeners.MatchListener;
 import rip.crystal.practice.match.command.CancelMatchCommand;
 import rip.crystal.practice.match.command.SpectateCommand;
 import rip.crystal.practice.match.command.StopSpectatingCommand;
@@ -131,7 +135,7 @@ public class cPractice extends JavaPlugin {
             scoreboardConfig, coloredRanksConfig, tabLobbyConfig, tabEventConfig, tabSingleFFAFightConfig,
             tabSingleTeamFightConfig, tabPartyFFAFightConfig, tabPartyTeamFightConfig, leaderboardConfig,
             langConfig, hotbarConfig, playersConfig, clansConfig, categoriesConfig, abilityConfig, kiteditorConfig,
-            npcConfig, queueConfig, lunarConfig, tabFFAConfig, potionConfig;
+            npcConfig, queueConfig, lunarConfig, tabFFAConfig, potionConfig, menuConfig, ffaConfig;
     private Configurator configgg;
     private Essentials essentials;
     private MongoClient mongoClient;
@@ -218,7 +222,7 @@ public class cPractice extends JavaPlugin {
         BoardAdapter.hook();
         Leaderboard.init();
         PlayerVersionHandler.init();
-        Chat.setChatFormat(new hPracticeChatFormat());
+        Chat.setChatFormat(new cPracticeChatFormat());
         if (mainConfig.getBoolean("TABLIST_ENABLE")) new TabList(this, new TabAdapter());
         placeholderAPI = getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
         if (placeholderAPI) new PlaceholderAPI().register();
@@ -248,6 +252,8 @@ public class cPractice extends JavaPlugin {
         this.tabSingleTeamFightConfig = new BasicConfigurationFile(this, "tablist/SingleTeamFight");
         this.tabPartyFFAFightConfig = new BasicConfigurationFile(this, "tablist/PartyFFAFight");
         this.tabPartyTeamFightConfig = new BasicConfigurationFile(this, "tablist/PartyTeamFight");
+        this.menuConfig = new BasicConfigurationFile(this, "menu");
+        //this.ffaConfig = new BasicConfigurationFile(this, "ffa");
         this.configgg = new Configurator();
         this.configgg.loadConfig5();
         this.configgg.loadConfig();
@@ -339,6 +345,10 @@ public class cPractice extends JavaPlugin {
                 new PartyListener(),
                 new ProfileListener(),
                 new MatchListener(),
+                new MatchPearlListener(),
+                new MatchPlayerListener(),
+                new MatchBuildListener(),
+                new MatchSpecialListener(),
                 new QueueListener(),
                 new ArenaListener(),
                 new EventGameListener(),

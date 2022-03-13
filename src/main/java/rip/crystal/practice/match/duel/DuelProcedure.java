@@ -83,32 +83,34 @@ public class DuelProcedure {
 		} else {
 			//sender.sendMessage(Locale.DUEL_SENT.format(kit.getName(), target.getName(), arena.getName()));
 
-			new MessageFormat(Locale.DUEL_SENT
-				.format(senderProfile.getLocale()))
-				.add("{kit_name}", kit.getName())
-				.add("{target_name}", target.getName())
-				.add("{arena_name}", arena.getName())
-				.send(sender);
+			if(arena.getName() != null) {
+				new MessageFormat(Locale.DUEL_SENT
+						.format(senderProfile.getLocale()))
+						.add("{kit_name}", kit.getName())
+						.add("{target_name}", target.getName())
+						.add("{arena_name}", arena.getName())
+						.send(sender);
 
-			for (String msg : new MessageFormat(Locale.DUEL_RECEIVED
-								.format(targetProfile.getLocale()))
-								.add("{kit_name}", kit.getName())
-								.add("{sender_name}", sender.getName())
-								.add("{arena_name}", arena.getName())
-								.toList()) {
-				if (msg.contains("%CLICKABLE%")) {
-					ChatComponentBuilder builder = new ChatComponentBuilder(new MessageFormat(Locale.DUEL_RECEIVED_CLICKABLE
+				for (String msg : new MessageFormat(Locale.DUEL_RECEIVED
 						.format(targetProfile.getLocale()))
+						.add("{kit_name}", kit.getName())
 						.add("{sender_name}", sender.getName())
-						.toString());
-					builder.attachToEachPart(ChatHelper.click("/duel accept " + sender.getName()));
-					builder.attachToEachPart(ChatHelper.hover(new MessageFormat(Locale.DUEL_RECEIVED_HOVER
-						.format(targetProfile.getLocale()))
-						.toString()));
+						.add("{arena_name}", arena.getName())
+						.toList()) {
+					if (msg.contains("%CLICKABLE%")) {
+						ChatComponentBuilder builder = new ChatComponentBuilder(new MessageFormat(Locale.DUEL_RECEIVED_CLICKABLE
+								.format(targetProfile.getLocale()))
+								.add("{sender_name}", sender.getName())
+								.toString());
+						builder.attachToEachPart(ChatHelper.click("/duel accept " + sender.getName()));
+						builder.attachToEachPart(ChatHelper.hover(new MessageFormat(Locale.DUEL_RECEIVED_HOVER
+								.format(targetProfile.getLocale()))
+								.toString()));
 
-					target.spigot().sendMessage(builder.create());
-				} else {
-					target.sendMessage(msg);
+						target.spigot().sendMessage(builder.create());
+					} else {
+						target.sendMessage(msg);
+					}
 				}
 			}
 		}

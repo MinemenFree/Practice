@@ -45,7 +45,7 @@ public class TrailEffectsShopMenu extends PaginatedMenu
             final Profile profile = Profile.get(player.getUniqueId());
             return new ItemBuilder(type.getMaterial())
                     .name((this.type.hasPermission(player) ? (CC.translate("&a&l")) : "&c&l") + this.type.getName())
-                    .durability((profile.getTrainsEffectType() == this.type) ? 5 : (this.type.hasPermission(player) ? 3 : 14))
+                    .durability((profile.getTrailsEffectType() == this.type) ? 5 : (this.type.hasPermission(player) ? 3 : 14))
                     .lore(CC.MENU_BAR)
                     .lore(this.type.hasPermission(player) ? "&aYou already own this effect!" : "&cYou don't own this kill effect.")
                     .lore(CC.MENU_BAR)
