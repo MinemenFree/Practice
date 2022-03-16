@@ -32,4 +32,9 @@ public class Zoom implements Rank {
         Player player = Bukkit.getPlayer(uuid);
         return ZoomAPI.getRankColor(player) + ZoomAPI.getRankName(player);
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        return 0;
+    }
 }

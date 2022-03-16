@@ -19,7 +19,7 @@ public class ClanDisbandCommand extends BaseCommand {
         String[] args = commandArgs.getArgs();
 
         if (args.length != 0) {
-            if (player.hasPermission("hysteria.clan.disband")) {
+            if (player.hasPermission("cpractice.clan.disband")) {
                 Clan clan = Clan.getByName(args[0]);
                 if (clan == null) {
                     player.sendMessage(CC.RED + "Please insert a valid Clan.");

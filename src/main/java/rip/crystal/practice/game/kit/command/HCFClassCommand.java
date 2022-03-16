@@ -1,6 +1,6 @@
 package rip.crystal.practice.game.kit.command;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 11.10.2021
 */
 

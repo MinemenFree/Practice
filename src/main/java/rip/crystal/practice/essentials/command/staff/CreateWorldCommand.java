@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class CreateWorldCommand extends BaseCommand {
 
-	@Command(name = "createvoidworld", permission = "hysteria.command.createworld")
+	@Command(name = "createvoidworld", permission = "cpractice.command.createworld")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class SlowChatCommand extends BaseCommand {
 
-	@Command(name = "slowchat", permission = "hysteria.staff.slowchat", inGameOnly = false)
+	@Command(name = "slowchat", permission = "cpractice.staff.slowchat", inGameOnly = false)
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		CommandSender sender = commandArgs.getSender();

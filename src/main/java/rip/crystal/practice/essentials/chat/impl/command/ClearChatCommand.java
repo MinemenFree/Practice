@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class ClearChatCommand extends BaseCommand {
 
-	@Command(name = "clearchat", aliases = {"cc"}, permission = "hysteria.staff.clearchat", inGameOnly = false)
+	@Command(name = "clearchat", aliases = {"cc"}, permission = "cpractice.staff.clearchat", inGameOnly = false)
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		CommandSender sender = commandArgs.getSender();

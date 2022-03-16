@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class SetSpawnCommand extends BaseCommand {
 
-	@Command(name = "setspawn", permission = "hysteria.command.setspawn")
+	@Command(name = "setspawn", permission = "cpractice.command.setspawn")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

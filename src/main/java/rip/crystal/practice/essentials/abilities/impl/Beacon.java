@@ -36,8 +36,7 @@ public class Beacon extends Ability {
 
         if (AbilityCooldowns.isOnCooldown("DENY-BLOCK", player)) {
             event.setCancelled(true);
-            player.sendMessage(
-                    CC.translate("&cYou can't place blocks due to a &6&lBeacon &cability was activated nearest you!"));
+            player.sendMessage(CC.translate("&cYou can't place blocks due to a &6&lBeacon &cability was activated nearest you!"));
             return;
         }
 

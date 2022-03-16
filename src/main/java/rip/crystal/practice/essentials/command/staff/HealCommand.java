@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class HealCommand extends BaseCommand {
 
-	@Command(name = "heal", permission = "hysteria.command.heal")
+	@Command(name = "heal", permission = "cpractice.command.heal")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

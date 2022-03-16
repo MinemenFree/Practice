@@ -27,7 +27,7 @@ public class ArenaCommand extends BaseCommand {
         new ArenaSetIconCommand();
     }
 
-    @Command(name = "arena", permission = "hysteria.arena.admin", inGameOnly = false)
+    @Command(name = "arena", permission = "cpractice.arena.admin", inGameOnly = false)
     @Override
     public void onCommand(CommandArgs commandArgs) {
         CommandSender sender = commandArgs.getSender();

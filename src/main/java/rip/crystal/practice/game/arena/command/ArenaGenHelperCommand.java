@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class ArenaGenHelperCommand extends BaseCommand {
 
-	@Command(name = "arena.genhelper", permission = "hysteria.arena.admin")
+	@Command(name = "arena.genhelper", permission = "cpractice.arena.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

@@ -1,5 +1,8 @@
 package rip.crystal.practice.api.rank.impl;
 
+import net.luckperms.api.node.Node;
+import net.luckperms.api.node.NodeType;
+import net.luckperms.api.node.types.WeightNode;
 import rip.crystal.practice.api.rank.Rank;import net.luckperms.api.cacheddata.CachedMetaData;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
@@ -51,4 +54,14 @@ public class LuckPerms implements Rank {
 
         return user.getCachedData().getMetaData(queryOptions.get());
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        User user = this.luckPerms.getUserManager().getUser(uuid);
+        if (user == null) {
+            return 0;
+        }
+        return user.getNodes(NodeType.WEIGHT).stream().filter(Node::hasExpiry).mapToInt(WeightNode::getWeight).max().orElse(0);
+    }
+
 }

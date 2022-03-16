@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class KitDeleteCommand extends BaseCommand {
 
-	@Command(name = "kit.delete", permission = "hysteria.kit.admin")
+	@Command(name = "kit.delete", permission = "cpractice.kit.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

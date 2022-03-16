@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class ArenaManageCommand extends BaseCommand {
 
-    @Command(name = "arena.manage", permission = "hysteria.arena.admin", inGameOnly = true)
+    @Command(name = "arena.manage", permission = "cpractice.arena.admin", inGameOnly = true)
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

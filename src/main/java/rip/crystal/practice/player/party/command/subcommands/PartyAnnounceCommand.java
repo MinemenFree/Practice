@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.party.command.subcommands;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 07.11.2021
 */
 

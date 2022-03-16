@@ -1,4 +1,4 @@
-package rip.crystal.practice.player.profile.command;
+package rip.crystal.practice.essentials.command.donator;
 
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class FlyCommand extends BaseCommand {
 
-	@Command(name = "fly", permission = "hysteria.fly")
+	@Command(name = "fly", permission = "cpractice.fly")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

@@ -2,7 +2,7 @@ package rip.crystal.practice.visual.leaderboard;
 
 import rip.crystal.practice.visual.leaderboard.menu.LeaderBoardMenu;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.HotbarItem;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

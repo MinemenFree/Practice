@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
 
 public class cPracticeCommand extends BaseCommand {
 
-    @Command(name = "cpractice", aliases = {"cpractice"}, inGameOnly = false, permission = "hysteria.owner")
+    @Command(name = "cpractice", aliases = {"cpractice"}, inGameOnly = false, permission = "cpractice.owner")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         CommandSender sender = commandArgs.getSender();
@@ -25,7 +25,6 @@ public class cPracticeCommand extends BaseCommand {
             cPractice.get().getHotbarConfig().reload();
             cPractice.get().getAbilityConfig().reload();
             cPractice.get().getArenasConfig().reload();
-            cPractice.get().getNpcConfig().reload();
             cPractice.get().getEventsConfig().reload();
             cPractice.get().getKitsConfig().reload();
             cPractice.get().getPotionConfig().reload();
@@ -39,7 +38,6 @@ public class cPracticeCommand extends BaseCommand {
             cPractice.get().getTabPartyTeamFightConfig().reload();
             cPractice.get().getTabEventConfig().reload();
             cPractice.get().getTabFFAConfig().reload();
-            cPractice.get().getFfaConfig().reload();
             cPractice.get().getMenuConfig().reload();
             cPractice.get().getEssentials().setMotd(CC.translate(cPractice.get().getLangConfig().getStringList("MOTD")));
             val finish = System.currentTimeMillis();

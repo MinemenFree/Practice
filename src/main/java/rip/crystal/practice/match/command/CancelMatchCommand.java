@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class CancelMatchCommand extends BaseCommand {
 
-	@Command(name = "cancelmatch", permission = "hysteria.command.cancelmatch")
+	@Command(name = "cancelmatch", permission = "cpractice.command.cancelmatch")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
@@ -28,11 +28,8 @@ public class CancelMatchCommand extends BaseCommand {
 			player.sendMessage(CC.RED + "This player isn't online.");
 			return;
 		}
-		Profile targetProfile = Profile.get(target.getUniqueId());
 
-		if(targetProfile == null) {
-			return;
-		}
+		Profile targetProfile = Profile.get(target.getUniqueId());
 
 		if(targetProfile.getMatch() == null) {
 			player.sendMessage(CC.RED + "Player is not in a match.");

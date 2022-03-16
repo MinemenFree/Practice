@@ -79,6 +79,10 @@ public class Arena extends Cuboid {
 	public static void init() {
 		FileConfiguration configuration = cPractice.get().getArenasConfig().getConfiguration();
 
+		Location location1FFA = LocationUtil.deserialize(cPractice.get().getMainConfig().getString("FFA.SAFEZONE.location1"));
+		Location location2FFA = LocationUtil.deserialize(cPractice.get().getMainConfig().getString("FFA.SAFEZONE.location2"));
+		cPractice.get().getFfaManager().setFfaSafezone(new Cuboid(location1FFA, location2FFA));
+
 		if (configuration.contains("arenas")) {
 			for (String arenaName : configuration.getConfigurationSection("arenas").getKeys(false)) {
 				String path = "arenas." + arenaName;
@@ -88,7 +92,6 @@ public class Arena extends Cuboid {
 				Location location2 = LocationUtil.deserialize(configuration.getString(path + ".cuboid.location2"));
 
 				Arena arena;
-
 
 				if (arenaType == ArenaType.STANDALONE) arena = new StandaloneArena(arenaName, location1, location2);
 				else if (arenaType == ArenaType.SHARED) arena = new SharedArena(arenaName, location1, location2);
@@ -117,8 +120,7 @@ public class Arena extends Cuboid {
 					}
 				}
 
-				if (arena instanceof StandaloneArena && configuration.contains(path + ".spawnred") &&
-						configuration.contains(path + ".spawnblue")) {
+				if (arena instanceof StandaloneArena && configuration.contains(path + ".spawnred") && configuration.contains(path + ".spawnblue")) {
 					StandaloneArena standaloneArena = (StandaloneArena) arena;
 					location1 = LocationUtil.deserialize(configuration.getString(path + ".spawnred.location1"));
 					location2 = LocationUtil.deserialize(configuration.getString(path + ".spawnred.location2"));

@@ -8,5 +8,6 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class MatchEndEvent extends CustomEvent {
-    private final Match match;
+
+    private Match match;
 }

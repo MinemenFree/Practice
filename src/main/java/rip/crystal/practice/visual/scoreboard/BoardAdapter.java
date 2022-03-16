@@ -6,7 +6,7 @@ import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.player.party.Party;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.player.profile.match.ScoreboardAdapter;
+import rip.crystal.practice.visual.scoreboard.game.ScoreboardAdapter;
 import rip.crystal.practice.player.profile.modmode.Modmode;
 import rip.crystal.practice.player.queue.QueueProfile;
 import rip.crystal.practice.visual.scoreboard.impl.Assemble;
@@ -132,12 +132,7 @@ public class BoardAdapter implements AssembleAdapter {
 		return cPractice.get().isPlaceholderAPI() ? PlaceholderAPI.setPlaceholders(player, lines) : lines;
 	}
 
-	public static void hook() {
-		Assemble assemble = new Assemble(cPractice.get(), new BoardAdapter());
-		assemble.setTicks(2);
-	}
-
-	public String getDivision(final Player player) {
+	public String getDivision(Player player) {
 		Profile profile = Profile.get(player.getUniqueId());
 		int elo = EloUtil.getGlobalElo(profile);
 
@@ -149,78 +144,54 @@ public class BoardAdapter implements AssembleAdapter {
 		if (elo >= 1000) {
 			division = CC.GRAY + "Silver IV";
 		}
-		if (elo >= 1050) {
+		if (elo >= 1025) {
 			division = CC.GRAY + "Silver III";
 		}
-		if (elo >= 1075) {
+		if (elo >= 1050) {
 			division = CC.GRAY + "Silver II";
 		}
-		if (elo >= 1100) {
+		if (elo >= 1075) {
 			division = CC.GRAY + "Silver I";
 		}
-		if (elo >= 1150) {
+		if (elo >= 1100) {
 			division = CC.YELLOW + "Gold V";
 		}
-		if (elo >= 1300) {
+		if (elo >= 1125) {
 			division = CC.YELLOW + "Gold IV";
 		}
-		if (elo >= 1350) {
+		if (elo >= 1150) {
 			division = CC.YELLOW + "Gold III";
 		}
-		if (elo >= 1400) {
+		if (elo >= 1175) {
 			division = CC.YELLOW + "Gold II";
 		}
-		if (elo >= 1450) {
+		if (elo >= 1200) {
 			division = CC.YELLOW + "Gold I";
 		}
-		if (elo >= 1500) {
+		if (elo >= 1250) {
 			division = CC.AQUA + "Platinum V";
 		}
-		if (elo >= 1600) {
+		if (elo >= 1325) {
 			division = CC.AQUA + "Platinum IV";
 		}
-		if (elo >= 1700) {
+		if (elo >= 1425) {
 			division = CC.AQUA + "Platinum III";
 		}
-		if (elo >= 1800) {
+		if (elo >= 1450) {
 			division = CC.AQUA + "Platinum II";
 		}
-		if (elo >= 1900) {
+		if (elo >= 1475) {
 			division = CC.AQUA + "Platinum I";
 		}
 		if (elo >= 2000) {
-			division = CC.GREEN + "Emerald V";
-		}
-		if (elo >= 2100) {
-			division = CC.GREEN + "Emerald IV";
-		}
-		if (elo >= 2200) {
-			division = CC.GREEN + "Emerald III";
-		}
-		if (elo >= 2300) {
-			division = CC.GREEN + "Emerald II";
-		}
-		if (elo >= 2400) {
-			division = CC.GREEN + "Emerald I";
-		}
-		if (elo >= 2500) {
-			division = CC.BLUE + "Sapphire V";
-		}
-		if (elo >= 2600) {
-			division = CC.BLUE + "Sapphire IV";
-		}
-		if (elo >= 2700) {
-			division = CC.BLUE + "Sapphire III";
-		}
-		if (elo >= 2800) {
-			division = CC.BLUE + "Sapphire II";
-		}
-		if (elo >= 2900) {
-			division = CC.BLUE + "Sapphire I";
-		}
-		if (elo >= 3000) {
 			division = CC.GOLD + "Champion";
 		}
+
 		return division;
+	}
+
+	public static void hook() {
+		Assemble assemble = new Assemble(cPractice.get(), new BoardAdapter());
+		assemble.setTicks(2);
 	}
 }

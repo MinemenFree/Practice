@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class ResetEloCommand extends BaseCommand {
 
-    @Command(name = "resetelo", permission = "hysteria.resetelo")
+    @Command(name = "resetelo", permission = "cpractice.resetelo")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

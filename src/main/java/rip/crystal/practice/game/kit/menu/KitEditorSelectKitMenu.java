@@ -4,6 +4,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 import lombok.AllArgsConstructor;

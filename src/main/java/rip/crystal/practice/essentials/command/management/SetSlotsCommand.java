@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class SetSlotsCommand extends BaseCommand {
 
-	@Command(name = "setslots", permission = "hysteria.command.setslots")
+	@Command(name = "setslots", permission = "cpractice.command.setslots")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class KitSetLoadoutCommand extends BaseCommand {
 
-	@Command(name = "kit.setloadout", aliases = {"setinv", "setinventory"}, permission = "hysteria.kit.admin")
+	@Command(name = "kit.setloadout", aliases = {"setinv", "setinventory"}, permission = "cpractice.kit.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

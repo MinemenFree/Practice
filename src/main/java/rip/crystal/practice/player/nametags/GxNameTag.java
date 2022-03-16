@@ -41,6 +41,7 @@ public class GxNameTag {
         test.request();
         if (!test.isValid()) {
             taskManager.runNever();
+            return;
         }
         providers.add(newProvider);
         providers.sort((a, b) -> (Ints.compare(b.getWeight(), a.getWeight())));

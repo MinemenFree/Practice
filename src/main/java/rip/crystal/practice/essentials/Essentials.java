@@ -57,7 +57,7 @@ public class Essentials {
 	public void teleportToSpawn(Player player) {
 		Location location = spawn == null ? plugin.getServer().getWorlds().get(0).getSpawnLocation() : spawn;
 
-		/*if(player.hasPermission("hysteria.fly")) {
+		/*if(player.hasPermission("cpractice.fly")) {
 			player.setAllowFlight(true);
 			player.setFlying(true);
 		}*/

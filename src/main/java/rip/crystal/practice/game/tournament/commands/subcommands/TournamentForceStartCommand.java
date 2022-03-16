@@ -1,6 +1,6 @@
 package rip.crystal.practice.game.tournament.commands.subcommands;
 /*
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 10.10.2021
 */
 

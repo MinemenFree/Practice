@@ -1,4 +1,4 @@
-package rip.crystal.practice.player.profile.hotbar;
+package rip.crystal.practice.player.profile.hotbar.entry;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

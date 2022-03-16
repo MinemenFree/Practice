@@ -1,12 +1,22 @@
 package rip.crystal.practice.game.ffa;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 27.11.2021
 */
 
+import org.bukkit.Location;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.EnderPearl;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.event.player.*;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.impl.StandaloneArena;
+import rip.crystal.practice.match.Match;
+import rip.crystal.practice.match.MatchState;
+import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.Cooldown;
@@ -22,9 +32,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -81,57 +88,85 @@ public class FFAListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerInteractEvent(PlayerInteractEvent event) {
-        Player player = event.getPlayer();
-        ItemStack itemStack = event.getItem();
-
-        Action ac = event.getAction();
-        Block bl = event.getClickedBlock();
-
-        // Ender pearl listener (hover on block)
-        Profile profile2 = Profile.get(player.getUniqueId());
-        if (event.getItem() != null && event.getClickedBlock() != null && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (profile2.getState() == ProfileState.FFA) {
-                if (event.getItem().getType() == Material.ENDER_PEARL) {
-                    if (!profile2.getEnderpearlCooldown().hasExpired()) {
-                        String time = TimeUtil.millisToSeconds(profile2.getEnderpearlCooldown().getRemaining());
-                        new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile2.getLocale()))
-                                .add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s"))
-                                .add("{time}", time)
-                                .send(player);
-                        event.setCancelled(true);
-                        return;
-                    } else {
-                        if (ac == Action.RIGHT_CLICK_BLOCK && (bl.getType() == Material.FENCE_GATE) && !player.isSneaking()) {
-                            event.setCancelled(true);
-                            return;
-                        }
-                        profile2.setEnderpearlCooldown(new Cooldown(16_000));
-                    }
-                    event.setCancelled(false);
-                }
-            }
-            return;
-        }
-
-        if (itemStack != null && event.getAction() == Action.RIGHT_CLICK_AIR || itemStack != null && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+    public void onPlayerAttack(EntityDamageByEntityEvent event) {
+        if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
+            Player player = (Player) event.getDamager();
+            Player victim = (Player) event.getEntity();
             Profile profile = Profile.get(player.getUniqueId());
 
             if (profile.getState() == ProfileState.FFA) {
-                // Ender pearl listener (hover over air)
-                if (itemStack.getType() == Material.ENDER_PEARL && event.getClickedBlock() == null) {
-                    if (!profile.getEnderpearlCooldown().hasExpired()) {
-                        String time = TimeUtil.millisToSeconds(profile.getEnderpearlCooldown().getRemaining());
-                        //player.sendMessage(Locale.MATCH_ENDERPEARL_COOLDOWN.format(time,
-                        //	(time.equalsIgnoreCase("1.0") ? "" : "s")));
-                        new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale()))
-                                .add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s"))
-                                .add("{time}", time)
-                                .send(player);
-                        event.setCancelled(true);
-                    } else {
-                        profile.setEnderpearlCooldown(new Cooldown(16_000));
+                if (cPractice.get().getFfaManager().getFfaSafezone() != null && (cPractice.get().getFfaManager().getFfaSafezone().contains(victim.getLocation()) || cPractice.get().getFfaManager().getFfaSafezone().contains(player.getLocation()))) {
+                    event.setCancelled(true);
+                    player.sendMessage(CC.translate("&cYou can't attack players in safezone!"));
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPearlLand(PlayerTeleportEvent event) {
+        Location to = event.getTo();
+        Profile profile = Profile.get(event.getPlayer().getUniqueId());
+        if (profile.getState() == ProfileState.FFA) {
+            if (event.getCause() == PlayerTeleportEvent.TeleportCause.ENDER_PEARL) {
+                to.setX(to.getBlockX() + 0.5);
+                to.setZ(to.getBlockZ() + 0.5);
+                event.setTo(to);
+                Location pearlLocation = event.getTo();
+                Location playerLocation = event.getFrom();
+
+                if (playerLocation.getBlockY() < pearlLocation.getBlockY()) {
+                    Block block = pearlLocation.getBlock();
+
+                    for (BlockFace face : BlockFace.values()) {
+                        Material type = block.getRelative(face).getType();
+
+                        if (type == Material.GLASS || type == Material.BARRIER) {
+                            pearlLocation.setY(pearlLocation.getBlockY() - 1.0);
+                            break;
+                        }
                     }
+                } else pearlLocation.setY(pearlLocation.getBlockY() + 0.0); // set to 0
+
+                event.setTo(pearlLocation);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPearl(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
+        Profile profile = Profile.get(player.getUniqueId());
+        ItemStack itemStack = event.getItem();
+
+        if(profile.getState() == ProfileState.FFA) {
+            if(itemStack == null) {
+                return;
+            }
+
+            if (event.getAction() != Action.RIGHT_CLICK_BLOCK && event.getAction() != Action.RIGHT_CLICK_AIR || !event.hasItem()) {
+                return;
+            }
+
+            if (event.getItem().getType() == Material.ENDER_PEARL) {
+                if (!profile.getEnderpearlCooldown().hasExpired()) {
+                    event.setCancelled(true);
+                    String time = TimeUtil.millisToSeconds(profile.getEnderpearlCooldown().getRemaining());
+                    new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("{time}", time).send(player);
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPearlLaunch(ProjectileLaunchEvent event) {
+        Player player = (Player) event.getEntity().getShooter();
+        Profile profile = Profile.get(player.getUniqueId());
+        if (profile.getState() == ProfileState.FFA) {
+            // Set pearl cooldown to player.
+            if (event.getEntity().getShooter() instanceof Player && event.getEntity() instanceof EnderPearl && profile.getState() == ProfileState.FFA) {
+                if (profile.getEnderpearlCooldown().hasExpired()) {
+                    profile.setEnderpearlCooldown(new Cooldown(16_000));
                 }
             }
         }

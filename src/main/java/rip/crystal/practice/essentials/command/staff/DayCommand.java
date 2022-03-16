@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class DayCommand extends BaseCommand {
 
-	@Command(name = "day", permission = "hysteria.command.day")
+	@Command(name = "day", permission = "cpractice.command.day")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

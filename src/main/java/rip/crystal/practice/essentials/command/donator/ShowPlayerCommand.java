@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class ShowPlayerCommand extends BaseCommand {
 
-	@Command(name = "showplayer", permission = "hysteria.command.showplayer")
+	@Command(name = "showplayer", permission = "cpractice.command.showplayer")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

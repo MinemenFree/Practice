@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.profile.file.impl;
 /*
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 23.11.2021
 */
 

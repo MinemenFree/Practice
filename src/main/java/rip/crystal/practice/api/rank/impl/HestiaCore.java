@@ -26,4 +26,9 @@ public class HestiaCore implements Rank {
     public String getColor(UUID uuid) {
         return HestiaAPI.instance.getRank(uuid);
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        return 0;
+    }
 }

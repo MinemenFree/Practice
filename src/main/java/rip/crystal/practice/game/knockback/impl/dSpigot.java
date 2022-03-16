@@ -21,7 +21,6 @@ public class dSpigot implements KnockbackProfiler {
             EntityHuman entityPlayer = ((CraftPlayer) player).getHandle();
             Class entityclass = entityPlayer.getClass().getSuperclass();
         }
-        Bukkit.getServer().getConsoleSender().sendMessage("§7§m------------------------------");
         MYSQLListener knockback = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
         knockback.request();
         if (!knockback.isValid()) {

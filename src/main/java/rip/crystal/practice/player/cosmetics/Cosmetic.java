@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.cosmetics;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 30.11.2021
 */
 

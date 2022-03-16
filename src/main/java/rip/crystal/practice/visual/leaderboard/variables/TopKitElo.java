@@ -22,9 +22,19 @@ public class TopKitElo implements PlaceholderReplacer {
         return String.valueOf(Leaderboard.getKitLeaderboards().get(kit).stream().findFirst().get().getElo());*/
 
         try {
-            List<LeaderboardKitsEntry> test = Leaderboard.getKitLeaderboards().get(kit);
-            if (test.get(pos) == null) return " ";
-            int profile = test.get(pos).getElo();
+            List<LeaderboardKitsEntry> kitsEntryList = Leaderboard.getKitLeaderboards().get(kit);
+            if(kit == null) {
+                return " ";
+            }
+
+            if(kitsEntryList == null) {
+                return " ";
+            }
+
+            if (kitsEntryList.get(pos) == null) {
+                return " ";
+            }
+            int profile = kitsEntryList.get(pos).getElo();
             return CC.translate(String.valueOf(profile));
         } catch (IndexOutOfBoundsException e) {
             return " ";

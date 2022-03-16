@@ -58,6 +58,8 @@ import rip.crystal.practice.game.kit.command.KitsCommand;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.game.knockback.impl.dSpigot;
 import rip.crystal.practice.player.nametags.cPracticeTags;
+import rip.crystal.practice.player.party.classes.rogue.CheckConfigs;
+import rip.crystal.practice.player.profile.file.impl.MYSQLListener;
 import rip.crystal.practice.utilities.lag.LagRunnable;
 import rip.crystal.practice.visual.leaderboard.Leaderboard;
 import rip.crystal.practice.visual.leaderboard.LeaderboardListener;
@@ -80,8 +82,8 @@ import rip.crystal.practice.player.party.classes.rogue.RogueClass;
 import rip.crystal.practice.player.party.command.PartyCommand;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileListener;
-import rip.crystal.practice.player.profile.command.FlyCommand;
-import rip.crystal.practice.player.profile.command.ViewMatchCommand;
+import rip.crystal.practice.essentials.command.donator.FlyCommand;
+import rip.crystal.practice.essentials.command.player.ViewMatchCommand;
 import rip.crystal.practice.player.profile.conversation.command.Configurator;
 import rip.crystal.practice.player.profile.conversation.command.MessageCommand;
 import rip.crystal.practice.player.profile.conversation.command.ReplyCommand;
@@ -146,6 +148,7 @@ public class cPractice extends JavaPlugin {
     private dSpigot dSpigot;
     private ShopSystem shopSystem;
     private Log log = new Log();
+
     public boolean placeholderAPI = false;
     public boolean lunarClient = false;
     public int inQueues, inFights, bridgeRounds, rankedSumoRounds;
@@ -154,26 +157,33 @@ public class cPractice extends JavaPlugin {
     public void onEnable() {
         loadConfig();
 
-        loadSaveMethod();
-        loadEssentials();
-        initManagers();
+        CheckConfigs database = new CheckConfigs(cPractice.get().getMainConfig().getString("LICENSE"), "http://audi-development.000webhostapp.com/panel/request.php", cPractice.get());
+        database.request();
+        if (database.isValid()) {
+            loadSaveMethod();
+            loadEssentials();
+            initManagers();
 
-        registerNameTags();
+            registerNameTags();
 
-        registerCommands();
-        registerListeners();
+            registerCommands();
+            registerListeners();
 
-        removeCrafting();
+            removeCrafting();
 
-        setUpWorld();
-        runTasks();
+            setUpWorld();
+            runTasks();
+
+            CC.loadPlugin();
+        } else {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+        }
 
         if(!cPractice.get().getDescription().getAuthors().contains("ziue")) {
             Bukkit.getPluginManager().disablePlugin(cPractice.get());
             Bukkit.getConsoleSender().sendMessage("Wrong author??? skid?!?!");
         }
 
-        CC.loadPlugin();
     }
 
     @Override
@@ -230,21 +240,26 @@ public class cPractice extends JavaPlugin {
 
     private void loadConfig() {
         this.mainConfig = new BasicConfigurationFile(this, "config");
-        log.sendStartLog();
-        this.lang = new LanguageConfigurationFile(this, "lang");
         this.databaseConfig = new BasicConfigurationFile(this, "database");
-        this.coloredRanksConfig = new BasicConfigurationFile(this, "colored-ranks");
-        this.arenasConfig = new BasicConfigurationFile(this, "arenas");
-        this.kitsConfig = new BasicConfigurationFile(this, "kits");
-        this.eventsConfig = new BasicConfigurationFile(this, "events");
-        this.scoreboardConfig = new BasicConfigurationFile(this, "scoreboard");
-        this.leaderboardConfig = new BasicConfigurationFile(this, "leaderboard");
-        this.langConfig = new BasicConfigurationFile(this, "global-lang");
-        this.hotbarConfig = new BasicConfigurationFile(this, "hotbar");
-        this.abilityConfig = new BasicConfigurationFile(this, "ability");
-        this.npcConfig = new BasicConfigurationFile(this, "npc");
-        this.kiteditorConfig = new BasicConfigurationFile(this, "kiteditor");
-        this.potionConfig = new BasicConfigurationFile(this, "potion");
+
+        log.sendStartLog();
+
+        this.arenasConfig = new BasicConfigurationFile(this, "cache/arenas");
+        this.kitsConfig = new BasicConfigurationFile(this, "cache/kits");
+
+        this.langConfig = new BasicConfigurationFile(this, "lang/global-lang");
+        this.lang = new LanguageConfigurationFile(this, "lang/lang");
+
+        this.scoreboardConfig = new BasicConfigurationFile(this, "features/scoreboard");
+        this.leaderboardConfig = new BasicConfigurationFile(this, "features/leaderboard");
+        this.hotbarConfig = new BasicConfigurationFile(this, "features/hotbar");
+        this.abilityConfig = new BasicConfigurationFile(this, "features/ability");
+
+        this.kiteditorConfig = new BasicConfigurationFile(this, "settings/kiteditor");
+        this.coloredRanksConfig = new BasicConfigurationFile(this, "settings/colored-ranks");
+        this.eventsConfig = new BasicConfigurationFile(this, "settings/events");
+        this.menuConfig = new BasicConfigurationFile(this, "settings/menu");
+
         this.tabEventConfig = new BasicConfigurationFile(this, "tablist/event");
         this.tabLobbyConfig = new BasicConfigurationFile(this, "tablist/lobby");
         this.tabFFAConfig = new BasicConfigurationFile(this, "tablist/ffa");
@@ -252,15 +267,12 @@ public class cPractice extends JavaPlugin {
         this.tabSingleTeamFightConfig = new BasicConfigurationFile(this, "tablist/SingleTeamFight");
         this.tabPartyFFAFightConfig = new BasicConfigurationFile(this, "tablist/PartyFFAFight");
         this.tabPartyTeamFightConfig = new BasicConfigurationFile(this, "tablist/PartyTeamFight");
-        this.menuConfig = new BasicConfigurationFile(this, "menu");
-        //this.ffaConfig = new BasicConfigurationFile(this, "ffa");
         this.configgg = new Configurator();
         this.configgg.loadConfig5();
         this.configgg.loadConfig();
         if (mainConfig.getString("SAVE_METHOD").equals("FILE") || mainConfig.getString("SAVE_METHOD").equals("FLATFILE")) {
-            this.playersConfig = new BasicConfigurationFile(this, "players");
-            this.clansConfig = new BasicConfigurationFile(this, "clans");
-            this.categoriesConfig = new BasicConfigurationFile(this, "categories");
+            this.playersConfig = new BasicConfigurationFile(this, "cache/players");
+            this.clansConfig = new BasicConfigurationFile(this, "features/clans");
         }
     }
 

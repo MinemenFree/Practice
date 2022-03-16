@@ -37,4 +37,9 @@ public class mCore implements rip.crystal.practice.api.rank.Rank {
     public String getColor(UUID uuid) {
         return this.getRank(uuid) == null ? "None" : this.getRank(uuid).getName();
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        return this.getRank(uuid) == null ? 0 : this.getRank(uuid).getWeight();
+    }
 }

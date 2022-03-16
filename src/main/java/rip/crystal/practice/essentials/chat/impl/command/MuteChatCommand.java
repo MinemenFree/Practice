@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 
 public class MuteChatCommand extends BaseCommand {
 
-	@Command(name = "mutechat", permission = "hysteria.staff.mutechat", inGameOnly = false)
+	@Command(name = "mutechat", permission = "cpractice.staff.mutechat", inGameOnly = false)
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		CommandSender sender = commandArgs.getSender();

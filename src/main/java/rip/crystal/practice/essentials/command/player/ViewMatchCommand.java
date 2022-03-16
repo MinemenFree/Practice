@@ -1,4 +1,4 @@
-package rip.crystal.practice.player.profile.command;
+package rip.crystal.practice.essentials.command.player;
 
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.player.profile.Profile;
@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class ViewMatchCommand extends BaseCommand {
 
-    @Command(name = "viewmatch", aliases = {"matches"}, permission = "hysteria.viewmatch")
+    @Command(name = "viewmatch", aliases = {"matches"}, permission = "cpractice.viewmatch")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

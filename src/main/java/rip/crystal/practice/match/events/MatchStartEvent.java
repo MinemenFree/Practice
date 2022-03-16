@@ -9,6 +9,6 @@ import lombok.Getter;
 @Getter
 public class MatchStartEvent extends CustomEvent {
 
-    private final Match match;
+    private Match match;
 
 }

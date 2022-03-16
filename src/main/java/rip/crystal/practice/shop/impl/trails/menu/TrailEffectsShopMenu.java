@@ -1,6 +1,6 @@
 package rip.crystal.practice.shop.impl.trails.menu;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 30.11.2021
 */
 

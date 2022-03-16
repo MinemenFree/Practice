@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.cosmetics.impl.killeffects.command;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 04.11.2021
 */
 

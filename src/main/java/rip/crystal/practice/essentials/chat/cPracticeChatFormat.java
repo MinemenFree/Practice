@@ -19,14 +19,14 @@ public class cPracticeChatFormat implements ChatFormat {
                         .replace("{suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
                         .replace("{color}", senderProfile.getColor())
                         .replace("{player}", sender.getName())
-                        .replace("{message}", (sender.hasPermission("hysteria.chat.color") ? CC.translate(message) : CC.strip(message)))
+                        .replace("{message}", (sender.hasPermission("cpractice.chat.color") ? CC.translate(message) : CC.strip(message)))
                         .replace("{clan}", Clan.getByPlayer(sender).getColoredName())));
             return CC.translate(cPractice.get().getMainConfig().getString("CHAT.CLAN_FORMAT")
                     .replace("{prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
                     .replace("{suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
                     .replace("{color}", senderProfile.getColor())
                     .replace("{player}", sender.getName())
-                    .replace("{message}", (sender.hasPermission("hysteria.chat.color") ? CC.translate(message) : CC.strip(message)))
+                    .replace("{message}", (sender.hasPermission("cpractice.chat.color") ? CC.translate(message) : CC.strip(message)))
                     .replace("{clan}", Clan.getByPlayer(sender).getColoredName()));
         }
         if (cPractice.get().isPlaceholderAPI())
@@ -35,12 +35,12 @@ public class cPracticeChatFormat implements ChatFormat {
                     .replace("{suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
                     .replace("{color}", senderProfile.getColor())
                     .replace("{player}", sender.getName())
-                    .replace("{message}", (sender.hasPermission("hysteria.chat.color") ? CC.translate(message) : CC.strip(message)))));
+                    .replace("{message}", (sender.hasPermission("cpractice.chat.color") ? CC.translate(message) : CC.strip(message)))));
         return CC.translate(cPractice.get().getMainConfig().getString("CHAT.DEFAULT_FORMAT")
                 .replace("{prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
                 .replace("{suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
                 .replace("{color}", senderProfile.getColor())
                 .replace("{player}", sender.getName())
-                .replace("{message}", (sender.hasPermission("hysteria.chat.color") ? CC.translate(message) : CC.strip(message))));
+                .replace("{message}", (sender.hasPermission("cpractice.chat.color") ? CC.translate(message) : CC.strip(message))));
     }
 }

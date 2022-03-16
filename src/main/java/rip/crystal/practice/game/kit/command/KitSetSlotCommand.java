@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class KitSetSlotCommand extends BaseCommand {
 
-	@Command(name = "kit.setslot", permission = "hysteria.kit.admin")
+	@Command(name = "kit.setslot", permission = "cpractice.kit.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

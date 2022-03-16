@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class ClearCommand extends BaseCommand {
 
-	@Command(name = "clearinv", aliases = {"clear", "ci"}, permission = "hysteria.command.clearinv")
+	@Command(name = "clearinv", aliases = {"clear", "ci"}, permission = "cpractice.command.clearinv")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

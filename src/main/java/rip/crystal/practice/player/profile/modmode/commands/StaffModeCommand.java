@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class StaffModeCommand extends BaseCommand {
 
-    @Command(name = "staffmode", aliases = {"staff", "mod", "h"}, permission = "hysteria.staffmode")
+    @Command(name = "staffmode", aliases = {"staff", "mod", "h"}, permission = "cpractice.staffmode")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

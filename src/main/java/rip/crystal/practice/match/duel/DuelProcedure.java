@@ -17,9 +17,9 @@ import java.util.UUID;
 @Getter @Setter
 public class DuelProcedure {
 
-	private final Player sender;
-	private final UUID target;
-	private final boolean party;
+	private Player sender;
+	private UUID target;
+	private boolean party;
 	private Kit kit;
 	private Arena arena;
 	private int rounds;

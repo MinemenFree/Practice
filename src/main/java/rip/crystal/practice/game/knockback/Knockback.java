@@ -37,9 +37,9 @@ public class Knockback {
                 break;
             default:
                 knockbackProfiler = new Default();
-                System.out.print("You don't have a spigot compatible with Hysteria's Knockbacks");
-                System.out.print("You don't have a spigot compatible with Hysteria's Knockbacks");
-                System.out.print("You don't have a spigot compatible with Hysteria's Knockbacks");
+                System.out.print("You don't have a spigot compatible with cpractice's Knockbacks");
+                System.out.print("You don't have a spigot compatible with cpractice's Knockbacks");
+                System.out.print("You don't have a spigot compatible with cpractice's Knockbacks");
                 break;
         }
     }

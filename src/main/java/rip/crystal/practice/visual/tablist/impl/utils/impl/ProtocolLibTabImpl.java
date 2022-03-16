@@ -43,11 +43,14 @@ public class ProtocolLibTabImpl implements IRubenHelper {
         if (playerVersion != PlayerVersion.v1_7) {
             playerInfoData.getProfile().getProperties().put("textures", new WrappedSignedProperty("textures", TabListCommons.defaultTexture.SKIN_VALUE, TabListCommons.defaultTexture.SKIN_SIGNATURE));
         }
-        try {
+
+        packet.getPlayerInfoDataLists().write(0, Collections.singletonList(playerInfoData));
+
+        /*try {
             packet.getPlayerInfoDataLists().write(0, Collections.singletonList(playerInfoData));
         } catch (Exception e)  {
             e.printStackTrace();
-        }
+        }*/
 
         sendPacket(player, packet);
         return new TabEntry(string, uuid, "", zigguratTablist, TabListCommons.defaultTexture, column, slot, rawSlot, 1);

@@ -36,15 +36,19 @@ public class MongoDBIProfile implements IProfile {
         document.put("color", profile.getColor());
         document.put("coins", cPractice.get().getShopSystem().getCoins(profile.getUuid()));
 
-        if(profile.getKillEffectType() != null) {
-            document.put("killEffect", profile.getKillEffectType().getName());
-        }
-
         Document optionsDocument = new Document();
         optionsDocument.put("showScoreboard", profile.getOptions().showScoreboard());
         optionsDocument.put("allowSpectators", profile.getOptions().allowSpectators());
         optionsDocument.put("receiveDuelRequests", profile.getOptions().receiveDuelRequests());
         optionsDocument.put("receivingNewConversations", profile.getOptions().receivingNewConversations());
+        optionsDocument.put("playingMessageSounds", profile.getOptions().playingMessageSounds());
+        optionsDocument.put("publicChatEnabled", profile.getOptions().publicChatEnabled());
+        optionsDocument.put("vanillaTab", profile.getOptions().vanillaTab());
+
+        if(profile.getKillEffectType() != null) {
+            optionsDocument.put("killEffect", profile.getKillEffectType().getName());
+        }
+
         document.put("options", optionsDocument);
 
         Document kitStatisticsDocument = new Document();
@@ -132,15 +136,17 @@ public class MongoDBIProfile implements IProfile {
 
         if (document.containsKey("coins")) cPractice.get().getShopSystem().setCoins(profile.getUuid(), document.getInteger("coins"));
 
-        if (document.containsKey("killEffect")) profile.setKillEffectType(KillEffectType.getByName(document.getString("killEffect")));
-
         Document options = (Document) document.get("options");
 
         profile.getOptions().showScoreboard(options.getBoolean("showScoreboard"));
         profile.getOptions().allowSpectators(options.getBoolean("allowSpectators"));
         profile.getOptions().receiveDuelRequests(options.getBoolean("receiveDuelRequests"));
         profile.getOptions().receivingNewConversations(options.getBoolean("receivingNewConversations"));
-        //profile.getOptions().isUsingPingFactor(options.getBoolean("isUsingPingFactor"));
+        profile.getOptions().playingMessageSounds(options.getBoolean("playingMessageSounds"));
+        profile.getOptions().publicChatEnabled(options.getBoolean("publicChatEnabled"));
+        profile.getOptions().vanillaTab(options.getBoolean("vanillaTab"));
+
+        if (options.containsKey("killEffect")) profile.setKillEffectType(KillEffectType.getByName(options.getString("killEffect")));
 
         if (document.containsKey("clan")) profile.setClan(Clan.getByName(document.getString("clan")));
 

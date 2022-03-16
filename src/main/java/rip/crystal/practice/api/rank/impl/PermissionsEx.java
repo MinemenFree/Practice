@@ -36,4 +36,9 @@ public class PermissionsEx implements Rank {
         return RankManager.getInstance().getChat().getPrimaryGroup(String.valueOf(
                 RankManager.getInstance().getPlugin().getServer().getWorlds().get(0).getName()), player);
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        return 0;
+    }
 }

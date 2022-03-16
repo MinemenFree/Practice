@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
 
 public class ArenaStatusCommand extends BaseCommand {
 
-	@Command(name = "arena.status", permission = "hysteria.arena.admin", inGameOnly = false)
+	@Command(name = "arena.status", permission = "cpractice.arena.admin", inGameOnly = false)
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		CommandSender sender = commandArgs.getSender();

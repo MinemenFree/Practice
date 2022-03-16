@@ -153,7 +153,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 if (profile.getTabType() == TabType.DEFAULT) profile.setTabType(TabType.WEIGHT);
                 else profile.setTabType(TabType.DEFAULT);
-                if(profile.getTabType() == TabType.WEIGHT) {
+                profile.getOptions().vanillaTab(!profile.getOptions().vanillaTab());
+
+                if(profile.getOptions().vanillaTab()) {
                     player.sendMessage(CC.translate("&aYou have enabled vanilla tab!"));
                 } else {
                     player.sendMessage(CC.translate("&cYou have disabled vanilla tab!"));

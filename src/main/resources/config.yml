@@ -23,6 +23,9 @@ MATCH:
   BOXING_MAX_HITS: 100
 FFA:
   KIT: NoDebuff
+  SAFEZONE:
+    location1: world:124.0:96.0:-1078.0:0.0:0.0
+    location2: world:126.0:96.0:-1076.0:0.0:0.0
 QUEUE:
   AMOUNT_PER_FIGHTS: true
   UNRANKED:

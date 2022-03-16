@@ -6,7 +6,7 @@ import rip.crystal.practice.game.kit.menu.KitManagementMenu;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.HotbarItem;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.GameMode;

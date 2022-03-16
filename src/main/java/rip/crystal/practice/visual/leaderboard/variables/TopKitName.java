@@ -24,7 +24,17 @@ public class TopKitName implements PlaceholderReplacer {
 
         try {
             List<LeaderboardKitsEntry> test = Leaderboard.getKitLeaderboards().get(kit);
-            if (test.get(pos) == null) return " ";
+            if(kit == null) {
+                return " ";
+            }
+
+            if(test == null) {
+                return " ";
+            }
+
+            if (test.get(pos) == null) {
+                return " ";
+            }
             LeaderboardKitsEntry profile = test.get(pos);
             return CC.translate(profile.getProfile().getName());
         } catch (IndexOutOfBoundsException e) {

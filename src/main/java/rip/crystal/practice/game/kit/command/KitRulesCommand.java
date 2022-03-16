@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class KitRulesCommand extends BaseCommand {
 
-	@Command(name = "kit.rules", permission = "hysteria.kit.admin")
+	@Command(name = "kit.rules", permission = "cpractice.kit.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

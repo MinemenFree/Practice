@@ -36,11 +36,11 @@ public class Chat {
 	public static ChatAttempt attemptChatMessage(Player player, String message) {
 		Profile profile = Profile.get(player.getUniqueId());
 
-		if (publicChatMuted && !player.hasPermission("hysteria.staff")) {
+		if (publicChatMuted && !player.hasPermission("cpractice.staff")) {
 			return new ChatAttempt(ChatAttempt.Response.CHAT_MUTED);
 		}
 
-		if (publicChatDelayed && !profile.getChatCooldown().hasExpired() && !player.hasPermission("hysteria.staff")) {
+		if (publicChatDelayed && !profile.getChatCooldown().hasExpired() && !player.hasPermission("cpractice.staff")) {
 			ChatAttempt attempt = new ChatAttempt(ChatAttempt.Response.CHAT_DELAYED);
 			attempt.setValue(profile.getChatCooldown().getRemaining());
 			return attempt;

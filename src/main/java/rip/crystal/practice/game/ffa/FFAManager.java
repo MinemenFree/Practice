@@ -1,14 +1,17 @@
 package rip.crystal.practice.game.ffa;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 27.11.2021
 */
 
+import lombok.Getter;
+import lombok.Setter;
 import me.scalebound.pspigot.KnockbackProfile;
 import org.bukkit.GameMode;
 import org.spigotmc.SpigotConfig;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.cuboid.Cuboid;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.player.profile.Profile;
@@ -19,6 +22,8 @@ import org.bukkit.entity.Player;
 import java.util.*;
 
 public class FFAManager {
+
+    @Getter @Setter private Cuboid ffaSafezone;
 
     public int killstreak;
 

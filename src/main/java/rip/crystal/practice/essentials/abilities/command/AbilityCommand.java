@@ -19,7 +19,7 @@ public class AbilityCommand extends BaseCommand {
 
     private cPractice plugin = cPractice.get();
 
-    @Command(name = "ability", permission = "hysteria.command.ability")
+    @Command(name = "ability", permission = "cpractice.command.ability")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

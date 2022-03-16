@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class SunsetCommand extends BaseCommand {
 
-	@Command(name = "sunset", permission = "hysteria.command.sunset")
+	@Command(name = "sunset", permission = "cpractice.command.sunset")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

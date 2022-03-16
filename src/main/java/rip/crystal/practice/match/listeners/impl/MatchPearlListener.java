@@ -103,8 +103,7 @@ public class MatchPearlListener implements Listener {
             return;
         }
 
-        // Check if match isn't MatchState.PLAYING_ROUND and ProfileState.FIGHTING, if so, cancel event.
-        if (match.getState() != MatchState.PLAYING_ROUND && profile.getState() == ProfileState.FIGHTING) {
+        if (match.getState() != MatchState.PLAYING_ROUND/* && profile.getState() == ProfileState.FIGHTING*/) {
             if(event.getEntity().getShooter() instanceof Player && event.getEntity() instanceof EnderPearl) {
                 player.sendMessage(CC.RED + "You can't throw pearls right now!");
                 event.setCancelled(true);

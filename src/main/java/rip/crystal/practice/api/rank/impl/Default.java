@@ -25,4 +25,9 @@ public class Default implements Rank {
     public String getColor(UUID uuid) {
         return "Default";
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        return 0;
+    }
 }

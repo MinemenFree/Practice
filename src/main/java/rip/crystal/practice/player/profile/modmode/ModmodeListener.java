@@ -6,7 +6,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.HotbarItem;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.TaskUtil;

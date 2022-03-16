@@ -19,7 +19,7 @@ import rip.crystal.practice.match.menu.ViewInventoryMenu;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.HotbarItem;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import rip.crystal.practice.utilities.KitUtils;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
@@ -110,11 +110,11 @@ public class MatchPlayerListener implements Listener {
                 }
                 if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasDisplayName()) {
                     Matcher matcher;
-                    ItemStack itemStack2 = Hotbar.getItems().get((Object)HotbarItem.KIT_SELECTION).getItemStack();
+                    ItemStack itemStack2 = Hotbar.getItems().get(HotbarItem.KIT_SELECTION).getItemStack();
                     if (itemStack.getType() == itemStack2.getType() && itemStack.getDurability() == itemStack2.getDurability() && (matcher = HotbarItem.KIT_SELECTION.getPattern().matcher(itemStack.getItemMeta().getDisplayName())).find()) {
                         String kitName = matcher.group(2);
                         KitLoadout kitLoadout = null;
-                        if (kitName.equals("Default")) {
+                        if (kitName.equalsIgnoreCase("Default")) {
                             kitLoadout = match.getKit().getKitLoadout();
                         } else {
                             for (KitLoadout kitLoadout2 : profile.getKitData().get(match.getKit()).getLoadouts()) {
@@ -161,8 +161,13 @@ public class MatchPlayerListener implements Listener {
         if (profile.getState() == ProfileState.SPECTATING) event.setCancelled(true);
 
         if(teamMatch.getKit().getGameRules().isHcftrap()) {
-            if(event.getItem() != null && event.getClickedBlock() != null && (event.getClickedBlock().getType().name().contains("FENCE") || event.getClickedBlock().getState() instanceof TrapDoor || event.getClickedBlock().getType().name().contains("TRAP") || event.getClickedBlock().getType().name().contains("CHEST") || event.getClickedBlock().getType().name().contains("DOOR") || event.getClickedBlock().getType().equals(Material.BEACON) || event.getClickedBlock().getType().equals(Material.FURNACE) || event.getClickedBlock().getType().equals(Material.WORKBENCH) || event.getClickedBlock().getType().equals(Material.NOTE_BLOCK) || event.getClickedBlock().getType().equals(Material.JUKEBOX) || event.getClickedBlock().getType().equals(Material.ANVIL) || event.getClickedBlock().getType().equals(Material.HOPPER) || event.getClickedBlock().getType().equals(Material.BED_BLOCK) || event.getClickedBlock().getType().equals(Material.DROPPER) || event.getClickedBlock().getType().equals(Material.BREWING_STAND) && event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
-                //if(event.getItem() != null && event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.SPRUCE_FENCE_GATE && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            // If player is sneaking and holding a enderpearl at the gate and right clicking.
+            if(teamMatch.getParticipantB().containsPlayer(player.getUniqueId())) {
+                if (event.getPlayer().isSneaking() && event.getItem().getType() == Material.ENDER_PEARL && event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock().getType().name().contains("FENCE")) {
+                    return;
+                }
+            }
+            if(event.getAction() == Action.RIGHT_CLICK_BLOCK && (event.getClickedBlock().getType().name().contains("FENCE") || event.getClickedBlock().getState() instanceof TrapDoor || event.getClickedBlock().getType().name().contains("TRAP") || event.getClickedBlock().getType().name().contains("CHEST") || event.getClickedBlock().getType().name().contains("DOOR") || event.getClickedBlock().getType().equals(Material.BEACON) || event.getClickedBlock().getType().equals(Material.FURNACE) || event.getClickedBlock().getType().equals(Material.WORKBENCH) || event.getClickedBlock().getType().equals(Material.NOTE_BLOCK) || event.getClickedBlock().getType().equals(Material.JUKEBOX) || event.getClickedBlock().getType().equals(Material.ANVIL) || event.getClickedBlock().getType().equals(Material.HOPPER) || event.getClickedBlock().getType().equals(Material.BED_BLOCK) || event.getClickedBlock().getType().equals(Material.DROPPER) || event.getClickedBlock().getType().equals(Material.BREWING_STAND))) {
                 if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
                     if (teamMatch.getChangedBlocks().stream().noneMatch(blockState -> blockState.getBlock().getLocation().equals(event.getClickedBlock().getLocation()))) {
                         teamMatch.getChangedBlocks().add(event.getClickedBlock().getState());

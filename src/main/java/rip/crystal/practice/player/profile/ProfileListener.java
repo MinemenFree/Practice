@@ -6,8 +6,9 @@ import rip.crystal.practice.player.clan.Clan;
 import rip.crystal.practice.essentials.event.SpawnTeleportEvent;
 import rip.crystal.practice.player.nametags.GxNameTag;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.HotbarItem;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
+import rip.crystal.practice.player.profile.weight.Weight;
 import rip.crystal.practice.utilities.Cooldown;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.Reflection;
@@ -25,6 +26,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.metadata.FixedMetadataValue;
+import rip.crystal.practice.visual.tablist.TabAdapter;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -159,6 +161,11 @@ public class ProfileListener implements Listener {
 //			TabAdapter.getRanks().add(weight);
 //		}
 
+		Weight weight = new Weight(player.getUniqueId(), cPractice.get().getRankManager().getRank().getWeight(player.getUniqueId()));
+		weight.setFormat(player.getName());
+		profile.setWeight(weight);
+		TabAdapter.getRanks().add(weight);
+
 		profile.setName(player.getName());
 		profile.setOnline(true);
 		profile.setFishHit(0);
@@ -211,6 +218,7 @@ public class ProfileListener implements Listener {
 		profile.setOnline(false);
 		TaskUtil.runAsync(profile::save);
 
+		TabAdapter.getRanks().remove(profile.getWeight());
 		if (profile.getRematchData() != null) profile.getRematchData().validate();
 	}
 

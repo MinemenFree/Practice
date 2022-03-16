@@ -27,4 +27,9 @@ public class Synth implements Rank {
         return SynthAPI.INSTANCE.getPlayerRank(uuid).getColor()
                 + SynthAPI.INSTANCE.getPlayerRank(uuid).getName();
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        return 0;
+    }
 }

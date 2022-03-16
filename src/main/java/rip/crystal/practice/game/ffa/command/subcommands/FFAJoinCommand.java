@@ -1,6 +1,6 @@
 package rip.crystal.practice.game.ffa.command.subcommands;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 27.11.2021
 */
 

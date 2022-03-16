@@ -50,7 +50,8 @@ public class TabAdapter implements GhostlyAdapter {
 
     @Override
     public Set<BufferedTabObject> getSlots(Player player) {
-        LinkedList<Weight> ranksSorted = ranks.stream().limit(80).collect(Collectors.toCollection(LinkedList::new));
+        LinkedList<Weight> ranksSorted = ranks.stream().sorted(Comparator.comparing(Weight::getInteger).reversed()).limit(80L).collect(Collectors.toCollection(LinkedList::new)); //ranks.stream().limit(80).collect(Collectors.toCollection(LinkedList::new));
+
         Set<BufferedTabObject> tabObjects = Sets.newHashSet();
         Profile profile = Profile.get(player.getUniqueId());
 
@@ -247,33 +248,20 @@ public class TabAdapter implements GhostlyAdapter {
                                 .column(TabColumn.FAR_RIGHT));
                         break;
                 }
+                if (profile.getTabType() == TabType.WEIGHT) {
+                    break;
+                }
             }
-        }
-        else if (profile.getTabType() == TabType.WEIGHT) {
-            for (int i = 0; i < ranksSorted.size(); i++) {
-                List<TabColumn> columns = Arrays.asList(TabColumn.LEFT, TabColumn.MIDDLE, TabColumn.RIGHT, TabColumn.FAR_RIGHT);
-                int column = i % 4;
-                int row = i / 4;
-
+        } else if (profile.getTabType() == TabType.WEIGHT) {
+            for (int i = 0; i < ranksSorted.size(); ++i) {
+                List<TabColumn> list = Arrays.asList(TabColumn.LEFT, TabColumn.MIDDLE, TabColumn.RIGHT, TabColumn.FAR_RIGHT);
+                int n = i % 4;
+                int n2 = i / 4 + 1;
                 if (ranksSorted.get(i) == null) continue;
                 Weight weight = ranksSorted.get(i);
-
-                SkinTexture skinTexture;
-                try {
-                    skinTexture = TabListCommons.getSkinData(weight.getUuid());
-                } catch (Exception e) {
-                    skinTexture = TabListCommons.defaultTexture;
-                }
-
-                tabObjects.add(new BufferedTabObject()
-                        .text(weight.getFormat())
-                        .skin(skinTexture)
-                        .slot(row)
-                        .ping(0)
-                        .column(columns.get(column)));
+                tabObjects.add(new BufferedTabObject().text(weight.getFormat()).slot(n2).ping(-1).column(list.get(n)));
             }
         }
-
         return tabObjects;
     }
 

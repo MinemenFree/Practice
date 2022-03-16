@@ -1,9 +1,10 @@
 package rip.crystal.practice.player.cosmetics.menu;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 30.11.2021
 */
 
+import org.bukkit.ChatColor;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.profile.meta.option.button.*;
 import rip.crystal.practice.utilities.ItemBuilder;
@@ -13,7 +14,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +21,7 @@ public class CosmeticsMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return Color.DARK_GRAY + "Cosmetics Menu";
+        return ChatColor.DARK_GRAY + "Cosmetics Menu";
     }
 
     {

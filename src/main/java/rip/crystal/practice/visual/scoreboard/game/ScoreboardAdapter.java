@@ -1,6 +1,6 @@
-package rip.crystal.practice.player.profile.match;
+package rip.crystal.practice.visual.scoreboard.game;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 27.10.2021
 */
 

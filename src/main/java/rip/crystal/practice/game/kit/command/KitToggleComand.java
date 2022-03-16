@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class KitToggleComand extends BaseCommand {
 
-    @Command(name = "kit.toggle", permission = "hysteria.kit.admin")
+    @Command(name = "kit.toggle", permission = "cpractice.kit.admin")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

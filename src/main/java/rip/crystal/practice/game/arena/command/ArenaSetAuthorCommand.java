@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class ArenaSetAuthorCommand extends BaseCommand {
 
-    @Command(name = "arena.setauthor", permission = "hysteria.arena.admin")
+    @Command(name = "arena.setauthor", permission = "cpractice.arena.admin")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();

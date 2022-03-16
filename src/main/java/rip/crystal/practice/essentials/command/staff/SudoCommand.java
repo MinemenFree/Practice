@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class SudoCommand extends BaseCommand {
 
-	@Command(name = "sudo", permission = "hysteria.command.sudo")
+	@Command(name = "sudo", permission = "cpractice.command.sudo")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

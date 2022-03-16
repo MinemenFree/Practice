@@ -1,5 +1,6 @@
 package rip.crystal.practice.api.rank.impl;
 
+import me.activated.core.api.player.GlobalPlayer;
 import rip.crystal.practice.api.rank.Rank;
 import me.activated.core.api.player.PlayerData;
 import me.activated.core.plugin.AquaCoreAPI;
@@ -31,4 +32,11 @@ public class AquaCore implements Rank {
         PlayerData data = AquaCoreAPI.INSTANCE.getPlayerData(uuid);
         return data == null ? "No Data" : data.getHighestRank().getColor() + data.getHighestRank().getName();
     }
+
+    @Override
+    public int getWeight(UUID uuid) {
+        GlobalPlayer globalPlayer = AquaCoreAPI.INSTANCE.getGlobalPlayer(uuid);
+        return globalPlayer == null ? 0 : globalPlayer.getRankWeight();
+    }
+
 }

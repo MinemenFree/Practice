@@ -1,6 +1,7 @@
 package rip.crystal.practice.game.kit.command;
 
 import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.game.kit.menu.KitEditEffectsMenu;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
@@ -18,7 +19,7 @@ public class KitGameRuleCommand extends BaseCommand {
 
     private final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
-    @Command(name = "kit.setrule", permission = "hysteria.kit.admin")
+    @Command(name = "kit.setrule", permission = "cpractice.kit.admin")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
@@ -35,7 +36,7 @@ public class KitGameRuleCommand extends BaseCommand {
             player.sendMessage(CC.RED + "A kit with that name does not exist.");
             return;
         }
-        if (args.length == 2 && args[2].equalsIgnoreCase("effect"))  {
+        if (args.length == 1 && args[1].equalsIgnoreCase("effect"))  {
             player.sendMessage(CC.RED + "Please use: ");
             player.sendMessage(CC.RED + "/kit setrule " + kit.getName() + " effect list");
             player.sendMessage(CC.RED + "/kit setrule " + kit.getName() + " effect add (effect) (amplifier)");
@@ -205,9 +206,7 @@ public class KitGameRuleCommand extends BaseCommand {
                             return;
                         }
 
-                        kit.getGameRules().getEffects().remove(
-                                kit.getGameRules().getEffects().stream().filter(potionEffect -> potionEffect.getType().getName().equalsIgnoreCase(args[3])).findFirst()
-                                        .get());
+                        kit.getGameRules().getEffects().remove(kit.getGameRules().getEffects().stream().filter(potionEffect -> potionEffect.getType().getName().equalsIgnoreCase(args[3])).findFirst().get());
                         player.sendMessage(CC.RED + "Effect " + effectType.getName() + " removed correctly.");
                     }
                     else if (args[2].equalsIgnoreCase("list")) {
@@ -236,11 +235,9 @@ public class KitGameRuleCommand extends BaseCommand {
                         kit.getEditRules().getEditorItems().add(content);
                 }
                 player.sendMessage(CC.GREEN + "Kit editor items update.");
-            }
-//            else if (rule.equalsIgnoreCase("kitseffect")) {
-//                new KitEditEffectsMenu(kit).openMenu(player);
-//            }
-            else {
+            } else if (rule.equalsIgnoreCase("effectmenu")) {
+                //new KitEditEffectsMenu(kit).openMenu(player);
+            } else {
                 player.sendMessage(CC.RED + "/kit setrule <kit> <rule> <value>");
             }
         }

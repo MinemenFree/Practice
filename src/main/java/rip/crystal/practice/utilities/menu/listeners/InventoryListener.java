@@ -1,6 +1,6 @@
 package rip.crystal.practice.utilities.menu.listeners;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 12.11.2021
 */
 

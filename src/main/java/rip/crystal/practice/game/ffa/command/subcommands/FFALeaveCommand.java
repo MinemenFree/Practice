@@ -1,6 +1,6 @@
 package rip.crystal.practice.game.ffa.command.subcommands;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 27.11.2021
 */
 
@@ -31,10 +31,6 @@ public class FFALeaveCommand extends BaseCommand {
         if (profile.getState() != ProfileState.FFA) {
             player.sendMessage(CC.translate("&cYou can only use this command in FFA Arena."));
             return;
-        }
-
-        for (String message : cPractice.get().getFfaConfig().getStringList("MESSAGES.PLAYER-LEAVE-GLOBAL")) {
-            this.broadcastMessage(CC.translate(message.replace("{player}", player.getName())));
         }
 
         if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {

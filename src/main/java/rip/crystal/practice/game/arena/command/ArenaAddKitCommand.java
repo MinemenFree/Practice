@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class ArenaAddKitCommand extends BaseCommand {
 
-	@Command(name = "arena.addkit", permission = "hysteria.arena.admin")
+	@Command(name = "arena.addkit", permission = "cpractice.arena.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();

@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.profile.meta.option.button;
 /* 
-   Made by Hysteria Development Team
+   Made by cpractice Development Team
    Created on 05.11.2021
 */
 
