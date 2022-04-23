@@ -11,8 +11,8 @@ import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.party.Party;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
-import rip.crystal.practice.player.profile.participant.TeamGameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
+import rip.crystal.practice.player.profile.participant.team.TeamGameParticipant;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.TaskUtil;
 import rip.crystal.practice.utilities.chat.CC;
@@ -149,6 +149,8 @@ public class DuelAcceptCommand extends BaseCommand {
 				match = new BasicTeamRoundMatch(null, duelRequest.getKit(), arena, false, participantA, participantB, duelRequest.getRounds());
 			} else if (match.getKit().getGameRules().isBridge()) {
 				match = new BasicTeamRoundMatch(null, duelRequest.getKit(), arena, false, participantA, participantB, cPractice.get().getBridgeRounds());
+			} else if (match.getKit().getGameRules().isBedFight()) {
+				match = new BasicTeamRoundMatch(null, duelRequest.getKit(), arena, false, participantA, participantB, 3);
 			}
 			TaskUtil.run(match::start);
 		} else {

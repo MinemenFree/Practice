@@ -14,9 +14,10 @@ public class AdminInformationCommand extends BaseCommand {
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
         player.sendMessage(CC.CHAT_BAR);
-        player.sendMessage(CC.translate("&9Plugin: &r" + "cPractice"));
-        player.sendMessage(CC.translate("&9License: &r" + cPractice.get().getMainConfig().getString("LICENSE")));
-        player.sendMessage(CC.translate("&9Developer: &r" + "ziue"));
+        player.sendMessage(CC.translate(" &7▢ &9Plugin: &r" + "cPractice"));
+        player.sendMessage(CC.translate(" &7▢ &9Version: &r" + cPractice.get().getDescription().getVersion()));
+        player.sendMessage(CC.translate(" &7▢ &9License: &r" + cPractice.get().getMainConfig().getString("LICENSE")));
+        player.sendMessage(CC.translate(" &7▢ &9Developer: &r" + "ziue"));
         player.sendMessage(CC.CHAT_BAR);
     }
 }

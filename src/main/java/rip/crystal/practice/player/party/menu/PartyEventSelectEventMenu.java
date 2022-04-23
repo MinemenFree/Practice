@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.party.menu;
 
-import rip.crystal.practice.player.party.PartyEvent;
+import rip.crystal.practice.player.party.enums.PartyEvent;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.ItemBuilder;

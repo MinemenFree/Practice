@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.visual.scoreboard.BoardAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,7 @@ public class StatisticsMenu extends Menu {
                 lore.add(s.replace("{bars}", CC.MENU_BAR)
                         .replace("{elo}", String.valueOf(kitData.getElo()))
                         .replace("{wins}", String.valueOf(kitData.getWon()))
+                        .replace("{division}", String.valueOf(BoardAdapter.getDivision(player)))
                         .replace("{losses}", String.valueOf(kitData.getLost())));
             }
             return new ItemBuilder(kit.getDisplayIcon())

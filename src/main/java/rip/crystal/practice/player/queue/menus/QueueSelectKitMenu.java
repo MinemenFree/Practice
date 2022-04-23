@@ -76,6 +76,7 @@ public class QueueSelectKitMenu extends Menu {
 					lore.add(s.replace("{bars}", CC.SB_BAR)
 							.replace("{in-fight}", String.valueOf(Match.getInFightsCount(queue)))
 							.replace("{winstreak}", String.valueOf(profile.getKitData().get(queue.getKit()).getKillstreak()))
+							.replace("{elo}", String.valueOf(profile.getKitData().get(queue.getKit()).getElo()))
 							.replace("{in-queue}", String.valueOf(queue.getPlayers().size()))));
 
 			ChatColor color = ChatColor.valueOf(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_COLOR"));

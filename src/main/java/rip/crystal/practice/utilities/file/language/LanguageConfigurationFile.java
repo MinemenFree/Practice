@@ -203,7 +203,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
     public void reload() {
         getConfigurations().forEach((type, configuration) -> {
             File file = new File(cPractice.get().getDataFolder(),
-                "lang" + "_" + type.getAbbreviation() + ".yml");
+                "lang/lang" + "_" + type.getAbbreviation() + ".yml");
             try {
                 configuration.load(file);
                 configuration.save(file);

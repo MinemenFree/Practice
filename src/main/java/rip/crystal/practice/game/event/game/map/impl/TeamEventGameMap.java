@@ -6,7 +6,7 @@ import rip.crystal.practice.game.event.game.map.EventGameMap;
 import rip.crystal.practice.game.event.impl.brackets.BracketsGameLogic;
 import rip.crystal.practice.game.event.impl.gulag.GulagGameLogic;
 import rip.crystal.practice.game.event.impl.sumo.SumoGameLogic;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.profile.participant.GamePlayer;
 import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
 import rip.crystal.practice.utilities.LocationUtil;

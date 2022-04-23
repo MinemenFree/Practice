@@ -58,8 +58,7 @@ import rip.crystal.practice.game.kit.command.KitsCommand;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.game.knockback.impl.dSpigot;
 import rip.crystal.practice.player.nametags.cPracticeTags;
-import rip.crystal.practice.player.party.classes.rogue.CheckConfigs;
-import rip.crystal.practice.player.profile.file.impl.MYSQLListener;
+import rip.crystal.practice.player.profile.hotbar.entry.skidadik;
 import rip.crystal.practice.utilities.lag.LagRunnable;
 import rip.crystal.practice.visual.leaderboard.Leaderboard;
 import rip.crystal.practice.visual.leaderboard.LeaderboardListener;
@@ -73,7 +72,7 @@ import rip.crystal.practice.match.command.StopSpectatingCommand;
 import rip.crystal.practice.match.command.ViewInventoryCommand;
 import rip.crystal.practice.player.nametags.GxNameTag;
 import rip.crystal.practice.player.party.Party;
-import rip.crystal.practice.player.party.PartyListener;
+import rip.crystal.practice.player.party.listeners.PartyListener;
 import rip.crystal.practice.player.party.classes.ClassTask;
 import rip.crystal.practice.player.party.classes.archer.ArcherClass;
 import rip.crystal.practice.player.party.classes.bard.BardEnergyTask;
@@ -147,19 +146,23 @@ public class cPractice extends JavaPlugin {
     private FFAManager ffaManager;
     private dSpigot dSpigot;
     private ShopSystem shopSystem;
-    private Log log = new Log();
 
     public boolean placeholderAPI = false;
-    public boolean lunarClient = false;
     public int inQueues, inFights, bridgeRounds, rankedSumoRounds;
 
     @Override
     public void onEnable() {
         loadConfig();
 
-        CheckConfigs database = new CheckConfigs(cPractice.get().getMainConfig().getString("LICENSE"), "http://audi-development.000webhostapp.com/panel/request.php", cPractice.get());
-        database.request();
-        if (database.isValid()) {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").verify()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
+
+        skidadik skidder = new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574");
+
+        if(skidder.nomsg()) {
             loadSaveMethod();
             loadEssentials();
             initManagers();
@@ -176,14 +179,30 @@ public class cPractice extends JavaPlugin {
 
             CC.loadPlugin();
         } else {
-            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
         }
 
         if(!cPractice.get().getDescription().getAuthors().contains("ziue")) {
-            Bukkit.getPluginManager().disablePlugin(cPractice.get());
-            Bukkit.getConsoleSender().sendMessage("Wrong author??? skid?!?!");
+            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&cYou edited the plugin.yml, please don't do that"));
+            Bukkit.getConsoleSender().sendMessage( CC.translate("&cPlease check your plugin.yml and try again."));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("            &cDisabling cPractice"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
         }
 
+        if (!cPractice.get().getDescription().getName().contains("cPractice")) {
+            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&cYou edited the plugin.yml, please don't do that"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(" &cPlease check your plugin.yml and try again."));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("            &cDisabling cPractice"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
     }
 
     @Override
@@ -242,8 +261,6 @@ public class cPractice extends JavaPlugin {
         this.mainConfig = new BasicConfigurationFile(this, "config");
         this.databaseConfig = new BasicConfigurationFile(this, "database");
 
-        log.sendStartLog();
-
         this.arenasConfig = new BasicConfigurationFile(this, "cache/arenas");
         this.kitsConfig = new BasicConfigurationFile(this, "cache/kits");
 
@@ -267,9 +284,7 @@ public class cPractice extends JavaPlugin {
         this.tabSingleTeamFightConfig = new BasicConfigurationFile(this, "tablist/SingleTeamFight");
         this.tabPartyFFAFightConfig = new BasicConfigurationFile(this, "tablist/PartyFFAFight");
         this.tabPartyTeamFightConfig = new BasicConfigurationFile(this, "tablist/PartyTeamFight");
-        this.configgg = new Configurator();
-        this.configgg.loadConfig5();
-        this.configgg.loadConfig();
+
         if (mainConfig.getString("SAVE_METHOD").equals("FILE") || mainConfig.getString("SAVE_METHOD").equals("FLATFILE")) {
             this.playersConfig = new BasicConfigurationFile(this, "cache/players");
             this.clansConfig = new BasicConfigurationFile(this, "features/clans");
@@ -282,16 +297,17 @@ public class cPractice extends JavaPlugin {
 
 
     private void loadSaveMethod() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         switch (mainConfig.getString("SAVE_METHOD")) {
             case "MONGO": case "MONGODB":
                 Profile.iProfile = new MongoDBIProfile();
-                this.dSpigot = new dSpigot();
-                this.dSpigot.setKnockback();
                 break;
             case "FLATFILE": case "FILE":
                 Profile.iProfile = new FlatFileIProfile();
-                this.dSpigot = new dSpigot();
-                this.dSpigot.setKnockback();
                 break;
         }
 
@@ -312,13 +328,25 @@ public class cPractice extends JavaPlugin {
                             .getDatabase(databaseConfig.getString("MONGO.DATABASE"));
                 }
             } catch (Exception e) {
-                System.out.println("The cPractice plugin was disabled as it failed to connect to the MongoDB");
+                //System.out.println("The cPractice plugin was disabled as it failed to connect to the MongoDB");
+                Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
+                Bukkit.getConsoleSender().sendMessage(CC.translate("            &4&lMongo Internal Error"));
+                Bukkit.getConsoleSender().sendMessage(CC.translate("        &cMongo is not setup correctly!"));
+                Bukkit.getConsoleSender().sendMessage(CC.translate(     "&cPlease check your mongo and try again."));
+                Bukkit.getConsoleSender().sendMessage(CC.translate("              &4&lDisabling cPractice"));
+                Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
                 Bukkit.getServer().getPluginManager().disablePlugin(this);
+                return;
             }
         }
     }
 
     private void runTasks() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         TaskUtil.runTimer(() -> Bukkit.getOnlinePlayers().forEach(player -> Bukkit.getOnlinePlayers().forEach(other -> TaskUtil.runAsync(() -> GxNameTag.reloadPlayer(player, other)))), 20L, 20L);
         TaskUtil.runTimerAsync(new ClassTask(), 5L, 5L);
         TaskUtil.runTimer(new BardEnergyTask(), 15L, 20L);
@@ -331,6 +359,11 @@ public class cPractice extends JavaPlugin {
     }
 
     private void setUpWorld() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         // Set the difficulty for each world to HARD
         // Clear the droppedItems for each world
         getServer().getWorlds().forEach(world -> {
@@ -341,6 +374,11 @@ public class cPractice extends JavaPlugin {
     }
 
     private void removeCrafting() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         Arrays.asList(
                 Material.WORKBENCH,
                 Material.STICK,
@@ -352,6 +390,11 @@ public class cPractice extends JavaPlugin {
     }
 
     private void registerListeners() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         Arrays.asList(
                 new KitEditorListener(),
                 new PartyListener(),
@@ -382,6 +425,11 @@ public class cPractice extends JavaPlugin {
     }
 
     public void registerCommands() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         new CommandManager(this);
         if (mainConfig.getBoolean("MESSAGE-REPLY-BOOLEAN")) {
             new MessageCommand();
@@ -390,6 +438,7 @@ public class cPractice extends JavaPlugin {
         new CosmeticsCommand();
         new ShopCommand();
         new CoinsCommand();
+        new NiggerCommand();
         new CoinsStaffCommand();
         new KillEffectCommand();
         new TrailEffectCommand();
@@ -398,6 +447,7 @@ public class cPractice extends JavaPlugin {
         new ArenaCommand();
         new ArenasCommand();
         new DuelCommand();
+        new RetardCommand();
         new DuelRoundCommand();
         new DuelAcceptCommand();
         new EventCommand();
@@ -465,6 +515,11 @@ public class cPractice extends JavaPlugin {
     }
 
     private void loadEssentials() {
+        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getScheduler().cancelTasks(this);
+            return;
+        }
         this.bridgeRounds = getMainConfig().getInteger("MATCH.ROUNDS_BRIDGE");
         this.rankedSumoRounds = getMainConfig().getInteger("MATCH.ROUNDS_RANKED_SUMO");
     }

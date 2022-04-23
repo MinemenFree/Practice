@@ -11,7 +11,7 @@ import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.party.Party;
 import rip.crystal.practice.player.party.classes.HCFClass;
 import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.utilities.MessageFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

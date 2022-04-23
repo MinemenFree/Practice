@@ -1,3 +1,4 @@
+
 package rip.crystal.practice.utilities;
 
 import rip.crystal.practice.cPractice;
@@ -88,5 +89,4 @@ public class PlayerUtil {
 	public static PlayerVersion getPlayerVersion(Player player) {
 		return PlayerVersionHandler.version.getPlayerVersion(player);
 	}
-
 }

@@ -4,7 +4,7 @@ package rip.crystal.practice.player.party.command.subcommands;
    Created on 07.11.2021
 */
 
-import rip.crystal.practice.player.party.PartyPrivacy;
+import rip.crystal.practice.player.party.enums.PartyPrivacy;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.Cooldown;
 import rip.crystal.practice.utilities.TimeUtil;

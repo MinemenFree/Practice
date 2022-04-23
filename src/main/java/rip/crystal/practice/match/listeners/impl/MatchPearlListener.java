@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.Locale;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.MatchState;
 import rip.crystal.practice.player.profile.Profile;
@@ -58,7 +59,7 @@ public class MatchPearlListener implements Listener {
         Profile profile = Profile.get(player.getUniqueId());
         ItemStack itemStack = event.getItem();
 
-        if(profile.getState() == ProfileState.FIGHTING || profile.getState() == ProfileState.FFA) {
+        /*if(profile.getState() == ProfileState.FIGHTING || profile.getState() == ProfileState.FFA) {
 
             Match match = profile.getMatch();
 
@@ -89,12 +90,13 @@ public class MatchPearlListener implements Listener {
                     new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("{time}", time).send(player);
                 }
             }
-        }
+        }*/
     }
 
     @EventHandler
     public void onPearlLaunch(ProjectileLaunchEvent event) {
         Player player = (Player) event.getEntity().getShooter();
+
         Profile profile = Profile.get(player.getUniqueId());
         Match match = profile.getMatch();
 

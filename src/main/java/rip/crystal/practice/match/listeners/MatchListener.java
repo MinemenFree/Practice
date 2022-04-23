@@ -72,7 +72,7 @@ public class MatchListener implements Listener {
 		Profile profile = Profile.get(event.getPlayer().getUniqueId());
 
 		if (event.getItemDrop().getItemStack().getType() == Material.BOOK ||
-		    event.getItemDrop().getItemStack().getType() == Material.ENCHANTED_BOOK) {
+				event.getItemDrop().getItemStack().getType() == Material.ENCHANTED_BOOK) {
 			event.setCancelled(true);
 			return;
 		}
@@ -248,7 +248,7 @@ public class MatchListener implements Listener {
 			Profile shooterData = Profile.get(shooter.getUniqueId());
 
 			if (shooterData.getState() == ProfileState.FIGHTING &&
-			    shooterData.getMatch().getState() == MatchState.PLAYING_ROUND) {
+					shooterData.getMatch().getState() == MatchState.PLAYING_ROUND) {
 
 //				event.getEntity().
 
@@ -422,11 +422,11 @@ public class MatchListener implements Listener {
 					double health = Math.ceil(damaged.getHealth() - event.getFinalDamage()) / 2.0D;
 
 					new MessageFormat(Locale.ARROW_DAMAGE_INDICATOR.format(attackerProfile.getLocale()))
-						.add("{range}", String.valueOf(range))
-						.add("{damaged_name}", damaged.getName())
-						.add("{damaged_health}", String.valueOf(health))
-						.add("{symbol}", StringEscapeUtils.unescapeJava("\u2764"))
-						.send(attacker);
+							.add("{range}", String.valueOf(range))
+							.add("{damaged_name}", damaged.getName())
+							.add("{damaged_health}", String.valueOf(health))
+							.add("{symbol}", StringEscapeUtils.unescapeJava("\u2764"))
+							.send(attacker);
 				}
 			}
 		}
@@ -488,12 +488,8 @@ public class MatchListener implements Listener {
 		match.getParticipants().forEach(matchGamePlayerGameParticipant -> {
 			matchGamePlayerGameParticipant.getPlayers().forEach(player -> {
 				if (player.getPlayer() == null) return;
-				if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {
-					KnockbackProfile knockbackProfile = SpigotConfig.getKbProfileByName("default");
-					player.getPlayer().setKbProfile(knockbackProfile);
-				} else {
-					Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
-				}
+
+				Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
 				//Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
 			});
 		});

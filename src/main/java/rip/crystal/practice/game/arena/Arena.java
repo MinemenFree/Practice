@@ -177,7 +177,7 @@ public class Arena extends Cuboid {
 
 			if ((kit.getGameRules().isBuild() || kit.getGameRules().isHcftrap() || kit.getGameRules().isSpleef() || kit.getGameRules().isBridge()) && !arena.isActive() && (arena.getType() == ArenaType.STANDALONE || arena.getType() == ArenaType.DUPLICATE)) {
 				_arenas.add(arena);
-			} else if (!kit.getGameRules().isBuild() && arena.getType() == ArenaType.SHARED) {
+			} else if ((!kit.getGameRules().isBuild() || !kit.getGameRules().isHcftrap() || !kit.getGameRules().isSpleef() || !kit.getGameRules().isBridge()) && arena.getType() == ArenaType.SHARED) {
 				_arenas.add(arena);
 			}
 		}

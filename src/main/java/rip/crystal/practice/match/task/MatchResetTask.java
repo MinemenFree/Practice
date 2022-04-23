@@ -21,11 +21,11 @@ public class MatchResetTask extends BukkitRunnable {
 		if (this.match.getKit().getGameRules().isBuild() || this.match.getKit().getGameRules().isHcftrap() || this.match.getKit().getGameRules().isBridge() || this.match.getKit().getGameRules().isSpleef()) {
 			EditSession editSession;
 			if (!this.match.getPlacedBlocks().isEmpty()) {
-				editSession = new EditSession(BukkitUtil.getLocalWorld((World)this.match.getArena().getSpawnA().getWorld()), Integer.MAX_VALUE);
+				editSession = new EditSession(BukkitUtil.getLocalWorld(this.match.getArena().getSpawnA().getWorld()), Integer.MAX_VALUE);
 				editSession.setFastMode(true);
 				for (Location location : this.match.getPlacedBlocks()) {
 					try {
-						editSession.setBlock(new Vector((double)location.getBlockX(), (double)location.getBlockY(), location.getZ()), new BaseBlock(0));
+						editSession.setBlock(new Vector(location.getBlockX(), location.getBlockY(), location.getZ()), new BaseBlock(0));
 					}
 					catch (Exception exception) {
 						exception.printStackTrace();
@@ -52,6 +52,10 @@ public class MatchResetTask extends BukkitRunnable {
 					this.match.getArena().setActive(false);
 				}
 			}
+			match.getArena().setActive(false);
+			this.cancel();
+		} else {
+			match.getArena().setActive(false);
 			this.cancel();
 		}
 	}

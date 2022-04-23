@@ -10,6 +10,7 @@ import rip.crystal.practice.player.queue.menus.QueueSelectKitMenu;
 import rip.crystal.practice.player.queue.task.QueueTask;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.TaskUtil;
+import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Menu;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -63,9 +64,11 @@ public class Queue {
 				.send(player);
 		} else {
 			//player.sendMessage(Locale.QUEUE_JOIN_UNRANKED.format(kit.getName()));
-			new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale()))
-				.add("{kit_name}", kit.getName())
-				.send(player);
+
+			//for (String message : cPractice.get().getLang().getStringList("QUEUE.JOIN_UNRANKED")) {
+			new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale())).add("{kit_name}", kit.getName()).add("{pingrange}", "" + (profile.getPingRange() == -1 ? "Unrestricted" : Integer.valueOf(profile.getPingRange()))).send(player);
+			//}
+			//new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale())).add("{kit_name}", kit.getName()).send(player);
 		}
 	}
 

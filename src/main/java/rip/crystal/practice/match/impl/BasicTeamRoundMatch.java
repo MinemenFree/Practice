@@ -7,7 +7,7 @@ import rip.crystal.practice.match.MatchState;
 import rip.crystal.practice.match.mongo.MatchInfo;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.*;
 import rip.crystal.practice.utilities.chat.CC;

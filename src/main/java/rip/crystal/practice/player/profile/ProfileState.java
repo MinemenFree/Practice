@@ -10,5 +10,6 @@ public enum ProfileState {
 	STAFF_MODE,
 	FFA,
 	TOURNAMENT
+
 }
 

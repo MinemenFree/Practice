@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.utilities.chat.CC;
 import lombok.Getter;
 import lombok.Setter;

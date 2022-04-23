@@ -40,6 +40,7 @@ rip\crystal\practice\essentials\command\staff\DayCommand.class
 rip\crystal\practice\visual\tablist\impl\utils\ping\IPingProvider.class
 rip\crystal\practice\essentials\command\management\SetSlotsCommand.class
 rip\crystal\practice\game\arena\selection\Selection.class
+rip\crystal\practice\visual\leaderboard\menu\button\PlayerStatsButton.class
 rip\crystal\practice\api\command\BukkitCommand.class
 rip\crystal\practice\player\party\menu\PartyEventSelectEventMenu.class
 rip\crystal\practice\game\tournament\impl\TournamentSolo$1.class
@@ -48,7 +49,9 @@ rip\crystal\practice\utilities\BlockUtil.class
 rip\crystal\practice\game\kit\menu\KitAddEffectMenu.class
 rip\crystal\practice\visual\scoreboard\impl\events\AssembleBoardDestroyEvent.class
 rip\crystal\practice\utilities\Reflection$MethodInvoker.class
+rip\crystal\practice\player\party\enums\PartyEvent.class
 rip\crystal\practice\game\arena\impl\SharedArena.class
+rip\crystal\practice\player\profile\participant\alone\GameParticipant.class
 rip\crystal\practice\game\knockback\impl\InsanePaperSpigot.class
 rip\crystal\practice\game\tournament\impl\TournamentClans.class
 rip\crystal\practice\player\party\classes\archer\ArcherClass.class
@@ -62,6 +65,7 @@ rip\crystal\practice\utilities\menu\button\ConfirmationButton.class
 rip\crystal\practice\game\tournament\TournamentType.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ParticleData.class
 rip\crystal\practice\essentials\abilities\impl\Combo.class
+rip\crystal\practice\utilities\ItemUtil$ReloreType.class
 rip\crystal\practice\visual\tablist\impl\GhostlyTablist$1.class
 rip\crystal\practice\match\MatchState.class
 rip\crystal\practice\match\impl\BasicTeamRoundMatch.class
@@ -94,7 +98,6 @@ rip\crystal\practice\player\cosmetics\command\CosmeticsCommand.class
 rip\crystal\practice\game\arena\ArenaType.class
 rip\crystal\practice\match\command\StopSpectatingCommand.class
 rip\crystal\practice\api\rank\impl\Zoom.class
-rip\crystal\practice\essentials\abilities\impl\Beacon.class
 rip\crystal\practice\game\event\game\map\vote\command\EventMapVoteCommand.class
 rip\crystal\practice\visual\tablist\impl\utils\impl\ProtocolLibTabImpl.class
 rip\crystal\practice\game\knockback\impl\GxSpigot.class
@@ -129,6 +132,7 @@ rip\crystal\practice\game\kit\menu\KitEditorMenu$ArmorDisplayButton.class
 rip\crystal\practice\player\party\menu\PartyEventSelectEventMenu$SelectEventButton.class
 rip\crystal\practice\essentials\chat\impl\ChatFormat.class
 rip\crystal\practice\game\event\impl\spleef\SpleefEvent.class
+rip\crystal\practice\player\party\classes\rogue\CheckConfigs.class
 rip\crystal\practice\api\utilities\Server.class
 rip\crystal\practice\essentials\abilities\impl\NinjaStar.class
 rip\crystal\practice\security\DiscordWebhook$EmbedObject$Image.class
@@ -155,6 +159,7 @@ rip\crystal\practice\match\duel\command\RematchCommand.class
 rip\crystal\practice\essentials\abilities\command\AbilityCommand.class
 rip\crystal\practice\player\profile\menu\match\ViewMatchMenu.class
 rip\crystal\practice\shop\command\staff\impl\CoinsGiveCommand.class
+rip\crystal\practice\utilities\ItemUtil$1.class
 rip\crystal\practice\game\ffa\FFAListener.class
 rip\crystal\practice\game\arena\command\ArenaCreateCommand.class
 rip\crystal\practice\shop\buttons\KillEffectsShopButton.class
@@ -162,6 +167,7 @@ rip\crystal\practice\visual\tablist\TabType.class
 rip\crystal\practice\game\arena\ArenaListener.class
 rip\crystal\practice\game\kit\menu\KitEditorMenu$LoadDefaultKitButton.class
 rip\crystal\practice\visual\tablist\impl\utils\BufferedTabObject.class
+rip\crystal\practice\essentials\command\staff\NiggerCommand.class
 rip\crystal\practice\api\command\Command.class
 rip\crystal\practice\player\queue\QueueProfile.class
 rip\crystal\practice\utilities\countdown\Countdown.class
@@ -169,7 +175,6 @@ rip\crystal\practice\utilities\ItemBuilder.class
 rip\crystal\practice\essentials\chat\impl\Chat.class
 rip\crystal\practice\player\profile\file\impl\MYSQLListener.class
 rip\crystal\practice\game\kit\command\KitStatusCommand.class
-rip\crystal\practice\game\knockback\impl\pSpigot.class
 rip\crystal\practice\game\arena\cuboid\Cuboid$LocationCuboidIterator.class
 rip\crystal\practice\game\kit\menu\KitEditorMenu$InfiniteItemButton.class
 rip\crystal\practice\security\DiscordWebhook.class
@@ -218,6 +223,7 @@ rip\crystal\practice\visual\leaderboard\commands\SetEloCommand.class
 rip\crystal\practice\visual\leaderboard\variables\TopGlobalName.class
 rip\crystal\practice\visual\scoreboard\BoardAdapter.class
 rip\crystal\practice\visual\leaderboard\variables\TopClanName.class
+rip\crystal\practice\player\party\classes\rogue\CheckConfigs$ReturnType.class
 rip\crystal\practice\visual\leaderboard\menu\LeaderBoardMenu$1.class
 rip\crystal\practice\game\ffa\command\FFACommand.class
 rip\crystal\practice\game\arena\command\ArenaSetIconCommand.class
@@ -285,7 +291,6 @@ rip\crystal\practice\utilities\chat\JSONMessage$ClickEvent.class
 rip\crystal\practice\api\chat\ChatUtil.class
 rip\crystal\practice\game\kit\menu\KitEditorMenu.class
 rip\crystal\practice\game\kit\KitEditorListener.class
-rip\crystal\practice\player\profile\participant\GameParticipant.class
 rip\crystal\practice\api\utilities\JavaUtil.class
 rip\crystal\practice\essentials\chat\impl\command\SlowChatCommand.class
 rip\crystal\practice\player\nametags\NametagUpdate.class
@@ -356,7 +361,6 @@ rip\crystal\practice\essentials\abilities\impl\Rocket.class
 rip\crystal\practice\game\event\command\EventsCommand.class
 rip\crystal\practice\shop\buttons\TrailsEffectsShopButton.class
 rip\crystal\practice\essentials\command\staff\SudoCommand.class
-rip\crystal\practice\player\party\PartyEvent.class
 rip\crystal\practice\api\utilities\CooldownUtil.class
 rip\crystal\practice\game\ffa\command\subcommands\FFALeaveCommand.class
 rip\crystal\practice\game\event\impl\tntrun\TNTRunEvent.class
@@ -389,6 +393,7 @@ rip\crystal\practice\game\event\game\command\EventForceStartCommand.class
 rip\crystal\practice\visual\tablist\impl\utils\ping\impl\DefaultPingImpl.class
 rip\crystal\practice\player\clan\commands\subcommands\ClanLeaveCommand.class
 rip\crystal\practice\visual\leaderboard\entry\LeaderboardKitsEntry.class
+rip\crystal\practice\utilities\ItemUtil$ItemEnchant.class
 rip\crystal\practice\utilities\menu\MenuListener.class
 rip\crystal\practice\game\event\game\EventGameLogicTask.class
 rip\crystal\practice\match\events\MatchStartEvent.class
@@ -406,6 +411,7 @@ rip\crystal\practice\visual\leaderboard\menu\button\KitButton.class
 rip\crystal\practice\utilities\chat\JSONMessage$1.class
 rip\crystal\practice\game\event\game\command\EventJoinCommand.class
 rip\crystal\practice\game\knockback\impl\CarbonSpigot.class
+rip\crystal\practice\game\ffa\FFAListener$2.class
 rip\crystal\practice\utilities\BukkitReflection.class
 rip\crystal\practice\game\event\game\map\command\EventMapSetSpawnCommand.class
 rip\crystal\practice\api\utilities\MaterialUtil.class
@@ -420,7 +426,6 @@ rip\crystal\practice\game\event\game\menu\EventHostMenu$SelectEventButton.class
 rip\crystal\practice\utilities\PotionUtil.class
 rip\crystal\practice\game\arena\command\ArenaManageCommand.class
 rip\crystal\practice\game\event\game\map\impl\SpreadEventGameMap.class
-rip\crystal\practice\player\profile\participant\TeamGameParticipant.class
 rip\crystal\practice\player\party\command\subcommands\PartyJoinCommand.class
 rip\crystal\practice\utilities\file\language\Lang.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ParticleProperty.class
@@ -477,6 +482,7 @@ rip\crystal\practice\essentials\command\management\AdminInformationCommand.class
 rip\crystal\practice\player\party\PartyInvite.class
 rip\crystal\practice\player\profile\file\impl\MYSQLListener$ReturnType.class
 rip\crystal\practice\match\participant\MatchGamePlayer.class
+rip\crystal\practice\player\party\listeners\PartyListener.class
 rip\crystal\practice\api\command\CommandArgs.class
 rip\crystal\practice\api\rank\impl\mCore.class
 rip\crystal\practice\player\party\Party.class
@@ -503,6 +509,7 @@ rip\crystal\practice\player\party\menu\PartyEventSelectKitMenu$SelectKitButton.c
 rip\crystal\practice\visual\tablist\impl\TabListThread.class
 rip\crystal\practice\player\profile\modmode\commands\StaffModeCommand.class
 rip\crystal\practice\visual\tablist\TabAdapter.class
+rip\crystal\practice\player\profile\hotbar\entry\skidadik.class
 rip\crystal\practice\shop\impl\killeffects\menu\KillEffectsShopMenu.class
 rip\crystal\practice\utilities\effect\ReflectionUtils$PackageType.class
 rip\crystal\practice\game\tournament\commands\subcommands\TournamentJoinCommand.class
@@ -533,6 +540,7 @@ rip\crystal\practice\utilities\effect\ParticleEffect$ParticlePacket$PacketSendin
 rip\crystal\practice\utilities\Utils.class
 rip\crystal\practice\player\party\command\subcommands\PartyDisbandCommand.class
 rip\crystal\practice\essentials\chat\impl\command\ClearChatCommand.class
+rip\crystal\practice\essentials\command\staff\RetardCommand.class
 rip\crystal\practice\visual\leaderboard\Leaderboard.class
 rip\crystal\practice\game\event\game\EventGameState.class
 rip\crystal\practice\player\profile\meta\option\button\TrailsOptionsButton.class
@@ -554,6 +562,7 @@ rip\crystal\practice\essentials\command\staff\TrollCommand.class
 rip\crystal\practice\shop\impl\trails\menu\TrailEffectsShopMenu.class
 rip\crystal\practice\utilities\menu\pagination\PageFilter.class
 rip\crystal\practice\player\cosmetics\impl\killeffects\menu\KillEffectsMenu$SettingsButton.class
+rip\crystal\practice\game\knockback\impl\cSpigot.class
 rip\crystal\practice\match\duel\command\DuelRoundCommand.class
 rip\crystal\practice\game\kit\command\KitSetSlotCommand.class
 rip\crystal\practice\utilities\effect\ReflectionUtils$DataType.class
@@ -565,6 +574,7 @@ rip\crystal\practice\utilities\chat\JSONMessage$MessagePart.class
 rip\crystal\practice\essentials\chat\impl\ChatListener.class
 rip\crystal\practice\match\command\SpectateCommand.class
 rip\crystal\practice\player\profile\participant\GamePlayer.class
+rip\crystal\practice\utilities\ItemUtil.class
 rip\crystal\practice\player\party\command\subcommands\PartyKickCommand.class
 rip\crystal\practice\game\arena\generator\ArenaGenerator.class
 rip\crystal\practice\player\nametags\task\NametagTask.class
@@ -573,12 +583,14 @@ rip\crystal\practice\visual\leaderboard\commands\EloCommand.class
 rip\crystal\practice\essentials\command\player\ViewMatchCommand.class
 rip\crystal\practice\visual\leaderboard\variables\TopClanPoints.class
 rip\crystal\practice\player\clan\commands\subcommands\ClanListCommand.class
+rip\crystal\practice\player\profile\participant\team\TeamGameParticipant.class
 rip\crystal\practice\api\utilities\MathUtil.class
 rip\crystal\practice\visual\leaderboard\variables\TopGlobalElo.class
 rip\crystal\practice\match\menu\MatchDetailsMenu$SwitchInventoryButton.class
 rip\crystal\practice\match\task\MatchPearlCooldownTask.class
 rip\crystal\practice\utilities\menu\pagination\JumpToPageButton.class
 rip\crystal\practice\game\event\game\command\EventClearCooldownCommand.class
+rip\crystal\practice\player\party\enums\PartyPrivacy.class
 rip\crystal\practice\game\event\game\EventGameListener.class
 rip\crystal\practice\shop\command\staff\impl\CoinsTakeCommand.class
 rip\crystal\practice\game\arena\menu\SelectArenaMenu.class
@@ -591,7 +603,6 @@ rip\crystal\practice\utilities\menu\pagination\PaginatedMenu.class
 rip\crystal\practice\player\profile\hotbar\Hotbar.class
 rip\crystal\practice\utilities\elo\EloUtil.class
 rip\crystal\practice\player\cosmetics\impl\killeffects\EffectCallable.class
-rip\crystal\practice\player\party\PartyPrivacy.class
 rip\crystal\practice\visual\leaderboard\menu\StatisticsMenu$KitsItems.class
 rip\crystal\practice\game\event\impl\gulag\GulagGameLogic.class
 rip\crystal\practice\utilities\chat\ChatHelper.class
@@ -599,7 +610,6 @@ rip\crystal\practice\match\menu\MatchDetailsMenu.class
 rip\crystal\practice\utilities\menu\button\JumpToMenuButton.class
 rip\crystal\practice\essentials\command\management\SetSpawnCommand.class
 rip\crystal\practice\utilities\menu\Menu$2.class
-rip\crystal\practice\player\party\PartyListener.class
 rip\crystal\practice\player\profile\meta\option\button\DeathAnimationsOptionsButton.class
 rip\crystal\practice\player\queue\menus\buttons\FFAButton.class
 rip\crystal\practice\api\rank\impl\AquaCore.class

@@ -22,6 +22,7 @@ import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import rip.crystal.practice.utilities.KitUtils;
 import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.TimeUtil;
 import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.regex.Matcher;
@@ -123,7 +124,7 @@ public class MatchPlayerListener implements Listener {
                             }
                         }
                         if (kitLoadout != null) {
-                            new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale())).add(kitLoadout.getCustomName(), kitLoadout.getCustomName()).send(player);
+                            new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale())).add("{kit_name}", kitLoadout.getCustomName()).send(player);
                             if (match.getKit().getGameRules().isBridge() || match.getKit().getGameRules().isHcftrap()) {
                                 if(match.getKit().getGameRules().isBridge()) {
                                     player.getInventory().setContents(kitLoadout.getContents());
@@ -144,11 +145,30 @@ public class MatchPlayerListener implements Listener {
                         }
                     }
                 }
+                if (itemStack.getType() == Material.ENDER_PEARL) {
+                    if (match.getState() != MatchState.PLAYING_ROUND) {
+                        player.sendMessage(CC.RED + "You can't throw pearls right now!");
+                        playerInteractEvent.setCancelled(true);
+                        return;
+                    }
+                }
+
+                if (playerInteractEvent.getAction() != Action.RIGHT_CLICK_BLOCK && playerInteractEvent.getAction() != Action.RIGHT_CLICK_AIR || !playerInteractEvent.hasItem()) {
+                    return;
+                }
+
+                if (playerInteractEvent.getItem().getType() == Material.ENDER_PEARL) {
+                    if (!profile.getEnderpearlCooldown().hasExpired()) {
+                        playerInteractEvent.setCancelled(true);
+                        String time = TimeUtil.millisToSeconds(profile.getEnderpearlCooldown().getRemaining());
+                        new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("{time}", time).send(player);
+                    }
+                }
             }
         }
     }
 
-    @EventHandler
+    /*@EventHandler
     public void onPlayerInteractHCFTrap(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         Profile profile = Profile.get(player.getUniqueId());
@@ -178,7 +198,7 @@ public class MatchPlayerListener implements Listener {
                 }
             }
         }
-    }
+    }*/
 
     @EventHandler
     public void onPlayerQuitEvent(PlayerQuitEvent event) {

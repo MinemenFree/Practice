@@ -4,6 +4,7 @@ package rip.crystal.practice.game.ffa.command.subcommands;
    Created on 27.11.2021
 */
 
+import net.audidevelopment.cspigot.knockback.KnockbackModule;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.player.profile.Profile;
@@ -33,12 +34,7 @@ public class FFALeaveCommand extends BaseCommand {
             return;
         }
 
-        if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {
-            KnockbackProfile knockbackProfile = SpigotConfig.getKbProfileByName("default");
-            player.getPlayer().setKbProfile(knockbackProfile);
-        } else {
-            Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
-        }
+        Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
 
         PlayerUtil.reset(player);
         profile.setState(ProfileState.LOBBY);

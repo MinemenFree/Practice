@@ -32,7 +32,7 @@ public class Essentials {
 		this.spawn = LocationUtil.deserialize(plugin.getMainConfig().getString("ESSENTIAL_SPAWN_LOCATION"));
 		if(spawn != null){
 			Bukkit.getWorlds().get(0).setSpawnLocation(spawn.getBlockX(), spawn.getBlockY(), spawn.getBlockZ());
-		}else {
+		} else {
 			Bukkit.getLogger().log(Level.WARNING, "World spawn not found");
 		}
 		this.motd = CC.translate(plugin.getLangConfig().getStringList("MOTD"));
@@ -64,12 +64,8 @@ public class Essentials {
 
 		SpawnTeleportEvent event = new SpawnTeleportEvent(player, location);
 		event.call();
-		if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {
-			KnockbackProfile knockbackProfile = SpigotConfig.getKbProfileByName("default");
-			player.setKbProfile(knockbackProfile);
-		} else {
-			Knockback.getKnockbackProfiler().setKnockback(player, "default");
-		}
+
+		Knockback.getKnockbackProfiler().setKnockback(player, "default");
 		//Knockback.getKnockbackProfiler().setKnockback(player, "default");
 
 		if (!event.isCancelled() && event.getLocation() != null) {

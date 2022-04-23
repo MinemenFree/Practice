@@ -23,25 +23,23 @@ public class VisibilityLogic {
 		Profile targetProfile = Profile.get(target.getUniqueId());
 
 		if (viewerProfile.getState() == ProfileState.FFA) {
+			viewer.showPlayer(target);
+			target.showPlayer(viewer);
+
 			if (targetProfile.getState() == ProfileState.STAFF_MODE) {
 				viewer.hidePlayer(target);
 				return;
 			}
 			if (targetProfile.getState() == ProfileState.QUEUEING) {
-				target.hidePlayer(viewer);
 				viewer.hidePlayer(target);
 				return;
 			}
 			if (targetProfile.getState() == ProfileState.LOBBY) {
-				target.hidePlayer(viewer);
 				viewer.hidePlayer(target);
-				return;
+				//return;
 			}
-
-			viewer.showPlayer(target);
-			target.showPlayer(viewer);
-
-		} else if (viewerProfile.getState() == ProfileState.LOBBY || viewerProfile.getState() == ProfileState.QUEUEING) {
+		}
+		else if (viewerProfile.getState() == ProfileState.LOBBY || viewerProfile.getState() == ProfileState.QUEUEING) {
 			if (viewer.equals(target)) {
 				TaskUtil.runAsync(() -> GxNameTag.reloadPlayer(target, viewer));
 				return;
@@ -134,5 +132,4 @@ public class VisibilityLogic {
 			TaskUtil.runAsync(() -> GxNameTag.reloadPlayer(target, viewer));
 		}
 	}
-
 }

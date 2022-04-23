@@ -94,7 +94,7 @@ public class BoardAdapter implements AssembleAdapter {
 				}
 				if (line.contains("{pingrange}")) {
 					//if(profile.getOptions().isUsingPingFactor()) {
-						lines.add(config.getString("LINES.PINGRANGE-QUEUE").replace("{range}", "" + profile.getPingRange()));
+						lines.add(config.getString("LINES.PINGRANGE-QUEUE").replace("{range}", "" + (profile.getPingRange() == -1 ? "Unrestricted" : Integer.valueOf(profile.getPingRange()))));
 					//}
 					return;
 				}
@@ -107,7 +107,7 @@ public class BoardAdapter implements AssembleAdapter {
 			lines.addAll(profile.getMatch().getScoreboardLines(player));
 		}
 		else if(profile.getState() == ProfileState.SPECTATING) {
-            //lines.addAll(profile.getBasicTeamMatch().applySpectatorScoreboard(player));
+			//lines.addAll(profile.getBasicTeamMatch().applySpectatorScoreboard(player));
 			lines.addAll(ScoreboardAdapter.getScoreboardLinesSpecator(player));
 		}
 		else if (profile.getState() == ProfileState.FFA) {
@@ -132,7 +132,7 @@ public class BoardAdapter implements AssembleAdapter {
 		return cPractice.get().isPlaceholderAPI() ? PlaceholderAPI.setPlaceholders(player, lines) : lines;
 	}
 
-	public String getDivision(Player player) {
+	public static String getDivision(Player player) {
 		Profile profile = Profile.get(player.getUniqueId());
 		int elo = EloUtil.getGlobalElo(profile);
 

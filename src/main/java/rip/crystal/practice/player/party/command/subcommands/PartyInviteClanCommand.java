@@ -2,7 +2,7 @@ package rip.crystal.practice.player.party.command.subcommands;
 
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.player.clan.Clan;
-import rip.crystal.practice.player.party.PartyPrivacy;
+import rip.crystal.practice.player.party.enums.PartyPrivacy;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;

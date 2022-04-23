@@ -7,6 +7,7 @@ package rip.crystal.practice.game.ffa;
 import lombok.Getter;
 import lombok.Setter;
 import me.scalebound.pspigot.KnockbackProfile;
+import net.audidevelopment.cspigot.knockback.KnockbackModule;
 import org.bukkit.GameMode;
 import org.spigotmc.SpigotConfig;
 import rip.crystal.practice.game.arena.Arena;
@@ -34,12 +35,7 @@ public class FFAManager {
 
         profile.setState(ProfileState.FFA); // Set player state to FFA
 
-        if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {
-            KnockbackProfile knockbackProfile = SpigotConfig.getKbProfileByName("Default");
-            player.setKbProfile(knockbackProfile);
-        } else {
-            Knockback.getKnockbackProfiler().setKnockback(player, "default");
-        }
+        Knockback.getKnockbackProfiler().setKnockback(player, "default");
 
         player.setGameMode(GameMode.SURVIVAL); // Set player gamemode to survival
         player.setFlying(false);

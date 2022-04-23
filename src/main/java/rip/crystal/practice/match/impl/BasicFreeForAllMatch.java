@@ -11,7 +11,7 @@ import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.meta.ProfileKitData;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
@@ -111,7 +111,7 @@ public class BasicFreeForAllMatch extends Match {
 			}
 		}
 
-		if (!kit.getGameRules().isSumo() && !kit.getGameRules().isBridge()) {
+		if (!kit.getGameRules().isSumo() && !kit.getGameRules().isBridge() && !kit.getGameRules().isBedFight()) {
 			// Make all snapshots available
 			for (MatchSnapshot snapshot : snapshots) {
 				snapshot.setCreatedAt(System.currentTimeMillis());

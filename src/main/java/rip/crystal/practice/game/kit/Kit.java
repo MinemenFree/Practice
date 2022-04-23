@@ -1,5 +1,6 @@
 package rip.crystal.practice.game.kit;
 
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.meta.KitEditRules;
 import rip.crystal.practice.game.kit.meta.KitGameRules;
@@ -176,5 +177,4 @@ public class Kit {
 		}
 		return null;
 	}
-
 }

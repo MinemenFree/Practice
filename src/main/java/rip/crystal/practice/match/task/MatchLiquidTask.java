@@ -12,7 +12,6 @@ public class MatchLiquidTask implements Runnable {
     public void run() {
         if (Bukkit.getOnlinePlayers().size() < 1) return;
 
-
         Bukkit.getOnlinePlayers().forEach(player -> {
             Profile profile = Profile.get(player.getUniqueId());
             if (profile.getState() == ProfileState.FIGHTING) {

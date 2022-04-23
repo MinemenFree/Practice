@@ -56,4 +56,17 @@ public class LocationUtil {
 		}
 	}
 
+	public static boolean isOwnBed(Player player) {
+		Profile profile = Profile.get(player.getUniqueId());
+		BasicTeamMatch match = (BasicTeamMatch) profile.getMatch();
+
+		StandaloneArena arena = (StandaloneArena) match.getArena();
+
+		if (match.getParticipantA().containsPlayer(player.getUniqueId())) {
+			return arena.getSpawnRed().contains(player.getLocation());
+		} else {
+			return arena.getSpawnBlue().contains(player.getLocation());
+		}
+	}
+
 }

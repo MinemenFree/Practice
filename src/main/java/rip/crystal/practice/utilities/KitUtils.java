@@ -37,6 +37,29 @@ public class KitUtils {
         player.updateInventory();
     }
 
+    public static void giveBedFightKit(Player player) {
+        Profile profile = Profile.get(player.getUniqueId());
+        BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
+        ItemStack[] armorRed = InventoryUtil.leatherArmor(Color.RED);
+        ItemStack[] armorBlue = InventoryUtil.leatherArmor(Color.BLUE);
+        if(teamMatch.getParticipantA() != null || teamMatch.getParticipantB() != null) {
+            if (teamMatch.getParticipantA().containsPlayer(player.getUniqueId())) {
+                player.getInventory().setArmorContents(armorRed);
+                player.getInventory().all(Material.WOOL).forEach((key, value) -> {
+                    player.getInventory().setItem(key, new ItemBuilder(Material.STAINED_CLAY).durability(14).amount(64).build());
+                    player.getInventory().setItem(key, new ItemBuilder(Material.STAINED_CLAY).durability(14).amount(64).build());
+                });
+            } else {
+                player.getInventory().setArmorContents(armorBlue);
+                player.getInventory().all(Material.WOOL).forEach((key, value) -> {
+                    player.getInventory().setItem(key, new ItemBuilder(Material.STAINED_CLAY).durability(11).amount(64).build());
+                    player.getInventory().setItem(key, new ItemBuilder(Material.STAINED_CLAY).durability(11).amount(64).build());
+                });
+            }
+            player.updateInventory();
+        }
+    }
+
     public static void giveBaseRaidingKit(Player player) {
         Profile profile = Profile.get(player.getUniqueId());
         BasicTeamMatch teamMatch = (BasicTeamMatch) profile.getMatch();
@@ -54,5 +77,4 @@ public class KitUtils {
             player.updateInventory();
         }
     }
-
 }

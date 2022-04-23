@@ -14,9 +14,10 @@ import rip.crystal.practice.player.party.classes.rogue.RogueClass;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.meta.ProfileKitData;
 import rip.crystal.practice.player.profile.meta.ProfileRematchData;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.*;
+import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.elo.EloUtil;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
@@ -83,6 +84,15 @@ public class BasicTeamMatch extends Match {
 				KitUtils.giveBridgeKit(player);
 			}
 		}
+
+		if (getKit().getGameRules().isBedFight()){
+			ProfileKitData kitData = profile.getKitData().get(getKit());
+			if (kitData.getKitCount() == 0) {
+				player.getInventory().setContents(getKit().getKitLoadout().getContents());
+				KitUtils.giveBedFightKit(player);
+			}
+		}
+
 
 		if (getKit().getGameRules().isHcftrap()) {
 			ProfileKitData kitData = profile.getKitData().get(getKit());
@@ -306,6 +316,11 @@ public class BasicTeamMatch extends Match {
 			else return ChatColor.BLUE;
 		}
 
+		if (getKit().getGameRules().isBedFight()) {
+			if (participantA.containsPlayer(target.getUniqueId())) return ChatColor.RED;
+			else return ChatColor.BLUE;
+		}
+
 		if (viewer.equals(target)) return ChatColor.GREEN;
 
 		boolean[] booleans = new boolean[]{
@@ -371,7 +386,8 @@ public class BasicTeamMatch extends Match {
 									.replace("{player-ping}", String.valueOf(BukkitReflection.getPing(player)))
 									.replace("{arena-author}", getArena().getAuthor())
 									.replace("{kit}", getKit().getName())
-									.replace("{hits}", finalActualHits)
+									//.replace("{hits}", finalActualHits)
+									.replace("{hits}", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
 									.replace("{your-hits}", String.valueOf(yours.getLeader().getHits()))
 									.replace("{opponent-hits}", String.valueOf(opponent.getLeader().getHits()))
 									.replace("{combo}", String.valueOf(yours.getLeader().getCombo())));

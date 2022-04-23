@@ -36,7 +36,6 @@ public class KitManagementMenu extends Menu {
 	@Override
 	public String getTitle(Player player) {
 		return cPractice.get().getKiteditorConfig().getString("KITEDITOR.MANAGE.TITLE").replace("{kit}", kit.getName());
-		//return "&9Viewing " + kit.getName() + " kits";
 	}
 
 	@Override

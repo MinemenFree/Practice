@@ -19,9 +19,9 @@ public class Knockback {
                 knockbackProfiler = new FoxSpigot();
                 System.out.print("Hooked into FoxSpigot");
                 break;
-            case "pSpigot":
-                knockbackProfiler = new pSpigot();
-                System.out.print("Hooked into pSpigot");
+            case "cSpigot":
+                knockbackProfiler = new cSpigot();
+                System.out.print("Hooked into cSpigot");
                 break;
             case "InsanePaper":
                 knockbackProfiler = new InsanePaperSpigot();

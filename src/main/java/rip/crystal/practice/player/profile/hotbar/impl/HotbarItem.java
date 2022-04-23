@@ -37,7 +37,7 @@ public enum HotbarItem {
 	RANDOM_TELEPORT(null),
 	HIDE_ALL_PLAYERS(null),
 	VIEW_INVENTORYSTAFF(null),
-	SETTINGS("settings"),
+	SETTINGS("options"),
 	//FFA_JOIN("ffa join"),
 	RESET(null),
 	ONLINE_STAFF("stafflist"),

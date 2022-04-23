@@ -20,10 +20,4 @@ public class KitLoadout {
 		this.armor = new ItemStack[4];
 		this.contents = new ItemStack[36];
 	}
-
-	public KitLoadout(ItemStack[] armor, ItemStack[] contents) {
-		this.armor = armor;
-		this.contents = contents;
-	}
-
 }

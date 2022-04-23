@@ -22,7 +22,7 @@ public class Follow {
     }
 
     public Player getPlayer() {
-        return Bukkit.getPlayer((UUID) this.follower);
+        return Bukkit.getPlayer(this.follower);
     }
 
     public void follow() {

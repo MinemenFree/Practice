@@ -1,11 +1,14 @@
 package rip.crystal.practice.player.nametags;
 
+import net.audidevelopment.core.plugin.cCore;
+import org.bukkit.metadata.FixedMetadataValue;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class cPracticeTags extends NametagProvider {
 
@@ -17,7 +20,6 @@ public class cPracticeTags extends NametagProvider {
     public NametagInfo fetchNametag(Player target, Player viewer) {
         Profile targetProfile = Profile.get(target.getUniqueId());
         Profile viewerProfile = Profile.get(viewer.getUniqueId());
-
         if (viewerProfile.getState() == ProfileState.LOBBY || viewerProfile.getState() == ProfileState.QUEUEING) {
             if (viewerProfile.getParty() != null && viewerProfile.getParty().containsPlayer(target.getUniqueId())) {
                 return createNametag(ChatColor.valueOf(cPractice.get().getMainConfig().getString("NAMETAGS.PARTY_COLOR")).toString(), "");
@@ -33,9 +35,7 @@ public class cPracticeTags extends NametagProvider {
         }
         else if (viewerProfile.getState() == ProfileState.EVENT) {
             if (targetProfile.getState() == ProfileState.EVENT) {
-                return createNametag(ChatColor.valueOf(
-                        cPractice.get().getMainConfig().getString("NAMETAGS.EVENT_COLOR")).toString()
-                        , "");
+                return createNametag(ChatColor.valueOf(cPractice.get().getMainConfig().getString("NAMETAGS.EVENT_COLOR")).toString(), "");
             }
         }
         else if (viewerProfile.getState() == ProfileState.SPECTATING) {

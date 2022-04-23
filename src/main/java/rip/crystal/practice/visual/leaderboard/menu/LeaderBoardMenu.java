@@ -5,6 +5,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.visual.leaderboard.menu.button.GlobalStatsButton;
 import rip.crystal.practice.visual.leaderboard.menu.button.KitButton;
+import rip.crystal.practice.visual.leaderboard.menu.button.PlayerStatsButton;
 import rip.crystal.practice.visual.leaderboard.menu.button.StatsButton;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;
@@ -40,8 +41,9 @@ public class LeaderBoardMenu extends Menu {
             }
         };
 
-        buttons.put(3, new StatsButton(target));
-        buttons.put(5, new GlobalStatsButton());
+        buttons.put(2, new StatsButton(target));
+        buttons.put(4, new PlayerStatsButton());
+        buttons.put(6, new GlobalStatsButton());
 
         //buttons.put(1, empty);
         //buttons.put(10, empty);

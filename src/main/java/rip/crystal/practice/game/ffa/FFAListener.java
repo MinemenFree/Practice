@@ -7,6 +7,7 @@ package rip.crystal.practice.game.ffa;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.EnderPearl;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.*;
@@ -38,9 +39,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class FFAListener implements Listener {
 
-    //private FFAManager ffaManager;
-    //private int[] broadcastKills = new int[]{5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         final Player player = event.getEntity();
@@ -61,6 +59,21 @@ public class FFAListener implements Listener {
                     cPractice.get().getFfaManager().joinFFA(player, Arena.getByName("FFA")); // Send player to FFA
                 }
             }.runTaskLater(cPractice.get(), 5L);
+        }
+    }
+
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.LOW)
+    public void onLow(PlayerMoveEvent event) {
+        Player player = event.getPlayer();
+        Profile profile = Profile.get(player.getUniqueId());
+        if (profile.getState() == ProfileState.FFA) {
+            if (player.getLocation().getBlockY() <= 30) {
+                new BukkitRunnable(){
+                    public void run() {
+                        cPractice.get().getFfaManager().joinFFA(player, Arena.getByName("FFA")); // Send player to FFA
+                    }
+                }.runTaskLater(cPractice.get(), 5L);
+            }
         }
     }
 
@@ -161,6 +174,9 @@ public class FFAListener implements Listener {
     @EventHandler
     public void onPearlLaunch(ProjectileLaunchEvent event) {
         Player player = (Player) event.getEntity().getShooter();
+        if(player == null) {
+            return;
+        }
         Profile profile = Profile.get(player.getUniqueId());
         if (profile.getState() == ProfileState.FFA) {
             // Set pearl cooldown to player.

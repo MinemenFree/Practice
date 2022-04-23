@@ -9,6 +9,8 @@ import rip.crystal.practice.player.profile.file.impl.MYSQLListener;
 import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.Bukkit;
 
+import java.util.logging.Level;
+
 public class Configurator {
 
     public String server = "http://audi-development.000webhostapp.com/panel/request.php";
@@ -472,7 +474,9 @@ public class Configurator {
             Bukkit.getServer().getConsoleSender().sendMessage(CC.translate(" |- §cInvalid Validation"));
             Bukkit.getServer().getConsoleSender().sendMessage(CC.translate(" |- §cReturn error " + database.getReturn()));
             Bukkit.getServer().getConsoleSender().sendMessage(CC.translate("------------------------"));
+            Bukkit.getLogger().log(Level.SEVERE, "NIGGER DETECTED!!!");
             Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            return;
         }
     }
 
@@ -562,11 +566,29 @@ public class Configurator {
     }
 
     public void verifyStartup() {
-        Bukkit.getServer().getConsoleSender().sendMessage("§7§m------------------------------");
         MYSQLListener database = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
         database.request();
         if (!database.isValid()) {
             Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            return;
+        }
+    }
+
+    public void verifyStartup2() {
+        MYSQLListener database = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
+        database.request();
+        if (!database.isValid()) {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            return;
+        }
+    }
+
+    public void verifyStartup3() {
+        MYSQLListener database = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
+        database.request();
+        if (!database.isValid()) {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            return;
         }
     }
 

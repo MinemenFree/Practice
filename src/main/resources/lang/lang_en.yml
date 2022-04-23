@@ -122,11 +122,30 @@ DUEL:
   NO_ARENAS_AVAILABLE: '&cTried to start a match but there are no available arenas.'
   DONT_HAVE_DUEL_REQUEST_PLAYER: '&cYou do not have a duel request from that player.'
 QUEUE:
-  JOIN_UNRANKED: '&fYou have been &aadded &fto the &cUnranked {kit_name} &fqueue.'
-  LEAVE_UNRANKED: '&fYou have been &cremoved &ffrom &cUnranked {kit_name} &fqueue.'
-  JOIN_RANKED: '&cYou have been added to the &9Ranked {kit_name} &cqueue. &7&o[{elo}
-    ELO]'
-  LEAVE_RANKED: '&fYou have been &cremoved &ffrom &cRanked {kit_name} &fqueue.'
+  JOIN_UNRANKED:
+    - '&7&m------------------------------------------------'
+    - '&e&lUnranked {kit_name}'
+    - '  &ePing Range: {pingrange}'
+    - ' '
+    - '&7Searching for match...'
+    - '&7&m------------------------------------------------'
+  LEAVE_UNRANKED:
+    - '&7&m------------------------------------------------'
+    - '&e&lQueue System'
+    - '&7You have left the &e&lUnranked {kit_name} &7queue.'
+    - '&7&m------------------------------------------------'
+  JOIN_RANKED:
+    - '&7&m------------------------------------------------'
+    - '&e&lRanked {kit_name}'
+    - '  &eElo: {elo}'
+    - ' '
+    - '&7Searching for match...'
+    - '&7&m------------------------------------------------'
+  LEAVE_RANKED:
+    - '&7&m------------------------------------------------'
+    - '&e&lQueue System'
+    - '&7You have left the &e&lRanked {kit_name} &7queue.'
+    - '&7&m------------------------------------------------'
   RANGE_INCREMENT: '&fSearching in ELO range &c[{min_range} -> {max_range}]&f...'
   NO_ARENAS: '&cNo arenas available'
   FOUND_RANKED_MATCH: '&fFound opponent &c{name} &c({elo}) &fvs &c{opponent} &c({opponent-elo})'
@@ -155,13 +174,13 @@ MATCH:
   - '&7&m------------------------------------------------'
   END_DETAILS:
   - '&7&m------------------------------------------------'
-  - '&c&lMatch Results&r &7(Click to view)'
+  - '&e&lMatch Results&r &7(Click to view)'
   - '%INVENTORIES%'
   - '%ELO_CHANGES%'
   - '&7&m------------------------------------------------'
   END_WINNER_INVENTORY: '&aWinner{context}&7: '
   END_LOSER_INVENTORY: '&cLoser{context}&7: '
-  CLICK_TO_VIEW_NAME: '&c{name}'
+  CLICK_TO_VIEW_NAME: '&d{name}'
   CLICK_TO_VIEW_HOVER: '&fClick to view &c{name}&f''''s inventory.'
   ELO_CHANGES:
   - '&7&oELO Changes: &9{winning_name} +{winning_elo_mod} ({winning_elo_mod_elo})

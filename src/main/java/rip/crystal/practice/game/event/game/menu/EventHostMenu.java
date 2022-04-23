@@ -27,7 +27,7 @@ public class EventHostMenu extends Menu {
 
 	@Override
 	public String getTitle(Player player) {
-		return "&9Select an Event";
+		return cPractice.get().getEventsConfig().getString("EVENTS.TITLE");
 	}
 
 	@Override

@@ -12,14 +12,14 @@ HOTBAR_ITEMS:
     NAME: '&7(&9!&7) &9&lRanked Queue &7(&9!&7)'
     LORE: []
   QUEUES_JOIN:
-    SLOT: 9
+    SLOT: 1
     MATERIAL: DIAMOND_SWORD
     DURABILITY: 0
-    NAME: '&7(&9!&7) &9&lQueues &7(&9!&7)'
+    NAME: '&7(&d!&7) &d&lQueues &7(&d!&7)'
     LORE: []
   SETTINGS:
-    SLOT: 3
-    MATERIAL: NETHER_STAR
+    SLOT: 9
+    MATERIAL: SKULL
     DURABILITY: 0
     NAME: '&7(&9!&7) &9&lSettings &7(&9!&7)'
     LORE: []
@@ -72,7 +72,7 @@ HOTBAR_ITEMS:
     NAME: '&7(&9!&7) &9&lOther Parties &7(&9!&7)'
     LORE: []
   KIT_EDITOR:
-    SLOT: 9
+    SLOT: 2
     MATERIAL: BOOK
     DURABILITY: 0
     NAME: '&7(&9!&7) &9&lKit Editor &7(&9!&7)'
@@ -124,13 +124,13 @@ HOTBAR_ITEMS:
     NAME: '&7(&9!&7) &9&l%KIT% &7(&9!&7)'
     LORE: []
   EVENT_SELECT:
-    SLOT: 8
+    SLOT: 7
     MATERIAL: LEASH
     DURABILITY: 0
     NAME: '&7(&9!&7) &9&lHost Event &7(&9!&7)'
     LORE: []
   LEADERBOARD_MENU:
-    SLOT: 7
+    SLOT: 8
     MATERIAL: SKULL_ITEM
     DURABILITY: 0
     NAME: '&7(&9!&7) &9&lLeaderboard &7(&9!&7)'

@@ -13,7 +13,7 @@ import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.party.Party;
 import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.profile.weight.Weight;
 import rip.crystal.practice.visual.tablist.impl.GhostlyAdapter;
 import rip.crystal.practice.visual.tablist.impl.TabListCommons;
@@ -483,10 +483,10 @@ public class TabAdapter implements GhostlyAdapter {
             case "{twitter}":
                 skin = TabListCommons.TWITTER_TEXTURE;
                 break;
-            case "{tulio}":
+            case "{brayding}":
                 skin = TabListCommons.getSkinData(UUID.fromString("d58ef82d-16e9-45e0-b08a-fb73ab62feaf"));
                 break;
-            case "{enzo}":
+            case "{ziue}":
                 skin = TabListCommons.getSkinData(UUID.fromString("148f1abc-6352-41fa-9c91-f666c3b04082"));
                 break;
             case "{green}":

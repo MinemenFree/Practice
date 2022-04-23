@@ -6,6 +6,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.nametags.packets.ScoreboardTeamPacketMod;
 import rip.crystal.practice.player.nametags.task.NametagTask;
 import rip.crystal.practice.player.profile.file.impl.MYSQLListener;
+import rip.crystal.practice.player.profile.hotbar.entry.skidadik;
 import rip.crystal.practice.utilities.TaskUtil;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,12 +38,6 @@ public class GxNameTag {
     }
 
     public static void registerProvider(NametagProvider newProvider) {
-        MYSQLListener test = new MYSQLListener(cPractice.get().getMainConfig().getString("LICENSE"), server, cPractice.get());
-        test.request();
-        if (!test.isValid()) {
-            taskManager.runNever();
-            return;
-        }
         providers.add(newProvider);
         providers.sort((a, b) -> (Ints.compare(b.getWeight(), a.getWeight())));
     }

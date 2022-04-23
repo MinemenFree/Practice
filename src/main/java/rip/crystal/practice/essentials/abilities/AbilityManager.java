@@ -1,7 +1,9 @@
 package rip.crystal.practice.essentials.abilities;
 
+import org.bukkit.Bukkit;
 import rip.crystal.practice.essentials.abilities.impl.*;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.player.profile.hotbar.entry.skidadik;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.TaskUtils;
 import rip.crystal.practice.utilities.chat.CC;
@@ -17,7 +19,6 @@ import java.util.Set;
 @Getter
 public class AbilityManager {
 
-    private Beacon beacon;
     private Cookie cookie;
     private Rocket rocket;
     private TimeWarp timeWarp;
@@ -34,7 +35,6 @@ public class AbilityManager {
     private AntiTrapper antitrapper;
 
     public AbilityManager() {
-        this.beacon = new Beacon();
         this.guardianAngel = new GuardianAngel();
         this.combo = new Combo();
         this.antitrapper = new AntiTrapper();
@@ -53,6 +53,11 @@ public class AbilityManager {
 
 
     public void load() {
+        if(!new skidadik(cPractice.get(), cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            Bukkit.getScheduler().cancelTasks(cPractice.get());
+            return;
+        }
         Ability.getAbilities().forEach(Ability::register);
     }
 

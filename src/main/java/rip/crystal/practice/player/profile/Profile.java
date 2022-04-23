@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import rip.crystal.practice.essentials.abilities.cooldown.AbilityCooldown;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.essentials.abilities.cooldown.AbilityCooldowns;
 import rip.crystal.practice.player.clan.Clan;
 import rip.crystal.practice.player.clan.ClanInvite;
 import rip.crystal.practice.player.cosmetics.impl.trails.TrailsEffectType;
@@ -83,7 +84,6 @@ public class Profile {
 	private TabType tabType = TabType.DEFAULT;
 	private Follow follow;
 	private int coins;
-
 
 	public Profile(UUID uuid) {
 		this.uuid = uuid;

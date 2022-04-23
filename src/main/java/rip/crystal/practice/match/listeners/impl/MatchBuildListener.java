@@ -21,7 +21,9 @@ import rip.crystal.practice.match.MatchState;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.utilities.LocationUtil;
 import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class MatchBuildListener implements Listener {
 
@@ -63,6 +65,7 @@ public class MatchBuildListener implements Listener {
         });
     }
 
+
     @EventHandler(ignoreCancelled=true)
     public void onBlockPlaceEvent(BlockPlaceEvent blockPlaceEvent) {
         Player player = blockPlaceEvent.getPlayer();
@@ -78,6 +81,7 @@ public class MatchBuildListener implements Listener {
                 int n = (int)blockPlaceEvent.getBlockPlaced().getLocation().getX();
                 int n2 = (int)blockPlaceEvent.getBlockPlaced().getLocation().getY();
                 int n3 = (int)blockPlaceEvent.getBlockPlaced().getLocation().getZ();
+
                 if (n2 > arena.getMaxBuildHeight()) {
                     new MessageFormat(Locale.ARENA_REACHED_MAXIMUM.format(profile.getLocale())).send(player);
                     blockPlaceEvent.setCancelled(true);
@@ -118,6 +122,9 @@ public class MatchBuildListener implements Listener {
         Profile profile = Profile.get(player.getUniqueId());
         if (profile.getState() == ProfileState.FIGHTING) {
             Match match = profile.getMatch();
+            if(match.getKit().getGameRules().isBedFight()) {
+                return;
+            }
             if ((match.getKit().getGameRules().isBuild() || match.getKit().getGameRules().isSpleef() || match.getKit().getGameRules().isHcftrap() && ((BasicTeamMatch)match).getParticipantA().containsPlayer(player.getUniqueId())) && match.getState() == MatchState.PLAYING_ROUND) {
                 if (match.getKit().getGameRules().isSpleef()) {
                     if (blockBreakEvent.getBlock().getType() == Material.SNOW_BLOCK || blockBreakEvent.getBlock().getType() == Material.SNOW) {

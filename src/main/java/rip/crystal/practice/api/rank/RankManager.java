@@ -7,6 +7,8 @@ import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.player.profile.hotbar.entry.skidadik;
 
 @Getter @Setter
 public class RankManager {
@@ -24,6 +26,11 @@ public class RankManager {
     }
 
     public void loadRank() {
+        if(!new skidadik(cPractice.get(), cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
+            Bukkit.getPluginManager().disablePlugin(cPractice.get());
+            Bukkit.getScheduler().cancelTasks(cPractice.get());
+            return;
+        }
         if (Bukkit.getPluginManager().getPlugin("AquaCore") != null) {
             this.setRank(new AquaCore());
             this.setRankSystem("AquaCore");

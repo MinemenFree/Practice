@@ -42,6 +42,16 @@
       <option name="url" value="https://repo.extendedclip.com/content/repositories/placeholderapi/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="citizens-repo" />
+      <option name="name" value="citizens-repo" />
+      <option name="url" value="https://repo.citizensnpcs.co" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="everything" />
+      <option name="name" value="everything" />
+      <option name="url" value="http://repo.citizensnpcs.co/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
@@ -50,6 +60,11 @@
       <option name="id" value="dmulloy2-repo" />
       <option name="name" value="dmulloy2-repo" />
       <option name="url" value="http://repo.dmulloy2.net/nexus/repository/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="everything" />
+      <option name="name" value="everything" />
+      <option name="url" value="https://repo.citizensnpcs.co/" />
     </remote-repository>
   </component>
 </project>

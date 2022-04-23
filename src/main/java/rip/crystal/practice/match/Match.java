@@ -3,7 +3,9 @@ package rip.crystal.practice.match;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketContainer;
+import net.audidevelopment.cspigot.knockback.KnockbackModule;
 import rip.crystal.practice.Locale;
+import rip.crystal.practice.essentials.abilities.cooldown.AbilityCooldown;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
@@ -19,7 +21,7 @@ import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.player.cosmetics.impl.killeffects.KillEffectType;
 import rip.crystal.practice.player.profile.meta.ProfileKitData;
-import rip.crystal.practice.player.profile.participant.GameParticipant;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.profile.participant.GamePlayer;
 import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
 import rip.crystal.practice.player.queue.Queue;
@@ -55,7 +57,7 @@ public abstract class Match {
 
 	private final UUID matchId = UUID.randomUUID();
 	Map<String, Integer> killstreak;
-	private final Queue queue;
+	/*private final Queue queue;
 	protected final Kit kit;
 	protected final Arena arena;
 	protected final boolean ranked;
@@ -64,7 +66,19 @@ public abstract class Match {
 	protected final List<UUID> spectators;
 	protected final List<Item> droppedItems;
 	private final List<Location> placedBlocks;
-	private final List<BlockState> changedBlocks;
+	private final List<BlockState> changedBlocks;*/
+
+	private Queue queue;
+	protected Kit kit;
+	protected Arena arena;
+	protected boolean ranked;
+	@Setter protected MatchState state = MatchState.STARTING_ROUND;
+	protected List<MatchSnapshot> snapshots;
+	protected List<UUID> spectators;
+	protected List<Item> droppedItems;
+	private List<Location> placedBlocks;
+	private List<BlockState> changedBlocks;
+
 	protected long timeData;
 	protected MatchLogicTask logicTask;
 
@@ -88,7 +102,7 @@ public abstract class Match {
 		this.hasBed = false;
 	}
 
-	public boolean isHasBed() {
+	public boolean HasBed() {
 		return this.hasBed;
 	}
 
@@ -106,19 +120,14 @@ public abstract class Match {
 		PlayerUtil.reset(player);
 
 		// Deny movement if the kit is sumo
-		if (getKit().getGameRules().isSumo() || getKit().getGameRules().isBridge()) {
+		if (getKit().getGameRules().isSumo() || getKit().getGameRules().isBridge() || getKit().getGameRules().isBedFight()) {
 			PlayerUtil.denyMovement(player);
 		}
 
 		// Set the player's max damage ticks and knockback
 		player.setMaximumNoDamageTicks(getKit().getGameRules().getHitDelay());
 
-		if(cPractice.get().getServer().getName().equalsIgnoreCase("pSpigot")) {
-			KnockbackProfile knockbackProfile = SpigotConfig.getKbProfileByName(getKit().getGameRules().getKbProfile());
-			player.setKbProfile(knockbackProfile);
-		} else {
-			Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), getKit().getGameRules().getKbProfile());
-		}
+		Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), getKit().getGameRules().getKbProfile());
 
 		// If the player has no kits, apply the default kit, otherwise
 		// give the player a list of kit books to choose from
@@ -229,7 +238,7 @@ public abstract class Match {
 							Partner Items
 						 */
 
-						profile.getPartneritem().cooldownRemove(player);
+						profile.getPartneritem().applyCooldown(player, 0);
 						profile.getAntitrapper().cooldownRemove(player);
 						profile.getBeacom().cooldownRemove(player);
 						profile.getCookie().cooldownRemove(player);
@@ -274,9 +283,7 @@ public abstract class Match {
 		}
 
 		droppedItems.forEach(Entity::remove);
-
 		new MatchResetTask(this).runTask(cPractice.get());
-
 		matches.remove(this);
 		logicTask.cancel();
 	}
@@ -305,7 +312,7 @@ public abstract class Match {
 			gameParticipant.reset();
 			gameParticipant.getPlayers().forEach(gamePlayer -> {
 				// Allow movement if the kit is sumo
-				if (getKit().getGameRules().isSumo() || getKit().getGameRules().isBridge())
+				if (getKit().getGameRules().isSumo() || getKit().getGameRules().isBridge() || getKit().getGameRules().isBedFight())
 					PlayerUtil.allowMovement(gamePlayer.getPlayer());
 			});
 		}
@@ -406,6 +413,13 @@ public abstract class Match {
 			end();
 			return;
 		}
+		if (getKit().getGameRules().isBedFight()) {
+			BasicTeamRoundMatch match = (BasicTeamRoundMatch) this;
+			if (match.getParticipantA().containsPlayer(dead.getUniqueId())) match.setWinningParticipant(match.getParticipantB());
+			else match.setWinningParticipant(match.getParticipantA());
+			end();
+			return;
+		}
 
 		// Don't continue if the match is already ending
 		if (!(state == MatchState.STARTING_ROUND || state == MatchState.PLAYING_ROUND)) return;
@@ -434,24 +448,14 @@ public abstract class Match {
 		// Set player as dead
 		if (getKit().getGameRules().isBridge()) {
 			getParticipant(dead).getPlayers().forEach(gamePlayer -> gamePlayer.setDead(false));
+		} else if (getKit().getGameRules().isBedFight()) {
+			getParticipant(dead).getPlayers().forEach(gamePlayer -> gamePlayer.setDead(false));
 		} else deadGamePlayer.setDead(true);
 
 		Profile profile = Profile.get(dead.getUniqueId());
 
-		// Send defeat title to loser.
-		//dead.sendTitle(new Title(
-				//new MessageFormat(Locale.MATCH_LOSER_TITLE.format(profile.getLocale())).getMessage(),
-				//new MessageFormat(Locale.MATCH_LOSER_SUBTITLE.format(profile.getLocale())).getMessage(), 20, 40, 20));
-
 		if(killer != null) {
 			Profile winner = Profile.get(killer.getUniqueId());
-
-			// Send victory title to winner.
-			//killer.sendTitle(new Title(
-					//new MessageFormat(Locale.MATCH_WINNER_TITLE.format(profile.getLocale())).getMessage(),
-					//new MessageFormat(Locale.MATCH_WINNER_SUBTITLE.format(profile.getLocale()))
-							//.add("{loser}", dead.getPlayer().toString()).getMessage(), 20, 40, 20));
-
 
 			/*
 				Death Animations
@@ -491,10 +495,10 @@ public abstract class Match {
 					Player player = gamePlayer.getPlayer();
 
 					if (player != null) {
-						if (!getKit().getGameRules().isSumo() && !getKit().getGameRules().isBridge()) {
+						if (!getKit().getGameRules().isSumo() && !getKit().getGameRules().isBridge() && !getKit().getGameRules().isBedFight()) {
 							VisibilityLogic.handle(player, dead);
 						}
-						if (!getKit().getGameRules().isBridge()) {
+						if (!getKit().getGameRules().isBridge() || !getKit().getGameRules().isBedFight()) {
 							sendDeathMessage(player, dead, killer);
 						}
 					}
@@ -505,10 +509,10 @@ public abstract class Match {
 		// Handle visibility for spectators
 		// Send death message
 		for (Player player : getSpectatorsAsPlayers()) {
-			if (!getKit().getGameRules().isSumo() && !getKit().getGameRules().isBridge()) {
+			if (!getKit().getGameRules().isSumo() && !getKit().getGameRules().isBridge() && !getKit().getGameRules().isBedFight()) {
 				VisibilityLogic.handle(player, dead);
 			}
-			if (!getKit().getGameRules().isBridge()) {
+			if (!getKit().getGameRules().isBridge() || !getKit().getGameRules().isBedFight()) {
 				sendDeathMessage(player, dead, killer);
 			}
 		}
@@ -543,6 +547,22 @@ public abstract class Match {
 							dead.getInventory().setContents(profile.getSelectedKit().getContents());
 						}
 						KitUtils.giveBridgeKit(dead);
+					}, 5L);
+				}
+				if (getKit().getGameRules().isBedFight()) {
+					BasicTeamRoundMatch teamRoundMatch = (BasicTeamRoundMatch) this;
+
+					Location spawn = teamRoundMatch.getParticipantA().containsPlayer(dead.getUniqueId()) ?
+							teamRoundMatch.getArena().getSpawnA() : teamRoundMatch.getArena().getSpawnB();
+					dead.teleport(spawn.add(0, 2, 0));
+					TaskUtil.runLater(() -> {
+						PlayerUtil.reset(dead);
+						if (profile.getSelectedKit() == null) {
+							dead.getInventory().setContents(getKit().getKitLoadout().getContents());
+						} else {
+							dead.getInventory().setContents(profile.getSelectedKit().getContents());
+						}
+						KitUtils.giveBedFightKit(dead);
 					}, 5L);
 				}
 			}

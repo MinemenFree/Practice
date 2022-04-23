@@ -9,7 +9,7 @@ ESSENTIAL_SPAWN_LOCATION: world:-9999.617585349535:100.63557196779635:245.406005
 DEFAULT_LANG: EN
 MOD_MODE: true
 SAVE_METHOD: MONGO
-SETPERM_KILLEFFECTSSHOP_COMMAND: pex user {player} setpermission cosmetics.killeffects.{effect}
+PURCHASE-COSMETICS-CMD: pex user {player} setpermission cosmetics.killeffects.{effect}
 CHAT:
   DEFAULT_FORMAT: '{prefix} {player}&7:&r {message}'
   CLAN_FORMAT: '&7[{clan}&7] &r{prefix}{player}&7:&r {message}'
@@ -46,7 +46,7 @@ QUEUE:
     - '&9In Queueing&7: &r{in-queue}'
     - '{bars}'
 QUEUES:
-  ENABLED: true
+  ENABLED: false
   PLACEHOLDER-ITEMS-ENABLED: true
   PLACEHOLDER-ITEM-MATERIAL: STAINED_GLASS_PANE
   PLACEHOLDER-ITEM-DATA: 7

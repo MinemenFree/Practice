@@ -1,5 +1,6 @@
 package rip.crystal.practice.player.profile;
 
+import net.audidevelopment.core.plugin.cCore;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.clan.Clan;
@@ -175,7 +176,11 @@ public class ProfileListener implements Listener {
 		profile.setSelectedKit(null);
 
 		if (cPractice.get().getColoredRanksConfig().getConfiguration().contains("groups." + cPractice.get().getRankManager().getRank().getName(player.getUniqueId()))) {
-			profile.setColor(cPractice.get().getColoredRanksConfig().getString("groups." + cPractice.get().getRankManager().getRank().getName(player.getUniqueId())));
+			if (cCore.INSTANCE.getPlayerManagement().getPlayerData(player.getUniqueId()).getDisguiseData() != null) {
+				profile.setColor(CC.translate("&a"));
+			} else {
+				profile.setColor(cPractice.get().getColoredRanksConfig().getString("groups." + cPractice.get().getRankManager().getRank().getName(player.getUniqueId())));
+			}
 		} else {
 			profile.setColor("&r");
 			throw new IllegalArgumentException("The colored rank of " + player.getName() + " doesn't exist");
