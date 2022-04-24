@@ -154,36 +154,22 @@ public class cPractice extends JavaPlugin {
     public void onEnable() {
         loadConfig();
 
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").verify()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+        loadSaveMethod();
+        loadEssentials();
+        initManagers();
 
-        skidadik skidder = new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574");
+        registerNameTags();
 
-        if(skidder.nomsg()) {
-            loadSaveMethod();
-            loadEssentials();
-            initManagers();
+        registerCommands();
+        registerListeners();
 
-            registerNameTags();
+        removeCrafting();
 
-            registerCommands();
-            registerListeners();
+        setUpWorld();
+        runTasks();
 
-            removeCrafting();
-
-            setUpWorld();
-            runTasks();
-
-            CC.loadPlugin();
-        } else {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
-
+        CC.loadPlugin();
+        
         if(!cPractice.get().getDescription().getAuthors().contains("ziue")) {
             Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
             Bukkit.getConsoleSender().sendMessage(CC.translate("&cYou edited the plugin.yml, please don't do that"));
@@ -297,11 +283,6 @@ public class cPractice extends JavaPlugin {
 
 
     private void loadSaveMethod() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
         switch (mainConfig.getString("SAVE_METHOD")) {
             case "MONGO": case "MONGODB":
                 Profile.iProfile = new MongoDBIProfile();
@@ -342,11 +323,7 @@ public class cPractice extends JavaPlugin {
     }
 
     private void runTasks() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+
         TaskUtil.runTimer(() -> Bukkit.getOnlinePlayers().forEach(player -> Bukkit.getOnlinePlayers().forEach(other -> TaskUtil.runAsync(() -> GxNameTag.reloadPlayer(player, other)))), 20L, 20L);
         TaskUtil.runTimerAsync(new ClassTask(), 5L, 5L);
         TaskUtil.runTimer(new BardEnergyTask(), 15L, 20L);
@@ -359,11 +336,7 @@ public class cPractice extends JavaPlugin {
     }
 
     private void setUpWorld() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+
         // Set the difficulty for each world to HARD
         // Clear the droppedItems for each world
         getServer().getWorlds().forEach(world -> {
@@ -374,11 +347,7 @@ public class cPractice extends JavaPlugin {
     }
 
     private void removeCrafting() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+
         Arrays.asList(
                 Material.WORKBENCH,
                 Material.STICK,
@@ -390,11 +359,7 @@ public class cPractice extends JavaPlugin {
     }
 
     private void registerListeners() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+
         Arrays.asList(
                 new KitEditorListener(),
                 new PartyListener(),
@@ -425,11 +390,7 @@ public class cPractice extends JavaPlugin {
     }
 
     public void registerCommands() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+
         new CommandManager(this);
         if (mainConfig.getBoolean("MESSAGE-REPLY-BOOLEAN")) {
             new MessageCommand();
@@ -515,11 +476,7 @@ public class cPractice extends JavaPlugin {
     }
 
     private void loadEssentials() {
-        if(!new skidadik(this, cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(this);
-            Bukkit.getScheduler().cancelTasks(this);
-            return;
-        }
+
         this.bridgeRounds = getMainConfig().getInteger("MATCH.ROUNDS_BRIDGE");
         this.rankedSumoRounds = getMainConfig().getInteger("MATCH.ROUNDS_RANKED_SUMO");
     }

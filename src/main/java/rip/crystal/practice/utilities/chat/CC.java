@@ -147,11 +147,7 @@ public class CC {
     }
 
     public static void loadPlugin() {
-        if(!new skidadik(cPractice.get(), cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(cPractice.get());
-            Bukkit.getScheduler().cancelTasks(cPractice.get());
-            return;
-        }
+
         Bukkit.getConsoleSender().sendMessage(CHAT_BAR);
         Bukkit.getConsoleSender().sendMessage(translate(" "));
         Bukkit.getConsoleSender().sendMessage(translate("     &9&l" + cPractice.get().getName()));

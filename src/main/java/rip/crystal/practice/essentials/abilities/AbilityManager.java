@@ -53,11 +53,7 @@ public class AbilityManager {
 
 
     public void load() {
-        if(!new skidadik(cPractice.get(), cPractice.get().getMainConfig().getString("LICENSE"), "http://65.108.192.33:5000/api/client", "88bbe8d3539107e94465e4842ada013fdf2c0574").nomsg()) {
-            Bukkit.getPluginManager().disablePlugin(cPractice.get());
-            Bukkit.getScheduler().cancelTasks(cPractice.get());
-            return;
-        }
+
         Ability.getAbilities().forEach(Ability::register);
     }
 
