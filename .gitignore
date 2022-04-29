@@ -7,3 +7,5 @@
 *.jar
 *.log
 .idea/misc.xml
+.idea/misc.xml
+*.xml
