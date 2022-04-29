@@ -9,7 +9,7 @@ Highly configurable practice plugin. This project was originally closed source a
 3) stop the server & Configure the plugin to your liking
 4) Done!
 
-<h2 align="center">**Commands**</h2>
+<h2 align="center">Commands</h2>
 
 <h4>**Setup Commands**</h4>
 
@@ -21,7 +21,7 @@ Highly configurable practice plugin. This project was originally closed source a
 
 /setspawn - set Lobby (permission: cpractice.command.setspawn)
 
-<h4>**Essential Commands**</h4>
+<h4>Essential Commands</h4>
 
 Player commands:
 /lang - choose language | permission: not required
