@@ -29,6 +29,7 @@ public class KitRulesCommand extends BaseCommand {
 		player.sendMessage(CC.translate("&4Gamemodes:"));
 		player.sendMessage(CC.translate(" &7- &cParkour &f(true/false)"));
 		player.sendMessage(CC.translate(" &7- &cBridge &f(true/false)"));
+		player.sendMessage(CC.translate(" &7- &cBedFight &f(true/false)"));
 		player.sendMessage(CC.translate(" &7- &cSpleef &f(true/false)"));
 		player.sendMessage(CC.translate(" &7- &cBuild &f(true/false)"));
 		player.sendMessage(CC.translate(" &7- &cSumo &f(true/false)"));

@@ -119,7 +119,7 @@ public abstract class Match {
 		// Reset the player's inventory
 		PlayerUtil.reset(player);
 
-		// Deny movement if the kit is sumo
+		// Deny movement if the kit is sumo , bridge or bed fight
 		if (getKit().getGameRules().isSumo() || getKit().getGameRules().isBridge() || getKit().getGameRules().isBedFight()) {
 			PlayerUtil.denyMovement(player);
 		}
@@ -311,7 +311,7 @@ public abstract class Match {
 		for (GameParticipant<MatchGamePlayer> gameParticipant : getParticipants()) {
 			gameParticipant.reset();
 			gameParticipant.getPlayers().forEach(gamePlayer -> {
-				// Allow movement if the kit is sumo
+				// Allow movement if the kit is sumo , bridge or bed fight
 				if (getKit().getGameRules().isSumo() || getKit().getGameRules().isBridge() || getKit().getGameRules().isBedFight())
 					PlayerUtil.allowMovement(gamePlayer.getPlayer());
 			});

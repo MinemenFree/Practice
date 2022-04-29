@@ -152,8 +152,8 @@ public class KitGameRuleCommand extends BaseCommand {
                 case "bedfight": {
                     kit.getGameRules().setBedFight(Boolean.parseBoolean(value));
 
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now boxing.");
-                    else player.sendMessage(CC.RED + "Kit is no longer boxing.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now BedFight.");
+                    else player.sendMessage(CC.RED + "Kit is no longer BedFight.");
 
                     break;
                 }
