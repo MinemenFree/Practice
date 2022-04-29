@@ -43,12 +43,12 @@ public class ArenaCreateCommand extends BaseCommand {
 					Arena arena = new SharedArena(arenaName, selection.getPoint1(), selection.getPoint2());
 					Arena.getArenas().add(arena);
 
-					player.sendMessage(CC.RED + "Created new arena&f \"" + arenaName + "\"");
+					player.sendMessage(CC.translate("&cCreated new Shared arena &f\"" + arenaName + "\""));
 				} else if (arenaType == ArenaType.STANDALONE) {
 					Arena arena = new StandaloneArena(arenaName, selection.getPoint1(), selection.getPoint2());
 					Arena.getArenas().add(arena);
 
-					player.sendMessage(CC.RED + "Created new arena&f \"" + arenaName + "\"");
+					player.sendMessage(CC.translate("&cCreated new Standalone arena&f \"" + arenaName + "\""));
 				}
 			} else {
 				player.sendMessage(CC.RED + "Your selection is incomplete.");
