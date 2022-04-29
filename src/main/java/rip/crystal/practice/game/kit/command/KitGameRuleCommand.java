@@ -49,68 +49,68 @@ public class KitGameRuleCommand extends BaseCommand {
             switch (rule.toLowerCase()) {
                 case "build": {
                     kit.getGameRules().setBuild(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now build.");
-                    else player.sendMessage(CC.RED + "Kit is no longer build.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Build mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "&aSuccessfully disabled Build mode for " + kit.getName());
                     break;
                 }
                 case "spleef": {
                     kit.getGameRules().setSpleef(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now spleef.");
-                    else player.sendMessage(CC.RED + "Kit is no longer spleef.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Spleef mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "&aSuccessfully disabled Spleef mode for " + kit.getName());
                     break;
                 }
                 case "sumo": {
                     kit.getGameRules().setSumo(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now sumo.");
-                    else player.sendMessage(CC.RED + "Kit is no longer sumo.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Sumo mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "&aSuccessfully disabled Sumo mode for " + kit.getName());
                     break;
                 }
                 case "parkour": {
                     kit.getGameRules().setParkour(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now parkour.");
-                    else player.sendMessage(CC.RED + "Kit is no longer parkour.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Parkour mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "&aSuccessfully disabled Parkour mode for " + kit.getName());
                     break;
                 }
                 case "healthregeneration": {
                     kit.getGameRules().setHealthRegeneration(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now healthregeneration.");
-                    else player.sendMessage(CC.RED + "Kit is no longer healthregeneration.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabledHealthRegeneration for " + kit.getName());
+                    else player.sendMessage(CC.RED + "&aSuccessfully disabled HealthRegeneration for " + kit.getName());
                     break;
                 }
                 case "nofalldamage": {
                     kit.getGameRules().setNofalldamage(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now nofalldamage.");
-                    else player.sendMessage(CC.RED + "Kit is no longer nofalldamage.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled NoFallDamage for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled NoFallDamage for " + kit.getName());
                     break;
                 }
                 case "antifood": {
                     kit.getGameRules().setAntiFood(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now AntiFood.");
-                    else player.sendMessage(CC.RED + "Kit is no longer AntiFood.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled AntiFood for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled AntiFood for " + kit.getName());
                     break;
                 }
                 case "soup": {
                     kit.getGameRules().setSoup(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now soup.");
-                    else player.sendMessage(CC.RED + "Kit is no longer soup.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Soup mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled Soup mode for " + kit.getName());
                     break;
                 }
                 case "showhealth": {
                     kit.getGameRules().setShowHealth(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now show health.");
-                    else player.sendMessage(CC.RED + "Kit is no longer show health.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled ShowHealth for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled ShowHealth mode for " + kit.getName());
                     break;
                 }
                 case "hcf": {
                     kit.getGameRules().setHcf(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now hcf.");
-                    else player.sendMessage(CC.RED + "Kit is no longer hcf.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled HCF mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled HCF mode for " + kit.getName());
                     break;
                 }
                 case "hcftrap": {
                     kit.getGameRules().setHcftrap(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now hcftrap.");
-                    else player.sendMessage(CC.RED + "Kit is no longer hcftrap.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled HCF-Trap mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully enabled HCF-Trap mode for " + kit.getName());
                     break;
                 }
                 case "hitdelay": {
@@ -122,45 +122,45 @@ public class KitGameRuleCommand extends BaseCommand {
                 }
                 case "kbprofile": {
                     kit.getGameRules().setKbProfile(value);
-                    player.sendMessage(CC.GREEN + "Kit now have kbprofile: " + value);
+                    player.sendMessage(CC.GREEN + "Successfully set Knockback profile of " + kit.getName() + " to: " + value);
                     break;
                 }
                 case "bridge": {
                     kit.getGameRules().setBridge(Boolean.parseBoolean(value));
 
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now bridge.");
-                    else player.sendMessage(CC.RED + "Kit is no longer bridge.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Bridge mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled Bridge mode for " + kit.getName());
 
                     break;
                 }
                 case "ranked": {
                     kit.getGameRules().setRanked(Boolean.parseBoolean(value));
 
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now ranked.");
-                    else player.sendMessage(CC.RED + "Kit is no longer ranked.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Added " + kit.getName() + " to Ranked queue ");
+                    else player.sendMessage(CC.RED + "Removed " + kit.getName() + " from Ranked queue ");
 
                     break;
                 }
                 case "boxing": {
                     kit.getGameRules().setBoxing(Boolean.parseBoolean(value));
 
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now boxing.");
-                    else player.sendMessage(CC.RED + "Kit is no longer boxing.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Boxing mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled Boxing mode for " + kit.getName());
 
                     break;
                 }
                 case "bedfight": {
                     kit.getGameRules().setBedFight(Boolean.parseBoolean(value));
 
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now boxing.");
-                    else player.sendMessage(CC.RED + "Kit is no longer boxing.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Successfully enabled Bedfight mode for " + kit.getName());
+                    else player.sendMessage(CC.RED + "Successfully disabled Bedfight mode for " + kit.getName());
 
                     break;
                 }
                 case "allowpotionfill": {
                     kit.getEditRules().setAllowPotionFill(Boolean.parseBoolean(value));
-                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit is now allow potion fill.");
-                    else player.sendMessage(CC.RED + "Kit is no longer allow potion fill.");
+                    if (Boolean.parseBoolean(value)) player.sendMessage(CC.GREEN + "Kit now allows potion fill.");
+                    else player.sendMessage(CC.RED + "Kit no longer allows potion fill.");
                     break;
                 }
                 case "effect": {
