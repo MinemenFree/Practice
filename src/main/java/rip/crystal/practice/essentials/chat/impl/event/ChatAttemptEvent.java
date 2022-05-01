@@ -1,11 +1,11 @@
 package rip.crystal.practice.essentials.chat.impl.event;
 
-import rip.crystal.practice.essentials.chat.impl.ChatAttempt;
-import rip.crystal.practice.utilities.event.BaseEvent;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
+import rip.crystal.practice.essentials.chat.impl.ChatAttempt;
+import rip.crystal.practice.utilities.event.BaseEvent;
 
 @Getter
 public class ChatAttemptEvent extends BaseEvent implements Cancellable {

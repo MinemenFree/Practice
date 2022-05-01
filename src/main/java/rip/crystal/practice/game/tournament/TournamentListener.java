@@ -5,11 +5,11 @@ package rip.crystal.practice.game.tournament;
 */
 
 import org.bukkit.entity.Player;
-import rip.crystal.practice.player.profile.Profile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 
 public class TournamentListener implements Listener {

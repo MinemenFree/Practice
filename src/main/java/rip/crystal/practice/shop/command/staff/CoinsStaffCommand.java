@@ -5,7 +5,9 @@ import rip.crystal.practice.api.chat.ChatUtil;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import rip.crystal.practice.shop.command.staff.impl.*;
+import rip.crystal.practice.shop.command.staff.impl.CoinsGiveCommand;
+import rip.crystal.practice.shop.command.staff.impl.CoinsSetCommand;
+import rip.crystal.practice.shop.command.staff.impl.CoinsTakeCommand;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class CoinsStaffCommand extends BaseCommand {

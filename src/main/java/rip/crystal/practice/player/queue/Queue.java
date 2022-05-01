@@ -1,5 +1,8 @@
 package rip.crystal.practice.player.queue;
 
+import lombok.Getter;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
@@ -10,11 +13,7 @@ import rip.crystal.practice.player.queue.menus.QueueSelectKitMenu;
 import rip.crystal.practice.player.queue.task.QueueTask;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.TaskUtil;
-import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Menu;
-import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,6 +1,7 @@
 package rip.crystal.practice.essentials.abilities.utils;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
+
 import java.util.concurrent.TimeUnit;
 
 public class DurationFormatter {

@@ -1,8 +1,8 @@
 package rip.crystal.practice.player.nametags.task;
 
+import lombok.Getter;
 import rip.crystal.practice.player.nametags.GxNameTag;
 import rip.crystal.practice.player.nametags.NametagUpdate;
-import lombok.Getter;
 
 import java.util.Iterator;
 import java.util.Map;

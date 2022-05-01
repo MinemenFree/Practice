@@ -1,15 +1,15 @@
 package rip.crystal.practice.shop.menu;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.shop.buttons.KillEffectsShopButton;
 import rip.crystal.practice.shop.buttons.TrailsEffectsShopButton;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;

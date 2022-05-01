@@ -1,9 +1,9 @@
 package rip.crystal.practice.api.rank.impl;
 
 import me.activated.core.api.player.GlobalPlayer;
-import rip.crystal.practice.api.rank.Rank;
 import me.activated.core.api.player.PlayerData;
 import me.activated.core.plugin.AquaCoreAPI;
+import rip.crystal.practice.api.rank.Rank;
 
 import java.util.UUID;
 

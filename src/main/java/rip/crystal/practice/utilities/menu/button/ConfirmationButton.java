@@ -1,8 +1,5 @@
 package rip.crystal.practice.utilities.menu.button;
 
-import rip.crystal.practice.utilities.callback.TypeCallback;
-import rip.crystal.practice.utilities.menu.Button;
-import rip.crystal.practice.utilities.menu.Menu;
 import lombok.AllArgsConstructor;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -11,6 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import rip.crystal.practice.utilities.callback.TypeCallback;
+import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.menu.Menu;
 
 @AllArgsConstructor
 public class ConfirmationButton extends Button {

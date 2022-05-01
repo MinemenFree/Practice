@@ -1,12 +1,12 @@
 package rip.crystal.practice.utilities;
 
-import rip.crystal.practice.cPractice;
 import lombok.NonNull;
 import net.minecraft.server.v1_8_R3.MinecraftServer;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.cPractice;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

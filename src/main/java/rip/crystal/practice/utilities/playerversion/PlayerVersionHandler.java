@@ -1,10 +1,10 @@
 package rip.crystal.practice.utilities.playerversion;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import rip.crystal.practice.utilities.playerversion.impl.PlayerVersionDefaultImpl;
 import rip.crystal.practice.utilities.playerversion.impl.PlayerVersionProtocolLibImpl;
 import rip.crystal.practice.utilities.playerversion.impl.PlayerVersionViaVersionImpl;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
 
 public class PlayerVersionHandler {
 

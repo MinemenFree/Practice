@@ -5,19 +5,25 @@ package rip.crystal.practice.game.ffa;
 */
 
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.EnderPearl;
+import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.*;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.game.arena.impl.StandaloneArena;
-import rip.crystal.practice.match.Match;
-import rip.crystal.practice.match.MatchState;
-import rip.crystal.practice.match.impl.BasicTeamMatch;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.Cooldown;
@@ -25,16 +31,6 @@ import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.TimeUtil;
 import rip.crystal.practice.utilities.chat.CC;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
 
 
 public class FFAListener implements Listener {

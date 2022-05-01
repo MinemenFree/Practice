@@ -1,20 +1,8 @@
 package rip.crystal.practice.match.listeners;
 
 import com.google.common.collect.Lists;
-import org.bukkit.*;
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.game.knockback.Knockback;
-import rip.crystal.practice.match.Match;
-import rip.crystal.practice.match.MatchState;
-import rip.crystal.practice.match.events.MatchEndEvent;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.game.tournament.Tournament;
-import rip.crystal.practice.utilities.*;
-import rip.crystal.practice.utilities.chat.CC;
-import me.scalebound.pspigot.KnockbackProfile;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEnderPearl;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -22,12 +10,28 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.*;
+import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
-import org.spigotmc.SpigotConfig;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.knockback.Knockback;
+import rip.crystal.practice.game.tournament.Tournament;
+import rip.crystal.practice.match.Match;
+import rip.crystal.practice.match.MatchState;
+import rip.crystal.practice.match.events.MatchEndEvent;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.PlayerUtil;
+import rip.crystal.practice.utilities.TaskUtil;
+import rip.crystal.practice.utilities.chat.CC;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
 
 public class MatchListener implements Listener {
 

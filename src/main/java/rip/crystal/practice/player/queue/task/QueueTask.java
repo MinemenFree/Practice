@@ -1,8 +1,10 @@
 package rip.crystal.practice.player.queue.task;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.match.impl.BasicTeamRoundMatch;
@@ -14,8 +16,6 @@ import rip.crystal.practice.player.queue.QueueProfile;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.TaskUtil;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class QueueTask implements Runnable {
 

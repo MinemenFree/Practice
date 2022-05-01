@@ -1,13 +1,13 @@
 package rip.crystal.practice.player.profile.meta;
 
-import rip.crystal.practice.game.kit.KitLoadout;
-import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import rip.crystal.practice.game.kit.KitLoadout;
+import rip.crystal.practice.player.profile.hotbar.Hotbar;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 
 import java.util.ArrayList;
 import java.util.List;

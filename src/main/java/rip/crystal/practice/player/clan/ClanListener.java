@@ -1,12 +1,12 @@
 package rip.crystal.practice.player.clan;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.match.participant.MatchGamePlayer;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.game.tournament.events.TournamentEndEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.tournament.events.TournamentEndEvent;
+import rip.crystal.practice.match.participant.MatchGamePlayer;
+import rip.crystal.practice.player.profile.Profile;
 
 public class ClanListener implements Listener {
 

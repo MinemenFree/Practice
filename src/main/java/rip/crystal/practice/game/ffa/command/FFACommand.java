@@ -4,13 +4,13 @@ package rip.crystal.practice.game.ffa.command;
    Created on 27.11.2021
 */
 
-import rip.crystal.practice.game.ffa.command.subcommands.FFAJoinCommand;
-import rip.crystal.practice.game.ffa.command.subcommands.FFALeaveCommand;
-import rip.crystal.practice.utilities.chat.CC;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.game.ffa.command.subcommands.FFAJoinCommand;
+import rip.crystal.practice.game.ffa.command.subcommands.FFALeaveCommand;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class FFACommand extends BaseCommand {
 

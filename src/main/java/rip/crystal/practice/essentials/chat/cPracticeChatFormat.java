@@ -1,12 +1,12 @@
 package rip.crystal.practice.essentials.chat;
 
+import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.essentials.chat.impl.ChatFormat;
 import rip.crystal.practice.player.clan.Clan;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.chat.CC;
-import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.entity.Player;
 
 public class cPracticeChatFormat implements ChatFormat {
     @Override

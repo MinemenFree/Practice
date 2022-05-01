@@ -1,12 +1,12 @@
 package rip.crystal.practice.shop.buttons;
 
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.shop.impl.killeffects.menu.KillEffectsShopMenu;
-import rip.crystal.practice.utilities.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.shop.impl.killeffects.menu.KillEffectsShopMenu;
+import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;
 
 import java.util.ArrayList;

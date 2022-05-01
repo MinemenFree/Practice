@@ -1,17 +1,17 @@
 package rip.crystal.practice.essentials.chat.impl;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.essentials.chat.impl.event.ChatAttemptEvent;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.MessageFormat;
-import rip.crystal.practice.utilities.TimeUtil;
-import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.essentials.chat.impl.event.ChatAttemptEvent;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.TimeUtil;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class ChatListener implements Listener {
 

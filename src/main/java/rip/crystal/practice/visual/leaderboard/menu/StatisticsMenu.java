@@ -1,6 +1,10 @@
 package rip.crystal.practice.visual.leaderboard.menu;
 
 import com.google.common.collect.Maps;
+import lombok.AllArgsConstructor;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.player.profile.Profile;
@@ -9,10 +13,6 @@ import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
-import lombok.AllArgsConstructor;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.visual.scoreboard.BoardAdapter;
 
 import java.util.ArrayList;

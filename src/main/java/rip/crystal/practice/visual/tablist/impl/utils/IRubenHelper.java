@@ -1,7 +1,7 @@
 package rip.crystal.practice.visual.tablist.impl.utils;
 
-import rip.crystal.practice.visual.tablist.impl.GhostlyTablist;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.visual.tablist.impl.GhostlyTablist;
 
 public interface IRubenHelper {
 

@@ -1,13 +1,13 @@
 package rip.crystal.practice.visual.scoreboard.impl;
 
-import rip.crystal.practice.visual.scoreboard.impl.events.AssembleBoardCreateEvent;
-import rip.crystal.practice.visual.scoreboard.impl.events.AssembleBoardDestroyEvent;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import rip.crystal.practice.visual.scoreboard.impl.events.AssembleBoardCreateEvent;
+import rip.crystal.practice.visual.scoreboard.impl.events.AssembleBoardDestroyEvent;
 
 @Getter
 public class AssembleListener implements Listener {

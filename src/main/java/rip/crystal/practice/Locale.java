@@ -1,7 +1,7 @@
 package rip.crystal.practice;
 
-import rip.crystal.practice.utilities.file.language.Lang;
 import lombok.RequiredArgsConstructor;
+import rip.crystal.practice.utilities.file.language.Lang;
 
 import java.util.List;
 

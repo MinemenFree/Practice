@@ -1,6 +1,11 @@
 package rip.crystal.practice.match.duel.command;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.match.duel.DuelProcedure;
 import rip.crystal.practice.match.duel.DuelRequest;
 import rip.crystal.practice.match.duel.menu.DuelSelectKitMenu;
@@ -8,11 +13,6 @@ import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class DuelRoundCommand extends BaseCommand {
 

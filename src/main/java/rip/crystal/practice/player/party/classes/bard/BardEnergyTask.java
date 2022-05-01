@@ -1,11 +1,11 @@
 package rip.crystal.practice.player.party.classes.bard;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.party.classes.HCFClass;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.player.party.classes.HCFClass;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,5 +1,10 @@
 package rip.crystal.practice.game.kit.menu;
 
+import lombok.AllArgsConstructor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
@@ -10,11 +15,6 @@ import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 import rip.crystal.practice.utilities.menu.button.BackButton;
-import lombok.AllArgsConstructor;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 import java.util.HashMap;

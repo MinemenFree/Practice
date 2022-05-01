@@ -1,14 +1,14 @@
 package rip.crystal.practice.essentials;
 
 import com.google.common.collect.ImmutableList;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerListPingEvent;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.List;
 

@@ -1,5 +1,10 @@
 package rip.crystal.practice.game.event;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.game.event.game.EventGameLogic;
 import rip.crystal.practice.game.event.impl.brackets.BracketsEvent;
@@ -8,11 +13,6 @@ import rip.crystal.practice.game.event.impl.spleef.SpleefEvent;
 import rip.crystal.practice.game.event.impl.sumo.SumoEvent;
 import rip.crystal.practice.game.event.impl.tntrun.TNTRunEvent;
 import rip.crystal.practice.game.event.impl.tnttag.TNTTagEvent;
-import rip.crystal.practice.cPractice;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,15 +1,15 @@
 package rip.crystal.practice.game.kit.command;
 
-import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
-import rip.crystal.practice.utilities.chat.ChatHelper;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
+import rip.crystal.practice.utilities.chat.ChatHelper;
 
 public class KitsCommand extends BaseCommand {
 

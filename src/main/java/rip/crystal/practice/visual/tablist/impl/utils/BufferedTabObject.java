@@ -1,9 +1,9 @@
 package rip.crystal.practice.visual.tablist.impl.utils;
 
-import rip.crystal.practice.visual.tablist.impl.TabListCommons;
-import rip.crystal.practice.visual.tablist.impl.utils.ping.PingValue;
 import lombok.Getter;
 import lombok.Setter;
+import rip.crystal.practice.visual.tablist.impl.TabListCommons;
+import rip.crystal.practice.visual.tablist.impl.utils.ping.PingValue;
 
 @Getter @Setter
 public class BufferedTabObject {

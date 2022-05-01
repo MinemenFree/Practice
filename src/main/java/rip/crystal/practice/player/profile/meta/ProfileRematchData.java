@@ -1,8 +1,13 @@
 package rip.crystal.practice.player.profile.meta;
 
+import lombok.Getter;
+import lombok.var;
+import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.match.impl.BasicTeamRoundMatch;
@@ -15,11 +20,6 @@ import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
-import lombok.Getter;
-import lombok.var;
-import net.md_5.bungee.api.chat.BaseComponent;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;

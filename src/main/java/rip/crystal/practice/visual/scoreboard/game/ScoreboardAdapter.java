@@ -5,13 +5,11 @@ package rip.crystal.practice.visual.scoreboard.game;
 */
 
 import com.google.common.collect.Lists;
-import org.apache.commons.lang.StringUtils;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.PlayerUtil;
-import org.bukkit.entity.Player;
-import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.List;
 

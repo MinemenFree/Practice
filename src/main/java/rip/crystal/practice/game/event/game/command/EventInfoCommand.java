@@ -1,12 +1,12 @@
 package rip.crystal.practice.game.event.game.command;
 
-import rip.crystal.practice.game.event.game.EventGame;
-import rip.crystal.practice.game.event.impl.sumo.SumoEvent;
-import rip.crystal.practice.utilities.chat.CC;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.game.event.game.EventGame;
+import rip.crystal.practice.game.event.impl.sumo.SumoEvent;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class EventInfoCommand extends BaseCommand {
 

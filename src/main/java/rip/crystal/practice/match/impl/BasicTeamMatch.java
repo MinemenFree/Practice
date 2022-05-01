@@ -1,9 +1,17 @@
 package rip.crystal.practice.match.impl;
 
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.MatchState;
@@ -21,14 +29,6 @@ import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.elo.EloUtil;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
-import lombok.Getter;
-import lombok.Setter;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

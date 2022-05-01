@@ -2,10 +2,14 @@ package rip.crystal.practice.player.profile.modmode;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import lombok.Getter;
 import me.activated.core.plugin.AquaCoreAPI;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.lag.LagRunnable;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
@@ -13,11 +17,7 @@ import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
-import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.utilities.lag.LagRunnable;
 
 import java.util.List;
 import java.util.Set;

@@ -1,9 +1,9 @@
 package rip.crystal.practice.api.rank.impl;
 
 import club.frozed.core.ZoomAPI;
-import rip.crystal.practice.api.rank.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.api.rank.Rank;
 
 import java.util.UUID;
 

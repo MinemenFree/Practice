@@ -1,9 +1,9 @@
 package rip.crystal.practice.visual.leaderboard.variables;
 
 import com.gmail.filoghost.holographicdisplays.api.placeholder.PlaceholderReplacer;
-import rip.crystal.practice.visual.leaderboard.Leaderboard;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.AllArgsConstructor;
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.visual.leaderboard.Leaderboard;
 import rip.crystal.practice.visual.leaderboard.entry.LeaderboardKitsEntry;
 
 import java.util.List;

@@ -2,13 +2,6 @@ package rip.crystal.practice.essentials.abilities.impl;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import rip.crystal.practice.essentials.abilities.Ability;
-import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.PlayerUtil;
-import rip.crystal.practice.utilities.TaskUtils;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Sound;
@@ -19,6 +12,13 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.essentials.abilities.Ability;
+import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.PlayerUtil;
+import rip.crystal.practice.utilities.TaskUtils;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.Map;
 import java.util.Set;

@@ -1,10 +1,10 @@
 package rip.crystal.practice.visual.scoreboard.impl;
 
-import rip.crystal.practice.cPractice;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
+import rip.crystal.practice.cPractice;
 
 import java.util.Collections;
 import java.util.List;

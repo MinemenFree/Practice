@@ -1,11 +1,6 @@
 package rip.crystal.practice.visual.tablist.impl;
 
 import com.comphenix.protocol.ProtocolLibrary;
-import rip.crystal.practice.visual.tablist.impl.utils.*;
-import rip.crystal.practice.visual.tablist.impl.utils.impl.ProtocolLibTabImpl;
-import rip.crystal.practice.utilities.PlayerUtil;
-import rip.crystal.practice.utilities.playerversion.PlayerVersion;
-import rip.crystal.practice.utilities.playerversion.PlayerVersionHandler;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,6 +8,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
+import rip.crystal.practice.utilities.PlayerUtil;
+import rip.crystal.practice.utilities.playerversion.PlayerVersion;
+import rip.crystal.practice.utilities.playerversion.PlayerVersionHandler;
+import rip.crystal.practice.visual.tablist.impl.utils.*;
+import rip.crystal.practice.visual.tablist.impl.utils.impl.ProtocolLibTabImpl;
 
 import java.util.HashSet;
 import java.util.Set;

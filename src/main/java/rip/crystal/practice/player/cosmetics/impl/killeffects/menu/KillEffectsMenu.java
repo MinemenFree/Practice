@@ -5,6 +5,9 @@ package rip.crystal.practice.player.cosmetics.impl.killeffects.menu;
 */
 
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.player.cosmetics.impl.killeffects.KillEffectType;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.ItemBuilder;
@@ -12,9 +15,6 @@ import rip.crystal.practice.utilities.TaskUtil;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.pagination.PaginatedMenu;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,7 +1,7 @@
 package rip.crystal.practice.utilities;
 
-import rip.crystal.practice.cPractice;
 import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.cPractice;
 
 public class TaskUtils {
 

@@ -1,10 +1,10 @@
 package rip.crystal.practice.essentials.command.donator;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class ShowAllPlayersCommand extends BaseCommand {
 

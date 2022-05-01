@@ -1,9 +1,9 @@
 package rip.crystal.practice.player.party.classes;
 
+import org.bukkit.entity.Player;
 import rip.crystal.practice.player.party.Party;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import org.bukkit.entity.Player;
 
 import java.util.stream.Collectors;
 

@@ -1,13 +1,13 @@
 package rip.crystal.practice.player.profile.conversation;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.MessageFormat;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
 
 import java.util.UUID;
 

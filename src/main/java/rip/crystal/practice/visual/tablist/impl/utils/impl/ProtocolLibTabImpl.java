@@ -4,13 +4,13 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.*;
-import rip.crystal.practice.visual.tablist.impl.GhostlyTablist;
-import rip.crystal.practice.visual.tablist.impl.TabListCommons;
-import rip.crystal.practice.utilities.PlayerUtil;
-import rip.crystal.practice.utilities.playerversion.PlayerVersion;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
+import rip.crystal.practice.utilities.PlayerUtil;
+import rip.crystal.practice.utilities.playerversion.PlayerVersion;
+import rip.crystal.practice.visual.tablist.impl.GhostlyTablist;
+import rip.crystal.practice.visual.tablist.impl.TabListCommons;
 import rip.crystal.practice.visual.tablist.impl.utils.*;
 
 import java.lang.reflect.InvocationTargetException;

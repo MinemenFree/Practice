@@ -4,7 +4,10 @@ package rip.crystal.practice.game.ffa.command.subcommands;
    Created on 27.11.2021
 */
 
-import net.audidevelopment.cspigot.knockback.KnockbackModule;
+import org.bukkit.entity.Player;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.player.profile.Profile;
@@ -12,12 +15,6 @@ import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
-import me.scalebound.pspigot.KnockbackProfile;
-import org.bukkit.entity.Player;
-import org.spigotmc.SpigotConfig;
 
 public class FFALeaveCommand extends BaseCommand {
 

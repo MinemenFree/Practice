@@ -1,16 +1,16 @@
 package rip.crystal.practice.essentials.chat.impl.command;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.essentials.chat.impl.Chat;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.MessageFormat;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.essentials.chat.impl.Chat;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
 
 public class MuteChatCommand extends BaseCommand {
 

@@ -1,14 +1,5 @@
 package rip.crystal.practice.game.kit;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.kit.menu.KitEditorSelectKitMenu;
-import rip.crystal.practice.game.kit.menu.KitManagementMenu;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
-import rip.crystal.practice.utilities.MessageFormat;
-import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -21,6 +12,15 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.Inventory;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.game.kit.menu.KitEditorSelectKitMenu;
+import rip.crystal.practice.game.kit.menu.KitManagementMenu;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.player.profile.hotbar.Hotbar;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
+import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class KitEditorListener implements Listener {
 

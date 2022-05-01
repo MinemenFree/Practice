@@ -1,12 +1,12 @@
 package rip.crystal.practice.game.event.game;
 
-import rip.crystal.practice.game.event.game.map.EventGameMap;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.game.event.game.map.EventGameMap;
 
 import java.util.List;
 

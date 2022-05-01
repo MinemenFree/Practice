@@ -1,17 +1,17 @@
 package rip.crystal.practice.player.queue;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
-import rip.crystal.practice.player.queue.menus.QueuesMenu;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.player.profile.hotbar.Hotbar;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
+import rip.crystal.practice.player.queue.menus.QueuesMenu;
 
 public class QueueListener implements Listener {
 

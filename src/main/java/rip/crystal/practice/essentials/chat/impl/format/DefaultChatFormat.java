@@ -1,8 +1,8 @@
 package rip.crystal.practice.essentials.chat.impl.format;
 
+import org.bukkit.entity.Player;
 import rip.crystal.practice.essentials.chat.impl.ChatFormat;
 import rip.crystal.practice.utilities.chat.CC;
-import org.bukkit.entity.Player;
 
 public class DefaultChatFormat implements ChatFormat {
 

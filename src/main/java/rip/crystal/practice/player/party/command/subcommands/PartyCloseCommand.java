@@ -1,12 +1,12 @@
 package rip.crystal.practice.player.party.command.subcommands;
 
-import rip.crystal.practice.player.party.enums.PartyPrivacy;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.chat.CC;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.player.party.enums.PartyPrivacy;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class PartyCloseCommand extends BaseCommand {
 

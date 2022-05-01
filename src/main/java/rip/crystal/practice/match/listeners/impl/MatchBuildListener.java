@@ -21,9 +21,7 @@ import rip.crystal.practice.match.MatchState;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.utilities.LocationUtil;
 import rip.crystal.practice.utilities.MessageFormat;
-import rip.crystal.practice.utilities.chat.CC;
 
 public class MatchBuildListener implements Listener {
 

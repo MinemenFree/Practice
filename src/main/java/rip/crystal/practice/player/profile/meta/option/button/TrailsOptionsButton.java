@@ -4,13 +4,13 @@ package rip.crystal.practice.player.profile.meta.option.button;
    Created on 05.11.2021
 */
 
-import rip.crystal.practice.player.cosmetics.impl.trails.menu.TrailsEffectsMenu;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.player.cosmetics.impl.trails.menu.TrailsEffectsMenu;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;
 
 import java.util.ArrayList;

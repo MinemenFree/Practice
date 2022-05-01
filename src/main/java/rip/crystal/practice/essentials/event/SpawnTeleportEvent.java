@@ -1,11 +1,11 @@
 package rip.crystal.practice.essentials.event;
 
-import rip.crystal.practice.utilities.event.BaseEvent;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
+import rip.crystal.practice.utilities.event.BaseEvent;
 
 public class SpawnTeleportEvent extends BaseEvent implements Cancellable {
 

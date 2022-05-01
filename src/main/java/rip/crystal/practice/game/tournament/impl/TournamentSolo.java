@@ -1,8 +1,16 @@
 package rip.crystal.practice.game.tournament.impl;
 
 import com.google.common.collect.Lists;
-import rip.crystal.practice.game.arena.Arena;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
+import rip.crystal.practice.game.tournament.Tournament;
+import rip.crystal.practice.game.tournament.TournamentState;
+import rip.crystal.practice.game.tournament.events.TournamentEndEvent;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.impl.BasicTeamMatch;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
@@ -10,18 +18,10 @@ import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
-import rip.crystal.practice.game.tournament.Tournament;
-import rip.crystal.practice.game.tournament.TournamentState;
-import rip.crystal.practice.game.tournament.events.TournamentEndEvent;
 import rip.crystal.practice.utilities.TaskUtil;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.countdown.Countdown;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
-import lombok.Getter;
-import lombok.Setter;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Collections;
 import java.util.LinkedList;

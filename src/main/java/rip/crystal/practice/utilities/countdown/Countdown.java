@@ -1,10 +1,10 @@
 package rip.crystal.practice.utilities.countdown;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.utilities.TimeUtils;
 import rip.crystal.practice.utilities.chat.CC;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

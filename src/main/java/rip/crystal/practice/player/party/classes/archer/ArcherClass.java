@@ -1,13 +1,5 @@
 package rip.crystal.practice.player.party.classes.archer;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.match.Match;
-import rip.crystal.practice.player.party.classes.HCFClass;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.MessageFormat;
-import rip.crystal.practice.utilities.Pair;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -24,6 +16,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.match.Match;
+import rip.crystal.practice.player.party.classes.HCFClass;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.Pair;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.HashMap;
 import java.util.HashSet;

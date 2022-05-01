@@ -1,8 +1,8 @@
 package rip.crystal.practice.game.knockback;
 
-import rip.crystal.practice.cPractice;
 import lombok.Getter;
 import lombok.Setter;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.knockback.impl.*;
 
 public class Knockback {

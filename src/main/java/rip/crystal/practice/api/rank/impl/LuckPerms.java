@@ -1,12 +1,13 @@
 package rip.crystal.practice.api.rank.impl;
 
+import net.luckperms.api.cacheddata.CachedMetaData;
+import net.luckperms.api.model.user.User;
 import net.luckperms.api.node.Node;
 import net.luckperms.api.node.NodeType;
 import net.luckperms.api.node.types.WeightNode;
-import rip.crystal.practice.api.rank.Rank;import net.luckperms.api.cacheddata.CachedMetaData;
-import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
 import org.bukkit.Bukkit;
+import rip.crystal.practice.api.rank.Rank;
 
 import java.util.Optional;
 import java.util.UUID;

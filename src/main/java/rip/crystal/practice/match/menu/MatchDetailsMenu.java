@@ -1,5 +1,12 @@
 package rip.crystal.practice.match.menu;
 
+import lombok.AllArgsConstructor;
+import org.apache.commons.lang.StringEscapeUtils;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.match.MatchSnapshot;
 import rip.crystal.practice.player.profile.Profile;
@@ -8,13 +15,6 @@ import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 import rip.crystal.practice.utilities.menu.button.DisplayButton;
-import lombok.AllArgsConstructor;
-import org.apache.commons.lang.StringEscapeUtils;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
 
 import java.util.*;
 

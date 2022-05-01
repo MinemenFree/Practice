@@ -1,12 +1,12 @@
 package rip.crystal.practice.utilities.menu.pagination;
 
-import rip.crystal.practice.utilities.menu.Button;
-import rip.crystal.practice.utilities.menu.Menu;
-import rip.crystal.practice.utilities.menu.button.BackButton;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.menu.Menu;
+import rip.crystal.practice.utilities.menu.button.BackButton;
 
 import java.util.HashMap;
 import java.util.Map;

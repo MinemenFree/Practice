@@ -1,12 +1,12 @@
 package rip.crystal.practice.player.clan.commands.subcommands;
 
-import rip.crystal.practice.player.clan.Clan;
-import rip.crystal.practice.player.profile.Profile;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.player.clan.Clan;
+import rip.crystal.practice.player.profile.Profile;
 
 public class ClanInfoCommand extends BaseCommand {
 

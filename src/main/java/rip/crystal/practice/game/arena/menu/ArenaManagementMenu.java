@@ -1,14 +1,14 @@
 package rip.crystal.practice.game.arena.menu;
 
 import com.google.common.collect.Maps;
-import rip.crystal.practice.game.arena.Arena;
-import rip.crystal.practice.utilities.ItemBuilder;
-import rip.crystal.practice.utilities.menu.Button;
-import rip.crystal.practice.utilities.menu.Menu;
 import lombok.AllArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.game.arena.Arena;
+import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.menu.Menu;
 
 import java.util.Map;
 

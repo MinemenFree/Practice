@@ -1,14 +1,12 @@
 package rip.crystal.practice.api.rank;
 
-import rip.crystal.practice.api.rank.impl.*;
 import lombok.Getter;
 import lombok.Setter;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.hotbar.entry.skidadik;
+import rip.crystal.practice.api.rank.impl.*;
 
 @Getter @Setter
 public class RankManager {

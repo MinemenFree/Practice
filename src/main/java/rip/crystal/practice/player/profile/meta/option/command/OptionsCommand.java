@@ -1,10 +1,10 @@
 package rip.crystal.practice.player.profile.meta.option.command;
 
-import rip.crystal.practice.player.profile.menu.settings.SettingsMenu;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.player.profile.menu.settings.SettingsMenu;
 
 public class OptionsCommand extends BaseCommand {
 

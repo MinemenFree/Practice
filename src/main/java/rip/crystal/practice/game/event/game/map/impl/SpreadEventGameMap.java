@@ -1,18 +1,18 @@
 package rip.crystal.practice.game.event.game.map.impl;
 
-import rip.crystal.practice.game.event.game.EventGame;
-import rip.crystal.practice.game.event.game.map.EventGameMap;
-import rip.crystal.practice.game.event.impl.sumo.SumoGameLogic;
-import rip.crystal.practice.game.event.impl.tnttag.TNTTagGameLogic;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
-import rip.crystal.practice.player.profile.participant.GamePlayer;
-import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
-import rip.crystal.practice.utilities.LocationUtil;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.event.game.EventGame;
+import rip.crystal.practice.game.event.game.map.EventGameMap;
+import rip.crystal.practice.game.event.impl.sumo.SumoGameLogic;
+import rip.crystal.practice.game.event.impl.tnttag.TNTTagGameLogic;
+import rip.crystal.practice.player.profile.participant.GamePlayer;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
+import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
+import rip.crystal.practice.utilities.LocationUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

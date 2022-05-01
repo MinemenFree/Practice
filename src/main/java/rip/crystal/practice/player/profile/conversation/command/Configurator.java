@@ -4,10 +4,10 @@ package rip.crystal.practice.player.profile.conversation.command;
    Created on 03.12.2021
 */
 
+import org.bukkit.Bukkit;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.profile.file.impl.MYSQLListener;
 import rip.crystal.practice.utilities.chat.CC;
-import org.bukkit.Bukkit;
 
 import java.util.logging.Level;
 

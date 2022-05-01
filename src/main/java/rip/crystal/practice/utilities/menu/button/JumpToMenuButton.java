@@ -1,10 +1,10 @@
 package rip.crystal.practice.utilities.menu.button;
 
-import rip.crystal.practice.utilities.menu.Button;
-import rip.crystal.practice.utilities.menu.Menu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.menu.Menu;
 
 public class JumpToMenuButton extends Button {
 

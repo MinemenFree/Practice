@@ -1,12 +1,5 @@
 package rip.crystal.practice.essentials.abilities.impl;
 
-import rip.crystal.practice.essentials.abilities.Ability;
-import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.PlayerUtil;
-import rip.crystal.practice.utilities.Utils;
-import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -16,6 +9,13 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.essentials.abilities.Ability;
+import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.PlayerUtil;
+import rip.crystal.practice.utilities.Utils;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.HashMap;
 import java.util.Map;

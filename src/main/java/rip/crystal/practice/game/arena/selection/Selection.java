@@ -1,8 +1,5 @@
 package rip.crystal.practice.game.arena.selection;
 
-import rip.crystal.practice.game.arena.cuboid.Cuboid;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.ItemBuilder;
 import lombok.Data;
 import lombok.NonNull;
 import org.bukkit.Location;
@@ -10,6 +7,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.cuboid.Cuboid;
+import rip.crystal.practice.utilities.ItemBuilder;
 
 import java.util.Arrays;
 

@@ -1,9 +1,5 @@
 package rip.crystal.practice.game.arena;
 
-import rip.crystal.practice.game.arena.selection.Selection;
-import rip.crystal.practice.match.Match;
-import rip.crystal.practice.match.MatchState;
-import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.Difficulty;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -20,6 +16,10 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.game.arena.selection.Selection;
+import rip.crystal.practice.match.Match;
+import rip.crystal.practice.match.MatchState;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class ArenaListener implements Listener {
 

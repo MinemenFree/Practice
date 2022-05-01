@@ -1,19 +1,19 @@
 package rip.crystal.practice.visual.leaderboard.menu;
 
 import com.google.common.collect.Maps;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.visual.leaderboard.menu.button.GlobalStatsButton;
-import rip.crystal.practice.visual.leaderboard.menu.button.KitButton;
-import rip.crystal.practice.visual.leaderboard.menu.button.PlayerStatsButton;
-import rip.crystal.practice.visual.leaderboard.menu.button.StatsButton;
-import rip.crystal.practice.utilities.ItemBuilder;
-import rip.crystal.practice.utilities.menu.Button;
-import rip.crystal.practice.utilities.menu.Menu;
 import lombok.AllArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.menu.Menu;
+import rip.crystal.practice.visual.leaderboard.menu.button.GlobalStatsButton;
+import rip.crystal.practice.visual.leaderboard.menu.button.KitButton;
+import rip.crystal.practice.visual.leaderboard.menu.button.PlayerStatsButton;
+import rip.crystal.practice.visual.leaderboard.menu.button.StatsButton;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;

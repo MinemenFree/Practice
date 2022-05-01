@@ -1,13 +1,7 @@
 package rip.crystal.practice.essentials;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.essentials.event.SpawnTeleportEvent;
-import rip.crystal.practice.game.knockback.Knockback;
-import rip.crystal.practice.utilities.LocationUtil;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.Getter;
 import lombok.Setter;
-import me.scalebound.pspigot.KnockbackProfile;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -15,7 +9,11 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
-import org.spigotmc.SpigotConfig;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.essentials.event.SpawnTeleportEvent;
+import rip.crystal.practice.game.knockback.Knockback;
+import rip.crystal.practice.utilities.LocationUtil;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.io.IOException;
 import java.util.List;

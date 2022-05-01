@@ -1,14 +1,14 @@
 package rip.crystal.practice.game.arena.impl;
 
-import rip.crystal.practice.game.arena.Arena;
-import rip.crystal.practice.game.arena.ArenaType;
-import rip.crystal.practice.game.arena.cuboid.Cuboid;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.LocationUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
+import rip.crystal.practice.game.arena.ArenaType;
+import rip.crystal.practice.game.arena.cuboid.Cuboid;
+import rip.crystal.practice.utilities.LocationUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

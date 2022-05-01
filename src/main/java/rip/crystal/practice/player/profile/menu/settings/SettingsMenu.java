@@ -3,7 +3,6 @@ package rip.crystal.practice.player.profile.menu.settings;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.menu.settings.SettingUpdateButton;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.menu.Button;

@@ -1,11 +1,11 @@
 package rip.crystal.practice.game.event.impl.tnttag;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.MessageFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
 
 import java.util.Arrays;
 

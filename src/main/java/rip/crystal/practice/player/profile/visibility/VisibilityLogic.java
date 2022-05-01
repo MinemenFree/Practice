@@ -1,5 +1,7 @@
 package rip.crystal.practice.player.profile.visibility;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.game.event.impl.tnttag.TNTTagGameLogic;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
@@ -7,8 +9,6 @@ import rip.crystal.practice.player.nametags.GxNameTag;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.TaskUtil;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class VisibilityLogic {
 

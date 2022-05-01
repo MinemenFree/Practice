@@ -1,9 +1,9 @@
 package rip.crystal.practice.api.rank.impl;
 
-import rip.crystal.practice.api.rank.RankManager;
-import rip.crystal.practice.api.rank.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import rip.crystal.practice.api.rank.Rank;
+import rip.crystal.practice.api.rank.RankManager;
 
 import java.util.UUID;
 

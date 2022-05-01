@@ -1,14 +1,11 @@
 package rip.crystal.practice.player.nametags;
 
-import net.audidevelopment.core.plugin.cCore;
-import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import rip.crystal.practice.utilities.chat.CC;
 
 public class cPracticeTags extends NametagProvider {
 

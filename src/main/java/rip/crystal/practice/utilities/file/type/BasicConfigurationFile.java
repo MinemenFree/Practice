@@ -1,12 +1,12 @@
 package rip.crystal.practice.utilities.file.type;
 
 import com.google.common.io.Files;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.file.AbstractConfigurationFile;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.utilities.file.AbstractConfigurationFile;
 
 import java.io.File;
 import java.io.IOException;

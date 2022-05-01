@@ -1,9 +1,9 @@
 package rip.crystal.practice.visual.tablist.impl.utils;
 
-import rip.crystal.practice.visual.tablist.impl.GhostlyTablist;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import rip.crystal.practice.visual.tablist.impl.GhostlyTablist;
 
 import java.util.UUID;
 

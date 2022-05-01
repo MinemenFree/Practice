@@ -1,6 +1,5 @@
 package rip.crystal.practice.api.item;
 
-import rip.crystal.practice.api.chat.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -9,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import rip.crystal.practice.api.chat.ChatUtil;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,14 +1,14 @@
 package rip.crystal.practice.game.event.game.map;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Location;
+import org.bukkit.configuration.file.FileConfiguration;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.game.event.game.map.impl.SpreadEventGameMap;
 import rip.crystal.practice.game.event.game.map.impl.TeamEventGameMap;
 import rip.crystal.practice.utilities.LocationUtil;
-import lombok.Getter;
-import lombok.Setter;
-import org.bukkit.Location;
-import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.IOException;
 import java.util.ArrayList;

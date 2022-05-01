@@ -4,13 +4,10 @@ package rip.crystal.practice.player.cosmetics.impl.killeffects;
    Created on 30.11.2021
 */
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.effect.ParticleEffect;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.utilities.effect.ParticleEffect;
 
 import java.util.Arrays;
 

@@ -1,18 +1,18 @@
 package rip.crystal.practice.game.tournament.commands.subcommands;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.game.tournament.Tournament;
-import rip.crystal.practice.game.tournament.impl.TournamentSolo;
-import rip.crystal.practice.utilities.MessageFormat;
-import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.utilities.chat.Clickable;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.game.tournament.Tournament;
+import rip.crystal.practice.game.tournament.impl.TournamentSolo;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.chat.Clickable;
 
 public class TournamentStartCommand extends BaseCommand {
 

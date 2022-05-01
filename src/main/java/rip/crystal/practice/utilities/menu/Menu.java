@@ -1,7 +1,5 @@
 package rip.crystal.practice.utilities.menu;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -10,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.HashMap;
 import java.util.Map;

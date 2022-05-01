@@ -1,10 +1,10 @@
 package rip.crystal.practice.visual.leaderboard.commands;
 
-import rip.crystal.practice.visual.leaderboard.menu.LeaderBoardMenu;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.visual.leaderboard.menu.LeaderBoardMenu;
 
 public class LeaderboardCommand extends BaseCommand {
 

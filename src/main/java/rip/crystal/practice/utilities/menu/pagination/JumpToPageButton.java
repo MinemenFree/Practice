@@ -1,6 +1,5 @@
 package rip.crystal.practice.utilities.menu.pagination;
 
-import rip.crystal.practice.utilities.menu.Button;
 import lombok.AllArgsConstructor;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import rip.crystal.practice.utilities.menu.Button;
 
 import java.util.Arrays;
 

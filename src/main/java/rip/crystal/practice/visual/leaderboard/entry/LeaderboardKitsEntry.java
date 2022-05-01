@@ -1,8 +1,8 @@
 package rip.crystal.practice.visual.leaderboard.entry;
 
-import rip.crystal.practice.player.profile.Profile;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import rip.crystal.practice.player.profile.Profile;
 
 @Getter
 @AllArgsConstructor

@@ -1,13 +1,13 @@
 package rip.crystal.practice.essentials.chat.impl;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.essentials.chat.impl.filter.ChatFilter;
 import rip.crystal.practice.essentials.chat.impl.format.DefaultChatFormat;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.Cooldown;
-import lombok.Getter;
-import lombok.Setter;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;

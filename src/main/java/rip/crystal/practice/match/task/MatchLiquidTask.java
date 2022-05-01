@@ -1,10 +1,10 @@
 package rip.crystal.practice.match.task;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
 
 public class MatchLiquidTask implements Runnable {
 

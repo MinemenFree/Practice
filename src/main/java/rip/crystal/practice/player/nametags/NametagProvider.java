@@ -1,11 +1,11 @@
 package rip.crystal.practice.player.nametags;
 
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.chat.CC;
 
 @Getter
 @AllArgsConstructor

@@ -1,9 +1,6 @@
 
 package rip.crystal.practice.utilities;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.playerversion.PlayerVersion;
-import rip.crystal.practice.utilities.playerversion.PlayerVersionHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -13,6 +10,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.utilities.playerversion.PlayerVersion;
+import rip.crystal.practice.utilities.playerversion.PlayerVersionHandler;
 
 import java.util.UUID;
 

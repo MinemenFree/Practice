@@ -1,16 +1,16 @@
 package rip.crystal.practice.game.arena.command;
 
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.entity.Player;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.arena.ArenaType;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.entity.Player;
 
 public class ArenasCommand extends BaseCommand {
 

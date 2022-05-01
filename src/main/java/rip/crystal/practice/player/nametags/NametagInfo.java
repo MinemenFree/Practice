@@ -1,7 +1,7 @@
 package rip.crystal.practice.player.nametags;
 
-import rip.crystal.practice.player.nametags.packets.ScoreboardTeamPacketMod;
 import lombok.Getter;
+import rip.crystal.practice.player.nametags.packets.ScoreboardTeamPacketMod;
 
 import java.util.ArrayList;
 

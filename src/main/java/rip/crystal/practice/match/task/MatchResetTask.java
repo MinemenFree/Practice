@@ -1,8 +1,5 @@
 package rip.crystal.practice.match.task;
 
-import org.bukkit.World;
-import rip.crystal.practice.match.Match;
-import rip.crystal.practice.utilities.TaskUtil;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.blocks.BaseBlock;
@@ -11,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.bukkit.Location;
 import org.bukkit.block.BlockState;
 import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.match.Match;
 
 @AllArgsConstructor
 public class MatchResetTask extends BukkitRunnable {

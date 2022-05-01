@@ -1,11 +1,11 @@
 package rip.crystal.practice.player.queue;
 
-import rip.crystal.practice.Locale;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.MessageFormat;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.MessageFormat;
 
 import java.util.UUID;
 

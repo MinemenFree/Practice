@@ -1,8 +1,8 @@
 package rip.crystal.practice.player.profile.conversation;
 
-import rip.crystal.practice.player.profile.Profile;
 import lombok.Getter;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.player.profile.Profile;
 
 import java.util.*;
 import java.util.stream.Collectors;

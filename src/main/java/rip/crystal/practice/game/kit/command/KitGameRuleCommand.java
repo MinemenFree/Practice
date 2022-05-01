@@ -1,17 +1,16 @@
 package rip.crystal.practice.game.kit.command;
 
-import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.game.kit.menu.KitEditEffectsMenu;
-import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.regex.Pattern;
 

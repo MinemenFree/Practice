@@ -1,9 +1,9 @@
 package rip.crystal.practice.shop.command;
 
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
 import rip.crystal.practice.shop.menu.ShopMenu;
 
 public class ShopCommand extends BaseCommand {

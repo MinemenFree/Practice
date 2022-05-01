@@ -1,15 +1,15 @@
 package rip.crystal.practice.visual.tablist.impl;
 
-import rip.crystal.practice.visual.tablist.impl.utils.IRubenHelper;
-import rip.crystal.practice.visual.tablist.impl.utils.impl.ProtocolLibTabImpl;
-import rip.crystal.practice.visual.tablist.impl.utils.ping.IPingProvider;
-import rip.crystal.practice.visual.tablist.impl.utils.ping.impl.DefaultPingImpl;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
+import rip.crystal.practice.visual.tablist.impl.utils.IRubenHelper;
+import rip.crystal.practice.visual.tablist.impl.utils.impl.ProtocolLibTabImpl;
+import rip.crystal.practice.visual.tablist.impl.utils.ping.IPingProvider;
+import rip.crystal.practice.visual.tablist.impl.utils.ping.impl.DefaultPingImpl;
 
 import java.util.Map;
 import java.util.UUID;

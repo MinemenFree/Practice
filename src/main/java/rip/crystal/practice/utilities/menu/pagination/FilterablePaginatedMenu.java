@@ -1,9 +1,9 @@
 package rip.crystal.practice.utilities.menu.pagination;
 
-import rip.crystal.practice.utilities.menu.Button;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.utilities.menu.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;

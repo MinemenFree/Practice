@@ -1,11 +1,5 @@
 package rip.crystal.practice.player.party.menu;
 
-import rip.crystal.practice.player.party.Party;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.ItemBuilder;
-import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.utilities.menu.Button;
-import rip.crystal.practice.utilities.menu.pagination.PaginatedMenu;
 import lombok.AllArgsConstructor;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,6 +7,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.player.party.Party;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.menu.pagination.PaginatedMenu;
 
 import java.util.ArrayList;
 import java.util.HashMap;

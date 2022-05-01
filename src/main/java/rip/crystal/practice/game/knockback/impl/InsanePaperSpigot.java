@@ -2,9 +2,9 @@ package rip.crystal.practice.game.knockback.impl;
 
 import club.insaneprojects.insanepaper.KnockbackHandler;
 import club.insaneprojects.insanepaper.knockback.profile.KnockbackProfile;
-import rip.crystal.practice.game.knockback.KnockbackProfiler;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.game.knockback.KnockbackProfiler;
 
 import java.lang.reflect.Field;
 

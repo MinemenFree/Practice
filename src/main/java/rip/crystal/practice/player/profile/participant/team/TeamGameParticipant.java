@@ -1,7 +1,7 @@
 package rip.crystal.practice.player.profile.participant.team;
 
-import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.profile.participant.GamePlayer;
+import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 
 import java.util.ArrayList;
 import java.util.List;

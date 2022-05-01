@@ -1,12 +1,5 @@
 package rip.crystal.practice.game.event.game;
 
-import rip.crystal.practice.game.event.impl.brackets.BracketsGameLogic;
-import rip.crystal.practice.game.event.impl.gulag.GulagGameLogic;
-import rip.crystal.practice.game.event.impl.spleef.SpleefEvent;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -23,6 +16,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.game.event.impl.brackets.BracketsGameLogic;
+import rip.crystal.practice.game.event.impl.gulag.GulagGameLogic;
+import rip.crystal.practice.game.event.impl.spleef.SpleefEvent;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.player.profile.hotbar.Hotbar;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 
 import java.util.regex.Matcher;
 

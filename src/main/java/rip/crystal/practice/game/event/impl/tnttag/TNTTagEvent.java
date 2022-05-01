@@ -1,13 +1,5 @@
 package rip.crystal.practice.game.event.impl.tnttag;
 
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.game.event.Event;
-import rip.crystal.practice.game.event.game.EventGame;
-import rip.crystal.practice.game.event.game.EventGameLogic;
-import rip.crystal.practice.utilities.ItemBuilder;
-import rip.crystal.practice.utilities.LocationUtil;
-import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
@@ -16,6 +8,14 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.event.Event;
+import rip.crystal.practice.game.event.game.EventGame;
+import rip.crystal.practice.game.event.game.EventGameLogic;
+import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.LocationUtil;
+import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 import java.io.IOException;
 import java.util.ArrayList;

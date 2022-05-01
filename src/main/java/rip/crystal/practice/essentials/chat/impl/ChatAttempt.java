@@ -1,8 +1,8 @@
 package rip.crystal.practice.essentials.chat.impl;
 
-import rip.crystal.practice.essentials.chat.impl.filter.ChatFilter;
 import lombok.Getter;
 import lombok.Setter;
+import rip.crystal.practice.essentials.chat.impl.filter.ChatFilter;
 
 @Getter
 @Setter

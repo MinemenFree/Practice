@@ -1,10 +1,10 @@
 package rip.crystal.practice.essentials.command.player;
 
-import rip.crystal.practice.player.profile.menu.LangMenu;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.player.profile.menu.LangMenu;
 
 public class LangCommand extends BaseCommand {
 

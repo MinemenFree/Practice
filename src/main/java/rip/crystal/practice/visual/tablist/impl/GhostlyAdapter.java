@@ -1,7 +1,7 @@
 package rip.crystal.practice.visual.tablist.impl;
 
-import rip.crystal.practice.visual.tablist.impl.utils.BufferedTabObject;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.visual.tablist.impl.utils.BufferedTabObject;
 
 import java.util.Set;
 

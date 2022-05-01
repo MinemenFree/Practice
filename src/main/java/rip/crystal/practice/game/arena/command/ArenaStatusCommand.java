@@ -1,13 +1,13 @@
 package rip.crystal.practice.game.arena.command;
 
-import rip.crystal.practice.game.arena.Arena;
-import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.command.CommandSender;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.game.arena.Arena;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class ArenaStatusCommand extends BaseCommand {
 

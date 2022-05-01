@@ -1,12 +1,12 @@
 package rip.crystal.practice.visual.leaderboard;
 
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.OfflinePlayer;
+import org.jetbrains.annotations.NotNull;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.elo.EloUtil;
-import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.bukkit.OfflinePlayer;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

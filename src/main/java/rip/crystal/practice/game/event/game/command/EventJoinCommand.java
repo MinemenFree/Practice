@@ -1,13 +1,13 @@
 package rip.crystal.practice.game.event.game.command;
 
+import org.bukkit.entity.Player;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.game.event.game.EventGameState;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
 
 public class EventJoinCommand extends BaseCommand {
 

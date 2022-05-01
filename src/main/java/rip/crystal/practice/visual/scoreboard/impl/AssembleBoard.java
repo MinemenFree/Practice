@@ -1,6 +1,5 @@
 package rip.crystal.practice.visual.scoreboard.impl;
 
-import rip.crystal.practice.visual.scoreboard.impl.events.AssembleBoardCreatedEvent;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -8,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
+import rip.crystal.practice.visual.scoreboard.impl.events.AssembleBoardCreatedEvent;
 
 import java.util.ArrayList;
 import java.util.List;

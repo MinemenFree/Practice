@@ -1,11 +1,5 @@
 package rip.crystal.practice.player.party.listeners;
 
-import rip.crystal.practice.player.party.menu.HCFClassMenu;
-import rip.crystal.practice.player.party.menu.OtherPartiesMenu;
-import rip.crystal.practice.player.party.menu.PartyEventSelectEventMenu;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.hotbar.Hotbar;
-import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -14,6 +8,12 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import rip.crystal.practice.player.party.menu.HCFClassMenu;
+import rip.crystal.practice.player.party.menu.OtherPartiesMenu;
+import rip.crystal.practice.player.party.menu.PartyEventSelectEventMenu;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.player.profile.hotbar.Hotbar;
+import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 
 public class PartyListener implements Listener {
 

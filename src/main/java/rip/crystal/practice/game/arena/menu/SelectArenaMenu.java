@@ -1,8 +1,8 @@
 package rip.crystal.practice.game.arena.menu;
 
+import org.bukkit.entity.Player;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
-import org.bukkit.entity.Player;
 
 import java.util.Map;
 

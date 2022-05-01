@@ -4,6 +4,9 @@ package rip.crystal.practice.player.queue.menus;
    Created on 30.11.2021
 */
 
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.queue.menus.buttons.FFAButton;
 import rip.crystal.practice.player.queue.menus.buttons.RankedButton;
@@ -12,9 +15,6 @@ import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;

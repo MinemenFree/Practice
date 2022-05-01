@@ -1,9 +1,9 @@
 package rip.crystal.practice.match.mongo;
 
-import rip.crystal.practice.game.kit.Kit;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import rip.crystal.practice.game.kit.Kit;
 
 @RequiredArgsConstructor
 @Setter @Getter

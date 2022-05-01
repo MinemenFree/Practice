@@ -1,15 +1,15 @@
 package rip.crystal.practice.player.profile.menu.match;
 
 import com.google.common.collect.Maps;
+import lombok.RequiredArgsConstructor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.match.mongo.MatchInfo;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.pagination.PaginatedMenu;
-import lombok.RequiredArgsConstructor;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
 

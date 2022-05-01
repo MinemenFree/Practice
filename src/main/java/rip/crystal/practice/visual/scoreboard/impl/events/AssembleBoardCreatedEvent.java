@@ -1,10 +1,10 @@
 package rip.crystal.practice.visual.scoreboard.impl.events;
 
-import rip.crystal.practice.visual.scoreboard.impl.AssembleBoard;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import rip.crystal.practice.visual.scoreboard.impl.AssembleBoard;
 
 @Getter @Setter
 public class AssembleBoardCreatedEvent extends Event {

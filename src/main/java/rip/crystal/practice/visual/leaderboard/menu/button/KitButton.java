@@ -1,18 +1,18 @@
 package rip.crystal.practice.visual.leaderboard.menu.button;
 
 import com.google.common.collect.Lists;
+import lombok.AllArgsConstructor;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.visual.leaderboard.Leaderboard;
-import rip.crystal.practice.visual.leaderboard.entry.LeaderboardKitsEntry;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.meta.ProfileKitData;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
-import lombok.AllArgsConstructor;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.visual.leaderboard.Leaderboard;
+import rip.crystal.practice.visual.leaderboard.entry.LeaderboardKitsEntry;
 
 import java.util.List;
 import java.util.stream.Collectors;

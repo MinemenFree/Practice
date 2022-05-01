@@ -1,16 +1,16 @@
 package rip.crystal.practice.visual.leaderboard.menu.button;
 
 import com.google.common.collect.Lists;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.cPractice;
-import rip.crystal.practice.visual.leaderboard.Leaderboard;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.elo.EloUtil;
 import rip.crystal.practice.utilities.menu.Button;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.visual.leaderboard.Leaderboard;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

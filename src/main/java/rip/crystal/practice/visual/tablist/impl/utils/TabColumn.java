@@ -1,10 +1,10 @@
 package rip.crystal.practice.visual.tablist.impl.utils;
 
+import lombok.Getter;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.utilities.MathsUtility;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.playerversion.PlayerVersion;
-import lombok.Getter;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;

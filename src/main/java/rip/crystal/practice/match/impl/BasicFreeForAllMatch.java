@@ -1,10 +1,14 @@
 package rip.crystal.practice.match.impl;
 
+import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.utilities.lag.LagRunnable;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.MatchSnapshot;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
@@ -17,11 +21,7 @@ import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
-import net.md_5.bungee.api.chat.BaseComponent;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.utilities.lag.LagRunnable;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,5 @@
 package rip.crystal.practice.essentials.abilities.impl;
 
-import rip.crystal.practice.essentials.abilities.Ability;
-import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.chat.CC;
 import org.bukkit.Location;
 import org.bukkit.entity.Egg;
 import org.bukkit.entity.Player;
@@ -16,6 +11,11 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.metadata.FixedMetadataValue;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.essentials.abilities.Ability;
+import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
+import rip.crystal.practice.player.profile.Profile;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class Switcher extends Ability {
 

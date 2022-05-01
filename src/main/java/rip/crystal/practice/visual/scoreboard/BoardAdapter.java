@@ -1,25 +1,25 @@
 package rip.crystal.practice.visual.scoreboard;
 
 import com.google.common.collect.Lists;
+import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.event.game.EventGame;
+import rip.crystal.practice.game.tournament.Tournament;
 import rip.crystal.practice.player.party.Party;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.visual.scoreboard.game.ScoreboardAdapter;
 import rip.crystal.practice.player.profile.modmode.Modmode;
 import rip.crystal.practice.player.queue.QueueProfile;
-import rip.crystal.practice.visual.scoreboard.impl.Assemble;
-import rip.crystal.practice.visual.scoreboard.impl.AssembleAdapter;
-import rip.crystal.practice.game.tournament.Tournament;
 import rip.crystal.practice.utilities.Animation;
 import rip.crystal.practice.utilities.TimeUtil;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.elo.EloUtil;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
-import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.visual.scoreboard.game.ScoreboardAdapter;
+import rip.crystal.practice.visual.scoreboard.impl.Assemble;
+import rip.crystal.practice.visual.scoreboard.impl.AssembleAdapter;
 
 import java.util.List;
 

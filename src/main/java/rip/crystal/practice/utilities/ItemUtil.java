@@ -1,15 +1,15 @@
 package rip.crystal.practice.utilities;
 
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.Inventory;
-import java.util.List;
-import java.util.Collection;
-import java.util.LinkedList;
 import org.bukkit.inventory.ItemFlag;
-import org.bukkit.inventory.meta.ItemMeta;
-import java.util.Arrays;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public final class ItemUtil
 {

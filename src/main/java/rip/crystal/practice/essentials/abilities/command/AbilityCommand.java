@@ -1,17 +1,17 @@
 package rip.crystal.practice.essentials.abilities.command;
 
-import rip.crystal.practice.essentials.abilities.Ability;
-import rip.crystal.practice.cPractice;
-import rip.crystal.practice.utilities.JavaUtils;
-import rip.crystal.practice.utilities.chat.CC;
-import rip.crystal.practice.api.command.BaseCommand;
-import rip.crystal.practice.api.command.Command;
-import rip.crystal.practice.api.command.CommandArgs;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.api.command.BaseCommand;
+import rip.crystal.practice.api.command.Command;
+import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.essentials.abilities.Ability;
+import rip.crystal.practice.utilities.JavaUtils;
+import rip.crystal.practice.utilities.chat.CC;
 
 @Getter
 @Setter

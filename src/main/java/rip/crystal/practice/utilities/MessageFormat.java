@@ -2,12 +2,12 @@ package rip.crystal.practice.utilities;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import rip.crystal.practice.utilities.chat.CC;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.HashMap;
 import java.util.List;

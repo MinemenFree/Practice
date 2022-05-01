@@ -1,6 +1,11 @@
 package rip.crystal.practice.game.kit;
 
-import org.bukkit.entity.Player;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.meta.KitEditRules;
 import rip.crystal.practice.game.kit.meta.KitGameRules;
@@ -9,12 +14,6 @@ import rip.crystal.practice.utilities.InventoryUtil;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.PotionUtil;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
-import lombok.Getter;
-import lombok.Setter;
-import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
 
 import java.io.IOException;
 import java.util.ArrayList;

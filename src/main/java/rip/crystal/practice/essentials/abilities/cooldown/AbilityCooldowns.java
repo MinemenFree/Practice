@@ -1,8 +1,9 @@
 package rip.crystal.practice.essentials.abilities.cooldown;
 
 import org.bukkit.entity.Player;
-import java.util.UUID;
+
 import java.util.HashMap;
+import java.util.UUID;
 
 public class AbilityCooldowns
 {

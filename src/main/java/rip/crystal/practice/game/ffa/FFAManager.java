@@ -6,21 +6,19 @@ package rip.crystal.practice.game.ffa;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.scalebound.pspigot.KnockbackProfile;
-import net.audidevelopment.cspigot.knockback.KnockbackModule;
 import org.bukkit.GameMode;
-import org.spigotmc.SpigotConfig;
-import rip.crystal.practice.game.arena.Arena;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.arena.cuboid.Cuboid;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.chat.CC;
-import org.bukkit.entity.Player;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FFAManager {
 

@@ -1,11 +1,11 @@
 package rip.crystal.practice.game.arena.command;
 
-import rip.crystal.practice.game.arena.Arena;
-import rip.crystal.practice.utilities.chat.CC;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import org.bukkit.entity.Player;
+import rip.crystal.practice.game.arena.Arena;
+import rip.crystal.practice.utilities.chat.CC;
 
 public class ArenaDeleteCommand extends BaseCommand {
 

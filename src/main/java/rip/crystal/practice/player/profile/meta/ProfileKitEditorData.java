@@ -1,9 +1,9 @@
 package rip.crystal.practice.player.profile.meta;
 
-import rip.crystal.practice.game.kit.Kit;
-import rip.crystal.practice.game.kit.KitLoadout;
 import lombok.Getter;
 import lombok.Setter;
+import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.game.kit.KitLoadout;
 
 public class ProfileKitEditorData {
 

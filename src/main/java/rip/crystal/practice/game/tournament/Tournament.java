@@ -1,15 +1,15 @@
 package rip.crystal.practice.game.tournament;
 
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.match.Match;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.utilities.chat.CC;
-import lombok.Getter;
-import lombok.Setter;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Objects;

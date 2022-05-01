@@ -1,10 +1,5 @@
 package rip.crystal.practice.game.arena.generator;
 
-import rip.crystal.practice.game.arena.Arena;
-import rip.crystal.practice.game.arena.ArenaType;
-import rip.crystal.practice.game.arena.impl.SharedArena;
-import rip.crystal.practice.game.arena.impl.StandaloneArena;
-import rip.crystal.practice.cPractice;
 import lombok.AllArgsConstructor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -13,6 +8,11 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
 import org.bukkit.scheduler.BukkitRunnable;
+import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
+import rip.crystal.practice.game.arena.ArenaType;
+import rip.crystal.practice.game.arena.impl.SharedArena;
+import rip.crystal.practice.game.arena.impl.StandaloneArena;
 
 import java.io.File;
 import java.util.concurrent.ThreadLocalRandom;

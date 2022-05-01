@@ -1,8 +1,8 @@
 package rip.crystal.practice.utilities.event;
 
-import rip.crystal.practice.cPractice;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import rip.crystal.practice.cPractice;
 
 public class BaseEvent extends Event {
 
