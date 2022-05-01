@@ -399,7 +399,6 @@ public class cPractice extends JavaPlugin {
         new CosmeticsCommand();
         new ShopCommand();
         new CoinsCommand();
-        new NiggerCommand();
         new CoinsStaffCommand();
         new KillEffectCommand();
         new TrailEffectCommand();
@@ -408,7 +407,6 @@ public class cPractice extends JavaPlugin {
         new ArenaCommand();
         new ArenasCommand();
         new DuelCommand();
-        new RetardCommand();
         new DuelRoundCommand();
         new DuelAcceptCommand();
         new EventCommand();
