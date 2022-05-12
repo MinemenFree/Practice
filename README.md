@@ -1,5 +1,8 @@
 # cPractice
 
+If you find any issues, you can DM Shifuu#6900 or make a pull request.
+I won't be able to update for some time as I don't have access to my pc. - Shifuu
+
 Highly configurable practice plugin. This project was originally closed source and is now open source.
 
 <h1 align="center">How to Use?</h1>
