@@ -8,7 +8,7 @@ import rip.crystal.practice.utilities.LocationUtil;
 
 public class LocationCommand extends BaseCommand {
 
-	@Command(name = "location", aliases = {"loc"}, permission = "cpractice.command.loc")
+	@Command(name = "location", aliases = {"loc"}, permission = "practice.command.loc")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
