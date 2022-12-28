@@ -13,7 +13,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class SudoCommand extends BaseCommand {
 
-	@Command(name = "sudo", permission = "cpractice.command.sudo")
+	@Command(name = "sudo", permission = "practice.command.sudo")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
