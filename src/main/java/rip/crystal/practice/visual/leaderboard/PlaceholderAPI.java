@@ -3,7 +3,7 @@ package rip.crystal.practice.visual.leaderboard;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.elo.EloUtil;
@@ -14,17 +14,17 @@ public class PlaceholderAPI extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getIdentifier() {
-        return "cPractice";
+        return "Practice";
     }
 
     @Override
     public @NotNull String getAuthor() {
-        return cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", "");
+        return Practice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", "");
     }
 
     @Override
     public @NotNull String getVersion() {
-        return cPractice.get().getDescription().getVersion();
+        return Practice.get().getDescription().getVersion();
     }
 
     @Override
