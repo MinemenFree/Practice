@@ -6,7 +6,7 @@ import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.player.queue.menus.QueueSelectKitMenu;
 
-public class UnRankedCommand extends BaseCommand {
+public class UnrankedCommand extends BaseCommand {
 
     @Command(name = "unranked")
     @Override
