@@ -10,7 +10,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class RenameCommand extends BaseCommand {
 
-	@Command(name = "rename", permission = "cpractice.command.rename")
+	@Command(name = "rename", permission = "practice.command.rename")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
