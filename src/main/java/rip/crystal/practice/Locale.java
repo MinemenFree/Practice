@@ -197,16 +197,16 @@ public enum Locale {
 	private final String path;
 
 	public Object format(Lang locale) {
-		if (cPractice.get().getLang().get(path, locale) instanceof List)
-			return cPractice.get().getLang().getStringList(path, locale);
-		return cPractice.get().getLang().getString(path, locale);
+		if (Practice.get().getLang().get(path, locale) instanceof List)
+			return Practice.get().getLang().getStringList(path, locale);
+		return Practice.get().getLang().getString(path, locale);
 	}
 
 	public String getString(Lang locale) {
-		return cPractice.get().getLang().getString(path, locale);
+		return Practice.get().getLang().getString(path, locale);
 	}
 
 	public List<String> getStringList(Lang locale) {
-		return cPractice.get().getLang().getStringList(path, locale);
+		return Practice.get().getLang().getStringList(path, locale);
 	}
 }
