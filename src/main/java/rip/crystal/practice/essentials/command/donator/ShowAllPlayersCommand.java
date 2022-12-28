@@ -8,7 +8,7 @@ import rip.crystal.practice.api.command.CommandArgs;
 
 public class ShowAllPlayersCommand extends BaseCommand {
 
-	@Command(name = "showallplayers", permission = "cpractice.command.showallplayers")
+	@Command(name = "showallplayers", permission = "practice.command.showallplayers")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
