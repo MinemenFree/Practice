@@ -93,7 +93,7 @@ public class QueueSelectKitMenu extends Menu {
 		}
 
 		@Override
-		public void clicked(Player player, ClickType clickTyp) {
+		public void clicked(Player player, ClickType clickType) {
 			Profile profile = Profile.get(player.getUniqueId());
 
 			if (profile.isBusy()) {
