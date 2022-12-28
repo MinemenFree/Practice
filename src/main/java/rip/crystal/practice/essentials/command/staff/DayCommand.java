@@ -8,7 +8,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class DayCommand extends BaseCommand {
 
-	@Command(name = "day", permission = "cpractice.command.day")
+	@Command(name = "day", permission = "practice.command.day")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
