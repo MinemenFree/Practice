@@ -25,7 +25,7 @@ public class GameModeCommand extends BaseCommand {
 			.put("creative", GameMode.CREATIVE)
 			.build();
 
-	@Command(name = "gamemode", aliases = {"gm"}, permission = "cpractice.command.gamemode")
+	@Command(name = "gamemode", aliases = {"gm"}, permission = "practice.command.gamemode")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
