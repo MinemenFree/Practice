@@ -6,7 +6,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
 import rip.crystal.practice.player.profile.Profile;
@@ -15,7 +15,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class TankIngot extends Ability {
 
-    private final cPractice plugin = cPractice.get();
+    private final Practice plugin = Practice.get();
 
     public TankIngot() {
         super("TANK_INGOT");
