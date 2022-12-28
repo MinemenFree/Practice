@@ -13,7 +13,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class ClearCommand extends BaseCommand {
 
-	@Command(name = "clearinv", aliases = {"clear", "ci"}, permission = "cpractice.command.clearinv")
+	@Command(name = "clearinv", aliases = {"clear", "ci"}, permission = "practice.command.clearinv")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
