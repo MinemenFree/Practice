@@ -16,7 +16,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class SlowChatCommand extends BaseCommand {
 
-	@Command(name = "slowchat", permission = "cpractice.staff.slowchat", inGameOnly = false)
+	@Command(name = "slowchat", permission = "practice.staff.slowchat", inGameOnly = false)
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		CommandSender sender = commandArgs.getSender();
