@@ -7,14 +7,14 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerListPingEvent;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.utilities.chat.CC;
 
 import java.util.List;
 
 public class EssentialsListener implements Listener {
 
-	private final cPractice plugin = cPractice.get();
+	private final Practice plugin = Practice.get();
 
 	private final ImmutableList<String> BLOCKED_COMMANDS = ImmutableList.of(
 			"//calc",
@@ -25,9 +25,7 @@ public class EssentialsListener implements Listener {
 			"/bukkit:me",
 			"/minecraft:",
 			"/minecraft:me",
-			"/about",
-			"/plugins",
-			"/pl"
+			"/about"
 	);
 
 	@EventHandler(priority = EventPriority.LOWEST)
@@ -37,7 +35,7 @@ public class EssentialsListener implements Listener {
 
 		for (String blockedCommand : BLOCKED_COMMANDS) {
 			if (message.startsWith(blockedCommand)) {
-				if (message.equalsIgnoreCase("/version") || message.equalsIgnoreCase("/ver")) {
+				if (message.equalsIgnoreCase("/version") || message.equalsIgnoreCase("/ver") || message.equalsIgnoreCase("/plugins") || message.equalsIgnoreCase("/pl")) {
 					if (event.getPlayer().isOp()) {
 						return;
 					}
