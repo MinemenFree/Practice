@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 
 import java.util.Collections;
 import java.util.List;
