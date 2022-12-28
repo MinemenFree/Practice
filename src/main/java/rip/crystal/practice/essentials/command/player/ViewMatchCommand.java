@@ -13,7 +13,7 @@ import rip.crystal.practice.utilities.MessageFormat;
 
 public class ViewMatchCommand extends BaseCommand {
 
-    @Command(name = "viewmatch", aliases = {"matches"}, permission = "cpractice.viewmatch")
+    @Command(name = "viewmatch", aliases = {"matches"}, permission = "practice.viewmatch")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
