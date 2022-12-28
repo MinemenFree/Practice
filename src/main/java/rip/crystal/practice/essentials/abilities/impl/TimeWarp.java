@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
 import rip.crystal.practice.player.profile.Profile;
@@ -118,7 +118,7 @@ public class TimeWarp extends Ability {
             this.lastPearl.remove(player.getUniqueId());
         }, 60L);
 
-        cPractice.get().getAbilityManager().cooldownExpired(player, this.getName(), this.getAbility());
-        cPractice.get().getAbilityManager().playerMessage(player, this.getAbility());
+        Practice.get().getAbilityManager().cooldownExpired(player, this.getName(), this.getAbility());
+        Practice.get().getAbilityManager().playerMessage(player, this.getAbility());
     }
 }
