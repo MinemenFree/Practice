@@ -3,7 +3,7 @@ package rip.crystal.practice.essentials.chat.impl;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.chat.impl.filter.ChatFilter;
 import rip.crystal.practice.essentials.chat.impl.format.DefaultChatFormat;
 import rip.crystal.practice.player.profile.Profile;
@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 public class Chat {
 
-	private final cPractice plugin = cPractice.get();
+	private final Practice plugin = Practice.get();
 
 	@Getter @Setter private static int delayTime = 3;
 	@Getter private static boolean publicChatMuted = false;
@@ -36,11 +36,11 @@ public class Chat {
 	public static ChatAttempt attemptChatMessage(Player player, String message) {
 		Profile profile = Profile.get(player.getUniqueId());
 
-		if (publicChatMuted && !player.hasPermission("cpractice.staff")) {
+		if (publicChatMuted && !player.hasPermission("practice.staff")) {
 			return new ChatAttempt(ChatAttempt.Response.CHAT_MUTED);
 		}
 
-		if (publicChatDelayed && !profile.getChatCooldown().hasExpired() && !player.hasPermission("cpractice.staff")) {
+		if (publicChatDelayed && !profile.getChatCooldown().hasExpired() && !player.hasPermission("practice.staff")) {
 			ChatAttempt attempt = new ChatAttempt(ChatAttempt.Response.CHAT_DELAYED);
 			attempt.setValue(profile.getChatCooldown().getRemaining());
 			return attempt;
