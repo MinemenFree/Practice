@@ -4,7 +4,7 @@
     <remote-repository>
       <option name="id" value="sk89q-repo" />
       <option name="name" value="sk89q-repo" />
-      <option name="url" value="https://maven.sk89q.com/repo/" />
+      <option name="url" value="https://maven.enginehub.com/repo/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="vault-repo" />
