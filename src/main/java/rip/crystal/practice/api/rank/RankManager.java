@@ -33,18 +33,6 @@ public class RankManager {
             this.setRank(new cCore());
             this.setRankSystem("cCore");
         }
-        else if (Bukkit.getPluginManager().getPlugin("HestiaCore") != null) {
-            this.setRank(new HestiaCore());
-            this.setRankSystem("HestiaCore");
-        }
-        else if (Bukkit.getPluginManager().getPlugin("mCore") != null) {
-            this.setRank(new mCore());
-            this.setRankSystem("mCore");
-        }
-        else if (Bukkit.getPluginManager().getPlugin("Synth") != null) {
-            this.setRank(new Synth());
-            this.setRankSystem("Synth");
-        }
         else if (Bukkit.getPluginManager().getPlugin("LuckPerms") != null) {
             this.setRank(new LuckPerms());
             this.setRankSystem("LuckPerms");
