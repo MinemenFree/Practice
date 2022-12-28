@@ -9,7 +9,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
 import rip.crystal.practice.player.profile.Profile;
@@ -81,9 +81,9 @@ public class AntiTrapper extends Ability {
                     profile.getBeacom().applyCooldown(damager, 60 * 1000);
                     profile.getPartneritem().applyCooldown(damager,  10 * 1000);
                     AntiTrapper.cooldownvic.put(victim.getName(), System.currentTimeMillis() + (15 * 1000));
-                    damager.sendMessage(CC.translate(cPractice.get().getAbilityConfig().getString("ANTI_TRAPPER.MESSAGE.PLAYER"))
+                    damager.sendMessage(CC.translate(Practice.get().getAbilityConfig().getString("ANTI_TRAPPER.MESSAGE.PLAYER"))
                             .replace("%target%", victim.getName()));
-                    victim.sendMessage(CC.translate(cPractice.get().getAbilityConfig().getString("ANTI_TRAPPER.MESSAGE.PLAYER"))
+                    victim.sendMessage(CC.translate(Practice.get().getAbilityConfig().getString("ANTI_TRAPPER.MESSAGE.PLAYER"))
                             .replace("%player%", damager.getName()));
                     PlayerUtil.decrement(damager);
                     return;
