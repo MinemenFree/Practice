@@ -5,13 +5,13 @@ import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.utilities.BukkitReflection;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class SetSlotsCommand extends BaseCommand {
 
-	@Command(name = "setslots", permission = "cpractice.command.setslots")
+	@Command(name = "setslots", permission = "practice.command.setslots")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
@@ -29,7 +29,7 @@ public class SetSlotsCommand extends BaseCommand {
 		}
 		slots = Integer.getInteger(args[0]);
 
-		BukkitReflection.setMaxPlayers(cPractice.get().getServer(), slots);
+		BukkitReflection.setMaxPlayers(Practice.get().getServer(), slots);
 		player.sendMessage(CC.GOLD + "You set the max slots to " + slots + ".");
 	}
 }
