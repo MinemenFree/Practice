@@ -11,7 +11,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class HealCommand extends BaseCommand {
 
-	@Command(name = "heal", permission = "cpractice.command.heal")
+	@Command(name = "heal", permission = "practice.command.heal")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
