@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 
 public class TrollCommand extends BaseCommand {
 
-    @Command(name="troll", permission = "cpractice.troll")
+    @Command(name="troll", permission = "practice.troll")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
