@@ -10,7 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.utilities.Utils;
 import rip.crystal.practice.utilities.chat.CC;
 
@@ -33,7 +33,7 @@ public abstract class Ability implements Listener {
     }
 
     public void register() {
-        Bukkit.getPluginManager().registerEvents(this, cPractice.get());
+        Bukkit.getPluginManager().registerEvents(this, Practice.get());
     }
 
     public boolean isAbility(ItemStack itemStack) {
@@ -43,30 +43,30 @@ public abstract class Ability implements Listener {
                 && (itemStack.getItemMeta().getDisplayName() != null)
                 && (itemStack.getItemMeta().getLore() != null)
                 && itemStack.getItemMeta().getDisplayName().equals(CC.translate(
-                cPractice.get().getAbilityManager().getDisplayName(ability)))
+                Practice.get().getAbilityManager().getDisplayName(ability)))
                 && itemStack.getItemMeta().getLore().equals(CC.translate(
-                cPractice.get().getAbilityManager().getDescription(ability)));
+                Practice.get().getAbilityManager().getDescription(ability)));
     }
 
     public String getName() {
-        return cPractice.get().getAbilityManager().getDisplayName(this.getAbility());
+        return Practice.get().getAbilityManager().getDisplayName(this.getAbility());
     }
 
     public boolean hasCooldown(Player player) {
-        return this.cooldown.contains(cPractice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId())
-                && this.cooldown.get(cPractice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId()) > System.currentTimeMillis();
+        return this.cooldown.contains(Practice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId())
+                && this.cooldown.get(Practice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId()) > System.currentTimeMillis();
     }
 
     public void setCooldown(Player player, long time) {
         if (time < 1L) {
-            this.cooldown.remove(cPractice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId());
+            this.cooldown.remove(Practice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId());
         }
         else {
-            this.cooldown.put(cPractice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId(), System.currentTimeMillis() + time);
+            this.cooldown.put(Practice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId(), System.currentTimeMillis() + time);
         }
     }
     public String getCooldown(Player player) {
-        long cooldownLeft = this.cooldown.get(cPractice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId()) - System.currentTimeMillis();
+        long cooldownLeft = this.cooldown.get(Practice.get().getAbilityManager().getDisplayName(this.getAbility()), player.getUniqueId()) - System.currentTimeMillis();
         return Utils.formatLongMin(cooldownLeft);
     }
 }
