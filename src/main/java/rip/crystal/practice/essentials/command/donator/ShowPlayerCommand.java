@@ -13,7 +13,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class ShowPlayerCommand extends BaseCommand {
 
-	@Command(name = "showplayer", permission = "cpractice.command.showplayer")
+	@Command(name = "showplayer", permission = "practice.command.showplayer")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
