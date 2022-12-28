@@ -91,13 +91,6 @@
             <systemPath>${project.basedir}/libs/cSpigot.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>me.scalebound</groupId>
-            <artifactId>spigot-server</artifactId>
-            <version>1.8.9-R0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/pSpigot BETA 0.1.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>paperspigot</groupId>
             <artifactId>paper</artifactId>
             <version>asd-SNAPSHOT</version>
@@ -105,32 +98,11 @@
             <systemPath>${project.basedir}/libs/paper-1.8.8-443.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>club.gexin.gxspigot</groupId>
-            <artifactId>gxspigot-parent</artifactId>
-            <version>1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/gxspigot-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>pt.foxspigot.jar</groupId>
             <artifactId>foxspigot-parent</artifactId>
             <version>2-SNAPSHOT</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/FoxSpigot.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>club.insaneprojects.insanepaper</groupId>
-            <artifactId>insanepaper-parent</artifactId>
-            <version>3-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/InsanePaper.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>net.ghoulpvp</groupId>
-            <artifactId>gspigot-parent</artifactId>
-            <version>6-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/gspigot-server-1.8.8-R0.2-SNAPSHOT (1).jar</systemPath>
         </dependency>
 
         <!--1.7 spigot-->
@@ -174,41 +146,6 @@
             <systemPath>${project.basedir}/libs/protocolsupport-SNAPSHOT.jar</systemPath>
         </dependency>
 
-        <!-- Hestia API -->
-        <dependency>
-            <groupId>me.quartz.hestia</groupId>
-            <artifactId>HestiaAPI</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/HestiaAPI.jar</systemPath>
-        </dependency>
-
-        <!-- mCore API -->
-        <dependency>
-            <groupId>mCore</groupId>
-            <artifactId>mCore</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/mCoreAPI.jar</systemPath>
-        </dependency>
-
-        <!-- Synth API -->
-        <dependency>
-            <groupId>Synth</groupId>
-            <artifactId>Synth-API</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/Synth.jar</systemPath>
-        </dependency>
-
-        <!-- Zoom API -->
-        <dependency>
-            <groupId>Zoom</groupId>
-            <artifactId>Zoom-API</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/Zoom-API-1.4.jar</systemPath>
-        </dependency>
 
         <dependency>
             <groupId>com.sk89q.worldedit</groupId>
