@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.utilities.JavaUtils;
 import rip.crystal.practice.utilities.chat.CC;
@@ -17,9 +17,9 @@ import rip.crystal.practice.utilities.chat.CC;
 @Setter
 public class AbilityCommand extends BaseCommand {
 
-    private cPractice plugin = cPractice.get();
+    private Practice plugin = Practice.get();
 
-    @Command(name = "ability", permission = "cpractice.command.ability")
+    @Command(name = "ability", permission = "practice.command.ability")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
@@ -55,7 +55,7 @@ public class AbilityCommand extends BaseCommand {
                 }
 
                 plugin.getAbilityManager().getAbilities().forEach(ability -> {
-                    String displayName = cPractice.get().getAbilityConfig().getString(ability + ".ICON.DISPLAYNAME");
+                    String displayName = Practice.get().getAbilityConfig().getString(ability + ".ICON.DISPLAYNAME");
                     if (args[2].equalsIgnoreCase(ability)) {
                         plugin.getAbilityManager().giveAbility(player, target, ability, displayName, amount);
                         return;
