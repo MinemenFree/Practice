@@ -12,7 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
 import rip.crystal.practice.player.profile.Profile;
@@ -28,7 +28,7 @@ import java.util.UUID;
 @Setter
 public class Combo extends Ability {
 
-    private final cPractice plugin = cPractice.get();
+    private final Practice plugin = aPractice.get();
     private final Set<UUID> COMBO = Sets.newHashSet();
     private final Map<UUID, Integer> HITS = Maps.newHashMap();
 
