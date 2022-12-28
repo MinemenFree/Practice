@@ -8,7 +8,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
 import rip.crystal.practice.player.profile.Profile;
@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class NinjaStar extends Ability {
 
-    private final cPractice plugin = cPractice.get();
+    private final Practice plugin = Practice.get();
     private final Map<UUID, UUID> TAGGED = Maps.newHashMap();
 
     public NinjaStar() {
