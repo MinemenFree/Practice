@@ -164,26 +164,7 @@ public class cPractice extends JavaPlugin {
 
         CC.loadPlugin();
         
-/*        if(!cPractice.get().getDescription().getAuthors().contains("ziue")) {
-            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&cYou edited the plugin.yml, please don't do that"));
-            Bukkit.getConsoleSender().sendMessage( CC.translate("&cPlease check your plugin.yml and try again."));
-            Bukkit.getConsoleSender().sendMessage(CC.translate("            &cDisabling cPractice"));
-            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
-            Bukkit.getPluginManager().disablePlugin(this);
-            return;
-        }
-
-        if (!cPractice.get().getDescription().getName().contains("cPractice")) {
-            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&cYou edited the plugin.yml, please don't do that"));
-            Bukkit.getConsoleSender().sendMessage(CC.translate(" &cPlease check your plugin.yml and try again."));
-            Bukkit.getConsoleSender().sendMessage(CC.translate("            &cDisabling cPractice"));
-            Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
-            Bukkit.getPluginManager().disablePlugin(this);
-            return;
-        }
-    } */
+    }
 
     @Override
     public void onDisable() {
