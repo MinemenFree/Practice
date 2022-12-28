@@ -212,7 +212,7 @@ public class cPractice extends JavaPlugin {
         BoardAdapter.hook();
         Leaderboard.init();
         PlayerVersionHandler.init();
-        Chat.setChatFormat(new cPracticeChatFormat());
+        Chat.setChatFormat(new PracticeChatFormat());
         if (mainConfig.getBoolean("TABLIST_ENABLE")) new TabList(this, new TabAdapter());
         placeholderAPI = getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
         if (placeholderAPI) new PlaceholderAPI().register();
@@ -287,9 +287,9 @@ public class cPractice extends JavaPlugin {
                 //System.out.println("The cPractice plugin was disabled as it failed to connect to the MongoDB");
                 Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
                 Bukkit.getConsoleSender().sendMessage(CC.translate("            &4&lMongo Internal Error"));
-                Bukkit.getConsoleSender().sendMessage(CC.translate("        &cMongo is not setup correctly!"));
+                Bukkit.getConsoleSender().sendMessage(CC.translate("        &cMongoDB is not set up correctly!"));
                 Bukkit.getConsoleSender().sendMessage(CC.translate(     "&cPlease check your mongo and try again."));
-                Bukkit.getConsoleSender().sendMessage(CC.translate("              &4&lDisabling cPractice"));
+                Bukkit.getConsoleSender().sendMessage(CC.translate("              &4&lDisabling Practice"));
                 Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
                 Bukkit.getServer().getPluginManager().disablePlugin(this);
                 return;
@@ -392,7 +392,7 @@ public class cPractice extends JavaPlugin {
         new SpectateCommand();
         new CancelMatchCommand();
         new StopSpectatingCommand();
-        new FlyCommand();
+/*      new FlyCommand(); */
         new ViewMatchCommand();
         new PartyCommand();
         new KitCommand();
@@ -407,7 +407,7 @@ public class cPractice extends JavaPlugin {
         new DayCommand();
         new GameModeCommand();
         new AbilityCommand();
-        new cPracticeCommand();
+        new PracticeCommand();
         new HealCommand();
         new LangCommand();
         new LocationCommand();
@@ -436,7 +436,7 @@ public class cPractice extends JavaPlugin {
         new StatsCommand();
         new LeaderboardCommand();
         new RankedCommand();
-        new UnRankedCommand();
+        new UnrankedCommand();
         new HCFClassCommand();
         new ResetCommand();
         new ToggleGlobalChatCommand();
@@ -454,7 +454,7 @@ public class cPractice extends JavaPlugin {
         this.rankedSumoRounds = getMainConfig().getInteger("MATCH.ROUNDS_RANKED_SUMO");
     }
 
-    public static cPractice get(){
-        return getPlugin(cPractice.class);
+    public static Practice get(){
+        return getPlugin(Practice.class);
     }
 }
