@@ -13,7 +13,7 @@ import rip.crystal.practice.utilities.MessageFormat;
 
 public class ClearChatCommand extends BaseCommand {
 
-	@Command(name = "clearchat", aliases = {"cc"}, permission = "cpractice.staff.clearchat", inGameOnly = false)
+	@Command(name = "clearchat", aliases = {"cc"}, permission = "practice.staff.clearchat", inGameOnly = false)
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		CommandSender sender = commandArgs.getSender();
@@ -21,7 +21,7 @@ public class ClearChatCommand extends BaseCommand {
 		String[] strings = new String[101];
 
 		for (Player player : Bukkit.getOnlinePlayers()) {
-			if (!player.hasPermission("cpractice.staff")) {
+			if (!player.hasPermission("practice.staff")) {
 				player.sendMessage(strings);
 			}
 		}
