@@ -9,7 +9,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.event.SpawnTeleportEvent;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.utilities.LocationUtil;
@@ -21,11 +21,11 @@ import java.util.logging.Level;
 
 public class Essentials {
 
-	private final cPractice plugin;
+	private final Practice plugin;
 	@Setter @Getter private Location spawn;
 	@Setter @Getter private List<String> motd;
 
-	public Essentials(cPractice plugin) {
+	public Essentials(Practice plugin) {
 		this.plugin = plugin;
 		this.spawn = LocationUtil.deserialize(plugin.getMainConfig().getString("ESSENTIAL_SPAWN_LOCATION"));
 		if(spawn != null){
