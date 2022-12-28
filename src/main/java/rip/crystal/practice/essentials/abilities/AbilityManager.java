@@ -5,7 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.impl.*;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.TaskUtils;
@@ -91,15 +91,15 @@ public class AbilityManager {
     public void giveAbility(CommandSender sender, Player player, String key, String abilityName, int amount) {
         player.getInventory().addItem(this.getAbility(key, amount));
         if (player == sender) {
-            CC.message(player, cPractice.get().getAbilityConfig().getString("RECEIVED_ABILITY")
+            CC.message(player, Practice.get().getAbilityConfig().getString("RECEIVED_ABILITY")
                     .replace("%ABILITY%", abilityName)
                     .replace("%AMOUNT%", String.valueOf(amount)));
         }
         else {
-            CC.message(player, cPractice.get().getAbilityConfig().getString("RECEIVED_ABILITY")
+            CC.message(player, Practice.get().getAbilityConfig().getString("RECEIVED_ABILITY")
                     .replace("%ABILITY%", abilityName)
                     .replace("%AMOUNT%", String.valueOf(amount)));
-            CC.sender(sender, cPractice.get().getAbilityConfig().getString("GIVE_ABILITY")
+            CC.sender(sender, Practice.get().getAbilityConfig().getString("GIVE_ABILITY")
                     .replace("%ABILITY%", abilityName)
                     .replace("%AMOUNT%", String.valueOf(amount))
                     .replace("%PLAYER%", player.getName()));
@@ -110,7 +110,7 @@ public class AbilityManager {
         String displayName = getDisplayName(ability);
         String cooldown = String.valueOf(getCooldown(ability));
 
-        cPractice.get().getAbilityConfig().getStringList(ability + ".MESSAGE.PLAYER").forEach(
+        Practice.get().getAbilityConfig().getStringList(ability + ".MESSAGE.PLAYER").forEach(
                 message -> CC.message(player, message
                         .replace("%ABILITY%", displayName)
                         .replace("%COOLDOWN%", cooldown)));
@@ -119,21 +119,21 @@ public class AbilityManager {
     public void targetMessage(Player target, Player player, String ability) {
         String displayName = getDisplayName(ability);
 
-        cPractice.get().getAbilityConfig().getStringList(ability + ".MESSAGE.TARGET").forEach(
+        Practice.get().getAbilityConfig().getStringList(ability + ".MESSAGE.TARGET").forEach(
                 message -> CC.message(target, message
                         .replace("%ABILITY%", displayName)
                         .replace("%PLAYER%", player.getName())));
     }
 
     public void cooldown(Player player, String abilityName, String cooldown) {
-        CC.message(player, cPractice.get().getAbilityConfig().getString("STILL_ON_COOLDOWN")
+        CC.message(player, Practice.get().getAbilityConfig().getString("STILL_ON_COOLDOWN")
                 .replace("%ABILITY%", abilityName)
                 .replace("%COOLDOWN%", cooldown));
     }
 
     public void cooldownExpired(Player player, String abilityName, String ability) {
         TaskUtils.runLaterAsync(() ->
-                CC.message(player, cPractice.get().getAbilityConfig().getString("COOLDOWN_EXPIRED")
+                CC.message(player, Practice.get().getAbilityConfig().getString("COOLDOWN_EXPIRED")
                         .replace("%ABILITY%", abilityName)), getCooldown(ability) * 20L);
     }
 }
