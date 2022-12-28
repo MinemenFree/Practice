@@ -10,7 +10,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class TeleportWorldCommand extends BaseCommand {
 
-	@Command(name = "tpworld", aliases = {"world", "changeworld"}, permission = "cpractice.command.tpworld")
+	@Command(name = "tpworld", aliases = {"world", "changeworld"}, permission = "practice.command.tpworld")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
