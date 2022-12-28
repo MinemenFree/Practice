@@ -5,9 +5,9 @@ import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.game.knockback.Knockback;
 import rip.crystal.practice.game.knockback.KnockbackProfiler;
 
-public class cPracticeAPI {
+public class PracticeAPI {
 
-    public static cPracticeAPI INSTANCE;
+    public static PracticeAPI INSTANCE;
 
     public static void setKnockbackProfile(KnockbackProfiler profile) {
         Knockback.setKnockbackProfiler(profile);
