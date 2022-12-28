@@ -10,7 +10,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class FlyCommand extends BaseCommand {
 
-	@Command(name = "fly", permission = "cpractice.fly")
+	@Command(name = "fly", permission = "practice.fly")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
