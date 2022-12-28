@@ -15,7 +15,6 @@ public class RankManager {
     private Plugin plugin;
     private String rankSystem;
     private Rank rank;
-    private Chat chat;
 
     public RankManager(Plugin plugin) {
         instance = this;
