@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class CreateWorldCommand extends BaseCommand {
 
-	@Command(name = "createvoidworld", permission = "cpractice.command.createworld")
+	@Command(name = "createvoidworld", permission = "practice.command.createworld")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
@@ -54,6 +54,6 @@ public class CreateWorldCommand extends BaseCommand {
 			player.sendMessage(CC.RED + "Please insert a valid type (normal | nether | the_end)");
 			return;
 		}
-		player.sendMessage(CC.GREEN + "Creating World!!!");
+		player.sendMessage(CC.GREEN + "Creating World");
 	}
 }
