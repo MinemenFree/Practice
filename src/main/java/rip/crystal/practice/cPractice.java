@@ -392,7 +392,7 @@ public class cPractice extends JavaPlugin {
         new SpectateCommand();
         new CancelMatchCommand();
         new StopSpectatingCommand();
-        new FlyCommand();
+/*      new FlyCommand(); */
         new ViewMatchCommand();
         new PartyCommand();
         new KitCommand();
@@ -405,23 +405,23 @@ public class cPractice extends JavaPlugin {
         new TournamentCommand();
         new ClearCommand();
         new DayCommand();
-        new GameModeCommand();
+/*      new GameModeCommand(); */
         new AbilityCommand();
         new cPracticeCommand();
-        new HealCommand();
+/*      new HealCommand(); */
         new LangCommand();
         new LocationCommand();
         new MoreCommand();
         new NightCommand();
-        new PingCommand();
+/*      new PingCommand(); */
         new RenameCommand();
         new SetSlotsCommand();
         new SetSpawnCommand();
         new ShowAllPlayersCommand();
         new ShowPlayerCommand();
         new SpawnCommand();
-        new SudoAllCommand();
-        new SudoCommand();
+/*        new SudoAllCommand();
+        new SudoCommand(); */
         new SunsetCommand();
         new TeleportWorldCommand();
         new OptionsCommand();
@@ -436,7 +436,7 @@ public class cPractice extends JavaPlugin {
         new StatsCommand();
         new LeaderboardCommand();
         new RankedCommand();
-        new UnRankedCommand();
+        new UnrankedCommand();
         new HCFClassCommand();
         new ResetCommand();
         new ToggleGlobalChatCommand();
