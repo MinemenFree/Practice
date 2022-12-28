@@ -86,7 +86,7 @@ public class QueueSelectKitMenu extends Menu {
 					.addItemFlag(ItemFlag.HIDE_ATTRIBUTES)
 					.addItemFlag(ItemFlag.HIDE_ENCHANTS)
 					.addItemFlag(ItemFlag.HIDE_POTION_EFFECTS)
-					.name(CC.translate(color + "&l" queue.getKit().getName()))
+					.name(CC.translate(color + "§l queue.getKit().getName()"))
 					.amount(amount ? Match.getInFightsCount(queue) + 1 : 1)
 					.lore(lore)
 					.build();
