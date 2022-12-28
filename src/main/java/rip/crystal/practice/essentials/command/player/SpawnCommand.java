@@ -4,14 +4,14 @@ import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class SpawnCommand extends BaseCommand {
 
-	@Command(name = "spawn", permission = "cpractice.command.spawn")
+	@Command(name = "spawn", permission = "practice.command.spawn")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
@@ -22,7 +22,7 @@ public class SpawnCommand extends BaseCommand {
 			return;
 		}
 
-		cPractice.get().getEssentials().teleportToSpawn(player);
+		Practice.get().getEssentials().teleportToSpawn(player);
 		player.sendMessage(CC.GREEN + "You teleported to this world's spawn.");
 	}
 }
