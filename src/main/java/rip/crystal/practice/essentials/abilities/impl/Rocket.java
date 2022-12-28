@@ -8,7 +8,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
-import rip.crystal.practice.cPractice;
+import rip.crystal.practice.Practice;
 import rip.crystal.practice.essentials.abilities.Ability;
 import rip.crystal.practice.essentials.abilities.utils.DurationFormatter;
 import rip.crystal.practice.player.profile.Profile;
