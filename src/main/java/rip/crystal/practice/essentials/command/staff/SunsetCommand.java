@@ -8,7 +8,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class SunsetCommand extends BaseCommand {
 
-	@Command(name = "sunset", permission = "cpractice.command.sunset")
+	@Command(name = "sunset", permission = "practice.command.sunset")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
