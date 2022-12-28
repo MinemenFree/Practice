@@ -56,7 +56,6 @@ import rip.crystal.practice.game.kit.command.HCFClassCommand;
 import rip.crystal.practice.game.kit.command.KitCommand;
 import rip.crystal.practice.game.kit.command.KitsCommand;
 import rip.crystal.practice.game.knockback.Knockback;
-import rip.crystal.practice.game.knockback.impl.dSpigot;
 import rip.crystal.practice.game.tournament.TournamentListener;
 import rip.crystal.practice.game.tournament.commands.TournamentCommand;
 import rip.crystal.practice.match.Match;
@@ -138,7 +137,6 @@ public class cPractice extends JavaPlugin {
     private RankManager rankManager;
     private AbilityManager abilityManager;
     private FFAManager ffaManager;
-    private dSpigot dSpigot;
     private ShopSystem shopSystem;
 
     public boolean placeholderAPI = false;
