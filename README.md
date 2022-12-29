@@ -8,7 +8,7 @@ Highly configurable practice plugin. This project was originally closed source a
 
 1) Install like any other plugin by dragging it into your server's plugin folder\
 2) Start the server & let the plugin load config files\
-3) stop the server & Configure the plugin to your liking\
+3) Stop the server & Configure the plugin to your liking\
 4) Done!\
 ![alt text](https://i.imgur.com/uzRYQI7.png)
 
@@ -55,15 +55,15 @@ Staff Commands:\
     /sudoall - sudo every player | permission : cpractice.command.sudoall\
 \
 Admin Commands:\
-    /admin - show plugin info | permission: cpractice.owner\
+    /cpracticeinfo - show plugin info | permission: cpractice.info\
     ![alt text](https://i.imgur.com/rfaxQe8.png)
 \
-    /cpractice - helpful subcommands | permission: cpractice.owner\
+    /cpractice - Helpful subcommands | permission: cpractice.admin\
     ![alt text](https://i.imgur.com/3qmYYI9.png)
 \
-    /setslots - set max server slots | permission: cpractice.command.setslots\
-    /world - tp to another world, useful for arena setup | permission: cpractice.command.tpworld\
-    /troll - opens Demo menu to player xD | permission: cpractice.troll\
+    /setslots - Sets max server slots | permission: cpractice.command.setslots\
+    /world - TP to another world, useful for arena setup | permission: cpractice.command.tpworld\
+    /troll - Opens Demo menu to a player | permission: cpractice.troll\
     ![alt text](https://i.imgur.com/EiNqxzW.png)
 
 
