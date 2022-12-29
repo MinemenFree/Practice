@@ -23,7 +23,6 @@ import rip.crystal.practice.essentials.chat.impl.ChatListener;
 import rip.crystal.practice.essentials.chat.impl.command.ClearChatCommand;
 import rip.crystal.practice.essentials.chat.impl.command.MuteChatCommand;
 import rip.crystal.practice.essentials.chat.impl.command.SlowChatCommand;
-/* import rip.crystal.practice.essentials.command.donator.FlyCommand; */
 import rip.crystal.practice.essentials.command.donator.RenameCommand;
 import rip.crystal.practice.essentials.command.donator.ShowAllPlayersCommand;
 import rip.crystal.practice.essentials.command.donator.ShowPlayerCommand;
@@ -390,7 +389,6 @@ public class cPractice extends JavaPlugin {
         new SpectateCommand();
         new CancelMatchCommand();
         new StopSpectatingCommand();
-/*      new FlyCommand(); */
         new ViewMatchCommand();
         new PartyCommand();
         new KitCommand();
@@ -403,23 +401,18 @@ public class cPractice extends JavaPlugin {
         new TournamentCommand();
         new ClearCommand();
         new DayCommand();
-/*      new GameModeCommand(); */
         new AbilityCommand();
         new cPracticeCommand();
-/*      new HealCommand(); */
         new LangCommand();
         new LocationCommand();
         new MoreCommand();
         new NightCommand();
-/*      new PingCommand(); */
         new RenameCommand();
         new SetSlotsCommand();
         new SetSpawnCommand();
         new ShowAllPlayersCommand();
         new ShowPlayerCommand();
         new SpawnCommand();
-/*      new SudoAllCommand();
-        new SudoCommand(); */
         new SunsetCommand();
         new TeleportWorldCommand();
         new OptionsCommand();
