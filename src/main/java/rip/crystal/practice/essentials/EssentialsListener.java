@@ -26,8 +26,6 @@ public class EssentialsListener implements Listener {
 			"/minecraft:",
 			"/minecraft:me",
 			"/about",
-			"/plugins",
-			"/pl"
 	);
 
 	@EventHandler(priority = EventPriority.LOWEST)
@@ -37,7 +35,7 @@ public class EssentialsListener implements Listener {
 
 		for (String blockedCommand : BLOCKED_COMMANDS) {
 			if (message.startsWith(blockedCommand)) {
-				if (message.equalsIgnoreCase("/version") || message.equalsIgnoreCase("/ver")) {
+				if (message.equalsIgnoreCase("/version") || message.equalsIgnoreCase("/ver") || message.equalsIgnoreCase("/plugins") || message.equalsIgnoreCase("/pl")) {
 					if (event.getPlayer().isOp()) {
 						return;
 					}
