@@ -7,9 +7,9 @@ import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.utilities.chat.CC;
 
-public class AdminInformationCommand extends BaseCommand {
+public class PracticeInfoCommand extends BaseCommand {
 
-    @Command(name = "admin", aliases = {"admininformation"}, permission = "cpractice.owner")
+    @Command(name = "cpracticeinfo", aliases = {"cpracinfo"}, permission = "cpractice.info")
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
