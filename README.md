@@ -31,13 +31,11 @@ Highly configurable practice plugin. This project was originally closed source a
 
 Player commands:\
     /lang - choose language | permission: not required\
-    /ping - get player ping | permission: not required\
     /reset - reset player inventory & send to spawn | permission: cpractice.command.spawn\
     /spawn - tp to spawn | permission: cpractice.command.reset\
     /viewmatch - recent match history of a player in a gui | permission: cpractice.viewmatch\
 \
 Donator Commands:\
-    /fly - toggle fly mode | permission: cpractice.fly\
     /rename - change held item's name | permission: cpractice.command.rename\
     /showallplayers - reveal all players | permission: cpractice.command.showallplayers\
     /showplayer - reveal mentioned player | permission: cpractice.command.showplayer\
@@ -47,12 +45,8 @@ Staff Commands:\
     /day - set time to day | permission: cpractice.command.day\
     /night - set time to night | permission: cpractice.command.night\
     /sunset - set time to sunset | permission: cpractice.command.sunset\
-    /gamemode - change gamemode | permission: cpractice.command.gamemode\
-    /heal - heal player | permission: cpractice.command.heal\
     /location - get a player's location | permission: cpractice.command.loc\
     /more - get more of the held item | permission: v.command.more\
-    /sudo - sudo a player | permission: cpractice.command.sudo\
-    /sudoall - sudo every player | permission : cpractice.command.sudoall\
 \
 Admin Commands:\
     /cpracticeinfo - show plugin info | permission: cpractice.info\
