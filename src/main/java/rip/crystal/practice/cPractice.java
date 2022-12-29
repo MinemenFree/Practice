@@ -23,11 +23,11 @@ import rip.crystal.practice.essentials.chat.impl.ChatListener;
 import rip.crystal.practice.essentials.chat.impl.command.ClearChatCommand;
 import rip.crystal.practice.essentials.chat.impl.command.MuteChatCommand;
 import rip.crystal.practice.essentials.chat.impl.command.SlowChatCommand;
-import rip.crystal.practice.essentials.command.donator.FlyCommand;
+/* import rip.crystal.practice.essentials.command.donator.FlyCommand; */
 import rip.crystal.practice.essentials.command.donator.RenameCommand;
 import rip.crystal.practice.essentials.command.donator.ShowAllPlayersCommand;
 import rip.crystal.practice.essentials.command.donator.ShowPlayerCommand;
-import rip.crystal.practice.essentials.command.management.AdminInformationCommand;
+import rip.crystal.practice.essentials.command.management.PracticeInfoCommand;
 import rip.crystal.practice.essentials.command.management.SetSlotsCommand;
 import rip.crystal.practice.essentials.command.management.SetSpawnCommand;
 import rip.crystal.practice.essentials.command.management.cPracticeCommand;
