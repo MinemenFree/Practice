@@ -418,7 +418,7 @@ public class cPractice extends JavaPlugin {
         new ShowAllPlayersCommand();
         new ShowPlayerCommand();
         new SpawnCommand();
-/*        new SudoAllCommand();
+/*      new SudoAllCommand();
         new SudoCommand(); */
         new SunsetCommand();
         new TeleportWorldCommand();
@@ -429,7 +429,7 @@ public class cPractice extends JavaPlugin {
         new EloCommand();
         new SetEloCommand();
         new ResetEloCommand();
-        new AdminInformationCommand();
+        new PracticeInfoCommand();
         new CreateWorldCommand();
         new StatsCommand();
         new LeaderboardCommand();
