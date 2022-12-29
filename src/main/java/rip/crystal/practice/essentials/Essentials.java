@@ -55,16 +55,10 @@ public class Essentials {
 	public void teleportToSpawn(Player player) {
 		Location location = spawn == null ? plugin.getServer().getWorlds().get(0).getSpawnLocation() : spawn;
 
-		/*if(player.hasPermission("cpractice.fly")) {
-			player.setAllowFlight(true);
-			player.setFlying(true);
-		}*/
-
 		SpawnTeleportEvent event = new SpawnTeleportEvent(player, location);
 		event.call();
 
 		Knockback.getKnockbackProfiler().setKnockback(player, "default");
-		//Knockback.getKnockbackProfiler().setKnockback(player, "default");
 
 		if (!event.isCancelled() && event.getLocation() != null) {
 			player.teleport(event.getLocation());
