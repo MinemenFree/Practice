@@ -1,6 +1,0 @@
-main: rip.crystal.practice.cPractice
-name: cPractice
-version: ${project.version}
-authors: ["ziue"]
-depend:
-  - HolographicDisplays
