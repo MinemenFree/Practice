@@ -15,6 +15,7 @@ import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
+import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 
