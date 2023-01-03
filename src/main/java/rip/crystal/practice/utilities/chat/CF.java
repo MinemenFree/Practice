@@ -61,14 +61,14 @@ public class CF {
     }
 
     public static String translate(String in) {
-        return ChatColor.translateAlternateColorCodes('&', in);
+        return ChatFormat.translateAlternateFormatCodes('&', in);
     }
 
     public static List<String> translate(List<String> lines) {
         List<String> toReturn = new ArrayList<>();
 
         for (String line : lines) {
-            toReturn.add(ChatFormat.translateAlternateColorCodes('&', line));
+            toReturn.add(ChatFormat.translateAlternateFormatCodes('&', line));
         }
 
         return toReturn;
@@ -79,7 +79,7 @@ public class CF {
 
         for (String line : lines) {
             if (line != null) {
-                toReturn.add(ChatFormat.translateAlternateColorCodes('&', line));
+                toReturn.add(ChatFormat.translateAlternateFormatCodes('&', line));
             }
         }
 
