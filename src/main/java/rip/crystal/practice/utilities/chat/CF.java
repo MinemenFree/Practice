@@ -16,7 +16,7 @@ public class CF {
 
     public static Configurator c;
 
-    private static final Map<String, ChatFormat> MAP;
+    private static final Map<String, ChatColor> MAP;
 
     public static final String BLUE;
     public static final String AQUA;
@@ -84,7 +84,7 @@ public class CF {
         return MAP.keySet();
     }
 
-    public static ChatFormat getFormatFromName(String name) {
+    public static ChatColor getFormatFromName(String name) {
         if (MAP.containsKey(name.trim().toLowerCase())) {
             return MAP.get(name.trim().toLowerCase());
         }
