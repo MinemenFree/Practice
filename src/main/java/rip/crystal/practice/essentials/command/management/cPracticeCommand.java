@@ -87,10 +87,12 @@ public class cPracticeCommand extends BaseCommand {
             return;
         }
         sender.sendMessage(CC.CHAT_BAR);
-        sender.sendMessage(CC.translate("&9&lcPractice &7made by &9ziue"));
+        sender.sendMessage(CC.translate("&9cPractice"));
         sender.sendMessage(CC.translate("&7Version: &9" + cPractice.get().getDescription().getVersion()));
+        sender.sendMessage(CC.translate("&7License: &9" + cPractice.get().getMainConfig().getString("LICENSE")));
+        sender.sendMessage(CC.translate("&7Developer: &9" + "MinemenFree"));
         sender.sendMessage(CC.CHAT_BAR);
-        sender.sendMessage(CC.translate("&9&lAdmin &7&m-&r &9&lHelp"));
+        sender.sendMessage(CC.translate("&9Admin &7&m-&r &9Help"));
         sender.sendMessage(CC.translate(" &7▢ &9/cpractice reload &8(&7&oReload configs&8&o)"));
         sender.sendMessage(CC.translate(" &7▢ &9/cpractice help &8(&7&oView help command&8&o)"));
         sender.sendMessage(CC.CHAT_BAR);
