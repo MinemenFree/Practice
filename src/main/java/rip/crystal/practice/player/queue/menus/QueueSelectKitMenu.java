@@ -101,7 +101,7 @@ public class QueueSelectKitMenu extends Menu {
 			Profile profile = Profile.get(player.getUniqueId());
 
 			if (profile.isBusy()) {
-				new MessageFormat(Locale.QUEUE_CANT_QUEUE.format(profile.getLocale()));
+				new MessageFormat(Locale.QUEUE.CANT_QUEUE.format(profile.getLocale()));
 				return;
 			}
 
