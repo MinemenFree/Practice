@@ -57,6 +57,8 @@ QUEUE:
     INVENTORY_TITLE: '&9Select a Kit (Unranked)'
     # kit item color
     NAME_COLOR: DARK_BLUE
+    # kit item formatting
+    NAME_FORMAT: '&l'
     # kit item lore
     LORE:
     - '{bars}'
@@ -70,6 +72,8 @@ QUEUE:
     INVENTORY_TITLE: '&9Select a Kit (Ranked)'
     # kit item color
     NAME_COLOR: DARK_BLUE
+    # kit item formatting
+    NAME_FORMAT: '&l'
     # kit item lore
     LORE:
     - '{bars}'
