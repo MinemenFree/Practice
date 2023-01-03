@@ -80,13 +80,14 @@ public class QueueSelectKitMenu extends Menu {
 							.replace("{in-queue}", String.valueOf(queue.getPlayers().size()))));
 
 			ChatColor color = ChatColor.valueOf(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_COLOR"));
+			ChatFormatting formatting = ChatFormatting.valueOf(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_FORMATTING"));
 			boolean amount = config.getBoolean("QUEUE.AMOUNT_PER_FIGHTS");
 
 			return new ItemBuilder(queue.getKit().getDisplayIcon())
 					.addItemFlag(ItemFlag.HIDE_ATTRIBUTES)
 					.addItemFlag(ItemFlag.HIDE_ENCHANTS)
 					.addItemFlag(ItemFlag.HIDE_POTION_EFFECTS)
-					.name(CC.translate(color + "§l" + queue.getKit().getName()))
+					.name(CC.translate(color + formatting + queue.getKit().getName()))
 					.amount(amount ? Match.getInFightsCount(queue) + 1 : 1)
 					.lore(lore)
 					.build();
@@ -97,7 +98,7 @@ public class QueueSelectKitMenu extends Menu {
 			Profile profile = Profile.get(player.getUniqueId());
 
 			if (profile.isBusy()) {
-				player.sendMessage(CC.RED + "You cannot queue right now.");
+				new MessageFormat(Locale.CANT_QUEUE.format(profile.getLocale()))
 				return;
 			}
 
