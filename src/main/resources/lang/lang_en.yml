@@ -122,6 +122,7 @@ DUEL:
   NO_ARENAS_AVAILABLE: '&cTried to start a match but there are no available arenas.'
   DONT_HAVE_DUEL_REQUEST_PLAYER: '&cYou do not have a duel request from that player.'
 QUEUE:
+  CANT_QUEUE: '&cYou cannot queue right now'
   JOIN_UNRANKED:
     - '&7&m------------------------------------------------'
     - '&e&lUnranked {kit_name}'
