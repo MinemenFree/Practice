@@ -569,7 +569,7 @@ public class BasicTeamMatch extends Match {
 						builder.append((TextComponent) component);
 					}
 
-					new MessageFormat(Locale.MATCH_DETAILS_SEPARATOR.format(profile.getLocale()));
+					new MessageFormat(Locale.MATCH_DETAILS_SEPARATOR.format(profile.getLocale())));
 
 					for (BaseComponent component : losers) {
 						builder.append((TextComponent) component);
