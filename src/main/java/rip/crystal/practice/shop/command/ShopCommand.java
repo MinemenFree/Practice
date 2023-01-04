@@ -8,7 +8,7 @@ import rip.crystal.practice.shop.menu.ShopMenu;
 
 public class ShopCommand extends BaseCommand {
 
-    @Command(name="shop", aliases = {"store"})
+    @Command(name = "shop", aliases = {"store"})
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
