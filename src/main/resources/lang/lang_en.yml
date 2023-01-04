@@ -181,7 +181,7 @@ MATCH:
   - '&7&m------------------------------------------------'
   END_WINNER_INVENTORY: '&aWinner{context}&7: '
   END_LOSER_INVENTORY: '&cLoser{context}&7: '
-  END_DETAILS_SEPERATOR: '&r &7┃ '
+  END_DETAILS_SEPARATOR: '&r &7┃ '
   CLICK_TO_VIEW_NAME: '&d{name}'
   CLICK_TO_VIEW_HOVER: '&fClick to view &c{name}&f''''s inventory.'
   ELO_CHANGES:
