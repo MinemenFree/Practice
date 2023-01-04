@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="RemoteRepositoriesConfiguration">
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project version = "4">
+  <component name = "RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="sk89q-repo" />
-      <option name="name" value="sk89q-repo" />
-      <option name="url" value="https://maven.enginehub.org/repo/" />
+      <option name = "id" value = "sk89q-repo" />
+      <option name = "name" value = "sk89q-repo" />
+      <option name = "url" value = "https://maven.enginehub.org/repo/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="vault-repo" />
-      <option name="name" value="vault-repo" />
-      <option name="url" value="http://nexus.hc.to/content/repositories/pub_releases" />
+      <option name = "id" value = "vault-repo" />
+      <option name = "name" value = "vault-repo" />
+      <option name = "url" value = "http://nexus.hc.to/content/repositories/pub_releases" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
+      <option name = "id" value = "central" />
+      <option name = "name" value = "Central Repository" />
+      <option name = "url" value = "https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="papermc" />
+      <option name = "id" value = "papermc" />
       <option name="name" value="papermc" />
       <option name="url" value="https://papermc.io/repo/repository/maven-public/" />
     </remote-repository>
