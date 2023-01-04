@@ -9,7 +9,7 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class CoinsCommand extends BaseCommand {
 
-    @Command(name="coins", aliases = {"coin"})
+    @Command(name = "coins", aliases = {"coin"})
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
