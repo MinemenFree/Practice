@@ -569,7 +569,7 @@ public class BasicTeamMatch extends Match {
 						builder.append((TextComponent) component);
 					}
 
-					builder.append(new ChatComponentBuilder(Locale.QUEUE_CANT_JOIN.format(profile.getLocale()).create());
+					new MessageFormat(Locale.MATCH_DETAILS_SEPARATOR.format(profile.getLocale()));
 
 					for (BaseComponent component : losers) {
 						builder.append((TextComponent) component);
