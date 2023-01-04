@@ -16,8 +16,6 @@ public class PracticeInfoCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
-        player.sendMessage(CC.CHAT_BAR);
-        player.sendMessage(CC.translate(" "));
         player.sendMessage(CC.translate("     &9" + cPractice.get().getName()));
         player.sendMessage(CC.translate(""));
         player.sendMessage(CC.translate(" &7| &9Author&7: &f" + cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
@@ -31,7 +29,5 @@ public class PracticeInfoCommand extends BaseCommand {
         player.sendMessage(CC.translate(" &7| &9Kits&7: &f" + Kit.getKits().size()));
         player.sendMessage(CC.translate(" &7| &9Ranked Kits&7: &f" + Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()));
         player.sendMessage(CC.translate(" &7| &9Clans&7: &f" + Clan.getClans().size()));
-        player.sendMessage(CC.translate(" "));
-        player.sendMessage(CC.CHAT_BAR);
     }
 }
