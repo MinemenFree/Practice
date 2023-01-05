@@ -153,6 +153,7 @@ QUEUE:
   FOUND_UNRANKED_MATCH: '&fFound opponent &c{name} &cvs &c{opponent}'
 MATCH:
   GIVE_KIT: '&fGiving you the &c{kit_name} &fkit.'
+  CANT_DROP_SWORD: '&cYou may not drop your sword.'
   ENDERPEARL_COOLDOWN: '&cYou may not use your &c&lEnderpearl &cfor another &c&l{time}
     second{context}&c.'
   ENDERPEARL_COOLDOWN_EXPIRED: '&cYour enderpearl cooldown has now expired.'
