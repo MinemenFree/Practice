@@ -70,7 +70,6 @@ public class MatchListener implements Listener {
 		}
 	}
 
-	//@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerDropItemEvent(PlayerDropItemEvent event) {
 		Profile profile = Profile.get(event.getPlayer().getUniqueId());
@@ -83,13 +82,12 @@ public class MatchListener implements Listener {
 
 		if (profile.getState() == ProfileState.FIGHTING) {
 			if (event.getItemDrop().getItemStack().getType() == Material.GLASS_BOTTLE) {
-				//event.getPlayer().sendMessage(CC.translate("&cYou cannot drop your sword."));
 				event.getItemDrop().remove();
 				return;
 			}
 
 			if (event.getItemDrop().getItemStack().getType()== Material.DIAMOND_SWORD) {
-				event.getPlayer().sendMessage(CC.translate("&cYou cannot drop your sword."));
+				new MessageFormat(Locale.MATCH_CANT_DROP_SWORD.format(profile.getLocale()));
 				event.setCancelled(true);
 				return;
 			}
@@ -98,25 +96,6 @@ public class MatchListener implements Listener {
 				event.setCancelled(true);
 				return;
 			}
-
-			//if (event.getPlayer().getItemInHand().getType().name().endsWith("_SWORD")) {
-
-//			ProtocolManager manager = ProtocolLibrary.getProtocolManager();
-//			for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-//				Profile onlineProfile = Profile.get(onlinePlayer.getUniqueId());
-//				if (onlineProfile.getState() == ProfileState.FIGHTING) {
-//					if (profile.getMatch().getParticipant(onlinePlayer) == null) {
-//						System.out.println("TEST");
-//						PacketContainer destroyEntity = new PacketContainer(ENTITY_DESTROY);
-//						destroyEntity.getIntegerArrays().write(0, new int[] { event.getItemDrop().getEntityId() });
-//						try {
-//							manager.sendServerPacket(onlinePlayer, destroyEntity);
-//						} catch (InvocationTargetException e) {
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-//			}
 
 			profile.getMatch().getDroppedItems().add(event.getItemDrop());
 		}
@@ -254,16 +233,6 @@ public class MatchListener implements Listener {
 			if (shooterData.getState() == ProfileState.FIGHTING &&
 					shooterData.getMatch().getState() == MatchState.PLAYING_ROUND) {
 
-//				event.getEntity().
-
-//				for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-//					Profile profile = Profile.get(onlinePlayer.getUniqueId());
-//					if (profile.getMatch() != null && profile.getMatch().getParticipant(shooter) != null) {
-//						cPractice.get().getEntityHider().hideEntity(onlinePlayer, event.getEntity());
-//						System.out.println("asd");
-//					}
-//				}
-
 				if (event.getIntensity(shooter) <= 0.5D) {
 					shooterData.getMatch().getGamePlayer(shooter).incrementPotionsMissed();
 				}
@@ -277,13 +246,6 @@ public class MatchListener implements Listener {
 		Profile profile = Profile.get(player.getUniqueId());
 		if (profile.getState() == ProfileState.SPECTATING) event.setCancelled(true);
 	}
-
-	/*@EventHandler
-	public void onInventoryClick(InventoryInteractEvent event){
-		Player player = (Player) event.getWhoClicked();
-		Profile profile = Profile.get(player.getUniqueId());
-		if (profile.getState() == ProfileState.SPECTATING) event.setCancelled(true);
-	}*/
 
 	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	public void onEntityRegainHealth(EntityRegainHealthEvent event) {
@@ -454,10 +416,6 @@ public class MatchListener implements Listener {
 
 			if (attacker != null) {
 				PlayerUtil.setLastAttacker(victim, attacker);
-//				Profile profile = Profile.get(victim.getUniqueId());
-//				if (profile.getMatch() != null && profile.getMatch().getKit().getGameRules().isBridge()) {
-//					TaskUtil.runLater(() -> victim.removeMetadata("lastAttacker", cPractice.get()), 20L * 15);
-//				}
 			}
 		}
 	}
@@ -477,9 +435,6 @@ public class MatchListener implements Listener {
 				} else {
 					event.setCancelled(false);
 				}
-//				else {
-//					event.setCancelled(ThreadLocalRandom.current().nextInt(100) > 25);
-//				}
 			} else {
 				event.setCancelled(true);
 			}
@@ -494,7 +449,6 @@ public class MatchListener implements Listener {
 				if (player.getPlayer() == null) return;
 
 				Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
-				//Knockback.getKnockbackProfiler().setKnockback(player.getPlayer(), "default");
 			});
 		});
 
