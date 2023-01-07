@@ -17,17 +17,17 @@ public class TournamentJoinCommand extends BaseCommand {
         TournamentSolo tournament = (TournamentSolo) TournamentSolo.getTournament();
 
         if (tournament == null) {
-            player.sendMessage(ChatColor.RED + "No tournament found.");
+            new MessageFormat(Locale.TOURNAMENT_NO_TOURNAMENT_FOUND.format(profile.getLocale()));
             return;
         }
 
         Profile profile = Profile.get(player.getUniqueId());
         if(profile.isBusy()) {
-            player.sendMessage(ChatColor.RED + "You may not join the tournament in your current state.");
+            new MessageFormat(Locale.TOURNAMENT_CANT_JOIN_IN_STATE.format(profile.getLocale()));
             return;
         }
         if (profile.isInTournament()) {
-            player.sendMessage(ChatColor.RED + "You are already in the tournament.");
+            new MessageFormat(Locale.TOURNAMENT_ALREADY_IN_TOURNAMENT.format(profile.getLocale()));
             return;
         }
 
