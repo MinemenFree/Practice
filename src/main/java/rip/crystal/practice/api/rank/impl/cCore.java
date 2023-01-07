@@ -28,12 +28,6 @@ public class cCore implements Rank {
     }
 
     @Override
-    public String getTag(UUID uuid) {
-        PlayerData data = cCoreAPI.INSTANCE.getPlayerData(uuid);
-        return data == null ? "No Data" : data.getHighestRank().getTag();
-    }
-    
-    @Override
     public String getColor(UUID uuid) {
         PlayerData data = cCoreAPI.INSTANCE.getPlayerData(uuid);
         return data == null ? "No Data" : data.getHighestRank().getColor() + data.getHighestRank().getName();
