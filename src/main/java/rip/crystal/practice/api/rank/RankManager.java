@@ -31,6 +31,10 @@ public class RankManager {
             this.setRank(new cCore());
             this.setRankSystem("cCore");
         }
+        else if (Bukkit.getPluginManager().getPlugin("LuckPerms") != null) {
+            this.setRank(new LuckPerms());
+            this.setRankSystem("LuckPerms");
+        }
         else {
             this.setRank(new Default());
             this.setRankSystem("Default");
