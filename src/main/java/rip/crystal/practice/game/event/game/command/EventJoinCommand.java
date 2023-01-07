@@ -9,6 +9,7 @@ import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.game.event.game.EventGameState;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.MessageFormat;
 
 public class EventJoinCommand extends BaseCommand {
 
