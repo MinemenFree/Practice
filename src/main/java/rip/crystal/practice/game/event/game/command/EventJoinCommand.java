@@ -18,16 +18,12 @@ public class EventJoinCommand extends BaseCommand {
 		Profile profile = Profile.get(player.getUniqueId());
 
 		if (profile.getParty() != null) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "You cannot join the event while in a party.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_CANT_JOIN_IN_PARTY.format(profile.getLocale()));
 			return;
 		}
 
 		if (profile.isBusy()) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "You must be in the lobby to join the event.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MUST_JOIN_IN_LOBBY.format(profile.getLocale()));
 		} else {
 			EventGame game = EventGame.getActiveGame();
 
@@ -37,19 +33,13 @@ public class EventJoinCommand extends BaseCommand {
 					if (game.getParticipants().size() < game.getMaximumPlayers()) {
 						game.getGameLogic().onJoin(player);
 					} else {
-						player.sendMessage(CC.CHAT_BAR);
-						player.sendMessage(CC.RED + "The event is full.");
-						player.sendMessage(CC.CHAT_BAR);
+						new MessageFormat(Locale.EVENT_IS_FULL.format(profile.getLocale()));
 					}
 				} else {
-					player.sendMessage(CC.CHAT_BAR);
-					player.sendMessage(CC.RED + "The event has already started.");
-					player.sendMessage(CC.CHAT_BAR);
+					new MessageFormat(Locale.EVENT_ALREADY_STARTED.format(profile.getLocale()));
 				}
 			} else {
-				player.sendMessage(CC.CHAT_BAR);
-				player.sendMessage(CC.RED + "There is no active event.");
-				player.sendMessage(CC.CHAT_BAR);
+				new MessageFormat(Locale.EVENT_NO_ACTIVE_EVENT.format(profile.getLocale()));
 			}
 		}
 	}
