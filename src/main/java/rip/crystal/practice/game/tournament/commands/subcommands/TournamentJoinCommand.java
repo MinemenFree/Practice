@@ -9,6 +9,7 @@ import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.game.tournament.impl.TournamentSolo;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.MessageFormat;
 
 public class TournamentJoinCommand extends BaseCommand {
