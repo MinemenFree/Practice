@@ -3,14 +3,11 @@ package rip.crystal.practice.game.tournament.commands.subcommands;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
-import rip.crystal.practice.cPractice;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.game.tournament.impl.TournamentSolo;
 import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.player.profile.ProfileState;
-import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.MessageFormat;
 
 public class TournamentJoinCommand extends BaseCommand {
@@ -19,6 +16,7 @@ public class TournamentJoinCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
+        Profile profile = Profile.get(player.getUniqueId());
         TournamentSolo tournament = (TournamentSolo) TournamentSolo.getTournament();
 
         if (tournament == null) {
@@ -48,33 +46,27 @@ public class TournamentJoinCommand extends BaseCommand {
                 player.sendMessage(CC.translate("&cYou can only enter this tournament with clan."));
                 return;
             }
-
             if (!clan.getLeader().equals(player.getUniqueId())) {
                 player.sendMessage(CC.translate("&cOnly clan owner can enter."));
                 return;
             }
-
             if (clan.getOnPlayers().size() != tournament.getSize()) {
                 player.sendMessage(CC.translate("&cYou need a minimum of " + tournament.getSize() + " people to enter the tournament."));
                 return;
             }
-
             tournament.join(clan);
             return;
         }
-
         if (tournament.getSize() > 1) {
             Party party = profile.getParty();
             if (party == null) {
                 player.sendMessage(CC.translate("&cYou can only enter this tournament with party."));
                 return;
             }
-
             if (party.getLeader() != player) {
                 player.sendMessage(CC.translate("&cOnly the party owner can enter."));
                 return;
             }
-
             if (party.getPlayers().size() != tournament.getSize()) {
                 player.sendMessage(CC.translate("&cYou need a minimum of &f" + tournament.getSize() + " &cpeople to enter the tournament."));
                 return;
