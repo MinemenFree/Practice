@@ -14,6 +14,7 @@ import rip.crystal.practice.game.tournament.Tournament;
 import rip.crystal.practice.game.tournament.TournamentState;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.MessageFormat;
 
 public class TournamentForceStartCommand extends BaseCommand {
