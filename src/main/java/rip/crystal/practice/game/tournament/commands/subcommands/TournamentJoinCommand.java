@@ -24,7 +24,6 @@ public class TournamentJoinCommand extends BaseCommand {
             return;
         }
 
-        Profile profile = Profile.get(player.getUniqueId());
         if(profile.isBusy()) {
             new MessageFormat(Locale.TOURNAMENT_CANT_JOIN_IN_STATE.format(profile.getLocale()));
             return;
