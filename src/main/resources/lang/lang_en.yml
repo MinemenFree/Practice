@@ -48,6 +48,11 @@ PARTY:
     KICK: been kicked from
     QUIT: left
 EVENT:
+  CANT_JOIN_IN_PARTY: '&cYou cannot join an event while in a party'
+  MUST_JOIN_IN_LOBBY: '&cYou must be in the lobby to join an event'
+  IS_FULL: '&cThe event is full'
+  ALREADY_STARTED: '&cThe event has already started'
+  NO_ACTIVE_EVENT: '&cThere is no active event'
   CANT_HOST: '&cYou cannot host that event.'
   HELP:
   - '&7&m------------------------------------------------'
@@ -87,6 +92,11 @@ EVENT:
   - '&7███████'
   MATCH_REMAINING: '&cThere are {seconds} second{context} left to finish this round!'
   MATCH_ITS_THE_BOMB: '{player} it''''s the bomb'
+TOURNAMENT:
+  NO_TOURNAMENT_FOUND: '&cNo tournament found'
+  CANT_JOIN_IN_STATE: '&cYou may not join the tournament in your state'
+  ALREADY_IN_TOURNAMENT: '&cYou are already in the tournament'
+  FORCE_STARTED: '&cYou have sucessfully force started the tournament'
 DUEL:
   SENT: '&fYou sent a &c{kit_name} &fduel request to &c{target_name} &fon arena &c{arena_name}&f.'
   SENT_PARTY: '&fYour party sent a &c{kit_name} &fduel request to &c{target_name}''''s
