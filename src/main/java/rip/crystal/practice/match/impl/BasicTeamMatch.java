@@ -391,7 +391,7 @@ public class BasicTeamMatch extends Match {
 									.replace("{your-hits}", String.valueOf(yours.getLeader().getHits()))
 									.replace("{opponent-hits}", String.valueOf(opponent.getLeader().getHits()))
 									.replace("{combo}", String.valueOf(yours.getLeader().getCombo()));
-						}
+						});
 						return lines;
 					}
 
