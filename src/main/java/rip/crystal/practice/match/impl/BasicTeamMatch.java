@@ -509,7 +509,7 @@ public class BasicTeamMatch extends Match {
 							.replace("{kit}", profile.getMatch().getKit().getName())
 							.replace("{spectators}", String.valueOf(profile.getMatch().getSpectators().size()))
                                                         .replace("{arena}", profile.getMatch().getArena().getName())));
-		}
+		};
 
 		return lines;
 	}
