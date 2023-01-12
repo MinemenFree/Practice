@@ -1,5 +1,6 @@
 package rip.crystal.practice.api.rank;
 
+import net.audidevelopment.core.api.player.GlobalPlayer;
 import java.util.UUID;
 
 public interface Rank {
