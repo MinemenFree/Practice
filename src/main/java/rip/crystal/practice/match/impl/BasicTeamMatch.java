@@ -573,7 +573,7 @@ public class BasicTeamMatch extends Match {
 						builder.append((TextComponent) component);
 					}
 
-					new MessageFormat(Locale.MATCH_DETAILS_SEPARATOR.format(profile.getLocale()));
+					builder.append(new ChatComponentBuilder("&7 §7┃ ").create());
 
 					for (BaseComponent component : losers) {
 						builder.append((TextComponent) component);
