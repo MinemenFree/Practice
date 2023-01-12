@@ -507,8 +507,8 @@ public class BasicTeamMatch extends Match {
 						  	.replace("{playerB-combo}", String.valueOf(participantB.getLeader().getCombo())))
 							.replace("{duration}", profile.getMatch().getDuration())
 							.replace("{kit}", profile.getMatch().getKit().getName())
-							.replace("{spectators}", String.valueOf(profile.getMatch().getSpectators().size()))
-                                                        .replace("{arena}", profile.getMatch().getArena().getName()));
+							.replace("{spectators}", String.valueOf(profile.getMatch().getSpectators().size())
+                                                        .replace("{arena}", profile.getMatch().getArena().getName())));
 		}
 
 		return lines;
