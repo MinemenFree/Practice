@@ -41,11 +41,13 @@ public class Conversation {
 			.add("{sender_color}", senderProfile.getColor())
 			.add("{sender_prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
 			.add("{sender_suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
+			.add("{sender_tag}", cPractice.get().getRankManager().getTag(sender.getUniqueId()))
 			.add("{target_name}", target.getName())
 			.add("{target_displayname}", target.getDisplayName())
 			.add("{target_color}", targetProfile.getColor())
 			.add("{target_prefix}", cPractice.get().getRankManager().getRank().getPrefix(target.getUniqueId()))
 			.add("{target_suffix}", cPractice.get().getRankManager().getRank().getSuffix(target.getUniqueId()))
+			.add("{target_tag}", cPractice.get().getRankManager().getTag(target.getUniqueId()))
 			.add("{msg}", message)
 			.send(sender);
 
@@ -59,11 +61,13 @@ public class Conversation {
 				.add("{sender_color}", senderProfile.getColor())
 				.add("{sender_prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
 				.add("{sender_suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
+			        .add("{sender_tag}", cPractice.get().getRankManager().getTag(sender.getUniqueId()))
 				.add("{target_name}", target.getName())
 				.add("{target_displayname}", target.getDisplayName())
 				.add("{target_color}",  targetProfile.getColor())
 				.add("{target_prefix}", cPractice.get().getRankManager().getRank().getPrefix(target.getUniqueId()))
 				.add("{target_suffix}", cPractice.get().getRankManager().getRank().getSuffix(target.getUniqueId()))
+				.add("{target_tag}", cPractice.get().getRankManager().getTag(target.getUniqueId()))
 				.add("{msg}",  message)
 			.send(target);
 
