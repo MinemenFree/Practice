@@ -390,7 +390,7 @@ public class BasicTeamMatch extends Match {
 									.replace("{hits}", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
 									.replace("{your-hits}", String.valueOf(yours.getLeader().getHits()))
 									.replace("{opponent-hits}", String.valueOf(opponent.getLeader().getHits()))
-									.replace("{combo}", String.valueOf(yours.getLeader().getCombo())));
+									.replace("{combo}", String.valueOf(yours.getLeader().getCombo());
 						});
 						return lines;
 					}
