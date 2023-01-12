@@ -54,6 +54,7 @@ public class DuelProcedure {
 				.format(senderProfile.getLocale()))
 				.add("{kit_name}", kit.getName())
 				.add("{target_name}", target.getName())
+				.add("{target_ping}", String.valueOf(BukkitReflection.getPing(target.getName())))
 				.add("{arena_name}", arena.getName())
 				.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
 				.send(sender);
