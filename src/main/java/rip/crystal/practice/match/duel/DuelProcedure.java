@@ -1,7 +1,10 @@
 package rip.crystal.practice.match.duel;
 
+import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
