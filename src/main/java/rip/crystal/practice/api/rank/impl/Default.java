@@ -22,6 +22,11 @@ public class Default implements Rank {
     }
 
     @Override
+    public String getTag(UUID uuid) {
+        return "Default";
+    }
+
+    @Override
     public String getColor(UUID uuid) {
         return "Default";
     }
