@@ -501,6 +501,10 @@ public class BasicTeamMatch extends Match {
 					lines.add(s
 							.replace("{playerA}", String.valueOf(participantA.getLeader().getUsername()))
 							.replace("{playerB}", String.valueOf(participantB.getLeader().getUsername()))
+						  	.replace("{playerA-ping}", String.valueOf(BukkitReflection.getPing(participantA.getLeader().getPlayer())))
+						  	.replace("{playerB-ping}", String.valueOf(BukkitReflection.getPing(participantB.getLeader().getPlayer())))
+						  	.replace("{playerA-combo}", String.valueOf(participantA.getLeader().getCombo()))
+						  	.replace("{playerB-combo}", String.valueOf(participantB.getLeader().getCombo()))
 							.replace("{duration}", profile.getMatch().getDuration())
 							.replace("{kit}", profile.getMatch().getKit().getName())
 							.replace("{spectators}", String.valueOf(profile.getMatch().getSpectators().size()))
