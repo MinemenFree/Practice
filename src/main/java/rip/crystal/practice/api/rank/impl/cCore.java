@@ -29,7 +29,7 @@ public class cCore implements Rank {
 
     @Override
     public Tag getTag(UUID uuid) {
-        PlayerData data = cCoreAPI.INSTANCE.getGlobalPlayer(uuid);
+        GlobalData data = cCoreAPI.INSTANCE.getGlobalPlayer(uuid);
         return data == null ? "No Data" : data.getTag();
     }
 
