@@ -29,7 +29,7 @@ public class AquaCore implements Rank {
 
     @Override
     public String getTag(UUID uuid) {
-        PlayerData data = AquaCoreAPI.INSTANCE.getPlayerData(uuid);
+        GlobalData data = AquaCoreAPI.INSTANCE.getGlobalData(uuid);
         return data == null ? "No Data" : data.getTag();
     }
 
