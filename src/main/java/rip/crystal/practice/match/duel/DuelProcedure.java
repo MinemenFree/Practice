@@ -1,20 +1,14 @@
 package rip.crystal.practice.match.duel;
 
-import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import rip.crystal.practice.Locale;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.*;
+import rip.crystal.practice.utilities.BukkitReflection;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
