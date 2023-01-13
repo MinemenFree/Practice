@@ -39,7 +39,7 @@ public class MatchLogicTask extends BukkitRunnable {
 				match.setState(MatchState.PLAYING_ROUND);
 				match.sendMessage(Locale.MATCH_STARTED, new MessageFormat());
 				match.sendSound(Sound.ORB_PICKUP, 1.0F, 1.0F);
-				match.sendMessage(CC.translate(cPractice.get().getLang().getString("MATCH.WARNING")));
+				match.sendMessage(Locale.MATCH_WARNING, new MessageFormat());
 			} else {
 				match.sendMessage(Locale.MATCH_START_TIMER, new MessageFormat()
 					.add("{time}", String.valueOf(nextAction))
