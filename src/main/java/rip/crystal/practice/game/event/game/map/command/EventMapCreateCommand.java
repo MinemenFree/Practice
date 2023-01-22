@@ -37,10 +37,7 @@ public class EventMapCreateCommand extends BaseCommand {
 		} else if (mapType.equalsIgnoreCase("SPREAD")) {
 			gameMap = new SpreadEventGameMap(mapName);
 		} else {
-			player.sendMessage(CC.CHAT_BAR);
 			new MessageFormat(Locale.EVENT_MAP_TYPE_NOT_VALID.format(profile.getLocale()));
-			player.sendMessage(CC.RED + "That event map type is not valid. Pick either \"TEAM\" or \"SPREAD\"!");
-			player.sendMessage(CC.CHAT_BAR);
 			return;
 		}
 
