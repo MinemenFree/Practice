@@ -11,16 +11,14 @@ import rip.crystal.practice.utilities.chat.CC;
 
 public class EventMapCreateCommand extends BaseCommand {
 
-	@Command(name = "event.map.create", permission = "cpractice.event.admin")
+	@Command(name = "event.map.create", permission = "cpractice.event.maps")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0 || args.length == 1) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "Please usage: /event map create (mapName) (mapType)");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_CREATION_USAGE.format(profile.getLocale()));
 			return;
 		}
 
@@ -28,9 +26,7 @@ public class EventMapCreateCommand extends BaseCommand {
 		String mapType = args[1];
 
 		if (EventGameMap.getByName(mapName) != null) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "An event map with that name already exists.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_ALREADY_EXISTS.format(profile.getLocale()));
 			return;
 		}
 
@@ -42,6 +38,7 @@ public class EventMapCreateCommand extends BaseCommand {
 			gameMap = new SpreadEventGameMap(mapName);
 		} else {
 			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_TYPE_NOT_VALID.format(profile.getLocale()));
 			player.sendMessage(CC.RED + "That event map type is not valid. Pick either \"TEAM\" or \"SPREAD\"!");
 			player.sendMessage(CC.CHAT_BAR);
 			return;
