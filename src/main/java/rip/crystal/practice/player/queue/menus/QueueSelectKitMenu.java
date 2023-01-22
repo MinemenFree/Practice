@@ -83,14 +83,15 @@ public class QueueSelectKitMenu extends Menu {
 							.replace("{elo}", String.valueOf(profile.getKitData().get(queue.getKit()).getElo()))
 							.replace("{in-queue}", String.valueOf(queue.getPlayers().size()))));
 
-			ChatColor color = ChatColor.valueOf(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_COLOR"));
+			KitNamePrefix prefix = String.valueOf(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_PREFIX"));
+			KitNameSuffix suffix = String.valueOf(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_SUFFIX"));
 			boolean amount = config.getBoolean("QUEUE.AMOUNT_PER_FIGHTS");
 
 			return new ItemBuilder(queue.getKit().getDisplayIcon())
 					.addItemFlag(ItemFlag.HIDE_ATTRIBUTES)
 					.addItemFlag(ItemFlag.HIDE_ENCHANTS)
 					.addItemFlag(ItemFlag.HIDE_POTION_EFFECTS)
-					.name(CC.translate(color + cPractice.get().getMainConfig().getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_FORMAT") + queue.getKit().getName()))
+					.name(CC.translate(prefix + queue.getKit().getName() + suffix))
 					.amount(amount ? Match.getInFightsCount(queue) + 1 : 1)
 					.lore(lore)
 					.build();
