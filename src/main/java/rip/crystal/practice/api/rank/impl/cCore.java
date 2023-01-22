@@ -28,9 +28,9 @@ public class cCore implements Rank {
     }
 
     @Override
-    public Tag getTag(UUID uuid) {
+    public String getTag(UUID uuid) {
         GlobalData data = cCoreAPI.INSTANCE.getGlobalPlayer(uuid);
-        return data == null ? "No Data" : data.getTag();
+        return data == null ? "No Data" : data.getTag().getPrefix();
     }
 
     @Override
