@@ -18,18 +18,14 @@ public class EventMapSetSpawnCommand extends BaseCommand {
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0 || args.length == 1) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "Please usage: /event map setspawn (mapName) (a|b|spectator|spread)");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_SETSPAWN_USAGE.format(profile.getLocale()));
 			return;
 		}
 
 		EventGameMap map = EventGameMap.getByName(args[0]);
 		String field = args[1];
 		if (map == null) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "An event map with that name does not exist.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_DOES_NOT_EXIST.format(profile.getLocale()));
 		} else {
 			switch (field.toLowerCase()) {
 				case "spectator": {
@@ -93,6 +89,7 @@ public class EventMapSetSpawnCommand extends BaseCommand {
 				}
 				break;
 				default:
+					new MessageFormat(Locale.EVENT_FIELD_DOES_NOT_EXIST.format(profile.getLocale()));
 					player.sendMessage(CC.RED + "A field by that name does not exist.");
 					player.sendMessage(CC.RED + "Fields: spectator, a, b");
 					return;
