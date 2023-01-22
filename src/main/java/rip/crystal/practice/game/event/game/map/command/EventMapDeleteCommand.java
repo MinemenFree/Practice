@@ -17,6 +17,7 @@ public class EventMapDeleteCommand extends BaseCommand {
 
 		if (args.length == 0) {
 			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_DELETION_USAGE.format(profile.getLocale()));
 			player.sendMessage(CC.RED + "Please usage: /event map delete (mapName)");
 			player.sendMessage(CC.CHAT_BAR);
 			return;
@@ -24,9 +25,7 @@ public class EventMapDeleteCommand extends BaseCommand {
 
 		EventGameMap gameMap = EventGameMap.getByName(args[0]);
 		if (gameMap == null) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "An event map with that name already exists.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_DOES_NOT_EXIST.format(profile.getLocale()));
 			return;
 		}
 
