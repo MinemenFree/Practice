@@ -19,13 +19,13 @@ public class EventMapStatusCommand extends BaseCommand {
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0) {
-			player.sendMessage(CC.RED + "Please usage: /event map status (mapName)");
+			new MessageFormat(Locale.EVENT_MAP_STATUS_USAGE.format(profile.getLocale()));
 			return;
 		}
 
 		EventGameMap gameMap = EventGameMap.getByName(args[0]);
 		if (gameMap == null) {
-			player.sendMessage(CC.RED + "An event map with that name does not exist.");
+			new MessageFormat(Locale.EVENT_MAP_DOES_NOT_EXIST.format(profile.getLocale()));
 		} else {
 			player.sendMessage(CC.GOLD + CC.BOLD + "Event Map Status " + CC.GRAY + "(" +
 					(gameMap.isSetup() ? CC.GREEN : CC.RED) + gameMap.getMapName() + CC.GRAY + ")");
