@@ -1,6 +1,7 @@
 package rip.crystal.practice.game.event.game.map.command;
 
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
@@ -16,10 +17,7 @@ public class EventMapDeleteCommand extends BaseCommand {
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0) {
-			player.sendMessage(CC.CHAT_BAR);
 			new MessageFormat(Locale.EVENT_MAP_DELETION_USAGE.format(profile.getLocale()));
-			player.sendMessage(CC.RED + "Please usage: /event map delete (mapName)");
-			player.sendMessage(CC.CHAT_BAR);
 			return;
 		}
 
