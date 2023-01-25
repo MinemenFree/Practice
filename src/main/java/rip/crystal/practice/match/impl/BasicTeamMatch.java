@@ -367,16 +367,16 @@ public class BasicTeamMatch extends Match {
 						return null;
 					}
 
-					String actualHits = "0";
+					/*String actualHits = "0";
 					if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) > 0) {
 						actualHits = "+" + (yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
-					}
+					}*/
 
 					if (kit.getGameRules().isBoxing()) {
-						String finalActualHits = actualHits;
+						//String finalActualHits = actualHits;
 						config.getStringList("FIGHTS.1V1.BOXING-MODE").forEach(line -> {
 							lines.add(line.replace("{bars}", bars)
 									.replace("{duration}", getDuration())
