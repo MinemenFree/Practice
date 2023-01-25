@@ -2,10 +2,13 @@ package rip.crystal.practice.game.tournament.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.game.tournament.commands.subcommands.*;
+import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class TournamentCommand extends BaseCommand {
@@ -23,22 +26,12 @@ public class TournamentCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 
         if(player.hasPermission("tournament.admin")) {
-            player.sendMessage(CC.CHAT_BAR);
-            player.sendMessage(ChatColor.RED + "Usage: /tournament start <kit>");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament forcestart");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament status");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament leave");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament join");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament stop");
-            player.sendMessage(CC.CHAT_BAR);
+            new MessageFormat(Locale.EVENT_ADMIN_COMMAND_USAGE.format(profile.getLocale()));
         } else {
-            player.sendMessage(CC.CHAT_BAR);
-            player.sendMessage(ChatColor.RED + "Usage: /tournament status");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament leave");
-            player.sendMessage(ChatColor.RED + "Usage: /tournament join");
-            player.sendMessage(CC.CHAT_BAR);
+            new MessageFormat(Locale.EVENT_COMMAND_USAGE.format(profile.getLocale()));
         }
     }
 }
