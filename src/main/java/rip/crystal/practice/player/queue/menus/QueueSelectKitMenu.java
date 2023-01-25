@@ -89,7 +89,7 @@ public class QueueSelectKitMenu extends Menu {
 					.addItemFlag(ItemFlag.HIDE_ATTRIBUTES)
 					.addItemFlag(ItemFlag.HIDE_ENCHANTS)
 					.addItemFlag(ItemFlag.HIDE_POTION_EFFECTS)
-					.name(CC.translate(cPractice.get().getMainConfig().getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_PREFIX") + queue.getKit().getName() + cPractice.get().getMainConfig().getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_SUFFIX")))
+					.name(CC.translate(config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_PREFIX") + queue.getKit().getName() + config.getString("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".NAME_SUFFIX")))
 					.amount(amount ? Match.getInFightsCount(queue) + 1 : 1)
 					.lore(lore)
 					.build();
