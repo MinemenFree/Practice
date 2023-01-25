@@ -69,7 +69,7 @@ public class DuelProcedure {
 								.format(targetProfile.getLocale()))
 								.add("{kit_name}", kit.getName())
 								.add("{sender_name}", sender.getName())
-			           			        .add("{sender_ping}", String.valueOf(Integer(PlayerUtil.getPing(sender))))
+			           			        .add("{sender_ping}", Integer.toString(senderPing.get()))
 								.add("{arena_name}", arena.getName())
 								.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
 								.toList()) {
