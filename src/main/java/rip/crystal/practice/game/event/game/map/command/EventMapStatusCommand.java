@@ -18,8 +18,8 @@ public class EventMapStatusCommand extends BaseCommand {
 	@Command(name = "event.map.status", permission = "cpractice.event.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
-		Profile profile = Profile.get(player.getUniqueId());
 		Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0) {
