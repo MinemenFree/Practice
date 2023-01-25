@@ -392,7 +392,7 @@ public class BasicTeamMatch extends Match {
 									.replace("{opponent-hits}", String.valueOf(opponent.getLeader().getHits()))
 									.replace("{your-combo}", String.valueOf(yours.getLeader().getCombo())))
 									.replace("{opponent-combo}", String.valueOf(opponent.getLeader().getCombo())));
-/*									.replace("{combo}", (yours.getLeader().getCombo >= opponent.getLeader().getCombo ? CC.GREEN : CC.WHITE) + (yours.getLeader().getCombo <= opponent.getLeader().getCombo ? CC.RED : CC.WHITE) + (yours.getLeader().getCombo > opponent.getLeader().getCombo ? yours.getLeader().getCombo() : opponent.getLeader().getCombo() : "No") + "Combo"));*/
+									//.replace("{combo}", (yours.getLeader().getCombo >= opponent.getLeader().getCombo ? CC.GREEN : CC.WHITE) + (yours.getLeader().getCombo <= opponent.getLeader().getCombo ? CC.RED : CC.WHITE) + (yours.getLeader().getCombo > opponent.getLeader().getCombo ? yours.getLeader().getCombo() : opponent.getLeader().getCombo() : "No") + "Combo"));
 						});
 						return lines;
 					}
