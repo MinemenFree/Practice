@@ -1,4 +1,3 @@
-
 package rip.crystal.practice.utilities;
 
 import org.bukkit.Bukkit;
