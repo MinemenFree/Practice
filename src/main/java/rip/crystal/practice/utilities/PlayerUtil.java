@@ -33,8 +33,9 @@ public class PlayerUtil {
 		reset(player, true);
 	}
 
-	public static int getPing(final Player player) {
-		return ((CraftPlayer)player).getHandle().ping;
+	public static int getPing(Player player) {
+		CraftPlayer cp = (CraftPlayer) player;
+		return cp.getHandle().ping;
 	}
 
 	public static void decrement(Player player) {
