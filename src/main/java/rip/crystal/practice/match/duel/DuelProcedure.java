@@ -8,7 +8,7 @@ import rip.crystal.practice.Locale;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.player.profile.Profile;
-/*import rip.crystal.practice.utilities.BukkitReflection;*/
+import rip.crystal.practice.utilities.BukkitReflection;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
@@ -55,7 +55,7 @@ public class DuelProcedure {
 				.format(senderProfile.getLocale()))
 				.add("{kit_name}", kit.getName())
 				.add("{target_name}", target.getName())
-/*      			.add("{target_ping}", String.valueOf(BukkitReflection.getPing(target.getName()))) */
+        			.add("{target_ping}", String.valueOf(BukkitReflection.getPing(target.getName())))
 				.add("{arena_name}", arena.getName())
 				.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
 				.send(sender);
@@ -64,7 +64,7 @@ public class DuelProcedure {
 								.format(targetProfile.getLocale()))
 								.add("{kit_name}", kit.getName())
 								.add("{sender_name}", sender.getName())
-			           			        /*.add("{sender_ping}", String.valueOf(BukkitReflection.getPing(sender.getName())))*/
+			           			        .add("{sender_ping}", String.valueOf(BukkitReflection.getPing(sender.getName())))
 								.add("{arena_name}", arena.getName())
 								.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
 								.toList()) {
