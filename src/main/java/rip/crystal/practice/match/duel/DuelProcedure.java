@@ -47,6 +47,8 @@ public class DuelProcedure {
 
 		Profile targetProfile = Profile.get(target.getUniqueId());
 		targetProfile.getDuelRequests().add(duelRequest);
+		
+		Ping targetPing = Ping.get(PlayerUtil.getPing(target));
 
 		if (party) {
 			//sender.sendMessage(Locale.DUEL_SENT_PARTY.format(kit.getName(), target.getName(),
