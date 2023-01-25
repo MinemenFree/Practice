@@ -17,6 +17,7 @@ public class EventMapCreateCommand extends BaseCommand {
 	@Command(name = "event.map.create", permission = "cpractice.event.maps")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
+		Profile profile = Profile.get(player.getUniqueId());
 		Player player = commandArgs.getPlayer();
 		String[] args = commandArgs.getArgs();
 
