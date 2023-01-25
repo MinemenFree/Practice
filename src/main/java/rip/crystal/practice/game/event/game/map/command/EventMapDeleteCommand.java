@@ -15,6 +15,7 @@ public class EventMapDeleteCommand extends BaseCommand {
 	@Command(name = "event.map.delete", permission = "cpractice.event.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
+		Profile profile = Profile.get(player.getUniqueId());
 		Player player = commandArgs.getPlayer();
 		String[] args = commandArgs.getArgs();
 
