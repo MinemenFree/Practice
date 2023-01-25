@@ -17,8 +17,8 @@ public class EventMapSetSpawnCommand extends BaseCommand {
 	@Command(name = "event.map.setspawn", aliases = {"addspawn"}, permission = "cpractice.event.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
-		Profile profile = Profile.get(player.getUniqueId());
 		Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0 || args.length == 1) {
