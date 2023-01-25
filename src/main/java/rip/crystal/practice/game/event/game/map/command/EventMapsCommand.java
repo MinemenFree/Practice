@@ -15,6 +15,7 @@ public class EventMapsCommand extends BaseCommand {
 	@Command(name = "event.maps", permission = "cpractice.event.admin")
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
+		Profile profile = Profile.get(player.getUniqueId());
 		Player player = commandArgs.getPlayer();
 
 		player.sendMessage(CC.RED + CC.BOLD + "Event Maps");
