@@ -56,7 +56,7 @@ public class DuelProcedure {
 				.format(senderProfile.getLocale()))
 				.add("{kit_name}", kit.getName())
 				.add("{target_name}", target.getName())
-        			.add("{target_ping}", Integer.valueOf(PlayerUtil.getPing(target)))
+        			.add("{target_ping}", String.valueOf(Integer(PlayerUtil.getPing(target))))
 				.add("{arena_name}", arena.getName())
 				.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
 				.send(sender);
@@ -65,7 +65,7 @@ public class DuelProcedure {
 								.format(targetProfile.getLocale()))
 								.add("{kit_name}", kit.getName())
 								.add("{sender_name}", sender.getName())
-			           			        .add("{sender_ping}", Integer.valueOf(PlayerUtil.getPing(sender)))
+			           			        .add("{sender_ping}", String.valueOf(Integer(PlayerUtil.getPing(sender))))
 								.add("{arena_name}", arena.getName())
 								.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
 								.toList()) {
