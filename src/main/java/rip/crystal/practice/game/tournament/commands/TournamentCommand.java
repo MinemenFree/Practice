@@ -29,9 +29,9 @@ public class TournamentCommand extends BaseCommand {
 		Profile profile = Profile.get(player.getUniqueId());
 
         if(player.hasPermission("tournament.admin")) {
-            new MessageFormat(Locale.EVENT_ADMIN_COMMAND_USAGE.format(profile.getLocale()));
+            new MessageFormat(Locale.TOURNAMENT_ADMIN_COMMAND_USAGE.format(profile.getLocale()));
         } else {
-            new MessageFormat(Locale.EVENT_COMMAND_USAGE.format(profile.getLocale()));
+            new MessageFormat(Locale.TOURNAMENT_COMMAND_USAGE.format(profile.getLocale()));
         }
     }
 }
