@@ -392,9 +392,9 @@ public class BasicTeamMatch extends Match {
 								  	.replace("<hits-difference-bracketless>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
 								  	.replace("<hits-difference-colorless>", "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
 								  	.replace("<hits-difference-simple>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
-								  	.replace("<your-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED)
+								  	.replace("<your-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED))
 									.replace("<your-hits>", String.valueOf(yours.getLeader().getHits()))
-								        .replace("<opponent-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.RED : CC.GREEN)
+								        .replace("<opponent-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.RED : CC.GREEN))
 									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
 									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
 									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
