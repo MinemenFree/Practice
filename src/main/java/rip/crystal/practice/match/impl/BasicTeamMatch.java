@@ -374,8 +374,14 @@ public class BasicTeamMatch extends Match {
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
-                                        String mmcCombo = (yours.getLeader().getCombo() >= 2 && opponent.getLeader().getCombo() == 0 ? CC.GREEN + yours.getLeader().getCombo() + " Combo" : CC.RED + opponent.getLeader().getCombo()  + " Combo");
-
+                                        String boxingCombo = 0;
+                                        if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0) {
+                                          boxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
+                                        } else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0) {
+                                          boxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
+                                        } else {
+                                          boxingCombo = "&f1st to 100!"
+                                        }
 
 					if (kit.getGameRules().isBoxing()) {
 						//String mmcCombo = boxingCombo;
