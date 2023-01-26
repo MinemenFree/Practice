@@ -374,8 +374,19 @@ public class BasicTeamMatch extends Match {
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
+					String boxingCombo = "&fNo Combo";
+					if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0) {
+                                                boxingCombo = "a" + yours.getLeader().getCombo() + " Combo");
+                                        } 
+					else if ((opponent.getLeader().getCombo() <= 2 && yours.getLeader().getCombo() == 0) {
+                                                boxingCombo = "c" + opponent.getLeader().getCombo() + " Combo");
+                                        } 
+				        else
+                                                boxingCombo = "1st to 100!"
+                                        }
 
 					if (kit.getGameRules().isBoxing()) {
+						String mmcCombo = boxingCombo
 						//String finalActualHits = actualHits;
 						config.getStringList("FIGHTS.1V1.BOXING-MODE").forEach(line -> {
 							lines.add(line.replace("{bars}", bars)
