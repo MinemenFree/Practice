@@ -375,12 +375,12 @@ public class BasicTeamMatch extends Match {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
                                         String boxingCombo = 0;
-                                        if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0) {
+                                        if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0)) {
                                             boxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
-                                        } else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0) {
+                                        } else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0)) {
                                             boxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
                                         } else {
-                                            boxingCombo = "&f1st to 100!"
+                                            boxingCombo = "&f1st to 100!";
                                         }
 
 					if (kit.getGameRules().isBoxing()) {
