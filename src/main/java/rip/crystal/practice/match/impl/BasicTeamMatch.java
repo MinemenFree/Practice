@@ -374,17 +374,17 @@ public class BasicTeamMatch extends Match {
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
-                                        String boxingCombo = "0";
+                                        String mmcBoxingCombo = "0";
                                         if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0)) {
-                                            boxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
+                                            mmcBoxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
                                         } else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0)) {
-                                            boxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
+                                            mmcBoxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
                                         } else {
-                                            boxingCombo = "&f1st to 100!";
+                                            mmcBoxingCombo = "&f1st to 100!";
                                         }
 
 					if (kit.getGameRules().isBoxing()) {
-						//String mmcCombo = boxingCombo;
+						String mmcBoxingComboNew = mmcBoxingCombo;
 						//String finalActualHits = actualHits;
 						config.getStringList("FIGHTS.1V1.BOXING-MODE").forEach(line -> {
 							lines.add(line.replace("{bars}", bars)
@@ -407,7 +407,7 @@ public class BasicTeamMatch extends Match {
 									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
 									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
 									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo()))
-									.replace("<combo>", boxingCombo.get());
+									.replace("<combo>", mmcBoxingComboNew));
 						});
 						return lines;
 					}
