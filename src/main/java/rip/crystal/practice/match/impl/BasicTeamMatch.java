@@ -406,7 +406,7 @@ public class BasicTeamMatch extends Match {
 								        .replace("<opponent-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.RED : CC.GREEN))
 									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
 									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
-									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
+									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo()))
 									.replace("<combo>", boxingCombo.get());
 						});
 						return lines;
