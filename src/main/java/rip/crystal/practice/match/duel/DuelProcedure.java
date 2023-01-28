@@ -56,7 +56,9 @@ public class DuelProcedure {
 				.format(senderProfile.getLocale()))
 				.add("<kit_name>", kit.getName())
 				.add("<target_name>", target.getName())
-        			.add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+				.add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+				.add("<sender_name>", sender.getName())
+			        .add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
 				.add("<arena_name>", arena.getName())
 				.add("<party_size>", String.valueOf(targetProfile.getParty().getPlayers().size()))
 				.send(sender);
@@ -66,6 +68,8 @@ public class DuelProcedure {
 								.add("<kit_name>", kit.getName())
 								.add("<sender_name>", sender.getName())
 			           			        .add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
+			                                        .add("<target_name>", target.getName())
+				                                .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
 								.add("<arena_name>", arena.getName())
 								.add("<party_size>", String.valueOf(targetProfile.getParty().getPlayers().size()))
 								.toList()) {
@@ -92,6 +96,9 @@ public class DuelProcedure {
 						.format(senderProfile.getLocale()))
 						.add("<kit_name>", kit.getName())
 						.add("<target_name>", target.getName())
+				                .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+						.add("<sender_name>", sender.getName())
+			        		.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
 						.add("<arena_name>", arena.getName())
 						.add("<arena_author>", arena.getAuthor())
 						.send(sender);
@@ -99,14 +106,18 @@ public class DuelProcedure {
 				for (String msg : new MessageFormat(Locale.DUEL_RECEIVED
 						.format(targetProfile.getLocale()))
 						.add("<kit_name>", kit.getName())
-						.add("<sender_name>", sender.getName())
+				     		.add("<sender_name>", sender.getName())
+			        		.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
+				     		.add("<target_name>", target.getName())
+				                .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
 						.add("<arena_name>", arena.getName())
 				                .add("<arena_author>", arena.getAuthor())
 						.toList()) {
-					if (msg.contains("%CLICKABLE%")) {
+					if (msg.contains("<click-to-accept>")) {
 						ChatComponentBuilder builder = new ChatComponentBuilder(new MessageFormat(Locale.DUEL_RECEIVED_CLICKABLE
 								.format(targetProfile.getLocale()))
 								.add("<sender_name>", sender.getName())
+								.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
 								.toString());
 						builder.attachToEachPart(ChatHelper.click("/duel accept " + sender.getName()));
 						builder.attachToEachPart(ChatHelper.hover(new MessageFormat(Locale.DUEL_RECEIVED_HOVER
