@@ -38,13 +38,23 @@ public class DuelRequest {
 
 		if (sender != null && target != null) {
 			new MessageFormat(Locale.DUEL_SENDER_EXPIRED.format(Profile.get(sender.getUniqueId()).getLocale()))
-					.add("{kit}", kit.getName())
-					.add("{target}", target.getName())
+				        .add("<arena_name>", arena.getName())
+					.add("<kit_name>", kit.getName())
+				        .add("<arena_author>", arena.getAuthor())
+					.add("<target_name>", target.getName())
+				        .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target))
+					.add("<sender_name>", sender.getName())
+					.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender))
 					.send(sender);
 
 			new MessageFormat(Locale.DUEL_TARGET_EXPIRED.format(Profile.get(target.getUniqueId()).getLocale()))
-					.add("{kit}", kit.getName())
-					.add("{sender}", sender.getName())
+				        .add("<arena_name>", arena.getName())
+					.add("<kit_name>", kit.getName())
+				        .add("<arena_author>", arena.getAuthor())
+					.add("<sender_name>", sender.getName())
+					.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender))
+					.add("<target_name>", target.getName())
+					.add("<target_ping>", Integer.toString(PlayerUtil.getPing(target))
 					.send(target);
 		}
 	}
