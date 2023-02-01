@@ -45,7 +45,7 @@ public class DuelRequest {
 				        .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target))
 					.add("<sender_name>", sender.getName())
 					.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender))
-					.send(sender);
+					.send(sender));
 
 			new MessageFormat(Locale.DUEL_TARGET_EXPIRED.format(Profile.get(target.getUniqueId()).getLocale()))
 				        .add("<arena_name>", arena.getName())
@@ -55,7 +55,7 @@ public class DuelRequest {
 					.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender))
 					.add("<target_name>", target.getName())
 					.add("<target_ping>", Integer.toString(PlayerUtil.getPing(target))
-					.send(target);
+					.send(target));
 		}
 	}
 
