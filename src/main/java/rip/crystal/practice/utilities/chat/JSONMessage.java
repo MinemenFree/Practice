@@ -653,34 +653,34 @@ public class JSONMessage {
             try {
                 MAJOR_VER = Integer.parseInt(version.split("_")[1]);
 
-                final Class<?> craftPlayer = getClass("{obc}.entity.CraftPlayer");
+                final Class<?> craftPlayer = getClass("<obc}.entity.CraftPlayer");
                 Method getHandle = craftPlayer.getMethod("getHandle");
                 connection = getHandle.getReturnType().getField("playerConnection");
-                Method sendPacket = connection.getType().getMethod("sendPacket", getClass("{nms}.Packet"));
+                Method sendPacket = connection.getType().getMethod("sendPacket", getClass("<nms}.Packet"));
 
-                chatComponentText = getClass("{nms}.ChatComponentText").getConstructor(String.class);
+                chatComponentText = getClass("<nms}.ChatComponentText").getConstructor(String.class);
 
-                final Class<?> iChatBaseComponent = getClass("{nms}.IChatBaseComponent");
+                final Class<?> iChatBaseComponent = getClass("<nms}.IChatBaseComponent");
 
                 Method stringToChat;
 
                 if (MAJOR_VER < 8) {
-                    stringToChat = getClass("{nms}.ChatSerializer").getMethod("a", String.class);
+                    stringToChat = getClass("<nms}.ChatSerializer").getMethod("a", String.class);
                 } else {
-                    stringToChat = getClass("{nms}.IChatBaseComponent$ChatSerializer").getMethod("a", String.class);
+                    stringToChat = getClass("<nms}.IChatBaseComponent$ChatSerializer").getMethod("a", String.class);
                 }
 
                 GET_HANDLE = MethodHandles.lookup().unreflect(getHandle);
                 SEND_PACKET = MethodHandles.lookup().unreflect(sendPacket);
                 STRING_TO_CHAT = MethodHandles.lookup().unreflect(stringToChat);
 
-                packetPlayOutChat = getClass("{nms}.PacketPlayOutChat");
+                packetPlayOutChat = getClass("<nms}.PacketPlayOutChat");
                 packetPlayOutChatComponent = getField(packetPlayOutChat, "a");
                 packetPlayOutChatMessageType = getField(packetPlayOutChat, "b");
                 packetPlayOutChatUuid = MAJOR_VER >= 16 ? getField(packetPlayOutChat, "c") : null;
 
-                Class<?> packetPlayOutTitle = getClass("{nms}.PacketPlayOutTitle");
-                Class<?> titleAction = getClass("{nms}.PacketPlayOutTitle$EnumTitleAction");
+                Class<?> packetPlayOutTitle = getClass("<nms}.PacketPlayOutTitle");
+                Class<?> titleAction = getClass("<nms}.PacketPlayOutTitle$EnumTitleAction");
 
                 titlePacketConstructor = packetPlayOutTitle.getConstructor(titleAction, iChatBaseComponent);
                 titleTimesPacketConstructor = packetPlayOutTitle.getConstructor(int.class, int.class, int.class);
@@ -689,7 +689,7 @@ public class JSONMessage {
                 enumActionSubtitle = titleAction.getField("SUBTITLE").get(null);
 
                 if (MAJOR_VER >= 12) {
-                    Method getChatMessageType = getClass("{nms}.ChatMessageType").getMethod("a", byte.class);
+                    Method getChatMessageType = getClass("<nms}.ChatMessageType").getMethod("a", byte.class);
 
                     enumChatMessageTypeMessage = getChatMessageType.invoke(null, (byte) 1);
                     enumChatMessageTypeActionbar = getChatMessageType.invoke(null, (byte) 2);
@@ -823,7 +823,7 @@ public class JSONMessage {
         static Object fromJson(String json) {
             assertIsSetup();
 
-            if (!json.trim().startsWith("{")) {
+            if (!json.trim().startsWith("<")) {
                 return componentText(json);
             }
 
@@ -842,7 +842,7 @@ public class JSONMessage {
         }
 
         private static Class<?> getClass(String path) throws ClassNotFoundException {
-            return Class.forName(path.replace("{nms}", "net.minecraft.server." + version).replace("{obc}", "org.bukkit.craftbukkit." + version));
+            return Class.forName(path.replace("<nms>", "net.minecraft.server." + version).replace("<obc>", "org.bukkit.craftbukkit." + version));
         }
 
         private static void setFieldValue(Field field, Object instance, Object value) {

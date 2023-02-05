@@ -27,24 +27,24 @@ public class StatsButton extends Button {
         Profile profile = Profile.get(target.getUniqueId());
 
         for (String s : cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.PERSONAL_STATS.DESCRIPTION")) {
-            if (s.contains("{kits}")) {
+            if (s.contains("<kits>")) {
                 Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).forEach(kit ->
                         lore.add(cPractice.get().getLeaderboardConfig().getString("INVENTORY.PERSONAL_STATS.KITS_FORMAT")
-                                .replace("{kit}", kit.getName())
-                                .replace("{color}", profile.getColor())
-                                .replace("{data}", String.valueOf(profile.getKitData().get(kit).getElo()))));
+                                .replace("<kit>", kit.getName())
+                                .replace("<color>", profile.getColor())
+                                .replace("<data>", String.valueOf(profile.getKitData().get(kit).getElo()))));
                 continue;
             }
             lore.add(s
-                    .replace("{bars}", CC.MENU_BAR)
-                    .replace("{elo}", String.valueOf(EloUtil.getGlobalElo(profile))));
+                    .replace("<bars>", CC.MENU_BAR)
+                    .replace("<elo>", String.valueOf(EloUtil.getGlobalElo(profile))));
         }
 
         ItemStack item = new ItemBuilder(Material.SKULL_ITEM)
                 .durability(3)
                 .name(cPractice.get().getLeaderboardConfig().getString("INVENTORY.PERSONAL_STATS.TITLE")
-                        .replace("{color}", profile.getColor())
-                        .replace("{name}", target.getName()))
+                        .replace("<color>", profile.getColor())
+                        .replace("<name>", target.getName()))
                 .lore(lore)
                 .build();
 

@@ -65,10 +65,10 @@ public class TNTTagGameLogic implements EventGameLogic {
         Bukkit.getOnlinePlayers().forEach(player -> {
             Profile profile = Profile.get(player.getUniqueId());
             new MessageFormat(Locale.EVENT_START.format(profile.getLocale()))
-                    .add("{event_name}", game.getEvent().getName())
-                    .add("{event_displayname}", game.getEvent().getDisplayName())
-                    .add("{size}", String.valueOf(game.getParticipants().size()))
-                    .add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+                    .add("<event_name>", game.getEvent().getName())
+                    .add("<event_displayname>", game.getEvent().getDisplayName())
+                    .add("<size>", String.valueOf(game.getParticipants().size()))
+                    .add("<maximum>", String.valueOf(game.getMaximumPlayers()))
                     .send(player);
         });
 
@@ -227,8 +227,8 @@ public class TNTTagGameLogic implements EventGameLogic {
     @Override
     public void endRound() {
         game.sendMessage(Locale.EVENT_ROUND_ELIMINATION, new MessageFormat()
-                .add("{loser_name}", getBomb().getConjoinedNames())
-                .add("{context}", "was")
+                .add("<loser_name>", getBomb().getConjoinedNames())
+                .add("<context>", "was")
         );
 
         onDeath(getBomb().getLeader().getPlayer(), null);
@@ -258,9 +258,9 @@ public class TNTTagGameLogic implements EventGameLogic {
                     voteData.addVote(player.getUniqueId());
 
                     game.sendMessage(Locale.EVENT_PLAYER_VOTE, new MessageFormat()
-                        .add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-                        .add("{map_name}", gameMap.getMapName())
-                        .add("{votes}", String.valueOf(voteData.getPlayers().size()))
+                        .add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+                        .add("<map_name>", gameMap.getMapName())
+                        .add("<votes>", String.valueOf(voteData.getPlayers().size()))
                     );
                 }
             } else {
@@ -539,7 +539,7 @@ public class TNTTagGameLogic implements EventGameLogic {
         target.getLeader().getPlayer().getInventory().setItem(0, new ItemBuilder(Material.TNT).name("&cYou are the Bomb!").build());
         getParticipants().forEach(gamePlayerGameParticipant -> {
             new MessageFormat(Locale.EVENT_ITS_THE_BOMB.format(Profile.get(gamePlayerGameParticipant.getLeader().getUuid()).getLocale()))
-                    .add("{player}", bomb.getLeader().getPlayer().getName())
+                    .add("<player>", bomb.getLeader().getPlayer().getName())
                     .send(gamePlayerGameParticipant.getLeader().getPlayer());
         });
         target.getLeader().getPlayer().updateInventory();

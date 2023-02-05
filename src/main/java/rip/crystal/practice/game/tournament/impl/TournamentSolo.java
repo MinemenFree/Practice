@@ -56,7 +56,7 @@ public class TournamentSolo extends Tournament<Player> {
                     .broadcastAt(3, TimeUnit.SECONDS)
                     .broadcastAt(2, TimeUnit.SECONDS)
                     .broadcastAt(1, TimeUnit.SECONDS)
-                    .withMessage("&7Tournament start in&6 {time}")
+                    .withMessage("&7Tournament start in&6 {time>")
                     .onFinish(this::start).start();
 
             setState(TournamentState.STARTING);
@@ -75,9 +75,9 @@ public class TournamentSolo extends Tournament<Player> {
         //New team LinkedList to remove usedTeams
         LinkedList<GameParticipant<MatchGamePlayer>> teamsShuffle = new LinkedList<>(getTeams());
         //Count down
-        String round = "&7Next round in&9 {time}";
+        String round = "&7Next round in&9 {time>";
         if(getRound() == 1){
-            round = "&7Starting in &9{time}";
+            round = "&7Starting in &9{time>";
         }
         Countdown.of(10, TimeUnit.SECONDS)
             .players(getOnlinePlayers())
@@ -164,24 +164,24 @@ public class TournamentSolo extends Tournament<Player> {
         String bars = config.getString("LINES.BARS");
 
         config.getStringList("TOURNAMENTS.SOLO.LINES").forEach(line -> {
-            lines.add(line.replace("{kit}", getKit().getName())
-                    .replace("{bars}", bars)
-                    .replace("{size}", String.valueOf(getPlayers().size()))
-                    .replace("{limit}", String.valueOf(getLimit()))
-                    .replace("{state}", getState().getName()));
+            lines.add(line.replace("<kit>", getKit().getName())
+                    .replace("<bars>", bars)
+                    .replace("<size>", String.valueOf(getPlayers().size()))
+                    .replace("<limit>", String.valueOf(getLimit()))
+                    .replace("<state>", getState().getName()));
         });
 
 
         if (this.getState() == TournamentState.IN_FIGHT) {
             config.getStringList("TOURNAMENTS.SOLO.IN-FIGHT").forEach(line -> {
-                lines.add(line.replace("{round}", String.valueOf(getRound())));
+                lines.add(line.replace("<round>", String.valueOf(getRound())));
             });
         }
         if (this.getState() == TournamentState.ENDED && getWinner() != null) {
             MatchGamePlayer leader = getWinner().getLeader();
             config.getStringList("TOURNAMENTS.SOLO.ON-END").forEach(line -> {
-                lines.add(line.replace("{color}", Profile.get(leader.getPlayer().getUniqueId()).getColor())
-                        .replace("{player}", leader.getPlayer().getName()));
+                lines.add(line.replace("<color>", Profile.get(leader.getPlayer().getUniqueId()).getColor())
+                        .replace("<player>", leader.getPlayer().getName()));
             });
         }
 

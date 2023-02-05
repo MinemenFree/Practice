@@ -68,7 +68,7 @@ public class KillEffectsShopMenu extends PaginatedMenu
                     profile.setCoins(profile.getCoins() - type.getPrice());
                     player.sendMessage(CC.translate("&aYou have purchased &9" + type.getName() + " &ffor &9" + type.getPrice() + " &fcoins."));
 
-                    Bukkit.dispatchCommand(player, cPractice.get().getMainConfig().getString("PURCHASE-COSMETICS-CMD").replace("{player}", player.getName()).replace("{effect}", type.getName()));
+                    Bukkit.dispatchCommand(player, cPractice.get().getMainConfig().getString("PURCHASE-COSMETICS-CMD").replace("<player>", player.getName()).replace("<effect>", type.getName()));
                     return;
                 } else {
                     player.sendMessage(CC.translate("&cYou don't have enough funds to buy this."));

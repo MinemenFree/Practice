@@ -50,7 +50,7 @@ public class Countdown implements Runnable {
         for (int index : this.broadcastAt) {
             if (this.seconds == index) {
                 if(broadcastMessage != null){
-                    String message = this.broadcastMessage.replace("{time}", TimeUtils.formatIntoDetailedString(this.seconds));
+                    String message = this.broadcastMessage.replace("<time>", TimeUtils.formatIntoDetailedString(this.seconds));
                     if (playerList == null) {
                         for (Player player : Bukkit.getOnlinePlayers()) {
                             if (this.messageFilter == null || this.messageFilter.test(player)) {

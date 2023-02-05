@@ -30,30 +30,30 @@ public class EloCommand extends BaseCommand {
                 return;
             }
             for (String s : cPractice.get().getLangConfig().getStringList("ELO.VIEW_OTHER")) {
-                if (s.contains("{format}")) {
+                if (s.contains("<format>")) {
                     Kit.getKits().stream().filter(Kit::isEnabled).filter(kit -> kit.getGameRules().isRanked()).forEach(kit ->
                             player.sendMessage(CC.translate(cPractice.get().getLangConfig().getString("ELO.VIEW_FORMAT")
-                                    .replace("{kit}", kit.getName())
-                                    .replace("{elo}", String.valueOf(Profile.get(target.getUniqueId()).getKitData().get(kit).getElo())))));
+                                    .replace("<kit>", kit.getName())
+                                    .replace("<elo>", String.valueOf(Profile.get(target.getUniqueId()).getKitData().get(kit).getElo())))));
                     continue;
                 }
                 player.sendMessage(CC.translate(s
-                        .replace("{bars}", CC.CHAT_BAR)
-                        .replace("{color}", Profile.get(target.getUniqueId()).getColor())
-                        .replace("{player}", target.getName())));
+                        .replace("<bars>", CC.CHAT_BAR)
+                        .replace("<color>", Profile.get(target.getUniqueId()).getColor())
+                        .replace("<player>", target.getName())));
             }
             return;
         }
 
         for (String s : cPractice.get().getLangConfig().getStringList("ELO.VIEW_YOUR")) {
-            if (s.contains("{format}")) {
+            if (s.contains("<format>")) {
                 Kit.getKits().stream().filter(Kit::isEnabled).filter(kit -> kit.getGameRules().isRanked()).forEach(kit ->
                         player.sendMessage(CC.translate(cPractice.get().getLangConfig().getString("ELO.VIEW_FORMAT")
-                                .replace("{kit}", kit.getName())
-                                .replace("{elo}", String.valueOf(Profile.get(player.getUniqueId()).getKitData().get(kit).getElo())))));
+                                .replace("<kit>", kit.getName())
+                                .replace("<elo>", String.valueOf(Profile.get(player.getUniqueId()).getKitData().get(kit).getElo())))));
                 continue;
             }
-            player.sendMessage(CC.translate(s.replace("{bars}", CC.CHAT_BAR)));
+            player.sendMessage(CC.translate(s.replace("<bars>", CC.CHAT_BAR)));
         }
     }
 }

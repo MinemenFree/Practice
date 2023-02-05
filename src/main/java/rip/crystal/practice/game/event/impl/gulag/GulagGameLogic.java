@@ -63,10 +63,10 @@ public class GulagGameLogic implements EventGameLogic {
 		Bukkit.getOnlinePlayers().forEach(player -> {
 			Profile profile = Profile.get(player.getUniqueId());
 			new MessageFormat(Locale.EVENT_START.format(profile.getLocale()))
-				.add("{event_name}", game.getEvent().getName())
-				.add("{event_displayname}", game.getEvent().getDisplayName())
-				.add("{size}", String.valueOf(game.getParticipants().size()))
-				.add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+				.add("<event_name>", game.getEvent().getName())
+				.add("<event_displayname>", game.getEvent().getDisplayName())
+				.add("<size>", String.valueOf(game.getParticipants().size()))
+				.add("<maximum>", String.valueOf(game.getMaximumPlayers()))
 				.send(player);
 		});
 
@@ -115,10 +115,10 @@ public class GulagGameLogic implements EventGameLogic {
 			Bukkit.getOnlinePlayers().forEach(player -> {
 				Profile profile = Profile.get(player.getUniqueId());
 				new MessageFormat(Locale.EVENT_FINISH.format(profile.getLocale()))
-					.add("{event_name}", game.getEvent().getName())
-					.add("{event_displayname}", game.getEvent().getDisplayName())
-					.add("{winner}", winningParticipant.getConjoinedNames())
-					.add("{context}", (winningParticipant.getPlayers().size() == 1 ? "has" : "have"))
+					.add("<event_name>", game.getEvent().getName())
+					.add("<event_displayname>", game.getEvent().getDisplayName())
+					.add("<winner>", winningParticipant.getConjoinedNames())
+					.add("<context>", (winningParticipant.getPlayers().size() == 1 ? "has" : "have"))
 					.send(player);
 			});
 		}
@@ -198,8 +198,8 @@ public class GulagGameLogic implements EventGameLogic {
 				if (player != null) {
 					Profile profile = Profile.get(player.getUniqueId());
 					new MessageFormat(Locale.EVENT_ROUND_OPPONENT.format(profile.getLocale()))
-						.add("{context}", (participantB.getPlayers().size() == 1 ? "" : "s"))
-						.add("{name}", participantB.getConjoinedNames())
+						.add("<context>", (participantB.getPlayers().size() == 1 ? "" : "s"))
+						.add("<name>", participantB.getConjoinedNames())
 						.send(player);
 
 					player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 1.0F, 1.0F);
@@ -214,8 +214,8 @@ public class GulagGameLogic implements EventGameLogic {
 				if (player != null) {
 					Profile profile = Profile.get(player.getUniqueId());
 					new MessageFormat(Locale.EVENT_ROUND_OPPONENT.format(profile.getLocale()))
-						.add("{context}", (participantA.getPlayers().size() == 1 ? "" : "s"))
-						.add("{name}", participantA.getConjoinedNames())
+						.add("<context>", (participantA.getPlayers().size() == 1 ? "" : "s"))
+						.add("<name>", participantA.getConjoinedNames())
 						.send(player);
 
 					player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 1.0F, 1.0F);
@@ -227,9 +227,9 @@ public class GulagGameLogic implements EventGameLogic {
 	@Override
 	public void startRound() {
 		game.sendMessage(Locale.EVENT_ROUND_START, new MessageFormat()
-			.add("{round}", String.valueOf(game.getGameLogic().getRoundNumber()))
-			.add("{participant_a}", participantA.getConjoinedNames())
-			.add("{participant_b}", participantB.getConjoinedNames())
+			.add("<round>", String.valueOf(game.getGameLogic().getRoundNumber()))
+			.add("<participant_a>", participantA.getConjoinedNames())
+			.add("<participant_b>", participantB.getConjoinedNames())
 		);
 
 		game.sendSound(Sound.ORB_PICKUP, 1.0F, 15F);
@@ -262,8 +262,8 @@ public class GulagGameLogic implements EventGameLogic {
 		GameParticipant loser = getLosingParticipant();
 
 		game.sendMessage(Locale.EVENT_ROUND_ELIMINATION, new MessageFormat()
-			.add("{loser_name}", loser.getConjoinedNames())
-			.add("{context}", loser.getPlayers().size() == 1 ? "was" : "were")
+			.add("<loser_name>", loser.getConjoinedNames())
+			.add("<context>", loser.getPlayers().size() == 1 ? "was" : "were")
 		);
 
 		for (GameParticipant<GamePlayer> participant : new GameParticipant[]{ participantA, participantB }) {
@@ -304,9 +304,9 @@ public class GulagGameLogic implements EventGameLogic {
 					voteData.addVote(player.getUniqueId());
 
 					game.sendMessage(Locale.EVENT_PLAYER_VOTE, new MessageFormat()
-						.add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-						.add("{map_name}", gameMap.getMapName())
-						.add("{votes}", String.valueOf(voteData.getPlayers().size()))
+						.add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+						.add("<map_name>", gameMap.getMapName())
+						.add("<votes>", String.valueOf(voteData.getPlayers().size()))
 					);
 				}
 			} else {
@@ -322,9 +322,9 @@ public class GulagGameLogic implements EventGameLogic {
 		game.getParticipants().add(new GameParticipant<>(new GamePlayer(player.getUniqueId(), player.getName())));
 
 		game.sendMessage(Locale.EVENT_PLAYER_JOIN, new MessageFormat()
-			.add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-			.add("{size}", String.valueOf(game.getParticipants().size()))
-			.add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+			.add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+			.add("<size>", String.valueOf(game.getParticipants().size()))
+			.add("<maximum>", String.valueOf(game.getMaximumPlayers()))
 		);
 
 		Profile profile = Profile.get(player.getUniqueId());
@@ -383,9 +383,9 @@ public class GulagGameLogic implements EventGameLogic {
 							if (game.getGameState() == EventGameState.WAITING_FOR_PLAYERS ||
 							    game.getGameState() == EventGameState.STARTING_EVENT) {
 								game.sendMessage(Locale.EVENT_PLAYER_LEAVE, new MessageFormat()
-									.add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-									.add("{remaining}", String.valueOf(game.getRemainingPlayers()))
-									.add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+									.add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+									.add("<remaining>", String.valueOf(game.getRemainingPlayers()))
+									.add("<maximum>", String.valueOf(game.getMaximumPlayers()))
 								);
 							}
 
@@ -482,19 +482,19 @@ public class GulagGameLogic implements EventGameLogic {
 		List<String> lines = new ArrayList<>();
 		BasicConfigurationFile config = cPractice.get().getScoreboardConfig();
 		config.getStringList("EVENTS.GULAG.LINES").forEach(s -> {
-			lines.add(s.replace("{event-name}", game.getEvent().getName())
-					.replace("{event-displayname}", game.getEvent().getDisplayName())
-					.replace("{players}", String.valueOf(game.getRemainingPlayers()))
-					.replace("{max-players}", String.valueOf(game.getMaximumPlayers()))
-					.replace("{bars}", CC.SB_BAR));
+			lines.add(s.replace("<event-name>", game.getEvent().getName())
+					.replace("<event-displayname>", game.getEvent().getDisplayName())
+					.replace("<players>", String.valueOf(game.getRemainingPlayers()))
+					.replace("<max-players>", String.valueOf(game.getMaximumPlayers()))
+					.replace("<bars>", CC.SB_BAR));
 		});
 
 		if (game.getGameState() == EventGameState.STARTING_ROUND ||
 		    game.getGameState() == EventGameState.PLAYING_ROUND ||
 		    game.getGameState() == EventGameState.ENDING_ROUND) {
 			config.getStringList("EVENTS.GULAG.ROUND").forEach(s -> {
-				lines.add(s.replace("{round}", String.valueOf(roundNumber))
-						.replace("{bars}", CC.SB_BAR));
+				lines.add(s.replace("<round>", String.valueOf(roundNumber))
+						.replace("<bars>", CC.SB_BAR));
 			});
 		}
 
@@ -505,39 +505,39 @@ public class GulagGameLogic implements EventGameLogic {
 			break;
 			case STARTING_EVENT: {
 				config.getStringList("EVENTS.GULAG.STARTING-EVENT").forEach(s -> {
-					lines.add(s.replace("{time}", String.valueOf(game.getGameLogic().getGameLogicTask().getNextActionTime()))
-							.replace("{bars}", CC.SB_BAR));
+					lines.add(s.replace("<time>", String.valueOf(game.getGameLogic().getGameLogicTask().getNextActionTime()))
+							.replace("<bars>", CC.SB_BAR));
 				});
 			}
 			break;
 			case PLAYING_ROUND: {
 				config.getStringList("EVENTS.GULAG.PLAYING-ROUND").forEach(s -> {
-					lines.add(s.replace("{bars}", CC.SB_BAR)
-							.replace("{playerA}", participantA.getConjoinedNames())
-							.replace("{playerB}", participantB.getConjoinedNames())
-							.replace("{bars}", CC.SB_BAR));
+					lines.add(s.replace("<bars>", CC.SB_BAR)
+							.replace("<playerA>", participantA.getConjoinedNames())
+							.replace("<playerB>", participantB.getConjoinedNames())
+							.replace("<bars>", CC.SB_BAR));
 				});
 			}
 			break;
 			case STARTING_ROUND: {
 				config.getStringList("EVENTS.GULAG.STARTING-ROUND").forEach(s -> {
-					lines.add(s.replace("{time}", String.valueOf(game.getGameLogic().getGameLogicTask().getNextActionTime()))
-							.replace("{bars}", CC.SB_BAR));
+					lines.add(s.replace("<time>", String.valueOf(game.getGameLogic().getGameLogicTask().getNextActionTime()))
+							.replace("<bars>", CC.SB_BAR));
 				});
 			}
 			break;
 			case ENDING_ROUND: {
 				config.getStringList("EVENTS.GULAG.ENDING-ROUND").forEach(s -> {
-					lines.add(s.replace("{bars}", CC.SB_BAR));
+					lines.add(s.replace("<bars>", CC.SB_BAR));
 				});
 			}
 			break;
 			case ENDING_EVENT: {
 				if (winningParticipant != null) {
 					config.getStringList("EVENTS.GULAG.ENDING-EVENT").forEach(s -> {
-						lines.add(s.replace("{rounds}", String.valueOf(roundNumber))
-								.replace("{bars}", CC.SB_BAR)
-								.replace("{winner}", winningParticipant.getConjoinedNames()));
+						lines.add(s.replace("<rounds>", String.valueOf(roundNumber))
+								.replace("<bars>", CC.SB_BAR)
+								.replace("<winner>", winningParticipant.getConjoinedNames()));
 					});
 				}
 			}
@@ -547,15 +547,15 @@ public class GulagGameLogic implements EventGameLogic {
 		if (game.getGameState() == EventGameState.WAITING_FOR_PLAYERS ||
 		    game.getGameState() == EventGameState.STARTING_EVENT) {
 			config.getStringList("EVENTS.GULAG.MAP-VOTES").forEach(s -> {
-				if (s.contains("{votes-format}")) {
+				if (s.contains("<votes-format>")) {
 					game.getVotesData().forEach((map, voteData) -> {
 						lines.add(config.getString("EVENTS.GULAG.VOTES-FORMAT")
-								.replace("{map-name}", map.getMapName())
-								.replace("{size}", String.valueOf(voteData.getPlayers().size())));
+								.replace("<map-name>", map.getMapName())
+								.replace("<size>", String.valueOf(voteData.getPlayers().size())));
 					});
 					return;
 				}
-				lines.add(s.replace("{bars}", CC.SB_BAR));
+				lines.add(s.replace("<bars>", CC.SB_BAR));
 			});
 		}
 

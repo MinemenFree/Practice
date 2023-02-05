@@ -70,7 +70,7 @@ public class MatchPlayerListener implements Listener {
                                 if (kitLoadout != null) {
                                     //player.sendMessage(Locale.MATCH_GIVE_KIT.format(kitLoadout.getCustomName()));
                                     new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale()))
-                                            .add("{kit_name}", kitLoadout.getCustomName())
+                                            .add("<kit_name>", kitLoadout.getCustomName())
                                             .send(player);
                                     if (match.getKit().getGameRules().isBridge()) {
                                         player.getInventory().setContents(kitLoadout.getContents());
@@ -122,7 +122,7 @@ public class MatchPlayerListener implements Listener {
                             }
                         }
                         if (kitLoadout != null) {
-                            new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale())).add("{kit_name}", kitLoadout.getCustomName()).send(player);
+                            new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale())).add("<kit_name>", kitLoadout.getCustomName()).send(player);
                             if (match.getKit().getGameRules().isBridge() || match.getKit().getGameRules().isHcftrap()) {
                                 if(match.getKit().getGameRules().isBridge()) {
                                     player.getInventory().setContents(kitLoadout.getContents());
@@ -159,7 +159,7 @@ public class MatchPlayerListener implements Listener {
                     if (!profile.getEnderpearlCooldown().hasExpired()) {
                         playerInteractEvent.setCancelled(true);
                         String time = TimeUtil.millisToSeconds(profile.getEnderpearlCooldown().getRemaining());
-                        new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("{time}", time).send(player);
+                        new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("<context>", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("<time>", time).send(player);
                     }
                 }
             }

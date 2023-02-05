@@ -8,16 +8,16 @@ EVENTS:
     WITH_PERMISSION:
     - ''
     - ' &aYou can host this event.'
-    - ' &aMaximum Slots&7: &e{slots}'
+    - ' &aMaximum Slots&7: &e<slots>'
   SUMO:
     DISPLAYNAME: '&cSumo'
     ICON: FEATHER
     DESCRIPTION:
-    - '{bars}'
+    - '<bars>'
     - ' &7Compete by knocking your'
     - ' &7opponent off of the platform.'
-    - '{context}'
-    - '{bars}'
+    - '<context>'
+    - '<bars>'
     LOBBY_LOCATION: world:-9999.51271230201:100.0:245.56600853008737:179.89684:-1.1549729
     ALLOWED_MAPS:
     - Sumo
@@ -26,33 +26,33 @@ EVENTS:
     DISPLAYNAME: '&cSpleef'
     ICON: DIAMOND_SPADE
     DESCRIPTION:
-    - '{bars}'
+    - '<bars>'
     - ' &7Compete by knocking all'
     - ' &7opponents off of the platform.'
-    - '{context}'
-    - '{bars}'
+    - '<context>'
+    - '<bars>'
     LOBBY_LOCATION: 'null'
     ALLOWED_MAPS: []
   TNTRUN:
     DISPLAYNAME: '&cTNTRun'
     ICON: TNT
     DESCRIPTION:
-    - '{bars}'
+    - '<bars>'
     - ' &7Compete by knocking all'
     - ' &7opponents off of the platform.'
-    - '{context}'
-    - '{bars}'
+    - '<context>'
+    - '<bars>'
     LOBBY_LOCATION: 'null'
     ALLOWED_MAPS: []
   TNTTAG:
     DISPLAYNAME: '&cTNTTag'
     ICON: NAME_TAG
     DESCRIPTION:
-    - '{bars}'
+    - '<bars>'
     - ' &7Compete not to be the'
     - ' &7last user with the Bomb.'
-    - '{context}'
-    - '{bars}'
+    - '<context>'
+    - '<bars>'
     MATCH-SECONDS: 60
     LOBBY_LOCATION: 'null'
     ALLOWED_MAPS: []
@@ -60,22 +60,22 @@ EVENTS:
     DISPLAYNAME: '&cGulag'
     ICON: IRON_FENCE
     DESCRIPTION:
-    - '{bars}'
+    - '<bars>'
     - ' &7Compete to be last on'
     - ' &7the 1v1 platform.'
-    - '{context}'
-    - '{bars}'
+    - '<context>'
+    - '<bars>'
     LOBBY_LOCATION: 'null'
     ALLOWED_MAPS: []
   BRACKETS:
     DISPLAYNAME: '&cBrackets'
     ICON: IRON_FENCE
     DESCRIPTION:
-    - '{bars}'
+    - '<bars>'
     - ' &7Compete to be last on'
     - ' &7the 1v1 platform.'
-    - '{context}'
-    - '{bars}'
+    - '<context>'
+    - '<bars>'
     LOBBY_LOCATION: 'null'
     ALLOWED_MAPS: []
 EVENT_MAPS:

@@ -64,7 +64,7 @@ public class TournamentTeams extends Tournament<Party> {
                 .broadcastAt(3, TimeUnit.SECONDS)
                 .broadcastAt(2, TimeUnit.SECONDS)
                 .broadcastAt(1, TimeUnit.SECONDS)
-                .withMessage("&7Tournament start in&6 {time}")
+                .withMessage("&7Tournament start in&6 {time>")
                 .onFinish(this::start)
                 .start();
         }
@@ -78,9 +78,9 @@ public class TournamentTeams extends Tournament<Party> {
         //New team LinkedList to remove usedTeams
         LinkedList<GameParticipant<MatchGamePlayer>> teamsShuffle = new LinkedList<>(getTeams());
         //Count down
-        String round = "&7Next round in&9 {time}";
+        String round = "&7Next round in&9 {time>";
         if(getRound() == 1){
-            round = "&7Starting in &9{time}";
+            round = "&7Starting in &9{time>";
         }
         Countdown.of(10, TimeUnit.SECONDS)
             .players(getOnlinePlayers())
@@ -165,11 +165,11 @@ public class TournamentTeams extends Tournament<Party> {
         String bars = config.getString("LINES.BARS");
 
         config.getStringList("TOURNAMENTS.TEAMS.LINES").forEach(line -> {
-            lines.add(line.replace("{kit}", getKit().getName())
-                    .replace("{bars}", bars)
-                    .replace("{size}", String.valueOf(getTeams().size()))
-                    .replace("{limit}", String.valueOf(getLimit()))
-                    .replace("{state}", getState().getName()));
+            lines.add(line.replace("<kit>", getKit().getName())
+                    .replace("<bars>", bars)
+                    .replace("<size>", String.valueOf(getTeams().size()))
+                    .replace("<limit>", String.valueOf(getLimit()))
+                    .replace("<state>", getState().getName()));
         });
 
 //        lines.add(CC.SB_BAR);
@@ -180,15 +180,15 @@ public class TournamentTeams extends Tournament<Party> {
         if (this.getState() == TournamentState.IN_FIGHT) {
 //            lines.add("&aRound&7: &f#" + getRound());
             config.getStringList("TOURNAMENTS.TEAMS.IN-FIGHT").forEach(line -> {
-                lines.add(line.replace("{round}", String.valueOf(getRound())));
+                lines.add(line.replace("<round>", String.valueOf(getRound())));
             });
         }
         if (this.getState() == TournamentState.ENDED && getWinner() != null) {
             MatchGamePlayer leader = getWinner().getLeader();
 //            lines.add("&2&lWinner: " + Profile.getColorPlayer(leader.getPlayer()) + leader.getPlayer().getName() + " &2team");
             config.getStringList("TOURNAMENTS.TEAMS.ON-END").forEach(line -> {
-                lines.add(line.replace("{color}", Profile.get(leader.getPlayer().getUniqueId()).getColor())
-                        .replace("{player}", leader.getPlayer().getName()));
+                lines.add(line.replace("<color>", Profile.get(leader.getPlayer().getUniqueId()).getColor())
+                        .replace("<player>", leader.getPlayer().getName()));
             });
         }
 

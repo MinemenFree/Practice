@@ -38,45 +38,45 @@ public class KitButton extends Button {
                     List<String> first = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.KIT.POSITIONS.1");
                     for (String s : first) {
                         lore.add(s
-                                .replace("{pos}", String.valueOf(pos))
-                                .replace("{name}", profile.getName())
-                                .replace("{color}", profile.getColor())
-                                .replace("{data}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
-                                .replace("{winstreak}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
-                                .replace("{bars}", CC.MENU_BAR));
+                                .replace("<pos>", String.valueOf(pos))
+                                .replace("<name>", profile.getName())
+                                .replace("<color>", profile.getColor())
+                                .replace("<data>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
+                                .replace("<winstreak>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
+                                .replace("<bars>", CC.MENU_BAR));
                     }
                 } else if (pos == 2) {
                     List<String> second = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.KIT.POSITIONS.2");
                     for (String s : second) {
                         lore.add(s
-                                .replace("{pos}", String.valueOf(pos))
-                                .replace("{name}", profile.getName())
-                                .replace("{color}", profile.getColor())
-                                .replace("{data}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
-                                .replace("{winstreak}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
-                                .replace("{bars}", CC.MENU_BAR));
+                                .replace("<pos>", String.valueOf(pos))
+                                .replace("<name>", profile.getName())
+                                .replace("<color>", profile.getColor())
+                                .replace("<data>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
+                                .replace("<winstreak>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
+                                .replace("<bars>", CC.MENU_BAR));
                     }
                 } else if (pos == 3) {
                     List<String> third = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.KIT.POSITIONS.3");
                     for (String s : third) {
                         lore.add(s
-                                .replace("{pos}", String.valueOf(pos))
-                                .replace("{name}", profile.getName())
-                                .replace("{color}", profile.getColor())
-                                .replace("{data}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
-                                .replace("{winstreak}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
-                                .replace("{bars}", CC.MENU_BAR));
+                                .replace("<pos>", String.valueOf(pos))
+                                .replace("<name>", profile.getName())
+                                .replace("<color>", profile.getColor())
+                                .replace("<data>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
+                                .replace("<winstreak>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
+                                .replace("<bars>", CC.MENU_BAR));
                     }
                 } else {
                     List<String> another = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.KIT.POSITIONS.ANOTHER");
                     for (String s : another) {
                         lore.add(s
-                                .replace("{pos}", String.valueOf(pos))
-                                .replace("{name}", profile.getName())
-                                .replace("{color}", profile.getColor())
-                                .replace("{data}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
-                                .replace("{winstreak}", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
-                                .replace("{bars}", CC.MENU_BAR));
+                                .replace("<pos>", String.valueOf(pos))
+                                .replace("<name>", profile.getName())
+                                .replace("<color>", profile.getColor())
+                                .replace("<data>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getElo()))
+                                .replace("<winstreak>", String.valueOf(profile.getKitData().getOrDefault(kit, new ProfileKitData()).getKillstreak()))
+                                .replace("<bars>", CC.MENU_BAR));
                     }
                 }
             }
@@ -84,7 +84,7 @@ public class KitButton extends Button {
         lore.add(CC.MENU_BAR);
 
         return new ItemBuilder(kit.getDisplayIcon().getType())
-                .name(cPractice.get().getLeaderboardConfig().getString("INVENTORY.KIT.TITLE").replace("{kit}", kit.getName()))
+                .name(cPractice.get().getLeaderboardConfig().getString("INVENTORY.KIT.TITLE").replace("<kit>", kit.getName()))
                 .durability(kit.getDisplayIcon().getDurability())
                 .lore(lore)
                 .build();

@@ -54,7 +54,7 @@ public class ClanKickCommand extends BaseCommand {
 
         if(!profile.getClan().getMembers().contains(target.getUniqueId())){
             new MessageFormat(Locale.CLAN_ERROR_PLAYER_NOT_IN_YOUR_CLAN.format(profile.getLocale()))
-                    .add("{target_name}", target.getName())
+                    .add("<target_name>", target.getName())
                     .send(player);
             return;
         }
@@ -72,7 +72,7 @@ public class ClanKickCommand extends BaseCommand {
         }
 
         clan.getOnPlayers().forEach(other -> new MessageFormat(Locale.CLAN_KICKED_BROADCAST.format(Profile.get(other.getUniqueId()).getLocale()))
-                .add("{target_name}", target.getName())
+                .add("<target_name>", target.getName())
                 .send(other));
 
         TaskUtil.runAsync(profileTarget::save);

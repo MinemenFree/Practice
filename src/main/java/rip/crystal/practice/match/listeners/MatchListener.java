@@ -388,10 +388,10 @@ public class MatchListener implements Listener {
 					double health = Math.ceil(damaged.getHealth() - event.getFinalDamage()) / 2.0D;
 
 					new MessageFormat(Locale.ARROW_DAMAGE_INDICATOR.format(attackerProfile.getLocale()))
-							.add("{range}", String.valueOf(range))
-							.add("{damaged_name}", damaged.getName())
-							.add("{damaged_health}", String.valueOf(health))
-							.add("{symbol}", StringEscapeUtils.unescapeJava("\u2764"))
+							.add("<range>", String.valueOf(range))
+							.add("<damaged_name>", damaged.getName())
+							.add("<damaged_health>", String.valueOf(health))
+							.add("<symbol>", StringEscapeUtils.unescapeJava("\u2764"))
 							.send(attacker);
 				}
 			}

@@ -34,8 +34,8 @@ public class MuteChatCommand extends BaseCommand {
 		Bukkit.getOnlinePlayers().forEach(online -> {
 			Profile profile = Profile.get(online.getUniqueId());
 			new MessageFormat(Locale.MUTE_CHAT_BROADCAST.format(profile.getLocale()))
-					.add("{sender_name}", senderName)
-					.add("{context}", context)
+					.add("<sender_name>", senderName)
+					.add("<context>", context)
 					.send(online);
 		});
 	}

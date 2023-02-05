@@ -213,7 +213,7 @@ public class BasicTeamMatch extends Match {
 				matchGamePlayer.getPlayer().sendTitle(new Title(
 						new MessageFormat(Locale.MATCH_WINNER_TITLE.format(profile.getLocale())).getMessage(),
 						new MessageFormat(Locale.MATCH_WINNER_SUBTITLE.format(profile.getLocale()))
-								.add("{winner}", winningParticipant.getLeader().getUsername()).getMessage(),
+								.add("<winner>", winningParticipant.getLeader().getUsername()).getMessage(),
 						20, 40, 20));
 					});
 			/*losingParticipant.getPlayers().forEach(matchGamePlayer -> {
@@ -221,7 +221,7 @@ public class BasicTeamMatch extends Match {
 				matchGamePlayer.getPlayer().sendTitle(new Title(
 						new MessageFormat(Locale.MATCH_LOSER_TITLE.format(profile.getLocale())).getMessage(),
 						new MessageFormat(Locale.MATCH_LOSER_SUBTITLE.format(profile.getLocale()))
-								.add("{winner}", winningParticipant.getLeader().getUsername()).getMessage(),
+								.add("<winner>", winningParticipant.getLeader().getUsername()).getMessage(),
 						20, 40, 20));
 			});*/
 		}
@@ -387,7 +387,7 @@ public class BasicTeamMatch extends Match {
 						String mmcBoxingComboNew = mmcBoxingCombo;
 						//String finalActualHits = actualHits;
 						config.getStringList("FIGHTS.1V1.BOXING-MODE").forEach(line -> {
-							lines.add(line.replace("{bars}", bars)
+							lines.add(line.replace("<bars>", bars)
 									.replace("<duration>", getDuration())
 									.replace("<opponent-color>", Profile.get(opponent.getLeader().getPlayer().getUniqueId()).getColor())
 									.replace("<opponent>", opponent.getLeader().getPlayer().getName())
@@ -396,7 +396,7 @@ public class BasicTeamMatch extends Match {
 								        .replace("<arena-name>", getArena().getName())
 									.replace("<arena-author>", getArena().getAuthor())
 									.replace("<kit-name>", getKit().getName())
-									//.replace("{hits}", finalActualHits)
+									//.replace("<hits>", finalActualHits)
 									.replace("<hits-difference>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
 								  	.replace("<hits-difference-bracketless>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
 								  	.replace("<hits-difference-colorless>", "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
@@ -413,9 +413,9 @@ public class BasicTeamMatch extends Match {
 					}
 
 					config.getStringList("FIGHTS.1V1.LINES").forEach(line -> {
-						if (line.contains("<bridge}")) return;
-						if (line.contains("<rounds}")) return;
-						lines.add(line.replace("<bars}", bars)
+						if (line.contains("<bridge>")) return;
+						if (line.contains("<rounds>")) return;
+						lines.add(line.replace("<bars>", bars)
 								.replace("<duration>", getDuration())
 								.replace("<opponent-color>", Profile.get(opponent.getLeader().getPlayer().getUniqueId()).getColor())
 								.replace("<opponent>", opponent.getLeader().getPlayer().getName())
@@ -460,7 +460,7 @@ public class BasicTeamMatch extends Match {
 											}
 											return;
 										}
-										lines.add(line2.replace("<bars}", bars)
+										lines.add(line2.replace("<bars>", bars)
 												.replace("<team-alive>", String.valueOf(friendly.getAliveCount()))
 												.replace("<team-size>", String.valueOf(friendly.getPlayers().size()))
 												.replace("<opponent-alive>", String.valueOf(opponent.getAliveCount()))

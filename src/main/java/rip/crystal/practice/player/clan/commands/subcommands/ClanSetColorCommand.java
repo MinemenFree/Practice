@@ -53,8 +53,8 @@ public class ClanSetColorCommand extends BaseCommand {
         clan.setColor(chatColor);
         clan.save();
         clan.broadcast(Locale.CLAN_SET_COLOR_BROADCAST, new MessageFormat()
-                .add("{new_color}", StyleUtil.colorName(ChatColor.valueOf(color.toUpperCase())))
-                .add("{color}", color.toUpperCase()));
+                .add("<new_color>", StyleUtil.colorName(ChatColor.valueOf(color.toUpperCase())))
+                .add("<color>", color.toUpperCase()));
         TaskUtil.runAsync(() -> {
             GxNameTag.reloadOthersFor(player);
             GxNameTag.reloadPlayer(player);

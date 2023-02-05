@@ -20,8 +20,8 @@ public class MatchTask extends BukkitRunnable {
         if (Arrays.asList(30, 15, 10, 5, 4, 3, 2, 1).contains(seconds)) {
             tntTagGameLogic.getParticipants().forEach(gamePlayerGameParticipant -> {
                 new MessageFormat(Locale.EVENT_MATCH_REMAINING.format(Profile.get(gamePlayerGameParticipant.getLeader().getUuid()).getLocale()))
-                        .add("{seconds}", String.valueOf(seconds))
-                        .add("{context}", seconds == 1 ? "" : "s")
+                        .add("<seconds>", String.valueOf(seconds))
+                        .add("<context>", seconds == 1 ? "" : "s")
                         .send(gamePlayerGameParticipant.getLeader().getPlayer());
             });
         }

@@ -41,12 +41,12 @@ public class BoardAdapter implements AssembleAdapter {
 		if (profile.getState() == ProfileState.LOBBY || profile.getState() == ProfileState.QUEUEING) {
 			config.getStringList("LINES.LOBBY").forEach(line -> {
 				lines.add(line
-						.replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-						.replace("{in-fights}", String.valueOf(cPractice.get().getInFights()))
-						.replace("{in-queues}", String.valueOf(cPractice.get().getInQueues()))
-						.replace("{division}", String.valueOf(getDivision(player)))
-						.replace("{coins}", String.valueOf(profile.getCoins()))
-						.replace("{elo}", String.valueOf(EloUtil.getGlobalElo(profile))));
+						.replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+						.replace("<in-fights>", String.valueOf(cPractice.get().getInFights()))
+						.replace("<in-queues>", String.valueOf(cPractice.get().getInQueues()))
+						.replace("<division>", String.valueOf(getDivision(player)))
+						.replace("<coins>", String.valueOf(profile.getCoins()))
+						.replace("<elo>", String.valueOf(EloUtil.getGlobalElo(profile))));
 			});
 		}
 
@@ -57,7 +57,7 @@ public class BoardAdapter implements AssembleAdapter {
 				int added = 0;
 				Party party = profile.getParty();
 				config.getStringList("LINES.PARTY.LINES").forEach(line -> {
-					lines.add(line.replace("{bars}", bars));
+					lines.add(line.replace("<bars>", bars));
 				});
 
 				if (party.getListOfPlayers().size() <= 4) {
@@ -65,16 +65,16 @@ public class BoardAdapter implements AssembleAdapter {
 						added++;
 
 						lines.add(config.getString("LINES.PARTY.MEMBERS-FORMAT")
-								.replace("{color}", Profile.get(otherPlayer.getUniqueId()).getColor())
-								.replace("{player}", otherPlayer.getName()));
+								.replace("<color>", Profile.get(otherPlayer.getUniqueId()).getColor())
+								.replace("<player>", otherPlayer.getName()));
 
 						if (added >= 4) break;
 					}
 				} else {
 					config.getStringList("LINES.PARTY.INFO").forEach(line -> {
-						lines.add(line.replace("{leader-color}", Profile.get(party.getLeader().getPlayer().getUniqueId()).getColor())
-								.replace("{leader}", party.getLeader().getName())
-								.replace("{size}", String.valueOf(party.getListOfPlayers().size())));
+						lines.add(line.replace("<leader-color>", Profile.get(party.getLeader().getPlayer().getUniqueId()).getColor())
+								.replace("<leader>", party.getLeader().getName())
+								.replace("<size>", String.valueOf(party.getListOfPlayers().size())));
 					});
 				}
 			} else if (profile.getClan() != null) {
@@ -84,23 +84,23 @@ public class BoardAdapter implements AssembleAdapter {
 			QueueProfile queueProfile = profile.getQueueProfile();
 
 			config.getStringList("LINES.IN-QUEUE").forEach(line -> {
-				if (line.contains("{ranked}")) {
+				if (line.contains("<ranked>")) {
 					if (queueProfile.getQueue().isRanked()) {
 						lines.add(config.getString("LINES.RANKED-QUEUE")
-								.replace("{min-range}", String.valueOf(queueProfile.getMinRange()))
-								.replace("{max-range}", String.valueOf(queueProfile.getMaxRange())));
+								.replace("<min-range>", String.valueOf(queueProfile.getMinRange()))
+								.replace("<max-range>", String.valueOf(queueProfile.getMaxRange())));
 					}
 					return;
 				}
-				if (line.contains("{pingrange}")) {
+				if (line.contains("<pingrange>")) {
 					//if(profile.getOptions().isUsingPingFactor()) {
-						lines.add(config.getString("LINES.PINGRANGE-QUEUE").replace("{range}", "" + (profile.getPingRange() == -1 ? "Unrestricted" : Integer.valueOf(profile.getPingRange()))));
+						lines.add(config.getString("LINES.PINGRANGE-QUEUE").replace("<range>", "" + (profile.getPingRange() == -1 ? "Unrestricted" : Integer.valueOf(profile.getPingRange()))));
 					//}
 					return;
 				}
-				lines.add(line.replace("{queue}", queueProfile.getQueue().getQueueName())
-						.replace("{elapsed}", TimeUtil.millisToTimer(queueProfile.getPassed()))
-						.replace("{bars}", bars));
+				lines.add(line.replace("<queue>", queueProfile.getQueue().getQueueName())
+						.replace("<elapsed>", TimeUtil.millisToTimer(queueProfile.getPassed()))
+						.replace("<bars>", bars));
 			});
 		}
 		else if (profile.getState() == ProfileState.FIGHTING) {

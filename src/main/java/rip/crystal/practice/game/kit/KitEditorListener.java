@@ -44,8 +44,8 @@ public class KitEditorListener implements Listener {
 
 			new MessageFormat(Locale.KIT_EDITOR_RENAMED
 				.format(profile.getLocale()))
-				.add("{previous_name}", previousName)
-				.add("{new_name}", newName)
+				.add("<previous_name>", previousName)
+				.add("<new_name>", newName)
 				.send(event.getPlayer());
 
 			Kit selectedKit = profile.getKitEditorData().getSelectedKit();

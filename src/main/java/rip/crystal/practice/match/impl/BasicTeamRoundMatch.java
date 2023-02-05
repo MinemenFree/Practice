@@ -220,43 +220,43 @@ public class BasicTeamRoundMatch extends BasicTeamMatch {
                     else opponent = getParticipantA();
 
                     config.getStringList("FIGHTS.1V1.LINES").forEach(line -> {
-                        if (line.contains("{bridge}")) {
+                        if (line.contains("<bridge>")) {
                             if (kit.getGameRules().isBridge()) {
                                 config.getStringList("FIGHTS.BRIDGE-FORMAT.LINES").forEach(line2 -> {
-                                    if (line2.contains("{points}")) {
+                                    if (line2.contains("<points>")) {
                                         if (this.getParticipantA().containsPlayer(player.getUniqueId())) {
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.RED")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.BLUE")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
                                         } else {
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.BLUE")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.RED")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
                                         }
                                         return;
                                     }
-                                    lines.add(line2.replace("{kills}", String.valueOf(getGamePlayer(player).getKills())));
+                                    lines.add(line2.replace("<kills>", String.valueOf(getGamePlayer(player).getKills())));
                                 });
                             }
                             return;
                         }
-                        if (line.contains("{rounds}")) {
+                        if (line.contains("<rounds>")) {
                             if (!kit.getGameRules().isBridge()) {
                                 lines.add(config.getString("FIGHTS.ROUND-START")
-                                        .replace("{round}", StringUtils.getStringPoint(getParticipant(player).getRoundWins(), ChatColor.LIGHT_PURPLE, roundsToWin)));
+                                        .replace("<round>", StringUtils.getStringPoint(getParticipant(player).getRoundWins(), ChatColor.LIGHT_PURPLE, roundsToWin)));
                             }
                             return;
                         }
-                        lines.add(line.replace("{bars}", bars)
-                                .replace("{duration}", getDuration())
-                                .replace("{opponent-color}", Profile.get(opponent.getLeader().getUuid()).getColor())
-                                .replace("{opponent}", opponent.getLeader().getPlayer().getName())
-                                .replace("{opponent-ping}", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
-                                .replace("{player-ping}", String.valueOf(BukkitReflection.getPing(player)))
-                                .replace("{arena-author}", getArena().getAuthor())
-                                .replace("{kit}", getKit().getName()));
+                        lines.add(line.replace("<bars>", bars)
+                                .replace("<duration>", getDuration())
+                                .replace("<opponent-color>", Profile.get(opponent.getLeader().getUuid()).getColor())
+                                .replace("<opponent>", opponent.getLeader().getPlayer().getName())
+                                .replace("<opponent-ping>", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
+                                .replace("<player-ping>", String.valueOf(BukkitReflection.getPing(player)))
+                                .replace("<arena-author>", getArena().getAuthor())
+                                .replace("<kit>", getKit().getName()));
                     });
                 } else {
                     GameParticipant<MatchGamePlayer> friendly = getParticipant(player);
@@ -266,118 +266,118 @@ public class BasicTeamRoundMatch extends BasicTeamMatch {
                     if (friendly.getPlayers().size() + opponent.getPlayers().size() <= 6) {
 
                         config.getStringList("FIGHTS.SMALL-TEAM.LINES").forEach(line -> {
-                            if (line.contains("{bridge}")) {
+                            if (line.contains("<bridge>")) {
                                 config.getStringList("FIGHTS.BRIDGE-FORMAT.LINES").forEach(line2 -> {
-                                    if (line2.contains("{points}")) {
+                                    if (line2.contains("<points>")) {
                                         if (this.getParticipantA().containsPlayer(player.getUniqueId())) {
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.RED")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.BLUE")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
                                         } else {
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.BLUE")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.RED")
-                                                    .replace("{string-points}", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
+                                                    .replace("<string-points>", StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
                                         }
                                         return;
                                     }
-                                    lines.add(line2.replace("{kills}", String.valueOf(getGamePlayer(player).getKills())));
+                                    lines.add(line2.replace("<kills>", String.valueOf(getGamePlayer(player).getKills())));
                                 });
                                 return;
                             }
-                            if (line.contains("{no-bridge}")) {
+                            if (line.contains("<no-bridge>")) {
                                 if (!kit.getGameRules().isBridge()) {
 
                                     config.getStringList("FIGHTS.SMALL-TEAM.NO-BRIDGE.LINES").forEach(line2 -> {
-                                        if (line2.contains("{players}")) {
+                                        if (line2.contains("<players>")) {
                                             for (MatchGamePlayer gamePlayer : friendly.getPlayers()) {
                                                 lines.add(config.getString("FIGHTS.SMALL-TEAM.NO-BRIDGE.PLAYERS-FORMAT")
-                                                        .replace("{player}", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
+                                                        .replace("<player>", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
                                                                 gamePlayer.getUsername()));
                                             }
                                             return;
                                         }
-                                        if (line2.contains("{opponents}")) {
+                                        if (line2.contains("<opponents>")) {
                                             for (MatchGamePlayer gamePlayer : opponent.getPlayers()) {
                                                 lines.add(config.getString("FIGHTS.SMALL-TEAM.NO-BRIDGE.OPPONENT-FORMAT")
-                                                        .replace("{opponent}", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
+                                                        .replace("<opponent>", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
                                                                 gamePlayer.getUsername()));
                                             }
                                             return;
                                         }
-                                        lines.add(line2.replace("{bars}", bars)
-                                                .replace("{team-alive}", String.valueOf(friendly.getAliveCount()))
-                                                .replace("{team-size}", String.valueOf(friendly.getPlayers().size()))
-                                                .replace("{opponent-alive}", String.valueOf(opponent.getAliveCount()))
-                                                .replace("{opponent-size}", String.valueOf(opponent.getPlayers().size()))
-                                                .replace("{kit}", getKit().getName()));
+                                        lines.add(line2.replace("<bars>", bars)
+                                                .replace("<team-alive>", String.valueOf(friendly.getAliveCount()))
+                                                .replace("<team-size>", String.valueOf(friendly.getPlayers().size()))
+                                                .replace("<opponent-alive>", String.valueOf(opponent.getAliveCount()))
+                                                .replace("<opponent-size>", String.valueOf(opponent.getPlayers().size()))
+                                                .replace("<kit>", getKit().getName()));
                                     });
                                 }
                                 return;
                             }
-                            if (line.contains("{rounds}")) {
+                            if (line.contains("<rounds>")) {
                                 if (!kit.getGameRules().isBridge()) {
                                     lines.add(line
-                                            .replace("{round}", StringUtils.getStringPoint(getParticipant(player).getRoundWins(), ChatColor.LIGHT_PURPLE, roundsToWin))
-                                            .replace("{kit}", getKit().getName()));
+                                            .replace("<round>", StringUtils.getStringPoint(getParticipant(player).getRoundWins(), ChatColor.LIGHT_PURPLE, roundsToWin))
+                                            .replace("<kit>", getKit().getName()));
                                 }
                                 return;
                             }
-                            lines.add(line.replace("{bars}", bars)
-                                    .replace("{duration}", getDuration())
-                                    .replace("{arena-author}", getArena().getAuthor())
-                                    .replace("{kit}", getKit().getName()));
+                            lines.add(line.replace("<bars>", bars)
+                                    .replace("<duration>", getDuration())
+                                    .replace("<arena-author>", getArena().getAuthor())
+                                    .replace("<kit>", getKit().getName()));
                         });
                     } else {
                         config.getStringList("FIGHTS.BIG-TEAM.LINES").forEach(line -> {
-                            if (line.contains("{bridge}")) {
+                            if (line.contains("<bridge>")) {
                                 config.getStringList("FIGHTS.BRIDGE-FORMAT.LINES").forEach(line2 -> {
-                                    if (line2.contains("{points}")) {
+                                    if (line2.contains("<points>")) {
                                         if (this.getParticipantA().containsPlayer(player.getUniqueId())) {
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.RED")
-                                                    .replace("{string-points}",
+                                                    .replace("<string-points>",
                                                             StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.BLUE")
-                                                    .replace("{string-points}",
+                                                    .replace("<string-points>",
                                                             StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
                                         } else {
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.BLUE")
-                                                    .replace("{string-points}",
+                                                    .replace("<string-points>",
                                                             StringUtils.getStringPoint(getParticipantB().getRoundWins(), org.bukkit.ChatColor.BLUE, getRoundsToWin())));
                                             lines.add(config.getString("FIGHTS.BRIDGE-FORMAT.RED")
-                                                    .replace("{string-points}",
+                                                    .replace("<string-points>",
                                                             StringUtils.getStringPoint(getParticipantA().getRoundWins(), org.bukkit.ChatColor.RED, getRoundsToWin())));
                                         }
                                         return;
                                     }
-                                    lines.add(line2.replace("{kills}", String.valueOf(getGamePlayer(player).getKills())));
+                                    lines.add(line2.replace("<kills>", String.valueOf(getGamePlayer(player).getKills())));
                                 });
                                 return;
                             }
-                            if (line.contains("{rounds}")) {
+                            if (line.contains("<rounds>")) {
                                 if (!kit.getGameRules().isBridge()) {
                                     lines.add(line
-                                            .replace("{round}",
+                                            .replace("<round>",
                                                     StringUtils.getStringPoint(getParticipant(player).getRoundWins(), ChatColor.LIGHT_PURPLE, roundsToWin)));
                                 }
                                 return;
                             }
-                            lines.add(line.replace("{duration}", getDuration())
-                                    .replace("{arena-author}", getArena().getAuthor())
-                                    .replace("{team-alive}", String.valueOf(friendly.getAliveCount()))
-                                    .replace("{team-size}", String.valueOf(friendly.getPlayers().size()))
-                                    .replace("{opponent-alive}", String.valueOf(opponent.getAliveCount()))
-                                    .replace("{opponent-size}", String.valueOf(opponent.getPlayers().size()))
-                                    .replace("{kit}", getKit().getName()));
+                            lines.add(line.replace("<duration>", getDuration())
+                                    .replace("<arena-author>", getArena().getAuthor())
+                                    .replace("<team-alive>", String.valueOf(friendly.getAliveCount()))
+                                    .replace("<team-size>", String.valueOf(friendly.getPlayers().size()))
+                                    .replace("<opponent-alive>", String.valueOf(opponent.getAliveCount()))
+                                    .replace("<opponent-size>", String.valueOf(opponent.getPlayers().size()))
+                                    .replace("<kit>", getKit().getName()));
                         });
                     }
                 }
             } else {
                 config.getStringList("FIGHTS.ON-END-ROUND-FOR-NEXT").forEach(line -> {
-                    lines.add(line.replace("{duration}", getDuration())
-                            .replace("{arena-author}", getArena().getAuthor())
-                            .replace("{kit}", getKit().getName()));
+                    lines.add(line.replace("<duration>", getDuration())
+                            .replace("<arena-author>", getArena().getAuthor())
+                            .replace("<kit>", getKit().getName()));
                 });
             }
         }

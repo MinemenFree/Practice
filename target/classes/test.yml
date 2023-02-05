@@ -1,5 +1,5 @@
 #Which menu should /punish <player> open?
-Command: "{openmenu:main-menu}"
+Command: "<openmenu:main-menu>"
 #Should the console run the punishment command?
 ConsoleRunsCommands: false
 #Toggle update checks
@@ -9,7 +9,7 @@ menus:
   #main-menu is the default menu, to create more just copy and paste the same format.
   main-menu:
     #You're using this name to access to this menu from anywhere in the configuration where you have action option
-    #Just use for action {openmenu:menu-name}
+    #Just use for action <openmenu:menu-name>
     name: "main-menu"
     menu-title: "&9&lPunish a player"
     menu-size: 54
@@ -25,7 +25,7 @@ menus:
         slot: 15
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: false
           #Put command without /
@@ -43,7 +43,7 @@ menus:
         slot: 13
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: false
           #Put command without /
@@ -61,7 +61,7 @@ menus:
         slot: 11
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: false
           #Put command without /
@@ -79,12 +79,12 @@ menus:
         slot: 44
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "warn {player} Spam/Hack Accusation/Trolling -s"
+            - "warn <player> Spam/Hack Accusation/Trolling -s"
         action: ""
         lore:
           - ' '
@@ -100,12 +100,12 @@ menus:
         slot: 26
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "mute {player} Severe Advertising/Other Severe Offense -s"
+            - "mute <player> Severe Advertising/Other Severe Offense -s"
         action: ""
         lore:
           - '&fMute Duration: &9Permanent'
@@ -123,12 +123,12 @@ menus:
         slot: 20
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "mute {player} 1h Light Spam/Light Advertising/Light Abuse-Harassment/Hackusations -s"
+            - "mute <player> 1h Light Spam/Light Advertising/Light Abuse-Harassment/Hackusations -s"
         action: ""
         lore:
           - '&fMute Duration: &91 Hour'
@@ -152,12 +152,12 @@ menus:
         slot: 29
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "mute {player} 1w Medium Spam/Medium Advertising/Medium Abuse-Harassment/Avoiding Chat Filter"
+            - "mute <player> 1w Medium Spam/Medium Advertising/Medium Abuse-Harassment/Avoiding Chat Filter"
         action: ""
         lore:
           - '&fMute Duration: &91 Week'
@@ -182,12 +182,12 @@ menus:
         slot: 38
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "mute {player} 1m Severe Spam/Severe Abuse-Harassment -s"
+            - "mute <player> 1m Severe Spam/Severe Abuse-Harassment -s"
         action: ""
         lore:
           - '&fMute Duration: &91 Month'
@@ -206,12 +206,12 @@ menus:
         slot: 35
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "ban {player} Severe Threats -s"
+            - "ban <player> Severe Threats -s"
         action: ""
         lore:
           - '&fBan Duration: &9Permanent'
@@ -226,12 +226,12 @@ menus:
         slot: 22
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "ban {player} 3d Exploiting bugs -s"
+            - "ban <player> 3d Exploiting bugs -s"
         action: ""
         lore:
           - '&fBan Duration: &93 Days'
@@ -246,12 +246,12 @@ menus:
         slot: 24
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "ban {player} 30d Unfair Advantage (First Offense) -s"
+            - "ban <player> 30d Unfair Advantage (First Offense) -s"
         action: ""
         lore:
           - '&fBan Duration: &930 Days'
@@ -266,12 +266,12 @@ menus:
         slot: 33
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "ban {player} 90d Unfair Advantage (Second Offense) -s"
+            - "ban <player> 90d Unfair Advantage (Second Offense) -s"
         action: ""
         lore:
           - '&fBan Duration: &990 Days'
@@ -285,12 +285,12 @@ menus:
         slot: 42
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "ban {player} Unfair Advantage (Third Offence) -s"
+            - "ban <player> Unfair Advantage (Third Offence) -s"
         action: ""
         lore:
           - '&fBan Duration: &9Permanent'
@@ -304,12 +304,12 @@ menus:
         slot: 17
         message:
           enabled: false
-          text: "&9Hello &b{player}!"
+          text: "&9Hello &b<player>!"
         command:
           enabled: true
           #Put command without /
           execute:
-            - "blacklist {player} Unfair Advantage -s"
+            - "blacklist <player> Unfair Advantage -s"
         action: ""
         lore:
           - ' '

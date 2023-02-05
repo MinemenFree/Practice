@@ -35,7 +35,7 @@ public class KitManagementMenu extends Menu {
 
 	@Override
 	public String getTitle(Player player) {
-		return cPractice.get().getKiteditorConfig().getString("KITEDITOR.MANAGE.TITLE").replace("{kit}", kit.getName());
+		return cPractice.get().getKiteditorConfig().getString("KITEDITOR.MANAGE.TITLE").replace("<kit>", kit.getName());
 	}
 
 	@Override
@@ -169,7 +169,7 @@ public class KitManagementMenu extends Menu {
 
 			new MessageFormat(Locale.KIT_EDITOR_START_RENAMING
 				.format(profile.getLocale()))
-				.add("{kit_name}", kitLoadout.getCustomName())
+				.add("<kit_name>", kitLoadout.getCustomName())
 				.send(player);
 
 			profile.getKitEditorData().setSelectedKit(kit);
@@ -227,7 +227,7 @@ public class KitManagementMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.BOOK)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.KitDisplayButton.NAME").replace("{kit}", kitLoadout.getCustomName()))
+					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.KitDisplayButton.NAME").replace("<kit>", kitLoadout.getCustomName()))
 					.build();
 		}
 

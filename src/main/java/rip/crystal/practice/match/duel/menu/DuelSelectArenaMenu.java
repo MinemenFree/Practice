@@ -92,7 +92,7 @@ public class DuelSelectArenaMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.valueOf(cPractice.get().getLangConfig().getString("DUEL.SELECT.ARENA_MENU.MATERIAL")))
-					.name(cPractice.get().getLangConfig().getString("DUEL.SELECT.ARENA_MENU.NAME").replace("{name}", arena.getName()))
+					.name(cPractice.get().getLangConfig().getString("DUEL.SELECT.ARENA_MENU.NAME").replace("<name>", arena.getName()))
 					.build();
 		}
 

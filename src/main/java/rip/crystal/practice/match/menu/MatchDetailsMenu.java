@@ -71,7 +71,7 @@ public class MatchDetailsMenu extends Menu {
 	@Override
 	public void onOpen(Player player) {
 		new MessageFormat(Locale.VIEWING_INVENTORY.format(Profile.get(player.getUniqueId()).getLocale()))
-			.add("{target_name}", snapshot.getUsername())
+			.add("<target_name>", snapshot.getUsername())
 			.send(player);
 	}
 

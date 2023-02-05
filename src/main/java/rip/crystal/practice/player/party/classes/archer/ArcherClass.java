@@ -160,7 +160,7 @@ public class ArcherClass implements Listener {
                 int time = (int) millisLeft / 1000;
 
                 new MessageFormat(Locale.CLASS_CANNOT_USE_ITEM.format(profile.getLocale()))
-                        .add("{seconds}", String.valueOf(time))
+                        .add("<seconds>", String.valueOf(time))
                         .send(player);
                 return (false);
             }
@@ -168,7 +168,7 @@ public class ArcherClass implements Listener {
             lastSpeedUsage.put(player.getName(), System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(30));
             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 3), true);
             new MessageFormat(Locale.CLASS_CUSTOM_ITEM_USE.format(profile.getLocale()))
-                    .add("{effect}", "speed")
+                    .add("<effect>", "speed")
                     .send(player);
             return (true);
         } else {
@@ -177,7 +177,7 @@ public class ArcherClass implements Listener {
                 int time = (int) millisLeft / 1000;
 
                 new MessageFormat(Locale.CLASS_CANNOT_USE_ITEM.format(profile.getLocale()))
-                        .add("{seconds}", String.valueOf(time))
+                        .add("<seconds>", String.valueOf(time))
                         .send(player);
                 return (false);
             }
@@ -185,7 +185,7 @@ public class ArcherClass implements Listener {
             lastJumpUsage.put(player.getName(), System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(1));
             player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 20 * 5, 4));
             new MessageFormat(Locale.CLASS_CUSTOM_ITEM_USE.format(profile.getLocale()))
-                    .add("{effect}", "jump")
+                    .add("<effect>", "jump")
                     .send(player);
             return (false);
         }

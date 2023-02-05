@@ -73,35 +73,35 @@ public class Modmode {
         if (teamMatch != null) {
             cPractice.get().getScoreboardConfig().getStringList("STAFF_MODE.SPECTATING").forEach(s ->
                     lines.add(s
-                            .replace("{playerA}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
-                            .replace("{playerB}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
-                            .replace("{duration}", profile.getMatch().getDuration())
-                            .replace("{state}", profile.getMatch().getState().name())
-                            //.replace("{ranked}", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
-                            .replace("{tps}", format(LagRunnable.getTPS()))));
-                            //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]))));
+                            .replace("<playerA>", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
+                            .replace("<playerB>", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
+                            .replace("<duration>", profile.getMatch().getDuration())
+                            .replace("<state>", profile.getMatch().getState().name())
+                            //.replace("<ranked>", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
+                            .replace("<tps>", format(LagRunnable.getTPS()))));
+                            //.replace("<tps>", format(Bukkit.spigot().getTPS()[0]))));
         } else {
             if (cPractice.get().getRankManager().getRankSystem().equals("AquaCore")) {
                 cPractice.get().getScoreboardConfig().getStringList("STAFF_MODE.LOBBY").forEach(s ->
                         lines.add(s
-                                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                                .replace("{in-fights}", String.valueOf(cPractice.get().getInFights()))
-                                .replace("{players}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                                .replace("{staffs}", String.valueOf(Bukkit.getOnlinePlayers().stream().filter(player1 -> Profile.get(player1.getUniqueId()).getState() == ProfileState.STAFF_MODE).count()))
-                                .replace("{in-fight}", String.valueOf(cPractice.get().getInFights()))
-                                .replace("{isStaffChat}", String.valueOf(AquaCoreAPI.INSTANCE.isStaffChat(player)))
-                                .replace("{tps}", format(LagRunnable.getTPS()))));
-                                //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]))));
+                                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                                .replace("<in-fights>", String.valueOf(cPractice.get().getInFights()))
+                                .replace("<players>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                                .replace("<staffs>", String.valueOf(Bukkit.getOnlinePlayers().stream().filter(player1 -> Profile.get(player1.getUniqueId()).getState() == ProfileState.STAFF_MODE).count()))
+                                .replace("<in-fight>", String.valueOf(cPractice.get().getInFights()))
+                                .replace("<isStaffChat>", String.valueOf(AquaCoreAPI.INSTANCE.isStaffChat(player)))
+                                .replace("<tps>", format(LagRunnable.getTPS()))));
+                                //.replace("<tps>", format(Bukkit.spigot().getTPS()[0]))));
             } else {
                 cPractice.get().getScoreboardConfig().getStringList("STAFF_MODE.LOBBY").forEach(s ->
                         lines.add(s
-                                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                                .replace("{in-fights}", String.valueOf(cPractice.get().getInFights()))
-                                .replace("{players}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                                .replace("{staffs}", String.valueOf(Bukkit.getOnlinePlayers().stream().filter(player1 -> Profile.get(player1.getUniqueId()).getState() == ProfileState.STAFF_MODE).count()))
-                                .replace("{in-fight}", String.valueOf(cPractice.get().getInFights()))
-                                .replace("{tps}", format(LagRunnable.getTPS()))));
-                                //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]))));
+                                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                                .replace("<in-fights>", String.valueOf(cPractice.get().getInFights()))
+                                .replace("<players>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                                .replace("<staffs>", String.valueOf(Bukkit.getOnlinePlayers().stream().filter(player1 -> Profile.get(player1.getUniqueId()).getState() == ProfileState.STAFF_MODE).count()))
+                                .replace("<in-fight>", String.valueOf(cPractice.get().getInFights()))
+                                .replace("<tps>", format(LagRunnable.getTPS()))));
+                                //.replace("<tps>", format(Bukkit.spigot().getTPS()[0]))));
             }
 
         }

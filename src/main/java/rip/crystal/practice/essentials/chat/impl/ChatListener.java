@@ -50,7 +50,7 @@ public class ChatListener implements Listener {
 					event.setCancelled(true);
 					Profile profile = Profile.get(event.getPlayer().getUniqueId());
 					new MessageFormat(Locale.CHAT_DELAYED.format(profile.getLocale()))
-						.add("{delay_time}", TimeUtil.millisToSeconds((long) chatAttempt.getValue()) + " seconds")
+						.add("<delay_time>", TimeUtil.millisToSeconds((long) chatAttempt.getValue()) + " seconds")
 						.send(event.getPlayer());
 				}
 				break;

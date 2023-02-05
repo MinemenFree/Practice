@@ -30,7 +30,7 @@ public class StatisticsMenu extends Menu {
     @Override
     public String getTitle(Player player) {
         return cPractice.get().getMainConfig().getString("STATS_MENU.TITLE")
-            .replace("{player}", this.target.getName());
+            .replace("<player>", this.target.getName());
     }
 
     @Override
@@ -62,14 +62,14 @@ public class StatisticsMenu extends Menu {
             ProfileKitData kitData = data.getKitData().get(kit);
             List<String> lore = new ArrayList<>();
             for (String s : cPractice.get().getMainConfig().getStringList("STATS_MENU.DESCRIPTION")) {
-                lore.add(s.replace("{bars}", CC.MENU_BAR)
-                        .replace("{elo}", String.valueOf(kitData.getElo()))
-                        .replace("{wins}", String.valueOf(kitData.getWon()))
-                        .replace("{division}", String.valueOf(BoardAdapter.getDivision(player)))
-                        .replace("{losses}", String.valueOf(kitData.getLost())));
+                lore.add(s.replace("<bars>", CC.MENU_BAR)
+                        .replace("<elo>", String.valueOf(kitData.getElo()))
+                        .replace("<wins>", String.valueOf(kitData.getWon()))
+                        .replace("<division>", String.valueOf(BoardAdapter.getDivision(player)))
+                        .replace("<losses>", String.valueOf(kitData.getLost())));
             }
             return new ItemBuilder(kit.getDisplayIcon())
-                    .name(cPractice.get().getMainConfig().getString("STATS_MENU.ITEM_NAME").replace("{kit}", kit.getName()))
+                    .name(cPractice.get().getMainConfig().getString("STATS_MENU.ITEM_NAME").replace("<kit>", kit.getName()))
                     .lore(lore)
                     .build();
         }

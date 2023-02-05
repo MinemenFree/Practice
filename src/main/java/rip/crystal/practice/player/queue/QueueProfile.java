@@ -37,9 +37,9 @@ public class QueueProfile {
 					Player player = Bukkit.getPlayer(playerUuid);
 					if (player != null) {
 						new MessageFormat(Locale.QUEUE_RANGE_INCREMENT.format(Profile.get(player.getUniqueId()).getLocale()))
-							.add("{queue_name}", queue.getQueueName())
-							.add("{min_range}", String.valueOf(getMinRange()))
-							.add("{max_range}", String.valueOf(getMaxRange()))
+							.add("<queue_name>", queue.getQueueName())
+							.add("<min_range>", String.valueOf(getMinRange()))
+							.add("<max_range>", String.valueOf(getMaxRange()))
 							.send(player);
 					}
 				}

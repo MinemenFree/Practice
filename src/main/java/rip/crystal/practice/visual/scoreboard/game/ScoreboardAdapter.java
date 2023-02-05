@@ -23,12 +23,12 @@ public class ScoreboardAdapter {
         if (teamMatch != null) {
             cPractice.get().getScoreboardConfig().getStringList("FIGHTS.SPECTATING").forEach(s ->
                     lines.add(s
-                            .replace("{playerA}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
-                            .replace("{playerB}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
-                            .replace("{duration}", profile.getMatch().getDuration())
-                            .replace("{kit}", profile.getMatch().getKit().getName())
-                            .replace("{arena}", profile.getMatch().getArena().getName())));
-                            //.replace("{ranked}", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
+                            .replace("<playerA>", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
+                            .replace("<playerB>", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
+                            .replace("<duration>", profile.getMatch().getDuration())
+                            .replace("<kit>", profile.getMatch().getKit().getName())
+                            .replace("<arena>", profile.getMatch().getArena().getName())));
+                            //.replace("<ranked>", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
         }
 
         return lines;
@@ -40,9 +40,9 @@ public class ScoreboardAdapter {
 
         cPractice.get().getScoreboardConfig().getStringList("FIGHTS.FFA").forEach(s ->
                 lines.add(s
-                        .replace("{players}", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size()))
-                        .replace("{ping}", String.valueOf(PlayerUtil.getPing(player)))
-                        .replace("{kit}", cPractice.get().getFfaManager().getKit().getName())));
+                        .replace("<players>", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size()))
+                        .replace("<ping>", String.valueOf(PlayerUtil.getPing(player)))
+                        .replace("<kit>", cPractice.get().getFfaManager().getKit().getName())));
 
         return lines;
     }

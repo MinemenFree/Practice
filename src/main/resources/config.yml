@@ -17,13 +17,13 @@ MOD_MODE: true
 # from there for external things like web pages or other statistical things
 SAVE_METHOD: MONGO
 # Command to execute on purchase of cosmetic
-PURCHASE-COSMETICS-CMD: pex user {player} setpermission cosmetics.killeffects.{effect}
+PURCHASE-COSMETICS-CMD: pex user <player> setpermission cosmetics.killeffects.<effect>
 # Chat formats for GLOBAL & CLAN CHAT
 CHAT:
   # Global chat format
-  DEFAULT_FORMAT: '{prefix} {player}&7:&r {message}'
+  DEFAULT_FORMAT: '<prefix> <player>&7:&r <message>'
   # Clan chat format
-  CLAN_FORMAT: '&7[{clan}&7] &r{prefix}{player}&7:&r {message}'
+  CLAN_FORMAT: '&7[<clan>&7] &r<prefix><player>&7:&r <message>'
 # Match configuration
 MATCH:
   # How many rounds should a bridge match last
@@ -61,11 +61,11 @@ QUEUE:
     NAME_FORMAT: '&l'
     # kit item lore
     LORE:
-    - '{bars}'
-    - '&9In Fighting&7: &r{in-fight}'
-    - '&9In Queueing&7: &r{in-queue}'
-    - '&9Winstreak: &f{winstreak}'
-    - '{bars}'
+    - '<bars>'
+    - '&9In Fighting&7: &r<in-fight>'
+    - '&9In Queueing&7: &r<in-queue>'
+    - '&9Winstreak: &f<winstreak>'
+    - '<bars>'
   # Ranked Queue settings
   RANKED:
     # GUI Title
@@ -76,10 +76,10 @@ QUEUE:
     NAME_FORMAT: '&l'
     # kit item lore
     LORE:
-    - '{bars}'
-    - '&9In Fighting&7: &r{in-fight}'
-    - '&9In Queueing&7: &r{in-queue}'
-    - '{bars}'
+    - '<bars>'
+    - '&9In Fighting&7: &r<in-fight>'
+    - '&9In Queueing&7: &r<in-queue>'
+    - '<bars>'
 
 QUEUES:
   # If enabled, multi-queue menu will be enabled & Single queue items will automatically be disabled
@@ -162,17 +162,17 @@ NAMETAGS:
 # Statistics menu configuration
 STATS_MENU:
   # Menu title
-  TITLE: '&9&l{player} Statistics'
+  TITLE: '&9&l<player> Statistics'
   # Item name
-  ITEM_NAME: '&9{kit}'
+  ITEM_NAME: '&9<kit>'
   # GUI Size (ROWS)
   SIZE: 6
   # Lore
   DESCRIPTION:
-  - '{bars}'
-  - '&7&oElo: &f{elo}'
-  - '&7&oWins: &f{wins}'
-  - '&7&oLosses: &f{losses}'
-  - '{bars}'
+  - '<bars>'
+  - '&7&oElo: &f<elo>'
+  - '&7&oWins: &f<wins>'
+  - '&7&oLosses: &f<losses>'
+  - '<bars>'
 # Points needed to win a clan tournament?
 WINNING-POINTS-CLAN-TOURNAMENT: 10

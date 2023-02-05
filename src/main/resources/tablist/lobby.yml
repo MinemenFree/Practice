@@ -1,8 +1,8 @@
 TABLIST:
   LEFT:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: ''
       head: ''
@@ -22,14 +22,14 @@ TABLIST:
       text: ''
       head: ''
     '8':
-      text: '&9In Queue&7: &f{inqueue}'
-      head: '{dark_blue}'
+      text: '&9In Queue&7: &f<inqueue>'
+      head: '<dark_blue>'
     '9':
-      text: '&9In Fight&7: &f{infight}'
-      head: '{dark_blue}'
+      text: '&9In Fight&7: &f<infight>'
+      head: '<dark_blue>'
     '10':
-      text: '&9Event&7: {event}'
-      head: '{dark_blue}'
+      text: '&9Event&7: <event>'
+      head: '<dark_blue>'
     '11':
       text: ''
       head: ''
@@ -53,22 +53,22 @@ TABLIST:
       head: ''
     '18':
       text: '&9Store'
-      head: '{discord}'
+      head: '<discord>'
     '19':
       text: '&7store.crystal.rip'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
   CENTER:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: '&9&lSeason 1'
       head: ''
     '3':
-      text: '&7{online}/{slots}'
+      text: '&7<online>/<slots>'
       head: ''
     '4':
       text: ''
@@ -114,17 +114,17 @@ TABLIST:
       head: ''
     '18':
       text: '&9Twitter'
-      head: '{twitter}'
+      head: '<twitter>'
     '19':
       text: '&7@CrystalNetwork'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
   RIGHT:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: ''
       head: ''
@@ -132,14 +132,14 @@ TABLIST:
       text: ''
       head: ''
     '4':
-      text: '&9Global Elo&7: &f{globalelo}'
-      head: '{dark_green}'
+      text: '&9Global Elo&7: &f<globalelo>'
+      head: '<dark_green>'
     '5':
-      text: '&9NoDebuff&7: &f{nodebuff_elo}'
-      head: '{green}'
+      text: '&9NoDebuff&7: &f<nodebuff_elo>'
+      head: '<green>'
     '6':
-      text: '&9Boxing&7: &f{boxing_elo}'
-      head: '{green}'
+      text: '&9Boxing&7: &f<boxing_elo>'
+      head: '<green>'
     '7':
       text: ''
       head: ''
@@ -175,17 +175,17 @@ TABLIST:
       head: ''
     '18':
       text: '&9Discord'
-      head: '{brayding}'
+      head: '<brayding>'
     '19':
       text: '&7discord.gg/crystal'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
   EXTERNAL-RIGHT:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: ''
       head: ''
@@ -209,15 +209,15 @@ TABLIST:
       head: ''
     '9':
       text: '&9&lYour Information'
-      head: '{player}'
+      head: '<player>'
     '10':
-      text: ' &7➥ &9Name&7: &f{name}'
+      text: ' &7➥ &9Name&7: &f<name>'
       head: ''
     '11':
-      text: ' &7➥ &9Rank&7: &f{rank-suffix}'
+      text: ' &7➥ &9Rank&7: &f<rank-suffix>'
       head: ''
     '12':
-      text: ' &7➥ &9Ping&7: &f{ping}'
+      text: ' &7➥ &9Ping&7: &f<ping>'
       head: ''
     '13':
       text: ''
@@ -236,10 +236,10 @@ TABLIST:
       head: ''
     '18':
       text: '&9Website'
-      head: '{ziue}'
+      head: '<ziue>'
     '19':
       text: '&7store.crystal.rip'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'

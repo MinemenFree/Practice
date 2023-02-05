@@ -86,17 +86,17 @@ public class EventHostMenu extends Menu {
 			List<String> lore = Lists.newArrayList();
 
 			for (String s : cPractice.get().getEventsConfig().getStringList("EVENTS." + event.getName().toUpperCase() + ".DESCRIPTION")) {
-				if (s.contains("{context}")) {
+				if (s.contains("<context>")) {
 					if (event.canHost(player)) {
 						for (String m : cPractice.get().getEventsConfig().getStringList("EVENTS.HOST_DESCRIPTION.WITH_PERMISSION")) {
-							lore.add(m.replace("{slots}", String.valueOf(Profile.getHostSlots(player.getUniqueId()))));
+							lore.add(m.replace("<slots>", String.valueOf(Profile.getHostSlots(player.getUniqueId()))));
 						}
 					} else {
 						lore.addAll(cPractice.get().getEventsConfig().getStringList("EVENTS.HOST_DESCRIPTION.NO_PERMISSION"));
 					}
 					continue;
 				}
-				lore.add(s.replace("{bars}", CC.MENU_BAR));
+				lore.add(s.replace("<bars>", CC.MENU_BAR));
 			}
 
 			return new ItemBuilder(event.getIcon().clone())

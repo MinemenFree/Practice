@@ -85,7 +85,7 @@ public class MessageFormat {
                             .replace(variable, value);
                 }
                 /*for (String string : formatted.split(" ")) {
-                    if (string.contains("{") && variables.containsKey(getVariable(string).toLowerCase())) {
+                    if (string.contains("<") && variables.containsKey(getVariable(string).toLowerCase())) {
                         formatted = formatted
                             .replace(getVariable(string), variables.get(getVariable(string).toLowerCase()));
                     }
@@ -104,7 +104,7 @@ public class MessageFormat {
                         .replace(variable, value);
             }
             /*for (String string : formatted.split(" ")) {
-                if (string.contains("{") && variables.containsKey(getVariable(string).toLowerCase())) {
+                if (string.contains("<") && variables.containsKey(getVariable(string).toLowerCase())) {
                     formatted = formatted
                         .replace(getVariable(string), variables.get(getVariable(string).toLowerCase()));
                 }
@@ -125,7 +125,7 @@ public class MessageFormat {
                             .replace(variable, value);
                 }
                 /*for (String string : formatted.split(" ")) {
-                    if (string.contains("{") && variables.containsKey(getVariable(string).toLowerCase())) {
+                    if (string.contains("<") && variables.containsKey(getVariable(string).toLowerCase())) {
                         formatted = formatted
                             .replace(getVariable(string), variables.get(getVariable(string).toLowerCase()));
                     }
@@ -148,7 +148,7 @@ public class MessageFormat {
                         .replace(variable, value);
             }
             /*for (String string : formatted.split(" ")) {
-                if (string.contains("{") && variables.containsKey(getVariable(string).toLowerCase())) {
+                if (string.contains("<") && variables.containsKey(getVariable(string).toLowerCase())) {
                     formatted = formatted
                         .replace(getVariable(string), variables.get(getVariable(string).toLowerCase()));
                 }
@@ -160,7 +160,7 @@ public class MessageFormat {
 
     private String getVariable(String string){
         if (string == null) return  "";
-        if (string.contains("{")) {
+        if (string.contains("<")) {
             StringBuilder variable = new StringBuilder();
             boolean add = false;
             for (char s : string.toCharArray()){
