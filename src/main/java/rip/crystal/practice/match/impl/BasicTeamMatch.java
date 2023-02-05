@@ -374,14 +374,16 @@ public class BasicTeamMatch extends Match {
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
-                                        String mmcBoxingCombo = "0";
-                                        if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0)) {
-                                            mmcBoxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
-                                        } else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0)) {
+
+                    String mmcBoxingCombo = "0";
+                    if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0)) {
+                        mmcBoxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
+                    } 
+					else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0)) {
                                             mmcBoxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
-                                        } else {
-                                            mmcBoxingCombo = "&f1st to 100!";
-                                        }
+                    } else {
+                        mmcBoxingCombo = "&f1st to 100!";
+                    }
 
 					if (kit.getGameRules().isBoxing()) {
 						String mmcBoxingComboNew = mmcBoxingCombo;
@@ -407,7 +409,7 @@ public class BasicTeamMatch extends Match {
 									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
 									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
 									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo()))
-									.replace("<combo>", mmcBoxingComboNew));
+									.replace("<mmc-combo>", mmcBoxingComboNew));
 						});
 						return lines;
 					}
@@ -421,7 +423,7 @@ public class BasicTeamMatch extends Match {
 								.replace("<opponent>", opponent.getLeader().getPlayer().getName())
 								.replace("<opponent-ping>", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
 								.replace("<player-ping>", String.valueOf(BukkitReflection.getPing(player)))
-							        .replace("<arena-name>", getArena().getName())
+							    .replace("<arena-name>", getArena().getName())
 								.replace("<arena-author>", getArena().getAuthor())
 								.replace("<kit-name>", getKit().getName()));
 					});
@@ -575,42 +577,28 @@ public class BasicTeamMatch extends Match {
 		Profile profile = Profile.get(player.getUniqueId());
 
 		for (String line : Locale.MATCH_END_DETAILS.getStringList(profile.getLocale())) {
-			if (line.equalsIgnoreCase("<match-inventories>")) {
 
-				BaseComponent[] winners = generateInventoriesComponents(
-					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
-						.add("<winner>", participantA.getPlayers().size() == 1 ? "" : "s")
-						.toString(), winningParticipant);
-
-				BaseComponent[] losers = generateInventoriesComponents(
-					new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
-						.add("<loser>", participantB.getPlayers().size() > 1 ? "s" : "")
-					        .toString(), losingParticipant);
-
+				BaseComponent[] inventories = generateInventoriesComponents(
+					new MessageFormat(Locale.MATCH_END_INVENTORIES.format(profile.getLocale()))
+						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
+						.add("<winner>", winningParticipant)
+						.add("<loser-context>", participantB.getPlayers().size() == 1 ? "" : "s")
+						.add("<loser>", losingParticipant));
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
 					ChatComponentBuilder builder = new ChatComponentBuilder("");
 
-					for (BaseComponent component : winners) {
-						builder.append((TextComponent) component);
-					}
-
-					builder.append(new ChatComponentBuilder("&7 §7┃ ").create());
-
-					for (BaseComponent component : losers) {
+					for (BaseComponent component : inventories) {
 						builder.append((TextComponent) component);
 					}
 
 					componentsList.add(builder.create());
 				} else {
-					componentsList.add(winners);
-					componentsList.add(losers);
+					componentsList.add(inventories);
 				}
 
 				continue;
-			}
 
-			if (line.equalsIgnoreCase("%ELO_CHANGES%")) {
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1 && ranked) {
 					List<String> sectionLines = new MessageFormat(Locale.MATCH_ELO_CHANGES.getStringList(profile.getLocale()))
 						.add("<winning_name>", winningParticipant.getConjoinedNames())
@@ -630,7 +618,6 @@ public class BasicTeamMatch extends Match {
 				}
 
 				continue;
-			}
 
 			componentsList.add(new ChatComponentBuilder("").parse(line).create());
 		}
