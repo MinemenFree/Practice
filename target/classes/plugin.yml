@@ -1,6 +1,6 @@
 main: rip.crystal.practice.cPractice
 name: cPractice
-version: 1.1.2
+version: 1.1.4
 authors: ["ziue"]
 depend:
   - HolographicDisplays

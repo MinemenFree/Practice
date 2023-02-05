@@ -3,7 +3,7 @@ package rip.crystal.practice.game.knockback.impl;
 import net.minecraft.server.v1_8_R3.EntityHuman;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
-import dev.cobblesword.nachospigot.knockback.KnockbackConfig;
+import ga.windpvp.windspigot.knockback.KnockbackConfig;
 import dev.cobblesword.nachospigot.knockback.KnockbackProfile;
 import rip.crystal.practice.game.knockback.KnockbackProfiler;
 

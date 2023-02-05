@@ -48,6 +48,11 @@ PARTY:
     KICK: been kicked from
     QUIT: left
 EVENT:
+  CANT_JOIN_IN_PARTY: '&cYou cannot join an event while in a party'
+  MUST_JOIN_IN_LOBBY: '&cYou must be in the lobby to join an event'
+  IS_FULL: '&cThe event is full'
+  ALREADY_STARTED: '&cThe event has already started'
+  NO_ACTIVE_EVENT: '&cThere is no active event'
   CANT_HOST: '&cYou cannot host that event.'
   HELP:
   - '&7&m------------------------------------------------'
@@ -87,6 +92,11 @@ EVENT:
   - '&7███████'
   MATCH_REMAINING: '&cThere are {seconds} second{context} left to finish this round!'
   MATCH_ITS_THE_BOMB: '{player} it''''s the bomb'
+TOURNAMENT:
+  NO_TOURNAMENT_FOUND: '&cNo tournament found'
+  CANT_JOIN_IN_STATE: '&cYou may not join the tournament in your state'
+  ALREADY_IN_TOURNAMENT: '&cYou are already in the tournament'
+  FORCE_STARTED: '&cYou have sucessfully force started the tournament'
 DUEL:
   SENT: '&fYou sent a &c{kit_name} &fduel request to &c{target_name} &fon arena &c{arena_name}&f.'
   SENT_PARTY: '&fYour party sent a &c{kit_name} &fduel request to &c{target_name}''''s
@@ -122,6 +132,7 @@ DUEL:
   NO_ARENAS_AVAILABLE: '&cTried to start a match but there are no available arenas.'
   DONT_HAVE_DUEL_REQUEST_PLAYER: '&cYou do not have a duel request from that player.'
 QUEUE:
+  CANT_QUEUE: '&cYou cannot queue right now'
   JOIN_UNRANKED:
     - '&7&m------------------------------------------------'
     - '&e&lUnranked {kit_name}'
@@ -152,6 +163,7 @@ QUEUE:
   FOUND_UNRANKED_MATCH: '&fFound opponent &c{name} &cvs &c{opponent}'
 MATCH:
   GIVE_KIT: '&fGiving you the &c{kit_name} &fkit.'
+  CANT_DROP_SWORD: '&cYou may not drop your sword.'
   ENDERPEARL_COOLDOWN: '&cYou may not use your &c&lEnderpearl &cfor another &c&l{time}
     second{context}&c.'
   ENDERPEARL_COOLDOWN_EXPIRED: '&cYour enderpearl cooldown has now expired.'
@@ -180,6 +192,7 @@ MATCH:
   - '&7&m------------------------------------------------'
   END_WINNER_INVENTORY: '&aWinner{context}&7: '
   END_LOSER_INVENTORY: '&cLoser{context}&7: '
+  END_DETAILS_SEPARATOR: '&r &7┃ '
   CLICK_TO_VIEW_NAME: '&d{name}'
   CLICK_TO_VIEW_HOVER: '&fClick to view &c{name}&f''''s inventory.'
   ELO_CHANGES:
