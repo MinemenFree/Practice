@@ -4,7 +4,7 @@ import net.minecraft.server.v1_8_R3.EntityHuman;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import ga.windpvp.windspigot.knockback.KnockbackConfig;
-import ga.windpvp.windspigot.knockback.CraftKnockbackProfile;
+import ga.windpvp.windspigot.knockback.KnockbackProfile;
 import rip.crystal.practice.game.knockback.KnockbackProfiler;
 
 import java.lang.reflect.Field;
