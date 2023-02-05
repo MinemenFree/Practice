@@ -14,7 +14,7 @@ public class WindSpigot implements KnockbackProfiler {
 
     @Override
     public void setKnockback(Player player, String kb) {
-        KnockbackProfile knockbackProfile = KnockbackConfig.getKbProfileByName(kb);
+        CraftKnockbackProfile knockbackProfile = KnockbackConfig.getKbProfileByName(kb);
         EntityHuman entityPlayer =  ((CraftPlayer) player).getHandle();
         Class entityclass = entityPlayer.getClass().getSuperclass();
 
