@@ -271,28 +271,28 @@ public class TabAdapter implements GhostlyAdapter {
                 EventGame.getCooldown().hasExpired() ? "None" : TimeUtil.millisToTimer(EventGame.getCooldown().getRemaining());
         List<Kit> kit = Kit.getKits().stream().filter(Kit::isEnabled).filter(kits -> kits.getGameRules().isRanked()).collect(Collectors.toList());
         string = string
-                .replace("{name}", player.getName())
-                .replace("{rank}", plugin.getRankManager().getRank().getName(player.getUniqueId()))
-                .replace("{player-color}", profile.getColor())
-                .replace("{rank-prefix}", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
-                .replace("{rank-suffix}", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
-                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                .replace("{slots}", String.valueOf(Bukkit.getMaxPlayers()))
-                .replace("{discord}", plugin.getLangConfig().getString("DISCORD"))
-                .replace("{store}", plugin.getLangConfig().getString("STORE"))
-                .replace("{teamspeak}", plugin.getLangConfig().getString("TEAMSPEAK"))
-                .replace("{twitter}", plugin.getLangConfig().getString("TWITTER"))
-                .replace("{website}", plugin.getLangConfig().getString("WEBSITE"))
-                .replace("{ping}", String.valueOf(BukkitReflection.getPing(player)))
-                .replace("{bars}", CC.TAB_BAR)
-                .replace("{inqueue}", String.valueOf(plugin.getInQueues()))
-                .replace("{infight}", String.valueOf(plugin.getInFights()))
-                .replace("{event}", event)
-                .replace("{globalelo}", String.valueOf(EloUtil.getGlobalElo(profile)))
-                .replace("{tps}", format(LagRunnable.getTPS()));
-                //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]));
+                .replace("<name>", player.getName())
+                .replace("<rank>", plugin.getRankManager().getRank().getName(player.getUniqueId()))
+                .replace("<player-color>", profile.getColor())
+                .replace("<rank-prefix>", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
+                .replace("<rank-suffix>", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
+                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                .replace("<slots>", String.valueOf(Bukkit.getMaxPlayers()))
+                .replace("<discord>", plugin.getLangConfig().getString("DISCORD"))
+                .replace("<store>", plugin.getLangConfig().getString("STORE"))
+                .replace("<teamspeak>", plugin.getLangConfig().getString("TEAMSPEAK"))
+                .replace("<twitter>", plugin.getLangConfig().getString("TWITTER"))
+                .replace("<website>", plugin.getLangConfig().getString("WEBSITE"))
+                .replace("<ping>", String.valueOf(BukkitReflection.getPing(player)))
+                .replace("<bars>", CC.TAB_BAR)
+                .replace("<inqueue>", String.valueOf(plugin.getInQueues()))
+                .replace("<infight>", String.valueOf(plugin.getInFights()))
+                .replace("<event>", event)
+                .replace("<globalelo>", String.valueOf(EloUtil.getGlobalElo(profile)))
+                .replace("<tps>", format(LagRunnable.getTPS()));
+                //.replace("<tps>", format(Bukkit.spigot().getTPS()[0]));
         for (Kit kits : kit)
-            string = string.replace("{" + kits.getName().toLowerCase() + "_elo}", String.valueOf(profile.getKitData().get(kits).getElo()));
+            string = string.replace("<" + kits.getName().toLowerCase() + "_elo>", String.valueOf(profile.getKitData().get(kits).getElo()));
         return string;
     }
 
@@ -302,26 +302,26 @@ public class TabAdapter implements GhostlyAdapter {
                 //EventGame.getCooldown().hasExpired() ? "None" : TimeUtil.millisToTimer(EventGame.getCooldown().getRemaining());
         List<Kit> kit = Kit.getKits().stream().filter(Kit::isEnabled).filter(kits -> kits.getGameRules().isRanked()).collect(Collectors.toList());
         string = string
-                .replace("{name}", player.getName())
-                .replace("{rank}", plugin.getRankManager().getRank().getName(player.getUniqueId()))
-                .replace("{player-color}", profile.getColor())
-                .replace("{rank-prefix}", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
-                .replace("{rank-suffix}", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
-                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                .replace("{slots}", String.valueOf(Bukkit.getMaxPlayers()))
-                .replace("{discord}", plugin.getLangConfig().getString("DISCORD"))
-                .replace("{store}", plugin.getLangConfig().getString("STORE"))
-                .replace("{teamspeak}", plugin.getLangConfig().getString("TEAMSPEAK"))
-                .replace("{twitter}", plugin.getLangConfig().getString("TWITTER"))
-                .replace("{website}", plugin.getLangConfig().getString("WEBSITE"))
-                .replace("{ping}", String.valueOf(BukkitReflection.getPing(player)))
-                .replace("{bars}", CC.TAB_BAR)
-                .replace("{players}", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size()))
-                .replace("{kit}", cPractice.get().getFfaManager().getKit().getName())
-                .replace("{tps}", format(LagRunnable.getTPS()));
-                //.replace("{tps}", format(Bukkit.spigot().getTPS()[0]));
+                .replace("<name>", player.getName())
+                .replace("<rank>", plugin.getRankManager().getRank().getName(player.getUniqueId()))
+                .replace("<player-color>", profile.getColor())
+                .replace("<rank-prefix>", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
+                .replace("<rank-suffix>", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
+                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                .replace("<slots>", String.valueOf(Bukkit.getMaxPlayers()))
+                .replace("<discord>", plugin.getLangConfig().getString("DISCORD"))
+                .replace("<store>", plugin.getLangConfig().getString("STORE"))
+                .replace("<teamspeak>", plugin.getLangConfig().getString("TEAMSPEAK"))
+                .replace("<twitter>", plugin.getLangConfig().getString("TWITTER"))
+                .replace("<website>", plugin.getLangConfig().getString("WEBSITE"))
+                .replace("<ping>", String.valueOf(BukkitReflection.getPing(player)))
+                .replace("<bars>", CC.TAB_BAR)
+                .replace("<players>", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size()))
+                .replace("<kit>", cPractice.get().getFfaManager().getKit().getName())
+                .replace("<tps>", format(LagRunnable.getTPS()));
+                //.replace("<tps>", format(Bukkit.spigot().getTPS()[0]));
         for (Kit kits : kit)
-            string = string.replace("{" + kits.getName().toLowerCase() + "_elo}", String.valueOf(profile.getKitData().get(kits).getElo()));
+            string = string.replace("<" + kits.getName().toLowerCase() + "_elo>", String.valueOf(profile.getKitData().get(kits).getElo()));
         return string;
     }
 
@@ -334,25 +334,25 @@ public class TabAdapter implements GhostlyAdapter {
     public String replaceEvent(String string, EventGame event, Player player) {
         Profile profile = Profile.get(player.getUniqueId());
         string = string
-                .replace("{name}", player.getName())
-                .replace("{rank}", plugin.getRankManager().getRank().getName(player.getUniqueId()))
-                .replace("{player-color}", profile.getColor())
-                .replace("{rank-prefix}", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
-                .replace("{rank-suffix}", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
-                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                .replace("{slots}", String.valueOf(Bukkit.getMaxPlayers()))
-                .replace("{discord}", plugin.getLangConfig().getString("DISCORD"))
-                .replace("{store}", plugin.getLangConfig().getString("STORE"))
-                .replace("{teamspeak}", plugin.getLangConfig().getString("TEAMSPEAK"))
-                .replace("{twitter}", plugin.getLangConfig().getString("TWITTER"))
-                .replace("{website}", plugin.getLangConfig().getString("WEBSITE"))
-                .replace("{ping}", String.valueOf(BukkitReflection.getPing(player)))
-                .replace("{bars}", CC.TAB_BAR)
-                .replace("{event}", event.getEvent().getDisplayName())
-                .replace("{remaining-players}", String.valueOf(event.getRemainingPlayers()))
-                .replace("{max-players}", String.valueOf(event.getMaximumPlayers()))
-                .replace("{map-name}", event.getGameState() == EventGameState.PLAYING_ROUND ? event.getGameMap().getMapName() : "None")
-                .replace("{hoster}", plugin.getRankManager().getRank().getPrefix(event.getGameHost().getUuid()) + event.getGameHost().getUsername());
+                .replace("<name>", player.getName())
+                .replace("<rank>", plugin.getRankManager().getRank().getName(player.getUniqueId()))
+                .replace("<player-color>", profile.getColor())
+                .replace("<rank-prefix>", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
+                .replace("<rank-suffix>", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
+                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                .replace("<slots>", String.valueOf(Bukkit.getMaxPlayers()))
+                .replace("<discord>", plugin.getLangConfig().getString("DISCORD"))
+                .replace("<store>", plugin.getLangConfig().getString("STORE"))
+                .replace("<teamspeak>", plugin.getLangConfig().getString("TEAMSPEAK"))
+                .replace("<twitter>", plugin.getLangConfig().getString("TWITTER"))
+                .replace("<website>", plugin.getLangConfig().getString("WEBSITE"))
+                .replace("<ping>", String.valueOf(BukkitReflection.getPing(player)))
+                .replace("<bars>", CC.TAB_BAR)
+                .replace("<event>", event.getEvent().getDisplayName())
+                .replace("<remaining-players>", String.valueOf(event.getRemainingPlayers()))
+                .replace("<max-players>", String.valueOf(event.getMaximumPlayers()))
+                .replace("<map-name>", event.getGameState() == EventGameState.PLAYING_ROUND ? event.getGameMap().getMapName() : "None")
+                .replace("<hoster>", plugin.getRankManager().getRank().getPrefix(event.getGameHost().getUuid()) + event.getGameHost().getUsername());
         return string;
     }
 
@@ -360,31 +360,31 @@ public class TabAdapter implements GhostlyAdapter {
         BasicFreeForAllMatch match1 = (BasicFreeForAllMatch) match;
         Profile profile = Profile.get(player.getUniqueId());
         string = string
-                .replace("{name}", player.getName())
-                .replace("{rank}", plugin.getRankManager().getRank().getName(player.getUniqueId()))
-                .replace("{player-color}", profile.getColor())
-                .replace("{rank-prefix}", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
-                .replace("{rank-suffix}", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
-                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                .replace("{slots}", String.valueOf(Bukkit.getMaxPlayers()))
-                .replace("{discord}", plugin.getLangConfig().getString("DISCORD"))
-                .replace("{store}", plugin.getLangConfig().getString("STORE"))
-                .replace("{teamspeak}", plugin.getLangConfig().getString("TEAMSPEAK"))
-                .replace("{twitter}", plugin.getLangConfig().getString("TWITTER"))
-                .replace("{website}", plugin.getLangConfig().getString("WEBSITE"))
-                .replace("{ping}", String.valueOf(BukkitReflection.getPing(player)))
-                .replace("{bars}", CC.TAB_BAR)
-                .replace("{duration}", match.getDuration())
-                .replace("{kit}", match.getKit().getName())
-                .replace("{arena-name}", match.getArena().getName())
-                .replace("{arena-author}", match.getArena().getAuthor());
+                .replace("<name>", player.getName())
+                .replace("<rank>", plugin.getRankManager().getRank().getName(player.getUniqueId()))
+                .replace("<player-color>", profile.getColor())
+                .replace("<rank-prefix>", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
+                .replace("<rank-suffix>", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
+                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                .replace("<slots>", String.valueOf(Bukkit.getMaxPlayers()))
+                .replace("<discord>", plugin.getLangConfig().getString("DISCORD"))
+                .replace("<store>", plugin.getLangConfig().getString("STORE"))
+                .replace("<teamspeak>", plugin.getLangConfig().getString("TEAMSPEAK"))
+                .replace("<twitter>", plugin.getLangConfig().getString("TWITTER"))
+                .replace("<website>", plugin.getLangConfig().getString("WEBSITE"))
+                .replace("<ping>", String.valueOf(BukkitReflection.getPing(player)))
+                .replace("<bars>", CC.TAB_BAR)
+                .replace("<duration>", match.getDuration())
+                .replace("<kit>", match.getKit().getName())
+                .replace("<arena-name>", match.getArena().getName())
+                .replace("<arena-author>", match.getArena().getAuthor());
 
         for (int b = 0; b < match1.getParticipants().size(); b++) {
-            string = string.replace("{match-left-player-" + (b + 1) + "}", ChatColor.GRAY + match1.getParticipants().get(b).getConjoinedNames());
+            string = string.replace("<match-left-player-" + (b + 1) + ">", ChatColor.GRAY + match1.getParticipants().get(b).getConjoinedNames());
         }
 
         for (int b = 0; b < 31; b++) {
-            string = string.replace("{match-left-player-" + (b + 1) + "}", "");
+            string = string.replace("<match-left-player-" + (b + 1) + ">", "");
         }
         return string;
     }
@@ -396,26 +396,26 @@ public class TabAdapter implements GhostlyAdapter {
         if (match1.getParticipantA().containsPlayer(player.getUniqueId())) opponent = match1.getParticipantB();
         else opponent = match1.getParticipantA();
         string = string
-                .replace("{name}", player.getName())
-                .replace("{rank}", plugin.getRankManager().getRank().getName(player.getUniqueId()))
-                .replace("{player-color}", profile.getColor())
-                .replace("{rank-prefix}", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
-                .replace("{rank-suffix}", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
-                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                .replace("{slots}", String.valueOf(Bukkit.getMaxPlayers()))
-                .replace("{discord}", plugin.getLangConfig().getString("DISCORD"))
-                .replace("{store}", plugin.getLangConfig().getString("STORE"))
-                .replace("{teamspeak}", plugin.getLangConfig().getString("TEAMSPEAK"))
-                .replace("{twitter}", plugin.getLangConfig().getString("TWITTER"))
-                .replace("{website}", plugin.getLangConfig().getString("WEBSITE"))
-                .replace("{ping}", String.valueOf(BukkitReflection.getPing(player)))
-                .replace("{bars}", CC.TAB_BAR)
-                .replace("{duration}", match.getDuration())
-                .replace("{kit}", match.getKit().getName())
-                .replace("{arena-name}", match.getArena().getName())
-                .replace("{arena-author}", match.getArena().getAuthor())
-                .replace("{player-fight}", CC.GREEN + player.getName())
-                .replace("{opponent-player}", opponent.getLeader().getPlayer() != null ? CC.RED + opponent.getLeader().getPlayer().getName() : "");
+                .replace("<name>", player.getName())
+                .replace("<rank>", plugin.getRankManager().getRank().getName(player.getUniqueId()))
+                .replace("<player-color>", profile.getColor())
+                .replace("<rank-prefix>", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
+                .replace("<rank-suffix>", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
+                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                .replace("<slots>", String.valueOf(Bukkit.getMaxPlayers()))
+                .replace("<discord>", plugin.getLangConfig().getString("DISCORD"))
+                .replace("<store>", plugin.getLangConfig().getString("STORE"))
+                .replace("<teamspeak>", plugin.getLangConfig().getString("TEAMSPEAK"))
+                .replace("<twitter>", plugin.getLangConfig().getString("TWITTER"))
+                .replace("<website>", plugin.getLangConfig().getString("WEBSITE"))
+                .replace("<ping>", String.valueOf(BukkitReflection.getPing(player)))
+                .replace("<bars>", CC.TAB_BAR)
+                .replace("<duration>", match.getDuration())
+                .replace("<kit>", match.getKit().getName())
+                .replace("<arena-name>", match.getArena().getName())
+                .replace("<arena-author>", match.getArena().getAuthor())
+                .replace("<player-fight>", CC.GREEN + player.getName())
+                .replace("<opponent-player>", opponent.getLeader().getPlayer() != null ? CC.RED + opponent.getLeader().getPlayer().getName() : "");
         return string;
     }
 
@@ -433,39 +433,39 @@ public class TabAdapter implements GhostlyAdapter {
             team = match1.getParticipantB();
         }
         string = string
-                .replace("{name}", player.getName())
-                .replace("{rank}", plugin.getRankManager().getRank().getName(player.getUniqueId()))
-                .replace("{player-color}", profile.getColor())
-                .replace("{rank-prefix}", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
-                .replace("{rank-suffix}", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
-                .replace("{online}", String.valueOf(Bukkit.getOnlinePlayers().size()))
-                .replace("{slots}", String.valueOf(Bukkit.getMaxPlayers()))
-                .replace("{discord}", plugin.getLangConfig().getString("DISCORD"))
-                .replace("{store}", plugin.getLangConfig().getString("STORE"))
-                .replace("{teamspeak}", plugin.getLangConfig().getString("TEAMSPEAK"))
-                .replace("{twitter}", plugin.getLangConfig().getString("TWITTER"))
-                .replace("{website}", plugin.getLangConfig().getString("WEBSITE"))
-                .replace("{ping}", String.valueOf(BukkitReflection.getPing(player)))
-                .replace("{bars}", CC.TAB_BAR)
-                .replace("{duration}", match.getDuration())
-                .replace("{kit}", match.getKit().getName())
-                .replace("{arena-name}", match.getArena().getName())
-                .replace("{arena-author}", match.getArena().getAuthor());
+                .replace("<name>", player.getName())
+                .replace("<rank>", plugin.getRankManager().getRank().getName(player.getUniqueId()))
+                .replace("<player-color>", profile.getColor())
+                .replace("<rank-prefix>", plugin.getRankManager().getRank().getPrefix(player.getUniqueId()))
+                .replace("<rank-suffix>", plugin.getRankManager().getRank().getSuffix(player.getUniqueId()))
+                .replace("<online>", String.valueOf(Bukkit.getOnlinePlayers().size()))
+                .replace("<slots>", String.valueOf(Bukkit.getMaxPlayers()))
+                .replace("<discord>", plugin.getLangConfig().getString("DISCORD"))
+                .replace("<store>", plugin.getLangConfig().getString("STORE"))
+                .replace("<teamspeak>", plugin.getLangConfig().getString("TEAMSPEAK"))
+                .replace("<twitter>", plugin.getLangConfig().getString("TWITTER"))
+                .replace("<website>", plugin.getLangConfig().getString("WEBSITE"))
+                .replace("<ping>", String.valueOf(BukkitReflection.getPing(player)))
+                .replace("<bars>", CC.TAB_BAR)
+                .replace("<duration>", match.getDuration())
+                .replace("<kit>", match.getKit().getName())
+                .replace("<arena-name>", match.getArena().getName())
+                .replace("<arena-author>", match.getArena().getAuthor());
         for (int b = 0; b < team.getPlayers().size(); b++) {
             if (team.getPlayers().get(b) != null) {
-                string = string.replace("{team-player-" + (b + 1) + "}", team.getPlayers().get(b).getUsername());
+                string = string.replace("<team-player-" + (b + 1) + ">", team.getPlayers().get(b).getUsername());
             }
         }
 
         for (int b = 0; b < opponent.getPlayers().size(); b++) {
             if (opponent.getPlayers().get(b) != null) {
-                string = string.replace("{opponent-player-" + (b + 1) + "}", opponent.getPlayers().get(b).getUsername());
+                string = string.replace("<opponent-player-" + (b + 1) + ">", opponent.getPlayers().get(b).getUsername());
             }
         }
 
         for (int b = 0; b < 11; b++) {
-            string = string.replace("{team-player-" + (b + 1) + "}", "")
-                    .replace("{opponent-player-" + (b + 1) + "}", "");
+            string = string.replace("<team-player-" + (b + 1) + ">", "")
+                    .replace("<opponent-player-" + (b + 1) + ">", "");
         }
         return string;
     }
@@ -474,67 +474,67 @@ public class TabAdapter implements GhostlyAdapter {
     public SkinTexture skin(String string, Player player) {
         SkinTexture skin = TabListCommons.defaultTexture;
         switch (string) {
-            case "{player}":
+            case "{player>":
                 skin = TabListCommons.getSkinData(player.getUniqueId());
                 break;
-            case "{discord}":
+            case "{discord>":
                 skin = TabListCommons.DISCORD_TEXTURE;
                 break;
-            case "{twitter}":
+            case "{twitter>":
                 skin = TabListCommons.TWITTER_TEXTURE;
                 break;
-            case "{brayding}":
+            case "{brayding>":
                 skin = TabListCommons.getSkinData(UUID.fromString("d58ef82d-16e9-45e0-b08a-fb73ab62feaf"));
                 break;
-            case "{ziue}":
+            case "{ziue>":
                 skin = TabListCommons.getSkinData(UUID.fromString("148f1abc-6352-41fa-9c91-f666c3b04082"));
                 break;
-            case "{green}":
+            case "{green>":
                 skin = TabListCommons.GREEN_DOT;
                 break;
-            case "{blue}":
+            case "{blue>":
                 skin = TabListCommons.BLUE_DOT;
                 break;
-            case "{dark_blue}":
+            case "{dark_blue>":
                 skin = TabListCommons.DARK_BLUE_DOT;
                 break;
-            case "{dark_aqua}":
+            case "{dark_aqua>":
                 skin = TabListCommons.DARK_AQUA_DOT;
                 break;
-            case "{purple}":
+            case "{purple>":
                 skin = TabListCommons.DARK_PURPLE_DOT;
                 break;
-            case "{pink}":
+            case "{pink>":
                 skin = TabListCommons.LIGHT_PURPLE_DOT;
                 break;
-            case "{gray}":
+            case "{gray>":
                 skin = TabListCommons.GRAY_DOT;
                 break;
-            case "{red}":
+            case "{red>":
                 skin = TabListCommons.RED_DOT;
                 break;
-            case "{yellow}":
+            case "{yellow>":
                 skin = TabListCommons.YELLOW_DOT;
                 break;
-            case "{dark_green}":
+            case "{dark_green>":
                 skin = TabListCommons.DARK_GREEN_DOT;
                 break;
-            case "{dark_red}":
+            case "{dark_red>":
                 skin = TabListCommons.DARK_RED_DOT;
                 break;
-            case "{gold}":
+            case "{gold>":
                 skin = TabListCommons.GOLD_DOT;
                 break;
-            case "{aqua}":
+            case "{aqua>":
                 skin = TabListCommons.AQUA_DOT;
                 break;
-            case "{white}":
+            case "{white>":
                 skin = TabListCommons.WHITE_DOT;
                 break;
-            case "{dark_gray}":
+            case "{dark_gray>":
                 skin = TabListCommons.DARK_GRAY;
                 break;
-            case "{black}":
+            case "{black>":
                 skin = TabListCommons.BLACK_DOT;
                 break;
         }

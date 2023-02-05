@@ -63,7 +63,7 @@ public class Party {
 
 		getListOfPlayers().forEach(player ->
 			new MessageFormat(Locale.PARTY_PRIVACY_CHANGE.format(Profile.get(player.getUniqueId()).getLocale()))
-				.add("{new_privacy}", privacy.getReadable())
+				.add("<new_privacy>", privacy.getReadable())
 				.send(player));
 
 		//sendMessage(Locale.PARTY_PRIVACY_CHANGE.format(privacy.getReadable()));
@@ -95,7 +95,7 @@ public class Party {
 		invites.add(new PartyInvite(target.getUniqueId()));
 
 		for (String msg : new MessageFormat(Locale.PARTY_INVITE.format(profile.getLocale()))
-			.add("{leader_name}", Profile.get(leader.getUniqueId()).getColor() + leader.getName())
+			.add("<leader_name>", Profile.get(leader.getUniqueId()).getColor() + leader.getName())
 			.toList()) {
 			if (msg.contains("%CLICKABLE%")) {
 				msg = msg.replace("%CLICKABLE%", "");
@@ -112,7 +112,7 @@ public class Party {
 
 		getListOfPlayers().forEach(player ->
 			new MessageFormat(Locale.PARTY_INVITE_BROADCAST.format(Profile.get(player.getUniqueId()).getLocale()))
-			.add("{player_name}", profile.getColor() + target.getName())
+			.add("<player_name>", profile.getColor() + target.getName())
 			.send(player));
 
 	}
@@ -126,7 +126,7 @@ public class Party {
 		Profile profile = Profile.get(player.getUniqueId());
 		getListOfPlayers().forEach(member ->
 			new MessageFormat(Locale.PARTY_JOIN.format(Profile.get(member.getUniqueId()).getLocale()))
-				.add("{player_name}", profile.getColor() + player.getName())
+				.add("<player_name>", profile.getColor() + player.getName())
 				.send(member));
 
 		profile.setParty(this);
@@ -154,8 +154,8 @@ public class Party {
 		getListOfPlayers().forEach(member -> {
 			Profile profile = Profile.get(member.getUniqueId());
 			new MessageFormat(Locale.PARTY_LEAVE.format(profile.getLocale()))
-					.add("{player_name}", Profile.get(player.getUniqueId()).getColor() + player.getName())
-					.add("{context}", (kick ?
+					.add("<player_name>", Profile.get(player.getUniqueId()).getColor() + player.getName())
+					.add("<context>", (kick ?
 							Locale.PARTY_CONTEXT_KICK.getString(profile.getLocale()) :
 							Locale.PARTY_CONTEXT_QUIT.getString(profile.getLocale())))
 					.send(member);
@@ -216,17 +216,17 @@ public class Party {
 		}
 
 		new MessageFormat(Locale.PARTY_INFORMATION.format(profile.getLocale()))
-				.add("{status}", privacy.getReadable())
-				.add("{leader}", leader.getName()) //
-				.add("{members-size}", String.valueOf((getPlayers().size() - 1)))
-				.add("{members}", CC.translate(getListOfPlayers().size() > 1 ? builder.substring(0, builder.length() - 2) : ""))
+				.add("<status>", privacy.getReadable())
+				.add("<leader>", leader.getName()) //
+				.add("<members-size>", String.valueOf((getPlayers().size() - 1)))
+				.add("<members>", CC.translate(getListOfPlayers().size() > 1 ? builder.substring(0, builder.length() - 2) : ""))
 				.send(sendTo);
 
 		/*new MessageFormat(Locale.PARTY_INFORMATION.format(profile.getLocale()))
-				.add("{status}", privacy.getReadable())
-				.add("{leader}", CC.translate(Profile.get(leader.getUniqueId()).getColor() + leader.getName()))
-				.add("{members-size}", String.valueOf((getPlayers().size() - 1)))
-				.add("{members}", CC.translate(getListOfPlayers().size() > 1 ? builder.substring(0, builder.length() - 2) : ""))
+				.add("<status>", privacy.getReadable())
+				.add("<leader>", CC.translate(Profile.get(leader.getUniqueId()).getColor() + leader.getName()))
+				.add("<members-size>", String.valueOf((getPlayers().size() - 1)))
+				.add("<members>", CC.translate(getListOfPlayers().size() > 1 ? builder.substring(0, builder.length() - 2) : ""))
 				.send(sendTo);*/
 	}
 

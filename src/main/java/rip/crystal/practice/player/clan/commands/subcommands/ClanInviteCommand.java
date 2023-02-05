@@ -58,7 +58,7 @@ public class ClanInviteCommand extends BaseCommand {
 
         if (profileTarget.getClan() != null) {
             new MessageFormat(Locale.CLAN_ERROR_PLAYER_ALREADY_IN_CLAN_OTHER.format(profile.getLocale()))
-                    .add("{target_name}", target.getName())
+                    .add("<target_name>", target.getName())
                     .send(player);
             return;
         }
@@ -72,11 +72,11 @@ public class ClanInviteCommand extends BaseCommand {
 
         profileTarget.getInvites().put(profile.getClan().getName(), new ClanInvite(player.getUniqueId(), target.getUniqueId()));
         new MessageFormat(Locale.CLAN_INVITE_SENDER.format(profile.getLocale()))
-                .add("{target_name}", target.getName())
+                .add("<target_name>", target.getName())
                 .send(player);
         Clickable clickable = new Clickable();
         clickable.add(new MessageFormat(Locale.CLAN_INVITE_RECEIVER.format(profile.getLocale()))
-                .add("{clan_nFame}", profile.getClan().getColoredName())
+                .add("<clan_nFame>", profile.getClan().getColoredName())
                 .toString());
         clickable.add(" &6C&6l&6i&6c&6k &6h&6e&6r&6e to enter", CC.translate("&bClick to enter"), "/clan join " +  profile.getClan().getName());
         clickable.sendToPlayer(target);

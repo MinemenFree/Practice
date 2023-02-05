@@ -60,8 +60,8 @@ public class ClanRenameCommand extends BaseCommand {
         clan.setName(new_name);
 
         clan.broadcast(Locale.CLAN_RENAME_BROADCAST, new MessageFormat()
-                .add("{old_name}", old_name)
-                .add("{new_name}", new_name));
+                .add("<old_name>", old_name)
+                .add("<new_name>", new_name));
 
         Clan.getClans().put(new_name, clan);
         clan.save();

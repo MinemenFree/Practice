@@ -121,7 +121,7 @@ public class RogueClass implements Listener {
 
                     damager.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 2));
                     new MessageFormat(Locale.CLASS_USE_BACKSTAB.format(damagerProfile.getLocale()))
-                            .add("{victim}", victim.getName())
+                            .add("<victim>", victim.getName())
                             .send(damager);
                 } else {
                     new MessageFormat(Locale.CLASS_FAILED_BACKSTAB.format(damagerProfile.getLocale()))

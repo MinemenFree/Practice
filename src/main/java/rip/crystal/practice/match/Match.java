@@ -137,7 +137,7 @@ public abstract class Match {
 				player.getInventory().setContents(getKit().getKitLoadout().getContents());
 				//player.sendMessage(Locale.MATCH_GIVE_KIT.format("Default"));
 				new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale()))
-						.add("{kit_name}", "Default")
+						.add("<kit_name>", "Default")
 						.send(player);
 			}
 		}
@@ -157,10 +157,10 @@ public abstract class Match {
 		// Send arena message
 		if (getArena().getAuthor() != null && !getArena().getAuthor().isEmpty()) {
 			sendMessage(Locale.MATCH_PLAYING_ARENA_AUTHOR, new MessageFormat()
-					.add("{arena_name}", arena.getName())
-					.add("{author}", arena.getAuthor()));
+					.add("<arena_name>", arena.getName())
+					.add("<author>", arena.getAuthor()));
 		} else
-			sendMessage(Locale.MATCH_PLAYING_ARENA_NO_AUTHOR, new MessageFormat().add("{arena_name}", arena.getName()));
+			sendMessage(Locale.MATCH_PLAYING_ARENA_NO_AUTHOR, new MessageFormat().add("<arena_name>", arena.getName()));
 
 		// Setup players
 		for (GameParticipant<MatchGamePlayer> gameParticipant : getParticipants()) {
@@ -625,7 +625,7 @@ public abstract class Match {
 					if (bukkitPlayer != null && !(profile.getState() == ProfileState.STAFF_MODE)) {
 						VisibilityLogic.handle(bukkitPlayer);
 						new MessageFormat(Locale.MATCH_NOW_SPECTATING.format(Profile.get(bukkitPlayer.getUniqueId()).getLocale()))
-								.add("{spectator_name}", spectator.getName())
+								.add("<spectator_name>", spectator.getName())
 								.send(bukkitPlayer);
 					}
 				}
@@ -661,7 +661,7 @@ public abstract class Match {
 
 						if (state != MatchState.ENDING_MATCH) {
 							new MessageFormat(Locale.MATCH_NO_LONGER_SPECTATING.format(Profile.get(bukkitPlayer.getUniqueId()).getLocale()))
-									.add("{spectator_name}", spectator.getName())
+									.add("<spectator_name>", spectator.getName())
 									.send(bukkitPlayer);
 						}
 					}
@@ -727,12 +727,12 @@ public abstract class Match {
 
 		if (killer == null) {
 			deathMessage = new MessageFormat(Locale.MATCH_PLAYER_DIED.format(profile.getLocale()))
-					.add("{dead_name}", getRelationColor(player, dead) + dead.getName())
+					.add("<dead_name>", getRelationColor(player, dead) + dead.getName())
 					.toString();
 		} else {
 			deathMessage = new MessageFormat(Locale.MATCH_PLAYER_KILLED.format(profile.getLocale()))
-					.add("{dead_name}", getRelationColor(player, dead) + dead.getName())
-					.add("{killer_name}", getRelationColor(player, killer) + killer.getName())
+					.add("<dead_name>", getRelationColor(player, dead) + dead.getName())
+					.add("<killer_name>", getRelationColor(player, killer) + killer.getName())
 					.toString();
 		}
 
@@ -750,12 +750,12 @@ public abstract class Match {
 
 					if (killer == null) {
 						deathMessage = new MessageFormat(Locale.MATCH_PLAYER_DIED.format(profile.getLocale()))
-								.add("{dead_name}", getRelationColor(other, dead) + dead.getName())
+								.add("<dead_name>", getRelationColor(other, dead) + dead.getName())
 								.toString();
 					} else {
 						deathMessage = new MessageFormat(Locale.MATCH_PLAYER_KILLED.format(profile.getLocale()))
-								.add("{dead_name}", getRelationColor(other, dead) + dead.getName())
-								.add("{killer_name}", getRelationColor(other, killer) + killer.getName())
+								.add("<dead_name>", getRelationColor(other, dead) + dead.getName())
+								.add("<killer_name>", getRelationColor(other, killer) + killer.getName())
 								.toString();
 					}
 					other.sendMessage(deathMessage);
@@ -769,12 +769,12 @@ public abstract class Match {
 			Profile profile = Profile.get(other.getUniqueId());
 			if (killer == null) {
 				deathMessage = new MessageFormat(Locale.MATCH_PLAYER_DIED.format(profile.getLocale()))
-						.add("{dead_name}", getRelationColor(other, dead) + dead.getName())
+						.add("<dead_name>", getRelationColor(other, dead) + dead.getName())
 						.toString();
 			} else {
 				deathMessage = new MessageFormat(Locale.MATCH_PLAYER_KILLED.format(profile.getLocale()))
-						.add("{dead_name}", getRelationColor(other, dead) + dead.getName())
-						.add("{killer_name}", getRelationColor(other, killer) + killer.getName())
+						.add("<dead_name>", getRelationColor(other, dead) + dead.getName())
+						.add("<killer_name>", getRelationColor(other, killer) + killer.getName())
 						.toString();
 			}
 			other.sendMessage(deathMessage);
@@ -833,11 +833,11 @@ public abstract class Match {
 				ChatComponentBuilder current = new ChatComponentBuilder(
 						CC.translate(new MessageFormat(Locale.MATCH_CLICK_TO_VIEW_NAME
 								.format(Profile.get(gamePlayer.getUuid()).getLocale()))
-								.add("{name}", gamePlayer.getUsername()).toString()))
+								.add("<name>", gamePlayer.getUsername()).toString()))
 						.attachToEachPart(ChatHelper.hover(CC.translate(
 								new MessageFormat(Locale.MATCH_CLICK_TO_VIEW_HOVER
 										.format(Profile.get(gamePlayer.getUuid()).getLocale()))
-										.add("{name}", gamePlayer.getUsername()).toString())))
+										.add("<name>", gamePlayer.getUsername()).toString())))
 						.attachToEachPart(ChatHelper.click("/viewinv " + gamePlayer.getUuid().toString()));
 
 				builder.append(current.create());

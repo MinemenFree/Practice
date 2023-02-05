@@ -38,7 +38,7 @@ public class ClearChatCommand extends BaseCommand {
 		Bukkit.getOnlinePlayers().forEach(online -> {
 			Profile profile = Profile.get(online.getUniqueId());
 			new MessageFormat(Locale.CLEAR_CHAT_BROADCAST.format(profile.getLocale()))
-					.add("{sender_name}", senderName)
+					.add("<sender_name>", senderName)
 					.send(online);
 		});
 	}

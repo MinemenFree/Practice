@@ -58,16 +58,16 @@ public class Queue {
 		if (ranked) {
 			//player.sendMessage(Locale.QUEUE_JOIN_RANKED.format(kit.getName(), elo));
 			new MessageFormat(Locale.QUEUE_JOIN_RANKED.format(profile.getLocale()))
-				.add("{kit_name}", kit.getName())
-				.add("{elo}", String.valueOf(elo))
+				.add("<kit_name>", kit.getName())
+				.add("<elo>", String.valueOf(elo))
 				.send(player);
 		} else {
 			//player.sendMessage(Locale.QUEUE_JOIN_UNRANKED.format(kit.getName()));
 
 			//for (String message : cPractice.get().getLang().getStringList("QUEUE.JOIN_UNRANKED")) {
-			new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale())).add("{kit_name}", kit.getName()).add("{pingrange}", "" + (profile.getPingRange() == -1 ? "Unrestricted" : Integer.valueOf(profile.getPingRange()))).send(player);
+			new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale())).add("<kit_name>", kit.getName()).add("<pingrange>", "" + (profile.getPingRange() == -1 ? "Unrestricted" : Integer.valueOf(profile.getPingRange()))).send(player);
 			//}
-			//new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale())).add("{kit_name}", kit.getName()).send(player);
+			//new MessageFormat(Locale.QUEUE_JOIN_UNRANKED.format(profile.getLocale())).add("<kit_name>", kit.getName()).send(player);
 		}
 	}
 
@@ -86,12 +86,12 @@ public class Queue {
 			if (ranked) {
 				//player.sendMessage(Locale.QUEUE_LEAVE_RANKED.format(kit.getName()));
 				new MessageFormat(Locale.QUEUE_LEAVE_RANKED.format(profile.getLocale()))
-					.add("{kit_name}", kit.getName())
+					.add("<kit_name>", kit.getName())
 					.send(player);
 			} else {
 				//player.sendMessage(Locale.QUEUE_LEAVE_UNRANKED.format(kit.getName()));
 				new MessageFormat(Locale.QUEUE_LEAVE_UNRANKED.format(profile.getLocale()))
-					.add("{kit_name}", kit.getName())
+					.add("<kit_name>", kit.getName())
 					.send(player);
 			}
 		}

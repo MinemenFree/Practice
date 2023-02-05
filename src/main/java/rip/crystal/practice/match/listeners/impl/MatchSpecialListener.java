@@ -162,8 +162,8 @@ public class MatchSpecialListener implements Listener {
 
                                 new MessageFormat(Locale.MATCH_BRIDGE_SCORED
                                         .format(Profile.get(other.getUniqueId()).getLocale()))
-                                        .add("{color}", match.getRelationColor(other, player).toString())
-                                        .add("{player}", player.getName())
+                                        .add("<color>", match.getRelationColor(other, player).toString())
+                                        .add("<player>", player.getName())
                                         .send(other);
                             }));
 

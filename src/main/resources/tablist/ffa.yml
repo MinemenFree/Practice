@@ -1,8 +1,8 @@
 TABLIST:
   LEFT:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: ''
       head: ''
@@ -20,13 +20,13 @@ TABLIST:
       head: ''
     '7':
       text: '&9&lFFA'
-      head: '{dark_blue}'
+      head: '<dark_blue>'
     '8':
-      text: '&9Players&7: &f{players}'
-      head: '{dark_blue}'
+      text: '&9Players&7: &f<players>'
+      head: '<dark_blue>'
     '9':
-      text: '&9Kit&7: &f{kit}'
-      head: '{dark_blue}'
+      text: '&9Kit&7: &f<kit>'
+      head: '<dark_blue>'
     '10':
       text: ''
       head: ''
@@ -53,22 +53,22 @@ TABLIST:
       head: ''
     '18':
       text: '&9Store'
-      head: '{discord}'
+      head: '<discord>'
     '19':
       text: '&7store.crystal.rip'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
   CENTER:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: '&9&lSeason 1'
       head: ''
     '3':
-      text: '&7{online}/{slots}'
+      text: '&7<online>/<slots>'
       head: ''
     '4':
       text: ''
@@ -114,17 +114,17 @@ TABLIST:
       head: ''
     '18':
       text: '&9Twitter'
-      head: '{twitter}'
+      head: '<twitter>'
     '19':
       text: '&7@CrystalNetwork'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
   RIGHT:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: ''
       head: ''
@@ -175,17 +175,17 @@ TABLIST:
       head: ''
     '18':
       text: '&9Discord'
-      head: '{brayding}'
+      head: '<brayding>'
     '19':
       text: '&7discord.gg/crystal'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
   EXTERNAL-RIGHT:
     '1':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'
     '2':
       text: ''
       head: ''
@@ -209,15 +209,15 @@ TABLIST:
       head: ''
     '9':
       text: '&9&lYour Information'
-      head: '{player}'
+      head: '<player>'
     '10':
-      text: ' &9Name&7: &f{name}'
+      text: ' &9Name&7: &f<name>'
       head: ''
     '11':
-      text: ' &9Rank&7: &f{rank-suffix}'
+      text: ' &9Rank&7: &f<rank-suffix>'
       head: ''
     '12':
-      text: ' &9Ping&7: &f{ping}'
+      text: ' &9Ping&7: &f<ping>'
       head: ''
     '13':
       text: ''
@@ -236,10 +236,10 @@ TABLIST:
       head: ''
     '18':
       text: '&9Website'
-      head: '{ziue}'
+      head: '<ziue>'
     '19':
       text: '&7store.crystal.rip'
-      head: '{light_purple}'
+      head: '<light_purple>'
     '20':
-      text: '{bars}'
-      head: '{gray}'
+      text: '<bars>'
+      head: '<gray>'

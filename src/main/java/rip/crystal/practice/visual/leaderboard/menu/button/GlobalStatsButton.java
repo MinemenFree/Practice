@@ -32,44 +32,44 @@ public class GlobalStatsButton extends Button {
                 List<String> first = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.GLOBAL_STATS.POSITIONS.1");
                 for (String s : first) {
                     lore.add(s
-                            .replace("{pos}", String.valueOf(pos.get()))
-                            .replace("{name}", leaderboard.getName())
-                            .replace("{color}", leaderboard.getColor())
-                            .replace("{data}", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
-                            .replace("{bars}", CC.MENU_BAR));
+                            .replace("<pos>", String.valueOf(pos.get()))
+                            .replace("<name>", leaderboard.getName())
+                            .replace("<color>", leaderboard.getColor())
+                            .replace("<data>", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
+                            .replace("<bars>", CC.MENU_BAR));
                 }
             }
             else if (pos.get() == 2) {
                 List<String> second = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.GLOBAL_STATS.POSITIONS.2");
                 for (String s : second) {
                     lore.add(s
-                            .replace("{pos}", String.valueOf(pos.get()))
-                            .replace("{name}", leaderboard.getName())
-                            .replace("{color}", leaderboard.getColor())
-                            .replace("{data}", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
-                            .replace("{bars}", CC.MENU_BAR));
+                            .replace("<pos>", String.valueOf(pos.get()))
+                            .replace("<name>", leaderboard.getName())
+                            .replace("<color>", leaderboard.getColor())
+                            .replace("<data>", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
+                            .replace("<bars>", CC.MENU_BAR));
                 }
             }
             else if (pos.get() == 3) {
                 List<String> third = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.GLOBAL_STATS.POSITIONS.3");
                 for (String s : third) {
                     lore.add(s
-                            .replace("{pos}", String.valueOf(pos.get()))
-                            .replace("{name}", leaderboard.getName())
-                            .replace("{color}", leaderboard.getColor())
-                            .replace("{data}", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
-                            .replace("{bars}", CC.MENU_BAR));
+                            .replace("<pos>", String.valueOf(pos.get()))
+                            .replace("<name>", leaderboard.getName())
+                            .replace("<color>", leaderboard.getColor())
+                            .replace("<data>", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
+                            .replace("<bars>", CC.MENU_BAR));
                 }
             }
             else {
                 List<String> another = cPractice.get().getLeaderboardConfig().getStringList("INVENTORY.GLOBAL_STATS.POSITIONS.ANOTHER");
                 for (String s : another) {
                     lore.add(s
-                            .replace("{pos}", String.valueOf(pos.get()))
-                            .replace("{name}", leaderboard.getName())
-                            .replace("{color}", leaderboard.getColor())
-                            .replace("{data}", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
-                            .replace("{bars}", CC.MENU_BAR));
+                            .replace("<pos>", String.valueOf(pos.get()))
+                            .replace("<name>", leaderboard.getName())
+                            .replace("<color>", leaderboard.getColor())
+                            .replace("<data>", String.valueOf(EloUtil.getGlobalElo(leaderboard)))
+                            .replace("<bars>", CC.MENU_BAR));
                 }
             }
         }

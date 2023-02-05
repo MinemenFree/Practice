@@ -161,7 +161,7 @@ public class FFAListener implements Listener {
                 if (!profile.getEnderpearlCooldown().hasExpired()) {
                     event.setCancelled(true);
                     String time = TimeUtil.millisToSeconds(profile.getEnderpearlCooldown().getRemaining());
-                    new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("{context}", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("{time}", time).send(player);
+                    new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("<context>", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("<time>", time).send(player);
                 }
             }
         }

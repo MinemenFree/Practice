@@ -77,8 +77,8 @@ public class ProfileRematchData {
 
 
 		for (String line : new MessageFormat(Locale.REMATCH_SENT_REQUEST.format(Profile.get(sender.getUniqueId()).getLocale()))
-							.add("{target_name}", target.getName())
-							.add("{arena_name}", arena.getName())
+							.add("<target_name>", target.getName())
+							.add("<arena_name>", arena.getName())
 							.toList()) {
 			sender.sendMessage(line);
 		}
@@ -88,8 +88,8 @@ public class ProfileRematchData {
 
 
 		for (String line : new MessageFormat(Locale.REMATCH_RECEIVED_REQUEST.format(Profile.get(target.getUniqueId()).getLocale()))
-							.add("{sender_name}", sender.getName())
-							.add("{arena_name}", arena.getName())
+							.add("<sender_name>", sender.getName())
+							.add("<arena_name>", arena.getName())
 							.toList()) {
 			BaseComponent[] lineComponents = new ChatComponentBuilder("")
 					.parse(line)

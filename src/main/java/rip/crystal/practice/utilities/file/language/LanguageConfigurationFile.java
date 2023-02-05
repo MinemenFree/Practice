@@ -36,7 +36,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
     public List<String> replace(List<String> list, int position, Object argument) {
         List<String> toReturn = new ArrayList<>();
         for (String string : list) {
-            toReturn.add(string.replace("{" + position + "}", argument.toString()));
+            toReturn.add(string.replace("<" + position + ">", argument.toString()));
         }
         return toReturn;
     }
@@ -49,7 +49,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
         List<String> toReturn = new ArrayList<>();
         for (String string : list) {
             for (int i = 0; i < arguments.length; ++i) {
-                toReturn.add(string.replace("{" + position + "}", arguments[index + i].toString()));
+                toReturn.add(string.replace("<" + position + ">", arguments[index + i].toString()));
             }
         }
         return toReturn;
@@ -60,7 +60,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
         Label_0022:
         for (String string : this.getStringList(path, locale)) {
             for (int i = 0; i < arguments.length; ++i) {
-                if (string.contains("{" + i + "}")) {
+                if (string.contains("<" + i + ">")) {
                     Object object = arguments[i];
                     if (object == null) {
                         continue Label_0022;
@@ -73,7 +73,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
                         }
                         continue Label_0022;
                     }
-                    string = string.replace("{" + i + "}", object.toString());
+                    string = string.replace("<" + i + ">", object.toString());
                 }
             }
             toReturn.add(string);
@@ -83,7 +83,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
     
     public int indexOf(List<String> list, int position) {
         for (int i = 0; i < list.size(); ++i) {
-            if (list.get(i).contains("{" + position + "}")) {
+            if (list.get(i).contains("<" + position + ">")) {
                 return i;
             }
         }
@@ -105,7 +105,7 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
         String toReturn = this.getString(path, locale);
         if (toReturn != null) {
             for (int i = 0; i < arguments.length; ++i) {
-                toReturn = toReturn.replace("{" + i + "}", arguments[i].toString());
+                toReturn = toReturn.replace("<" + i + ">", arguments[i].toString());
             }
             return toReturn;
         }
@@ -169,15 +169,15 @@ public class LanguageConfigurationFile extends AbstractConfigurationFile {
         for (String line : this.getStringList(path, locale)) {
             for (int i = 0; i < arguments.length; ++i) {
                 Object object = arguments[i];
-                if (object instanceof List && line.contains("{" + i + "}")) {
+                if (object instanceof List && line.contains("<" + i + ">")) {
                     for (Object obj : (List)object) {
                         if (obj instanceof String) {
-                            toReturn.add(line.replace("{" + i + "}", "") + obj);
+                            toReturn.add(line.replace("<" + i + ">", "") + obj);
                         }
                     }
                     continue Label_0022;
                 }
-                line = line.replace("{" + i + "}", arguments[i].toString());
+                line = line.replace("<" + i + ">", arguments[i].toString());
             }
             toReturn.add(line);
         }

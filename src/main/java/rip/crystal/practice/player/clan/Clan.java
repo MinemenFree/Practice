@@ -79,11 +79,11 @@ public class Clan {
 
     public void show(Player player) {
         new MessageFormat(Locale.CLAN_SHOW.format(Profile.get(player.getUniqueId()).getLocale()))
-            .add("{name}", name)
-            .add("{members}", members())
-            .add("{points}", String.valueOf(points))
-            .add("{leader}", Objects.requireNonNull(Bukkit.getOfflinePlayer(leader)).getName())
-            .add("{tournament_wins}", String.valueOf(tournamentWins))
+            .add("<name>", name)
+            .add("<members>", members())
+            .add("<points>", String.valueOf(points))
+            .add("<leader>", Objects.requireNonNull(Bukkit.getOfflinePlayer(leader)).getName())
+            .add("<tournament_wins>", String.valueOf(tournamentWins))
             .send(player);
     }
 
@@ -96,7 +96,7 @@ public class Clan {
     }
 
     public void join(Player player) {
-        broadcast(Locale.CLAN_JOIN_BROADCAST, new MessageFormat().add("{player_name}", player.getName()));
+        broadcast(Locale.CLAN_JOIN_BROADCAST, new MessageFormat().add("<player_name>", player.getName()));
         new MessageFormat(Locale.CLAN_JOIN
                 .format(Profile.get(player.getUniqueId()).getLocale()))
                 .send(player);
@@ -121,7 +121,7 @@ public class Clan {
             profileMember.setClan(null);
             profileMember.save();
         }));
-        broadcast(Locale.CLAN_DISBAND, new MessageFormat().add("{player_name}", player.getName()));
+        broadcast(Locale.CLAN_DISBAND, new MessageFormat().add("<player_name>", player.getName()));
         members.clear();
 
         delete();
@@ -150,11 +150,11 @@ public class Clan {
     public void chat(Player sender, String message) {
         getOnPlayers().forEach(player ->
                 player.sendMessage(CC.translate(cPractice.get().getMainConfig().getString("CHAT.CLAN_MESSAGE_FORMAT")
-                        .replace("{clan}", name)
-                        .replace("{prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
-                        .replace("{suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
-                        .replace("{player}", sender.getName()))
-                        .replace("{message}", message)));
+                        .replace("<clan>", name)
+                        .replace("<prefix>", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
+                        .replace("<suffix>", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
+                        .replace("<player>", sender.getName()))
+                        .replace("<message>", message)));
     }
 
     public void broadcast(String msg){
@@ -174,10 +174,10 @@ public class Clan {
         String bars = config.getString("LINES.BARS");
 
         config.getStringList("CLAN.LINES").forEach(line -> {
-            lines.add(line.replace("{bars}", bars)
-                    .replace("{color}", getColor().toString())
-                    .replace("{name}", getName())
-                    .replace("{size}", String.valueOf(getOnPlayers().size())));
+            lines.add(line.replace("<bars>", bars)
+                    .replace("<color>", getColor().toString())
+                    .replace("<name>", getName())
+                    .replace("<size>", String.valueOf(getOnPlayers().size())));
         });
         return lines;
     }

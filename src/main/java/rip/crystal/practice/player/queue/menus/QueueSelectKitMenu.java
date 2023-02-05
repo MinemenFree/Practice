@@ -77,11 +77,11 @@ public class QueueSelectKitMenu extends Menu {
 
 			BasicConfigurationFile config = cPractice.get().getMainConfig();
 			config.getStringList("QUEUE." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".LORE").forEach(s ->
-					lore.add(s.replace("{bars}", CC.SB_BAR)
-							.replace("{in-fight}", String.valueOf(Match.getInFightsCount(queue)))
-							.replace("{winstreak}", String.valueOf(profile.getKitData().get(queue.getKit()).getKillstreak()))
-							.replace("{elo}", String.valueOf(profile.getKitData().get(queue.getKit()).getElo()))
-							.replace("{in-queue}", String.valueOf(queue.getPlayers().size()))));
+					lore.add(s.replace("<bars>", CC.SB_BAR)
+							.replace("<in-fight>", String.valueOf(Match.getInFightsCount(queue)))
+							.replace("<winstreak>", String.valueOf(profile.getKitData().get(queue.getKit()).getKillstreak()))
+							.replace("<elo>", String.valueOf(profile.getKitData().get(queue.getKit()).getElo()))
+							.replace("<in-queue>", String.valueOf(queue.getPlayers().size()))));
 
 			boolean amount = config.getBoolean("QUEUE.AMOUNT_PER_FIGHTS");
 

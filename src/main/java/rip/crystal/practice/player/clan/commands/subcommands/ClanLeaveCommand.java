@@ -39,7 +39,7 @@ public class ClanLeaveCommand extends BaseCommand {
                 .format(profile.getLocale()))
                 .send(player);
         clan.getOnPlayers().forEach(other -> new MessageFormat(Locale.CLAN_LEAVE_BROADCAST.format(Profile.get(other.getUniqueId()).getLocale()))
-                .add("{player_name}", player.getName())
+                .add("<player_name>", player.getName())
                 .send(other));
 
         TaskUtil.runAsync(profile::save);

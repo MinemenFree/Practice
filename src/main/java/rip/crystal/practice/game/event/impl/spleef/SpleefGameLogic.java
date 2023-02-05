@@ -63,10 +63,10 @@ public class SpleefGameLogic implements EventGameLogic {
         Bukkit.getOnlinePlayers().forEach(player -> {
             Profile profile = Profile.get(player.getUniqueId());
             new MessageFormat(Locale.EVENT_START.format(profile.getLocale()))
-                    .add("{event_name}", game.getEvent().getName())
-                    .add("{event_displayname}", game.getEvent().getDisplayName())
-                    .add("{size}", String.valueOf(game.getParticipants().size()))
-                    .add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+                    .add("<event_name>", game.getEvent().getName())
+                    .add("<event_displayname>", game.getEvent().getDisplayName())
+                    .add("<size>", String.valueOf(game.getParticipants().size()))
+                    .add("<maximum>", String.valueOf(game.getMaximumPlayers()))
                     .send(player);
         });
 
@@ -124,10 +124,10 @@ public class SpleefGameLogic implements EventGameLogic {
             Bukkit.getOnlinePlayers().forEach(player -> {
                 Profile profile = Profile.get(player.getUniqueId());
                 new MessageFormat(Locale.EVENT_FINISH.format(profile.getLocale()))
-                    .add("{event_name}", game.getEvent().getName())
-                        .add("{event_displayname}", game.getEvent().getDisplayName())
-                    .add("{winner}", winningParticipant.getConjoinedNames())
-                    .add("{context}", (winningParticipant.getPlayers().size() == 1 ? "has" : "have"))
+                    .add("<event_name>", game.getEvent().getName())
+                        .add("<event_displayname>", game.getEvent().getDisplayName())
+                    .add("<winner>", winningParticipant.getConjoinedNames())
+                    .add("<context>", (winningParticipant.getPlayers().size() == 1 ? "has" : "have"))
                     .send(player);
             });
         }
@@ -255,9 +255,9 @@ public class SpleefGameLogic implements EventGameLogic {
                     voteData.addVote(player.getUniqueId());
 
                     game.sendMessage(Locale.EVENT_PLAYER_VOTE, new MessageFormat()
-                        .add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-                        .add("{map_name}", gameMap.getMapName())
-                        .add("{votes}", String.valueOf(voteData.getPlayers().size()))
+                        .add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+                        .add("<map_name>", gameMap.getMapName())
+                        .add("<votes>", String.valueOf(voteData.getPlayers().size()))
                     );
                 }
             } else {
@@ -273,9 +273,9 @@ public class SpleefGameLogic implements EventGameLogic {
         game.getParticipants().add(new GameParticipant<>(new GamePlayer(player.getUniqueId(), player.getName())));
 
         game.sendMessage(Locale.EVENT_PLAYER_JOIN, new MessageFormat()
-            .add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-            .add("{size}", String.valueOf(game.getParticipants().size()))
-            .add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+            .add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+            .add("<size>", String.valueOf(game.getParticipants().size()))
+            .add("<maximum>", String.valueOf(game.getMaximumPlayers()))
         );
 
         Profile profile = Profile.get(player.getUniqueId());
@@ -336,9 +336,9 @@ public class SpleefGameLogic implements EventGameLogic {
                                 game.getGameState() == EventGameState.STARTING_EVENT) {
 
                                 game.sendMessage(Locale.EVENT_PLAYER_LEAVE, new MessageFormat()
-                                    .add("{player_name}", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
-                                    .add("{remaining}", String.valueOf(game.getRemainingPlayers()))
-                                    .add("{maximum}", String.valueOf(game.getMaximumPlayers()))
+                                    .add("<player_name>", cPractice.get().getRankManager().getRank().getPrefix(player.getUniqueId()) + player.getName())
+                                    .add("<remaining>", String.valueOf(game.getRemainingPlayers()))
+                                    .add("<maximum>", String.valueOf(game.getMaximumPlayers()))
                                 );
                             }
 
@@ -420,11 +420,11 @@ public class SpleefGameLogic implements EventGameLogic {
         List<String> lines = new ArrayList<>();
         BasicConfigurationFile config = cPractice.get().getScoreboardConfig();
         config.getStringList("EVENTS.SPLEEF.LINES").forEach(s -> {
-            lines.add(s.replace("{event-name}", game.getEvent().getName())
-                    .replace("{event-displayname}", game.getEvent().getDisplayName())
-                    .replace("{players}", String.valueOf(game.getRemainingPlayers()))
-                    .replace("{max-players}", String.valueOf(game.getMaximumPlayers()))
-                    .replace("{bars}", CC.SB_BAR));
+            lines.add(s.replace("<event-name>", game.getEvent().getName())
+                    .replace("<event-displayname>", game.getEvent().getDisplayName())
+                    .replace("<players>", String.valueOf(game.getRemainingPlayers()))
+                    .replace("<max-players>", String.valueOf(game.getMaximumPlayers()))
+                    .replace("<bars>", CC.SB_BAR));
         });
 
         switch (game.getGameState()) {
@@ -434,23 +434,23 @@ public class SpleefGameLogic implements EventGameLogic {
             break;
             case STARTING_EVENT: {
                 config.getStringList("EVENTS.SPLEEF.STARTING-EVENT").forEach(s -> {
-                    lines.add(s.replace("{time}", String.valueOf(game.getGameLogic().getGameLogicTask().getNextActionTime()))
-                            .replace("{bars}", CC.SB_BAR));
+                    lines.add(s.replace("<time>", String.valueOf(game.getGameLogic().getGameLogicTask().getNextActionTime()))
+                            .replace("<bars>", CC.SB_BAR));
                 });
             }
             break;
             case STARTING_ROUND:
             case ENDING_ROUND: {
                 config.getStringList("EVENTS.SPLEEF.ENDING-ROUND").forEach(s -> {
-                    lines.add(s.replace("{bars}", CC.SB_BAR));
+                    lines.add(s.replace("<bars>", CC.SB_BAR));
                 });
             }
             break;
             case ENDING_EVENT: {
                 if (winningParticipant != null) {
                     config.getStringList("EVENTS.SPLEEF.ENDING-EVENT").forEach(s -> {
-                        lines.add(s.replace("{bars}", CC.SB_BAR)
-                                .replace("{winner}", winningParticipant.getConjoinedNames()));
+                        lines.add(s.replace("<bars>", CC.SB_BAR)
+                                .replace("<winner>", winningParticipant.getConjoinedNames()));
                     });
                 }
             }
@@ -460,15 +460,15 @@ public class SpleefGameLogic implements EventGameLogic {
         if (game.getGameState() == EventGameState.WAITING_FOR_PLAYERS ||
                 game.getGameState() == EventGameState.STARTING_EVENT) {
             config.getStringList("EVENTS.SPLEEF.MAP-VOTES").forEach(s -> {
-                if (s.contains("{votes-format}")) {
+                if (s.contains("<votes-format>")) {
                     game.getVotesData().forEach((map, voteData) -> {
                         lines.add(config.getString("EVENTS.SPLEEF.VOTES-FORMAT")
-                                .replace("{map-name}", map.getMapName())
-                                .replace("{size}", String.valueOf(voteData.getPlayers().size())));
+                                .replace("<map-name>", map.getMapName())
+                                .replace("<size>", String.valueOf(voteData.getPlayers().size())));
                     });
                     return;
                 }
-                lines.add(s.replace("{bars}", CC.SB_BAR));
+                lines.add(s.replace("<bars>", CC.SB_BAR));
             });
         }
 

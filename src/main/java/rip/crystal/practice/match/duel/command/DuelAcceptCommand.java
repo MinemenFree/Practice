@@ -58,7 +58,7 @@ public class DuelAcceptCommand extends BaseCommand {
 
 		if (targetProfile.isBusy()) {
 			new MessageFormat(Locale.DUEL_IS_BUSY.format(playerProfile.getLocale()))
-					.add("{player}", target.getName())
+					.add("<player>", target.getName())
 					.send(player);
 			return;
 		}

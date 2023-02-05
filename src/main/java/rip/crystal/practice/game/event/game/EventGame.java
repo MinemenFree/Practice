@@ -146,9 +146,9 @@ public class EventGame {
 			Profile profile = Profile.get(player.getUniqueId());
 			List<BaseComponent[]> compiledComponents = new ArrayList<>();
 			List<String> lines = new MessageFormat(Locale.EVENT_JOIN_BROADCAST.format(profile.getLocale()))
-								.add("{event_name}", event.getName())
-								.add("{event_displayname}", event.getDisplayName())
-								.add("{host_name}", CC.RED + gameHost.getUsername())
+								.add("<event_name>", event.getName())
+								.add("<event_displayname>", event.getDisplayName())
+								.add("<host_name>", CC.RED + gameHost.getUsername())
 								.toList();
 
 			for (String line : lines) {

@@ -72,7 +72,7 @@ public class BasicFreeForAllMatch extends Match {
 				player.getInventory().setContents(getKit().getKitLoadout().getContents());
 				//player.sendMessage(Locale.MATCH_GIVE_KIT.format("Default"));
 				new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale()))
-					.add("{kit_name}", "Default")
+					.add("<kit_name>", "Default")
 					.send(player);
 			}
 		}
@@ -155,27 +155,27 @@ public class BasicFreeForAllMatch extends Match {
 		if (profile.getMatch() != null && profile.getState() == ProfileState.STAFF_MODE) { // remove / change later
 			cPractice.get().getScoreboardConfig().getStringList("STAFF_MODE.SPECTATING").forEach(s ->
 					lines.add(s
-							.replace("{playerA}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
-							.replace("{playerB}", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
-							.replace("{duration}", profile.getMatch().getDuration())
-							.replace("{state}", profile.getMatch().getState().name())
-							//.replace("{ranked}", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
-							.replace("{tps}", format(LagRunnable.getTPS()))));
-							//.replace("{tps}", format(Bukkit.spigot().getTPS()[0]))));
+							.replace("<playerA>", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantA().getLeader().getPlayer().getName()))
+							.replace("<playerB>", String.valueOf(((BasicTeamMatch) profile.getMatch()).getParticipantB().getLeader().getPlayer().getName()))
+							.replace("<duration>", profile.getMatch().getDuration())
+							.replace("<state>", profile.getMatch().getState().name())
+							//.replace("<ranked>", (profile.getMatch().getQueue().isRanked() ? "&aTrue" : "&cFalse"))
+							.replace("<tps>", format(LagRunnable.getTPS()))));
+							//.replace("<tps>", format(Bukkit.spigot().getTPS()[0]))));
 		}
 
 		if (getParticipant(player) != null && !getGamePlayer(player).isDead()) {
 			config.getStringList("FIGHTS.PARTY-FFA.IS-ALIVE").forEach(line -> {
 				lines.add(line
-						.replace("{duration}", getDuration())
-						.replace("{opponents-size}", String.valueOf(getRemainingTeams() - 1)));
+						.replace("<duration>", getDuration())
+						.replace("<opponents-size>", String.valueOf(getRemainingTeams() - 1)));
 			});
 		} else {
 			config.getStringList("FIGHTS.PARTY-FFA.IS-DEAD-OR-SPECTATOR").forEach(line -> {
 				lines.add(line
-						.replace("{kit}", getKit().getName())
-						.replace("{duration}", getDuration())
-						.replace("{teams}", String.valueOf(getRemainingTeams())));
+						.replace("<kit>", getKit().getName())
+						.replace("<duration>", getDuration())
+						.replace("<teams>", String.valueOf(getRemainingTeams())));
 			});
 		}
 
@@ -204,11 +204,11 @@ public class BasicFreeForAllMatch extends Match {
 
 				BaseComponent[] winners = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
-						.add("{context}", "").toString(), winningParticipant);
+						.add("<context>", "").toString(), winningParticipant);
 
 				BaseComponent[] losers = generateInventoriesComponents(
 						new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
-							.add("{context}", participants.size() > 1 ? "s" : "").toString(), participants);
+							.add("<context>", participants.size() > 1 ? "s" : "").toString(), participants);
 
 				componentsList.add(winners);
 				componentsList.add(losers);

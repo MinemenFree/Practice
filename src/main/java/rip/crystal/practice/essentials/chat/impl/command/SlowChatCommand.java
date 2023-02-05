@@ -58,16 +58,16 @@ public class SlowChatCommand extends BaseCommand {
 			Bukkit.getOnlinePlayers().forEach(online -> {
 				Profile profile = Profile.get(online.getUniqueId());
 				new MessageFormat(Locale.DELAY_CHAT_ENABLED_BROADCAST.format(profile.getLocale()))
-						.add("{sender_name}", senderName)
-						.add("{delay_time}", String.valueOf(Chat.getDelayTime()))
-						.add("{context}", context)
+						.add("<sender_name>", senderName)
+						.add("<delay_time>", String.valueOf(Chat.getDelayTime()))
+						.add("<context>", context)
 						.send(online);
 			});
 		} else {
 			Bukkit.getOnlinePlayers().forEach(online -> {
 				Profile profile = Profile.get(online.getUniqueId());
 				new MessageFormat(Locale.DELAY_CHAT_DISABLED_BROADCAST.format(profile.getLocale()))
-						.add("{sender_name}", senderName)
+						.add("<sender_name>", senderName)
 						.send(online);
 			});
 		}

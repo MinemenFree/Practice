@@ -77,7 +77,7 @@ public final class Reflection {
     private static final String VERSION = OBC_PREFIX.replace("org.bukkit.craftbukkit", "").replace(".", "");
 
     // Variable replacement
-    private static final Pattern MATCH_VARIABLE = Pattern.compile("\\{([^\\}]+)\\}");
+    private static final Pattern MATCH_VARIABLE = Pattern.compile("\\{([^\\}]+)\\>");
 
     /**
      * Retrieve a field accessor for a specific field type and name.
@@ -360,7 +360,7 @@ public final class Reflection {
     }
 
     /**
-     * Expand variables such as "{nms}" and "{obc}" to their corresponding packages.
+     * Expand variables such as "{nms>" and "{obc>" to their corresponding packages.
      *
      * @param name - the full name of the class.
      * @return The expanded string.

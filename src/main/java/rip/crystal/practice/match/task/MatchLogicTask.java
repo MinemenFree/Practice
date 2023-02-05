@@ -42,8 +42,8 @@ public class MatchLogicTask extends BukkitRunnable {
 				match.sendMessage(Locale.MATCH_WARNING, new MessageFormat());
 			} else {
 				match.sendMessage(Locale.MATCH_START_TIMER, new MessageFormat()
-					.add("{time}", String.valueOf(nextAction))
-					.add("{context}", nextAction == 1 ? "" : "s")
+					.add("<time>", String.valueOf(nextAction))
+					.add("<context>", nextAction == 1 ? "" : "s")
 				);
 				match.sendSound(Sound.ORB_PICKUP, 1.0F, 15F);
 			}

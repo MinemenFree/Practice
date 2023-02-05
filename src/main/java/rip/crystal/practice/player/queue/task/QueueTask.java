@@ -40,7 +40,7 @@ public class QueueTask implements Runnable {
                     queue.getPlayers().remove(firstQueueProfile);
                     new MessageFormat(Locale.QUEUE_NO_ARENAS_AVAILABLE
                             .format(Profile.get(firstPlayer.getUniqueId()).getLocale()))
-                            .add("{kit}", queue.getKit().getName())
+                            .add("<kit>", queue.getKit().getName())
                             .send(firstPlayer);
                     break;
                 }
@@ -108,28 +108,28 @@ public class QueueTask implements Runnable {
                     if (queue.isRanked()) {
                         new MessageFormat(Locale.QUEUE_FOUND_RANKED_MATCH
                                 .format(Profile.get(firstPlayer.getUniqueId()).getLocale()))
-                                .add("{name}", firstPlayer.getName())
-                                .add("{elo}", String.valueOf(firstQueueProfile.getElo()))
-                                .add("{opponent}", secondPlayer.getName())
-                                .add("{opponent-elo}", String.valueOf(secondQueueProfile.getElo()))
+                                .add("<name>", firstPlayer.getName())
+                                .add("<elo>", String.valueOf(firstQueueProfile.getElo()))
+                                .add("<opponent>", secondPlayer.getName())
+                                .add("<opponent-elo>", String.valueOf(secondQueueProfile.getElo()))
                                 .send(firstPlayer);
                         new MessageFormat(Locale.QUEUE_FOUND_RANKED_MATCH
                                 .format(Profile.get(secondPlayer.getUniqueId()).getLocale()))
-                                .add("{name}", secondPlayer.getName())
-                                .add("{elo}", String.valueOf(secondQueueProfile.getElo()))
-                                .add("{opponent}", firstPlayer.getName())
-                                .add("{opponent-elo}", String.valueOf(firstQueueProfile.getElo()))
+                                .add("<name>", secondPlayer.getName())
+                                .add("<elo>", String.valueOf(secondQueueProfile.getElo()))
+                                .add("<opponent>", firstPlayer.getName())
+                                .add("<opponent-elo>", String.valueOf(firstQueueProfile.getElo()))
                                 .send(secondPlayer);
                     } else {
                         new MessageFormat(Locale.QUEUE_FOUND_UNRANKED_MATCH
                                 .format(Profile.get(firstPlayer.getUniqueId()).getLocale()))
-                                .add("{name}", firstPlayer.getName())
-                                .add("{opponent}", secondPlayer.getName())
+                                .add("<name>", firstPlayer.getName())
+                                .add("<opponent>", secondPlayer.getName())
                                 .send(firstPlayer);
                         new MessageFormat(Locale.QUEUE_FOUND_UNRANKED_MATCH
                                 .format(Profile.get(secondPlayer.getUniqueId()).getLocale()))
-                                .add("{name}", secondPlayer.getName())
-                                .add("{opponent}", firstPlayer.getName())
+                                .add("<name>", secondPlayer.getName())
+                                .add("<opponent>", firstPlayer.getName())
                                 .send(secondPlayer);
                     }
 

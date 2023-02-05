@@ -36,17 +36,17 @@ public class Conversation {
 		Profile targetProfile = Profile.get(target.getUniqueId());
 
 		new MessageFormat(Locale.CONVERSATION_SEND_MESSAGE.format(senderProfile.getLocale()))
-			.add("{sender_name}", sender.getName())
-			.add("{sender_displayname}", sender.getDisplayName())
-			.add("{sender_color}", senderProfile.getColor())
-			.add("{sender_prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
-			.add("{sender_suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
-			.add("{target_name}", target.getName())
-			.add("{target_displayname}", target.getDisplayName())
-			.add("{target_color}", targetProfile.getColor())
-			.add("{target_prefix}", cPractice.get().getRankManager().getRank().getPrefix(target.getUniqueId()))
-			.add("{target_suffix}", cPractice.get().getRankManager().getRank().getSuffix(target.getUniqueId()))
-			.add("{msg}", message)
+			.add("<sender_name>", sender.getName())
+			.add("<sender_displayname>", sender.getDisplayName())
+			.add("<sender_color>", senderProfile.getColor())
+			.add("<sender_prefix>", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
+			.add("<sender_suffix>", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
+			.add("<target_name>", target.getName())
+			.add("<target_displayname>", target.getDisplayName())
+			.add("<target_color>", targetProfile.getColor())
+			.add("<target_prefix>", cPractice.get().getRankManager().getRank().getPrefix(target.getUniqueId()))
+			.add("<target_suffix>", cPractice.get().getRankManager().getRank().getSuffix(target.getUniqueId()))
+			.add("<msg>", message)
 			.send(sender);
 
 		if (targetProfile.getOptions().playingMessageSounds()) {
@@ -54,17 +54,17 @@ public class Conversation {
 		}
 
 		new MessageFormat(Locale.CONVERSATION_RECEIVE_MESSAGE.format(targetProfile.getLocale()))
-				.add("{sender_name}", sender.getName())
-				.add("{sender_displayname}", sender.getDisplayName())
-				.add("{sender_color}", senderProfile.getColor())
-				.add("{sender_prefix}", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
-				.add("{sender_suffix}", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
-				.add("{target_name}", target.getName())
-				.add("{target_displayname}", target.getDisplayName())
-				.add("{target_color}",  targetProfile.getColor())
-				.add("{target_prefix}", cPractice.get().getRankManager().getRank().getPrefix(target.getUniqueId()))
-				.add("{target_suffix}", cPractice.get().getRankManager().getRank().getSuffix(target.getUniqueId()))
-				.add("{msg}",  message)
+				.add("<sender_name>", sender.getName())
+				.add("<sender_displayname>", sender.getDisplayName())
+				.add("<sender_color>", senderProfile.getColor())
+				.add("<sender_prefix>", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
+				.add("<sender_suffix>", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
+				.add("<target_name>", target.getName())
+				.add("<target_displayname>", target.getDisplayName())
+				.add("<target_color>",  targetProfile.getColor())
+				.add("<target_prefix>", cPractice.get().getRankManager().getRank().getPrefix(target.getUniqueId()))
+				.add("<target_suffix>", cPractice.get().getRankManager().getRank().getSuffix(target.getUniqueId()))
+				.add("<msg>",  message)
 			.send(target);
 
 		lastMessageSentAt = System.currentTimeMillis();

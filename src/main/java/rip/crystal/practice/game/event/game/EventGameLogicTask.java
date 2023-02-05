@@ -67,9 +67,9 @@ public class EventGameLogicTask extends BukkitRunnable {
 				//		nextAction, nextAction == 1 ? "second" : "seconds"));
 
 				game.sendMessage(Locale.EVENT_ROUND_START_TIMER, new MessageFormat()
-					.add("{round}", String.valueOf(game.getGameLogic().getRoundNumber()))
-					.add("{time}", String.valueOf(nextAction))
-					.add("{context}", nextAction == 1 ? "second" : "seconds")
+					.add("<round>", String.valueOf(game.getGameLogic().getRoundNumber()))
+					.add("<time>", String.valueOf(nextAction))
+					.add("<context>", nextAction == 1 ? "second" : "seconds")
 				);
 
 				game.sendSound(Sound.ORB_PICKUP, 1.0F, 1.0F);

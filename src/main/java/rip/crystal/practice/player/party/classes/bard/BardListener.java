@@ -101,7 +101,7 @@ public class BardListener implements Listener {
             double sec = Math.round(10.0 * value) / 10.0;
 
             new MessageFormat(Locale.CLASS_CANNOT_USE_ITEM.format(profile.getLocale()))
-                    .add("{seconds}", String.valueOf(sec))
+                    .add("<seconds>", String.valueOf(sec))
                     .send(player);
             return;
         }
@@ -110,8 +110,8 @@ public class BardListener implements Listener {
 
         if (bardEffect.getEnergy() > BardEnergyTask.getEnergy().get(player.getName())) {
             new MessageFormat(Locale.CLASS_BARD_ENOUGH_ENERGY.format(profile.getLocale()))
-                    .add("{needed-energy}", String.valueOf(bardEffect.getEnergy()))
-                    .add("{energy}", String.valueOf(BardEnergyTask.getEnergy().get(player.getName()).intValue()))
+                    .add("<needed-energy>", String.valueOf(bardEffect.getEnergy()))
+                    .add("<energy>", String.valueOf(BardEnergyTask.getEnergy().get(player.getName()).intValue()))
                     .send(player);
             return;
         }
@@ -123,7 +123,7 @@ public class BardListener implements Listener {
         getLastEffectUsage().put(player.getName(), System.currentTimeMillis() + EFFECT_COOLDOWN);
         giveBardEffect(player, bardEffect, !negative, true);
         new MessageFormat(Locale.CLASS_CUSTOM_ITEM_USE.format(profile.getLocale()))
-                .add("{effect}", bardEffect.getPotionEffect().getType().getName().toLowerCase())
+                .add("<effect>", bardEffect.getPotionEffect().getType().getName().toLowerCase())
                 .send(player);
 
         if (player.getItemInHand().getAmount() == 1) {

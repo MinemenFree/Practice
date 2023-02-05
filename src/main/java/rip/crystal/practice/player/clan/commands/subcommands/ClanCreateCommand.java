@@ -46,7 +46,7 @@ public class ClanCreateCommand extends BaseCommand {
         profile.setClan(clan);
         clan.getMembers().add(player.getUniqueId());
         new MessageFormat(Locale.CLAN_CREATE.format(profile.getLocale()))
-                .add("{name}", deColored)
+                .add("<name>", deColored)
                 .send(player);
         //player.sendMessage(translate("&eThe " + deColored + " clan has been successfully created."));
         clan.save();

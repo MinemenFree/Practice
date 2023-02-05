@@ -19,8 +19,8 @@ public abstract class ChatFilter implements Listener {
 	public void punish(Player player) {
 		if (command != null) {
 			Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), command
-					.replace("{player}", player.getName())
-					.replace("{player-uuid}", player.getUniqueId().toString()));
+					.replace("<player>", player.getName())
+					.replace("<player-uuid>", player.getUniqueId().toString()));
 		}
 	}
 
