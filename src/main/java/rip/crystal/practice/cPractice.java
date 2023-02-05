@@ -17,12 +17,6 @@ import rip.crystal.practice.essentials.Essentials;
 import rip.crystal.practice.essentials.EssentialsListener;
 import rip.crystal.practice.essentials.abilities.AbilityManager;
 import rip.crystal.practice.essentials.abilities.command.AbilityCommand;
-import rip.crystal.practice.essentials.chat.cPracticeChatFormat;
-import rip.crystal.practice.essentials.chat.impl.Chat;
-import rip.crystal.practice.essentials.chat.impl.ChatListener;
-import rip.crystal.practice.essentials.chat.impl.command.ClearChatCommand;
-import rip.crystal.practice.essentials.chat.impl.command.MuteChatCommand;
-import rip.crystal.practice.essentials.chat.impl.command.SlowChatCommand;
 import rip.crystal.practice.essentials.command.donator.RenameCommand;
 import rip.crystal.practice.essentials.command.donator.ShowAllPlayersCommand;
 import rip.crystal.practice.essentials.command.donator.ShowPlayerCommand;
@@ -209,7 +203,6 @@ public class cPractice extends JavaPlugin {
         BoardAdapter.hook();
         Leaderboard.init();
         PlayerVersionHandler.init();
-        Chat.setChatFormat(new cPracticeChatFormat());
         if (mainConfig.getBoolean("TABLIST_ENABLE")) new TabList(this, new TabAdapter());
         placeholderAPI = getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
         if (placeholderAPI) new PlaceholderAPI().register();
@@ -350,7 +343,6 @@ public class cPractice extends JavaPlugin {
                 new ClanListener(),
                 new EssentialsListener(),
                 new MenuListener(),
-                new ChatListener(),
                 new LeaderboardListener(),
                 new TournamentListener(),
                 new FFAListener()
@@ -416,9 +408,6 @@ public class cPractice extends JavaPlugin {
         new SunsetCommand();
         new TeleportWorldCommand();
         new OptionsCommand();
-        new ClearChatCommand();
-        new SlowChatCommand();
-        new MuteChatCommand();
         new EloCommand();
         new SetEloCommand();
         new ResetEloCommand();
