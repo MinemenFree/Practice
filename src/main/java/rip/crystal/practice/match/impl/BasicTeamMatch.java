@@ -576,14 +576,12 @@ public class BasicTeamMatch extends Match {
 		List<BaseComponent[]> componentsList = new ArrayList<>();
 		Profile profile = Profile.get(player.getUniqueId());
 
-		for (String line : Locale.MATCH_END_DETAILS.getStringList(profile.getLocale())) {
-
-				BaseComponent[] inventories = generateInventoriesComponents(
-					new MessageFormat(Locale.MATCH_END_INVENTORIES.format(profile.getLocale()))
-						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
-						.add("<winner>", winningParticipant)
-						.add("<loser-context>", participantB.getPlayers().size() == 1 ? "" : "s")
-						.add("<loser>", losingParticipant));
+		BaseComponent[] inventories = generateInventoriesComponents(
+		new MessageFormat(Locale.MATCH_END_DETAILS.format(profile.getLocale()))
+			.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
+			.add("<winner>", winningParticipant)
+			.add("<loser-context>", participantB.getPlayers().size() == 1 ? "" : "s")
+			.add("<loser>", losingParticipant)); 
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
 					ChatComponentBuilder builder = new ChatComponentBuilder("");
@@ -620,7 +618,6 @@ public class BasicTeamMatch extends Match {
 				continue;
 
 			componentsList.add(new ChatComponentBuilder("").parse(line).create());
-		}
 
 		return componentsList;
 	}
