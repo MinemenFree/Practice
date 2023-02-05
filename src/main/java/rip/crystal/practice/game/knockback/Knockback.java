@@ -25,6 +25,7 @@ public class Knockback {
                 break;
             case "WindSpigot":
                 knockbackProfiler = new WindSpigot();
+                KnockbackProfiler = new WindSpigot();
                 System.out.print("Hooked into WindSpigot");
                 break;
             default:
