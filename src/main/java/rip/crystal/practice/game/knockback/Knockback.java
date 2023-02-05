@@ -23,6 +23,10 @@ public class Knockback {
                 knockbackProfiler = new CarbonSpigot();
                 System.out.print("Hooked into CarbonSpigot");
                 break;
+            case "WindSpigot":
+                KnockbackProfiler = new WindSpigot();
+                System.out.print("Hooked into WindSpigot");
+                break;
             default:
                 knockbackProfiler = new Default();
                 System.out.print("You don't have a spigot compatible with cPractice's knockback-per-kit system");
