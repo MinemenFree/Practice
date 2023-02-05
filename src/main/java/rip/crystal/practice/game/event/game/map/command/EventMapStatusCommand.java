@@ -2,12 +2,15 @@ package rip.crystal.practice.game.event.game.map.command;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.game.event.game.map.EventGameMap;
 import rip.crystal.practice.game.event.game.map.impl.SpreadEventGameMap;
 import rip.crystal.practice.game.event.game.map.impl.TeamEventGameMap;
+import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class EventMapStatusCommand extends BaseCommand {
@@ -16,16 +19,17 @@ public class EventMapStatusCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0) {
-			player.sendMessage(CC.RED + "Please usage: /event map status (mapName)");
+			new MessageFormat(Locale.EVENT_MAP_STATUS_USAGE.format(profile.getLocale()));
 			return;
 		}
 
 		EventGameMap gameMap = EventGameMap.getByName(args[0]);
 		if (gameMap == null) {
-			player.sendMessage(CC.RED + "An event map with that name does not exist.");
+			new MessageFormat(Locale.EVENT_MAP_DOES_NOT_EXIST.format(profile.getLocale()));
 		} else {
 			player.sendMessage(CC.GOLD + CC.BOLD + "Event Map Status " + CC.GRAY + "(" +
 					(gameMap.isSetup() ? CC.GREEN : CC.RED) + gameMap.getMapName() + CC.GRAY + ")");

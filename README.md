@@ -1,14 +1,13 @@
 # cPractice
 
-Abandoned 
-
 Highly configurable practice plugin. This project was originally closed source and is now open source.
 
-<h1 align="center">How to Use?</h1>
+<h1 align="center">How to use?</h1>
 
-1) Install like any other plugin by dragging it into your server's plugin folder\
-2) Start the server & let the plugin load config files\
-3) Stop the server & Configure the plugin to your liking\
+1) Install like any other plugin by dragging it into your server's plugin folder
+2) Start the server & let the plugin load config files
+3) Configure the plugin to your liking & execute the following command:
+ - /cpractice reload
 4) Done!\
 ![alt text](https://i.imgur.com/uzRYQI7.png)
 

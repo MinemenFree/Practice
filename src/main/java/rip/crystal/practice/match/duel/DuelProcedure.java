@@ -8,7 +8,7 @@ import rip.crystal.practice.Locale;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.player.profile.Profile;
-import rip.crystal.practice.utilities.BukkitReflection;
+import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
@@ -46,6 +46,7 @@ public class DuelProcedure {
 
 		Profile targetProfile = Profile.get(target.getUniqueId());
 		targetProfile.getDuelRequests().add(duelRequest);
+		
 
 		if (party) {
 			//sender.sendMessage(Locale.DUEL_SENT_PARTY.format(kit.getName(), target.getName(),
@@ -53,24 +54,29 @@ public class DuelProcedure {
 
 			new MessageFormat(Locale.DUEL_SENT_PARTY
 				.format(senderProfile.getLocale()))
-				.add("{kit_name}", kit.getName())
-				.add("{target_name}", target.getName())
-				.add("{target_ping}", BukkitReflection.getPing(target))
-				.add("{arena_name}", arena.getName())
-				.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
+				.add("<kit_name>", kit.getName())
+				.add("<target_name>", target.getName())
+				.add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+				.add("<sender_name>", sender.getName())
+			        .add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
+				.add("<arena_name>", arena.getName())
+				.add("<party_size>", String.valueOf(targetProfile.getParty().getPlayers().size()))
 				.send(sender);
 
 			for (String msg : new MessageFormat(Locale.DUEL_RECEIVED_PARTY
 								.format(targetProfile.getLocale()))
-								.add("{kit_name}", kit.getName())
-								.add("{sender_name}", sender.getName())
-								.add("{arena_name}", arena.getName())
-								.add("{party_size}", String.valueOf(targetProfile.getParty().getPlayers().size()))
+								.add("<kit_name>", kit.getName())
+								.add("<sender_name>", sender.getName())
+			           			        .add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
+			                                        .add("<target_name>", target.getName())
+				                                .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+								.add("<arena_name>", arena.getName())
+								.add("<party_size>", String.valueOf(targetProfile.getParty().getPlayers().size()))
 								.toList()) {
 				if (msg.contains("%CLICKABLE%")) {
 					ChatComponentBuilder builder = new ChatComponentBuilder(new MessageFormat(Locale.DUEL_RECEIVED_CLICKABLE
 						.format(targetProfile.getLocale()))
-						.add("{sender_name}", sender.getName())
+						.add("<sender_name>", sender.getName())
 						.toString());
 					builder.attachToEachPart(ChatHelper.click("/duel accept " + sender.getName()));
 					builder.attachToEachPart(ChatHelper.hover(new MessageFormat(Locale.DUEL_RECEIVED_HOVER
@@ -88,21 +94,30 @@ public class DuelProcedure {
 			if(arena.getName() != null) {
 				new MessageFormat(Locale.DUEL_SENT
 						.format(senderProfile.getLocale()))
-						.add("{kit_name}", kit.getName())
-						.add("{target_name}", target.getName())
-						.add("{arena_name}", arena.getName())
+						.add("<kit_name>", kit.getName())
+						.add("<target_name>", target.getName())
+				                .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+						.add("<sender_name>", sender.getName())
+			        		.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
+						.add("<arena_name>", arena.getName())
+						.add("<arena_author>", arena.getAuthor())
 						.send(sender);
 
 				for (String msg : new MessageFormat(Locale.DUEL_RECEIVED
 						.format(targetProfile.getLocale()))
-						.add("{kit_name}", kit.getName())
-						.add("{sender_name}", sender.getName())
-						.add("{arena_name}", arena.getName())
+						.add("<kit_name>", kit.getName())
+				     		.add("<sender_name>", sender.getName())
+			        		.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
+				     		.add("<target_name>", target.getName())
+				                .add("<target_ping>", Integer.toString(PlayerUtil.getPing(target)))
+						.add("<arena_name>", arena.getName())
+				                .add("<arena_author>", arena.getAuthor())
 						.toList()) {
-					if (msg.contains("%CLICKABLE%")) {
+					if (msg.contains("<click-to-accept>")) {
 						ChatComponentBuilder builder = new ChatComponentBuilder(new MessageFormat(Locale.DUEL_RECEIVED_CLICKABLE
 								.format(targetProfile.getLocale()))
-								.add("{sender_name}", sender.getName())
+								.add("<sender_name>", sender.getName())
+								.add("<sender_ping>", Integer.toString(PlayerUtil.getPing(sender)))
 								.toString());
 						builder.attachToEachPart(ChatHelper.click("/duel accept " + sender.getName()));
 						builder.attachToEachPart(ChatHelper.hover(new MessageFormat(Locale.DUEL_RECEIVED_HOVER

@@ -1,10 +1,13 @@
 package rip.crystal.practice.game.event.game.map.command;
 
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.game.event.game.map.EventGameMap;
+import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class EventMapDeleteCommand extends BaseCommand {
@@ -13,20 +16,17 @@ public class EventMapDeleteCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "Please usage: /event map delete (mapName)");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_DELETION_USAGE.format(profile.getLocale()));
 			return;
 		}
 
 		EventGameMap gameMap = EventGameMap.getByName(args[0]);
 		if (gameMap == null) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "An event map with that name already exists.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_DOES_NOT_EXIST.format(profile.getLocale()));
 			return;
 		}
 

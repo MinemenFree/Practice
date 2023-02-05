@@ -367,45 +367,63 @@ public class BasicTeamMatch extends Match {
 						return null;
 					}
 
-					String actualHits = "0";
+					/*String actualHits = "0";
 					if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) > 0) {
 						actualHits = "+" + (yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
-					}
+					}*/
+                                        String mmcBoxingCombo = "0";
+                                        if ((yours.getLeader().getCombo() <= 2 && opponent.getLeader().getCombo() == 0)) {
+                                            mmcBoxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
+                                        } else if ((opponent.getLeader().getCombo() <= 1 && yours.getLeader().getCombo() == 0)) {
+                                            mmcBoxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
+                                        } else {
+                                            mmcBoxingCombo = "&f1st to 100!";
+                                        }
 
 					if (kit.getGameRules().isBoxing()) {
-						String finalActualHits = actualHits;
+						String mmcBoxingComboNew = mmcBoxingCombo;
+						//String finalActualHits = actualHits;
 						config.getStringList("FIGHTS.1V1.BOXING-MODE").forEach(line -> {
 							lines.add(line.replace("{bars}", bars)
-									.replace("{duration}", getDuration())
-									.replace("{opponent-color}", Profile.get(opponent.getLeader().getPlayer().getUniqueId()).getColor())
-									.replace("{opponent}", opponent.getLeader().getPlayer().getName())
-									.replace("{opponent-ping}", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
-									.replace("{player-ping}", String.valueOf(BukkitReflection.getPing(player)))
-									.replace("{arena-author}", getArena().getAuthor())
-									.replace("{kit}", getKit().getName())
+									.replace("<duration>", getDuration())
+									.replace("<opponent-color>", Profile.get(opponent.getLeader().getPlayer().getUniqueId()).getColor())
+									.replace("<opponent>", opponent.getLeader().getPlayer().getName())
+									.replace("<opponent-ping>", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
+									.replace("<player-ping>", String.valueOf(BukkitReflection.getPing(player)))
+								        .replace("<arena-name>", getArena().getName())
+									.replace("<arena-author>", getArena().getAuthor())
+									.replace("<kit-name>", getKit().getName())
 									//.replace("{hits}", finalActualHits)
-									.replace("{hits}", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
-									.replace("{your-hits}", String.valueOf(yours.getLeader().getHits()))
-									.replace("{opponent-hits}", String.valueOf(opponent.getLeader().getHits()))
-									.replace("{combo}", String.valueOf(yours.getLeader().getCombo())));
+									.replace("<hits-difference>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
+								  	.replace("<hits-difference-bracketless>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
+								  	.replace("<hits-difference-colorless>", "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
+								  	.replace("<hits-difference-simple>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
+								  	.replace("<your-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED))
+									.replace("<your-hits>", String.valueOf(yours.getLeader().getHits()))
+								        .replace("<opponent-hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.RED : CC.GREEN))
+									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
+									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
+									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo()))
+									.replace("<combo>", mmcBoxingComboNew));
 						});
 						return lines;
 					}
 
 					config.getStringList("FIGHTS.1V1.LINES").forEach(line -> {
-						if (line.contains("{bridge}")) return;
-						if (line.contains("{rounds}")) return;
-						lines.add(line.replace("{bars}", bars)
-								.replace("{duration}", getDuration())
-								.replace("{opponent-color}", Profile.get(opponent.getLeader().getPlayer().getUniqueId()).getColor())
-								.replace("{opponent}", opponent.getLeader().getPlayer().getName())
-								.replace("{opponent-ping}", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
-								.replace("{player-ping}", String.valueOf(BukkitReflection.getPing(player)))
-								.replace("{arena-author}", getArena().getAuthor())
-								.replace("{kit}", getKit().getName()));
+						if (line.contains("<bridge}")) return;
+						if (line.contains("<rounds}")) return;
+						lines.add(line.replace("<bars}", bars)
+								.replace("<duration>", getDuration())
+								.replace("<opponent-color>", Profile.get(opponent.getLeader().getPlayer().getUniqueId()).getColor())
+								.replace("<opponent>", opponent.getLeader().getPlayer().getName())
+								.replace("<opponent-ping>", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
+								.replace("<player-ping>", String.valueOf(BukkitReflection.getPing(player)))
+							        .replace("<arena-name>", getArena().getName())
+								.replace("<arena-author>", getArena().getAuthor())
+								.replace("<kit-name>", getKit().getName()));
 					});
 				} else {
 					GameParticipant<MatchGamePlayer> friendly = getParticipant(player);
@@ -414,77 +432,79 @@ public class BasicTeamMatch extends Match {
 
 					if (friendly.getPlayers().size() + opponent.getPlayers().size() <= 6) {
 						config.getStringList("FIGHTS.SMALL-TEAM.LINES").forEach(line -> {
-							if (line.contains("{bridge}")) {
+							if (line.contains("<bridge>")) {
 								if (kit.getGameRules().isBridge()) {
 									config.getStringList("FIGHTS.BRIDGE-FORMAT.LINES").forEach(line2 -> {
-										if (line2.contains("{points}")) return;
-										lines.add(line2.replace("{kills}", String.valueOf(getGamePlayer(player).getKills())));
+										if (line2.contains("<points>")) return;
+										lines.add(line2.replace("<kills>", String.valueOf(getGamePlayer(player).getKills())));
 									});
 								}
 								return;
 							}
-							if (line.contains("{no-bridge}")) {
+							if (line.contains("<no-bridge>")) {
 								if (!kit.getGameRules().isBridge()) {
 									config.getStringList("FIGHTS.SMALL-TEAM.NO-BRIDGE.LINES").forEach(line2 -> {
-										if (line2.contains("{players}")) {
+										if (line2.contains("<players>")) {
 											for (MatchGamePlayer gamePlayer : friendly.getPlayers()) {
 												lines.add(config.getString("FIGHTS.SMALL-TEAM.NO-BRIDGE.PLAYERS-FORMAT")
-														.replace("{player}", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
+														.replace("<player>", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
 																gamePlayer.getUsername()));
 											}
 											return;
 										}
-										if (line2.contains("{opponents}")) {
+										if (line2.contains("<opponents>")) {
 											for (MatchGamePlayer gamePlayer : opponent.getPlayers()) {
 												lines.add(config.getString("FIGHTS.SMALL-TEAM.NO-BRIDGE.OPPONENTS-FORMAT")
-														.replace("{opponent}", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
+														.replace("<opponent>", (gamePlayer.isDead() || gamePlayer.isDisconnected() ? "&7&m" : "") +
 																gamePlayer.getUsername()));
 											}
 											return;
 										}
-										lines.add(line2.replace("{bars}", bars)
-												.replace("{team-alive}", String.valueOf(friendly.getAliveCount()))
-												.replace("{team-size}", String.valueOf(friendly.getPlayers().size()))
-												.replace("{opponent-alive}", String.valueOf(opponent.getAliveCount()))
-												.replace("{opponent-size}", String.valueOf(opponent.getPlayers().size())
-												.replace("{kit}", getKit().getName())));
+										lines.add(line2.replace("<bars}", bars)
+												.replace("<team-alive>", String.valueOf(friendly.getAliveCount()))
+												.replace("<team-size>", String.valueOf(friendly.getPlayers().size()))
+												.replace("<opponent-alive>", String.valueOf(opponent.getAliveCount()))
+												.replace("<opponent-size>", String.valueOf(opponent.getPlayers().size())
+												.replace("<kit>", getKit().getName())));
 									});
 								}
 								return;
 							}
-							if (line.contains("{rounds}")) return;
-							lines.add(line.replace("{bars}", bars)
-									.replace("{duration}", getDuration())
-									.replace("{arena-author}", getArena().getAuthor())
-									.replace("{kit}", getKit().getName()));
+							if (line.contains("<rounds>")) return;
+							lines.add(line.replace("<bars>", bars)
+									.replace("<duration>", getDuration())
+									.replace("<arena-author>", getArena().getAuthor())
+									.replace("<kit>", getKit().getName()));
 						});
 					} else {
 						config.getStringList("FIGHTS.BIG-TEAM.LINES").forEach(line -> {
-							if (line.contains("{bridge}")) {
+							if (line.contains("<bridge>")) {
 								if (kit.getGameRules().isBridge()) {
 									config.getStringList("FIGHTS.BRIDGE-FORMAT.LINES").forEach(line2 -> {
-										if (line2.contains("{points}")) return;
-										lines.add(line2.replace("{kills}", String.valueOf(getGamePlayer(player).getKills())));
+										if (line2.contains("<points>")) return;
+										lines.add(line2.replace("<kills>", String.valueOf(getGamePlayer(player).getKills())));
 									});
 								}
 								return;
 							}
-							if (line.contains("{rounds}")) return;
-							lines.add(line.replace("{duration}", getDuration())
-									.replace("{arena-author}", getArena().getAuthor())
-									.replace("{team-alive}", String.valueOf(friendly.getAliveCount()))
-									.replace("{team-size}", String.valueOf(friendly.getPlayers().size()))
-									.replace("{opponent-alive}", String.valueOf(opponent.getAliveCount()))
-									.replace("{opponent-size}", String.valueOf(opponent.getPlayers().size()))
-									.replace("{kit}", getKit().getName()));
+							if (line.contains("<rounds>")) return;
+							lines.add(line.replace("<duration>", getDuration())
+								        .replace("<arena-name>", getArena().getName())
+									.replace("<arena-author>", getArena().getAuthor())
+									.replace("<team-alive>", String.valueOf(friendly.getAliveCount()))
+									.replace("<team-size>", String.valueOf(friendly.getPlayers().size()))
+									.replace("<opponent-alive>", String.valueOf(opponent.getAliveCount()))
+									.replace("<opponent-size>", String.valueOf(opponent.getPlayers().size()))
+									.replace("<kit>", getKit().getName()));
 						});
 					}
 				}
 			} else {
 				config.getStringList("FIGHTS.ON-END-ROUND-FOR-NEXT").forEach(line -> {
-					lines.add(line.replace("{duration}", getDuration())
-							.replace("{arena-author}", getArena().getAuthor())
-							.replace("{kit}", getKit().getName()));
+					lines.add(line.replace("<duration>", getDuration())
+						        .replace("<arena-name>", getArena().getName())
+							.replace("<arena-author>", getArena().getAuthor())
+							.replace("<kit>", getKit().getName()));
 				});
 			}
 		}
@@ -499,16 +519,17 @@ public class BasicTeamMatch extends Match {
 		if (profile.getMatch() != null) {
 			cPractice.get().getScoreboardConfig().getStringList("FIGHTS.SPECTATING").forEach(s ->
 					lines.add(s
-							.replace("{playerA}", String.valueOf(participantA.getLeader().getUsername()))
-							.replace("{playerB}", String.valueOf(participantB.getLeader().getUsername()))
-						  	.replace("{playerA-ping}", String.valueOf(BukkitReflection.getPing(participantA.getLeader().getPlayer())))
-						  	.replace("{playerB-ping}", String.valueOf(BukkitReflection.getPing(participantB.getLeader().getPlayer())))
-						  	.replace("{playerA-combo}", String.valueOf(participantA.getLeader().getCombo()))
-						  	.replace("{playerB-combo}", String.valueOf(participantB.getLeader().getCombo()))
-							.replace("{duration}", profile.getMatch().getDuration())
-							.replace("{kit}", profile.getMatch().getKit().getName())
-							.replace("{spectators}", String.valueOf(profile.getMatch().getSpectators().size()))
-							.replace("{arena}", profile.getMatch().getArena().getName())));
+							.replace("<playerA>", String.valueOf(participantA.getLeader().getUsername()))
+							.replace("<playerB>", String.valueOf(participantB.getLeader().getUsername()))
+						  	.replace("<playerA-ping>", String.valueOf(BukkitReflection.getPing(participantA.getLeader().getPlayer())))
+						  	.replace("<playerB-ping>", String.valueOf(BukkitReflection.getPing(participantB.getLeader().getPlayer())))
+						  	.replace("<playerA-combo>", String.valueOf(participantA.getLeader().getCombo()))
+						  	.replace("<playerB-combo>", String.valueOf(participantB.getLeader().getCombo()))
+							.replace("<duration>", profile.getMatch().getDuration())
+							.replace("<kit>", profile.getMatch().getKit().getName())
+							.replace("<spectators>", String.valueOf(profile.getMatch().getSpectators().size()))
+							.replace("<arena>", profile.getMatch().getArena().getName())
+			                                .replace("<arena-author>", profile.getMatch().getArena().getAuthor())));
 		}
 
 		return lines;
@@ -531,19 +552,19 @@ public class BasicTeamMatch extends Match {
 
 		if (ranked) {
 			new MessageFormat(Locale.MATCH_START_SPECTATING_RANKED.format(Profile.get(spectator.getUniqueId()).getLocale()))
-				.add("{first_color}", firstColor.toString())
-				.add("{participant_a}", participantA.getConjoinedNames())
-				.add("{participant_a_elo}", String.valueOf(participantA.getLeader().getElo()))
-				.add("{second_color}", secondColor.toString())
-				.add("{participant_b}", participantB.getConjoinedNames())
-				.add("{participant_b_elo}", String.valueOf(participantB.getLeader().getElo()))
+				.add("<first_color>", firstColor.toString())
+				.add("<participant_a>", participantA.getConjoinedNames())
+				.add("<participant_a_elo>", String.valueOf(participantA.getLeader().getElo()))
+				.add("<second_color>", secondColor.toString())
+				.add("<participant_b>", participantB.getConjoinedNames())
+				.add("<participant_b_elo>", String.valueOf(participantB.getLeader().getElo()))
 				.send(spectator);
 		} else {
 			new MessageFormat(Locale.MATCH_START_SPECTATING.format(Profile.get(spectator.getUniqueId()).getLocale()))
-				.add("{first_color}", firstColor.toString())
-				.add("{participant_a}", participantA.getConjoinedNames())
-				.add("{second_color}", secondColor.toString())
-				.add("{participant_b}", participantB.getConjoinedNames())
+				.add("<first_color>", firstColor.toString())
+				.add("<participant_a>", participantA.getConjoinedNames())
+				.add("<second_color>", secondColor.toString())
+				.add("<participant_b>", participantB.getConjoinedNames())
  				.send(spectator);
 		}
 	}
@@ -554,16 +575,17 @@ public class BasicTeamMatch extends Match {
 		Profile profile = Profile.get(player.getUniqueId());
 
 		for (String line : Locale.MATCH_END_DETAILS.getStringList(profile.getLocale())) {
-			if (line.equalsIgnoreCase("%INVENTORIES%")) {
+			if (line.equalsIgnoreCase("<match-inventories>")) {
 
 				BaseComponent[] winners = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
-						.add("{context}", participantA.getPlayers().size() == 1 ? "" : "s")
+						.add("<winner>", participantA.getPlayers().size() == 1 ? "" : "s")
 						.toString(), winningParticipant);
 
 				BaseComponent[] losers = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
-						.add("{context}", participantB.getPlayers().size() > 1 ? "s" : "").toString(), losingParticipant);
+						.add("<loser>", participantB.getPlayers().size() > 1 ? "s" : "")
+					        .toString(), losingParticipant);
 
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
@@ -591,13 +613,13 @@ public class BasicTeamMatch extends Match {
 			if (line.equalsIgnoreCase("%ELO_CHANGES%")) {
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1 && ranked) {
 					List<String> sectionLines = new MessageFormat(Locale.MATCH_ELO_CHANGES.getStringList(profile.getLocale()))
-						.add("{winning_name}", winningParticipant.getConjoinedNames())
-						.add("{winning_elo_mod}", String.valueOf(winningParticipant.getLeader().getEloMod()))
-						.add("{winning_elo_mod_elo}",
+						.add("<winning_name>", winningParticipant.getConjoinedNames())
+						.add("<winning_elo_mod>", String.valueOf(winningParticipant.getLeader().getEloMod()))
+						.add("<winning_elo_mod_elo>",
 							String.valueOf((winningParticipant.getLeader().getElo() + winningParticipant.getLeader().getEloMod())))
-						.add("{losser_name}", losingParticipant.getConjoinedNames())
-						.add("{losser_elo_mod}", String.valueOf(losingParticipant.getLeader().getEloMod()))
-						.add("{losser_elo_mod_elo}",
+						.add("<loser_name>", losingParticipant.getConjoinedNames())
+						.add("<loser_elo_mod>", String.valueOf(losingParticipant.getLeader().getEloMod()))
+						.add("<loser_elo_mod_elo>",
 							String.valueOf((losingParticipant.getLeader().getElo() - winningParticipant.getLeader().getEloMod())))
 						.toList();
 

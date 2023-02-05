@@ -1,12 +1,15 @@
 package rip.crystal.practice.game.event.game.map.command;
 
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.game.event.game.map.EventGameMap;
 import rip.crystal.practice.game.event.game.map.impl.SpreadEventGameMap;
 import rip.crystal.practice.game.event.game.map.impl.TeamEventGameMap;
+import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.chat.CC;
 
 public class EventMapSetSpawnCommand extends BaseCommand {
@@ -15,21 +18,18 @@ public class EventMapSetSpawnCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(player.getUniqueId());
 		String[] args = commandArgs.getArgs();
 
 		if (args.length == 0 || args.length == 1) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "Please usage: /event map setspawn (mapName) (a|b|spectator|spread)");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_SETSPAWN_USAGE.format(profile.getLocale()));
 			return;
 		}
 
 		EventGameMap map = EventGameMap.getByName(args[0]);
 		String field = args[1];
 		if (map == null) {
-			player.sendMessage(CC.CHAT_BAR);
-			player.sendMessage(CC.RED + "An event map with that name does not exist.");
-			player.sendMessage(CC.CHAT_BAR);
+			new MessageFormat(Locale.EVENT_MAP_DOES_NOT_EXIST.format(profile.getLocale()));
 		} else {
 			switch (field.toLowerCase()) {
 				case "spectator": {
@@ -93,8 +93,7 @@ public class EventMapSetSpawnCommand extends BaseCommand {
 				}
 				break;
 				default:
-					player.sendMessage(CC.RED + "A field by that name does not exist.");
-					player.sendMessage(CC.RED + "Fields: spectator, a, b");
+					new MessageFormat(Locale.EVENT_FIELD_DOES_NOT_EXIST.format(profile.getLocale()));
 					return;
 			}
 

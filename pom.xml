@@ -91,6 +91,13 @@
             <systemPath>${project.basedir}/libs/cSpigot.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>ga.windpvp</groupId>
+            <artifactId>windspigot</artifactId>
+            <version>2.1.2-HOTFIX</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/WindSpigot.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>paperspigot</groupId>
             <artifactId>paper</artifactId>
             <version>asd-SNAPSHOT</version>
