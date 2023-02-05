@@ -203,7 +203,6 @@ public class cPractice extends JavaPlugin {
         BoardAdapter.hook();
         Leaderboard.init();
         PlayerVersionHandler.init();
-        Chat.setChatFormat(new cPracticeChatFormat());
         if (mainConfig.getBoolean("TABLIST_ENABLE")) new TabList(this, new TabAdapter());
         placeholderAPI = getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
         if (placeholderAPI) new PlaceholderAPI().register();
@@ -344,7 +343,6 @@ public class cPractice extends JavaPlugin {
                 new ClanListener(),
                 new EssentialsListener(),
                 new MenuListener(),
-                new ChatListener(),
                 new LeaderboardListener(),
                 new TournamentListener(),
                 new FFAListener()

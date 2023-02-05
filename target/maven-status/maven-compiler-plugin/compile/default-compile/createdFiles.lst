@@ -18,7 +18,6 @@ rip\crystal\practice\game\tournament\impl\TournamentClans$1.class
 rip\crystal\practice\player\nametags\NametagInfo.class
 rip\crystal\practice\game\arena\command\ArenaSelectionCommand.class
 rip\crystal\practice\utilities\effect\ParticleEffect.class
-rip\crystal\practice\essentials\chat\impl\filter\impl\LinkFilter.class
 rip\crystal\practice\utilities\KitUtils.class
 rip\crystal\practice\player\cosmetics\impl\trails\EffectCallable.class
 rip\crystal\practice\utilities\menu\Button.class
@@ -125,7 +124,6 @@ rip\crystal\practice\utilities\effect\ParticleEffect$ParticleColor.class
 rip\crystal\practice\api\utilities\PlayerUtil.class
 rip\crystal\practice\game\kit\menu\KitEditorMenu$ArmorDisplayButton.class
 rip\crystal\practice\player\party\menu\PartyEventSelectEventMenu$SelectEventButton.class
-rip\crystal\practice\essentials\chat\impl\ChatFormat.class
 rip\crystal\practice\game\event\impl\spleef\SpleefEvent.class
 rip\crystal\practice\player\party\classes\rogue\CheckConfigs.class
 rip\crystal\practice\api\utilities\Server.class
@@ -164,7 +162,6 @@ rip\crystal\practice\api\command\Command.class
 rip\crystal\practice\player\queue\QueueProfile.class
 rip\crystal\practice\utilities\countdown\Countdown.class
 rip\crystal\practice\utilities\ItemBuilder.class
-rip\crystal\practice\essentials\chat\impl\Chat.class
 rip\crystal\practice\player\profile\file\impl\MYSQLListener.class
 rip\crystal\practice\game\kit\command\KitStatusCommand.class
 rip\crystal\practice\game\arena\cuboid\Cuboid$LocationCuboidIterator.class
@@ -187,7 +184,6 @@ rip\crystal\practice\player\queue\menus\QueueSelectKitMenu.class
 rip\crystal\practice\game\arena\command\ArenaCommand.class
 rip\crystal\practice\game\tournament\impl\TournamentTeams.class
 rip\crystal\practice\player\queue\task\QueueTask.class
-rip\crystal\practice\essentials\chat\impl\ChatAttempt$Response.class
 rip\crystal\practice\player\party\menu\HCFClassMenu.class
 rip\crystal\practice\visual\scoreboard\impl\AssembleListener.class
 rip\crystal\practice\game\kit\KitLoadout.class
@@ -221,8 +217,6 @@ rip\crystal\practice\utilities\MathsUtility.class
 rip\crystal\practice\game\event\game\command\EventHostCommand.class
 rip\crystal\practice\game\tournament\commands\subcommands\TournamentStartCommand.class
 rip\crystal\practice\player\cosmetics\impl\trails\command\TrailEffectCommand.class
-rip\crystal\practice\essentials\chat\impl\event\ChatAttemptEvent.class
-rip\crystal\practice\essentials\chat\cPracticeChatFormat.class
 rip\crystal\practice\match\menu\ViewInventoryMenu.class
 rip\crystal\practice\player\nametags\packets\ScoreboardTeamPacketMod.class
 rip\crystal\practice\utilities\countdown\CountdownBuilder.class
@@ -277,7 +271,6 @@ rip\crystal\practice\api\chat\ChatUtil.class
 rip\crystal\practice\game\kit\menu\KitEditorMenu.class
 rip\crystal\practice\game\kit\KitEditorListener.class
 rip\crystal\practice\api\utilities\JavaUtil.class
-rip\crystal\practice\essentials\chat\impl\command\SlowChatCommand.class
 rip\crystal\practice\player\nametags\NametagUpdate.class
 rip\crystal\practice\player\profile\menu\matchmaking\MatchMakingMenu.class
 rip\crystal\practice\player\party\Party$1.class
@@ -289,7 +282,6 @@ rip\crystal\practice\game\event\command\EventAddMapCommand.class
 rip\crystal\practice\player\profile\meta\option\command\ToggleSoundsCommand.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ParticlePacket.class
 rip\crystal\practice\game\arena\menu\ArenaManagementMenu$1.class
-rip\crystal\practice\essentials\chat\impl\ChatAttempt.class
 rip\crystal\practice\player\cosmetics\impl\killeffects\KillEffectType.class
 rip\crystal\practice\utilities\TimeUtils.class
 rip\crystal\practice\visual\tablist\impl\TabListCommons.class
@@ -330,7 +322,6 @@ rip\crystal\practice\utilities\file\type\BasicConfigurationFile.class
 rip\crystal\practice\player\party\command\subcommands\PartyCreateCommand.class
 rip\crystal\practice\utilities\event\PlayerBase.class
 rip\crystal\practice\player\party\command\subcommands\PartyAnnounceCommand.class
-rip\crystal\practice\essentials\chat\impl\filter\ChatFilter.class
 rip\crystal\practice\visual\scoreboard\impl\AssembleStyle.class
 rip\crystal\practice\essentials\abilities\utils\DurationFormatter.class
 rip\crystal\practice\player\profile\conversation\Conversation.class
@@ -386,7 +377,6 @@ rip\crystal\practice\game\arena\generator\Schematic.class
 rip\crystal\practice\game\kit\menu\KitManagementMenu$LoadKitButton.class
 rip\crystal\practice\game\kit\meta\KitGameRules.class
 rip\crystal\practice\game\event\impl\sumo\SumoGameLogic$1.class
-rip\crystal\practice\essentials\chat\impl\ChatListener$1.class
 rip\crystal\practice\utilities\chat\CC.class
 rip\crystal\practice\visual\leaderboard\menu\button\KitButton.class
 rip\crystal\practice\utilities\chat\JSONMessage$1.class
@@ -514,14 +504,12 @@ rip\crystal\practice\match\duel\command\DuelCommand.class
 rip\crystal\practice\utilities\effect\ParticleEffect$ParticlePacket$PacketSendingException.class
 rip\crystal\practice\utilities\Utils.class
 rip\crystal\practice\player\party\command\subcommands\PartyDisbandCommand.class
-rip\crystal\practice\essentials\chat\impl\command\ClearChatCommand.class
 rip\crystal\practice\visual\leaderboard\Leaderboard.class
 rip\crystal\practice\game\event\game\EventGameState.class
 rip\crystal\practice\player\profile\meta\option\button\TrailsOptionsButton.class
 rip\crystal\practice\utilities\playerversion\IPlayerVersion.class
 rip\crystal\practice\player\profile\file\IProfile.class
 rip\crystal\practice\shop\impl\killeffects\menu\KillEffectsShopMenu$SettingsButton.class
-rip\crystal\practice\essentials\chat\impl\format\DefaultChatFormat.class
 rip\crystal\practice\essentials\abilities\cooldown\AbilityCooldown.class
 rip\crystal\practice\game\arena\command\ArenaGenerateCommand.class
 rip\crystal\practice\visual\leaderboard\PlaceholderAPI.class
@@ -544,7 +532,6 @@ rip\crystal\practice\player\profile\menu\settings\SettingsMenu.class
 rip\crystal\practice\game\kit\command\KitToggleComand.class
 rip\crystal\practice\api\utilities\KnockbackProfiler.class
 rip\crystal\practice\utilities\chat\JSONMessage$MessagePart.class
-rip\crystal\practice\essentials\chat\impl\ChatListener.class
 rip\crystal\practice\match\command\SpectateCommand.class
 rip\crystal\practice\player\profile\participant\GamePlayer.class
 rip\crystal\practice\utilities\ItemUtil.class
@@ -604,8 +591,6 @@ rip\crystal\practice\visual\scoreboard\impl\AssembleAdapter.class
 rip\crystal\practice\essentials\command\player\SpawnCommand.class
 rip\crystal\practice\game\knockback\impl\Default.class
 rip\crystal\practice\player\party\command\subcommands\PartyInviteClanCommand.class
-rip\crystal\practice\essentials\chat\impl\filter\impl\ContainsFilter.class
 rip\crystal\practice\api\rank\Rank.class
-rip\crystal\practice\essentials\chat\impl\command\MuteChatCommand.class
 rip\crystal\practice\player\profile\ProfileListener.class
 rip\crystal\practice\game\knockback\impl\FoxSpigot.class
