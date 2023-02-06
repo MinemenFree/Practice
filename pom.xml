@@ -72,7 +72,10 @@
             <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
         </repository>
     </repositories>
-
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
     <dependencies>
         <!--spigots-->
         <dependency>
@@ -157,15 +160,13 @@
             <version>3.12.8</version>
             <scope>compile</scope>
         </dependency>
-        <!--dependencies
+        <!--dependencies-->
         <dependency>
-            <groupId>net.milkbowl.vault</groupId>
-            <artifactId>VaultAPI</artifactId>
-            <version>1.7</version>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.9</version>
             <scope>provided</scope>
         </dependency>
-        -->
-
         <dependency>
             <groupId>net.luckperms</groupId>
             <artifactId>api</artifactId>
