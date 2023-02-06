@@ -674,7 +674,7 @@ public class JSONMessage {
                 SEND_PACKET = MethodHandles.lookup().unreflect(sendPacket);
                 STRING_TO_CHAT = MethodHandles.lookup().unreflect(stringToChat);
 
-                packetPlayOutChat = getClass("<nms}.PacketPlayOutChat");
+                packetPlayOutChat = getClass("{nms}.PacketPlayOutChat");
                 packetPlayOutChatComponent = getField(packetPlayOutChat, "a");
                 packetPlayOutChatMessageType = getField(packetPlayOutChat, "b");
                 packetPlayOutChatUuid = MAJOR_VER >= 16 ? getField(packetPlayOutChat, "c") : null;
@@ -823,7 +823,7 @@ public class JSONMessage {
         static Object fromJson(String json) {
             assertIsSetup();
 
-            if (!json.trim().startsWith("<")) {
+            if (!json.trim().startsWith("{")) {
                 return componentText(json);
             }
 
