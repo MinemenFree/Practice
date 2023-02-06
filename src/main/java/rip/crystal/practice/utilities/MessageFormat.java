@@ -160,7 +160,7 @@ public class MessageFormat {
 
     private String getVariable(String string){
         if (string == null) return  "";
-        if (string.contains("<")) {
+        if (string.contains("{")) {
             StringBuilder variable = new StringBuilder();
             boolean add = false;
             for (char s : string.toCharArray()){
