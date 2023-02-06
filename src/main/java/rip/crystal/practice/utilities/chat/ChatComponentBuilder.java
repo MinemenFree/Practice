@@ -98,7 +98,7 @@ public class ChatComponentBuilder extends ComponentBuilder {
 	}
 
 	public ChatComponentBuilder parse(String text) {
-		String regex = "[&§]{1}([a-fA-Fl-oL-O0-9-r]){1>";
+		String regex = "[&§]{1}([a-fA-Fl-oL-O0-9-r]){1}";
 		text = text.replaceAll(regex, "§$1");
 
 		if (!Pattern.compile(regex).matcher(text).find()) {
