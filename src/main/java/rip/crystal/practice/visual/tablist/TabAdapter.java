@@ -474,67 +474,67 @@ public class TabAdapter implements GhostlyAdapter {
     public SkinTexture skin(String string, Player player) {
         SkinTexture skin = TabListCommons.defaultTexture;
         switch (string) {
-            case "{player>":
+            case "<player>":
                 skin = TabListCommons.getSkinData(player.getUniqueId());
                 break;
-            case "{discord>":
+            case "<discord>":
                 skin = TabListCommons.DISCORD_TEXTURE;
                 break;
-            case "{twitter>":
+            case "<twitter>":
                 skin = TabListCommons.TWITTER_TEXTURE;
                 break;
-            case "{brayding>":
+            case "<brayding>":
                 skin = TabListCommons.getSkinData(UUID.fromString("d58ef82d-16e9-45e0-b08a-fb73ab62feaf"));
                 break;
-            case "{ziue>":
+            case "<ziue>":
                 skin = TabListCommons.getSkinData(UUID.fromString("148f1abc-6352-41fa-9c91-f666c3b04082"));
                 break;
-            case "{green>":
+            case "<green>":
                 skin = TabListCommons.GREEN_DOT;
                 break;
-            case "{blue>":
+            case "<blue>":
                 skin = TabListCommons.BLUE_DOT;
                 break;
-            case "{dark_blue>":
+            case "<dark_blue>":
                 skin = TabListCommons.DARK_BLUE_DOT;
                 break;
-            case "{dark_aqua>":
+            case "<dark_aqua>":
                 skin = TabListCommons.DARK_AQUA_DOT;
                 break;
-            case "{purple>":
+            case "<purple>":
                 skin = TabListCommons.DARK_PURPLE_DOT;
                 break;
-            case "{pink>":
+            case "<pink>":
                 skin = TabListCommons.LIGHT_PURPLE_DOT;
                 break;
-            case "{gray>":
+            case "<gray>":
                 skin = TabListCommons.GRAY_DOT;
                 break;
-            case "{red>":
+            case "<red>":
                 skin = TabListCommons.RED_DOT;
                 break;
-            case "{yellow>":
+            case "<yellow>":
                 skin = TabListCommons.YELLOW_DOT;
                 break;
-            case "{dark_green>":
+            case "<dark_green>":
                 skin = TabListCommons.DARK_GREEN_DOT;
                 break;
-            case "{dark_red>":
+            case "<dark_red>":
                 skin = TabListCommons.DARK_RED_DOT;
                 break;
-            case "{gold>":
+            case "<gold>":
                 skin = TabListCommons.GOLD_DOT;
                 break;
-            case "{aqua>":
+            case "<aqua>":
                 skin = TabListCommons.AQUA_DOT;
                 break;
-            case "{white>":
+            case "<white>":
                 skin = TabListCommons.WHITE_DOT;
                 break;
-            case "{dark_gray>":
+            case "<dark_gray>":
                 skin = TabListCommons.DARK_GRAY;
                 break;
-            case "{black>":
+            case "<black>":
                 skin = TabListCommons.BLACK_DOT;
                 break;
         }
