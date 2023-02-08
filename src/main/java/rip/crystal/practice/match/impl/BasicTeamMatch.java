@@ -377,19 +377,19 @@ public class BasicTeamMatch extends Match {
                                         String comboCounter = config.getStringList("FIGHTS.1V1.BOXING-MODE.NO_COMBO") + "";
                                         if ((yours.getLeader().getCombo() > 1)) {
 				            config.getStringList("FIGHTS.1V1.BOXING-MODE.YOUR_COMBO").forEach(line -> {
-							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
+							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()));
 								        .replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
 						});
 						return lines;
                                         } else if ((opponent.getLeader().getCombo() > 0)) {
 					    config.getStringList("FIGHTS.1V1.BOXING-MODE.OPPONENT_COMBO").forEach(line -> {
-							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
+							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()));
 								        .replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
 						});
 						return lines;
                                         } else if ((opponent.getLeader().getCombo() <= 0 && yours.getLeader().getCombo() <= 0)) {
 				            config.getStringList("FIGHTS.1V1.BOXING-MODE.NO_COMBO").forEach(line -> {
-							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
+							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()));
 								        .replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
 						});
 						return lines;
