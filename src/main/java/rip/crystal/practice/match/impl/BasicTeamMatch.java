@@ -374,18 +374,30 @@ public class BasicTeamMatch extends Match {
 					else if ((yours.getLeader().getHits() - opponent.getLeader().getHits()) < 0) {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
-                                        String mmcBoxingCombo = "&f1st to 100!";
+                                        String comboCounter = config.getStringList("FIGHTS.1V1.BOXING-MODE.NO_COMBO") + "";
                                         if ((yours.getLeader().getCombo() > 1)) {
-                                            mmcBoxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
+				            config.getStringList("FIGHTS.1V1.BOXING-MODE.YOUR_COMBO").forEach(line -> {
+							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo())))
+								        .replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
+						});
+						return lines;
                                         } else if ((opponent.getLeader().getCombo() > 0)) {
-                                            mmcBoxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
+					    config.getStringList("FIGHTS.1V1.BOXING-MODE.OPPONENT_COMBO").forEach(line -> {
+							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo())))
+								        .replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
+						});
+						return lines;
                                         } else if ((opponent.getLeader().getCombo() <= 0 && yours.getLeader().getCombo() <= 0)) {
-                                            mmcBoxingCombo = "&f1st to 100!";
+				            config.getStringList("FIGHTS.1V1.BOXING-MODE.NO_COMBO").forEach(line -> {
+							lines.add(line.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo())))
+								        .replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo())));
+						});
+						return lines;
                                         }
 
 					if (kit.getGameRules().isBoxing()) {
-						String mmcBoxingComboNew = mmcBoxingCombo;
 						//String finalActualHits = actualHits;
+						String combo = comboCounter;
 						config.getStringList("FIGHTS.1V1.BOXING-MODE").forEach(line -> {
 							lines.add(line.replace("<bars>", bars)
 									.replace("<duration>", getDuration())
@@ -397,6 +409,7 @@ public class BasicTeamMatch extends Match {
 									.replace("<arena-author>", getArena().getAuthor())
 									.replace("<kit-name>", getKit().getName())
 									//.replace("<hits>", finalActualHits)
+								        .replace("<hits>", cPractice.get().getMainConfig().getInteger("MATCH.BOXING_MAX_HITS"))
 									.replace("<hits-difference>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
 								  	.replace("<hits-difference-bracketless>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED) + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
 								  	.replace("<hits-difference-colorless>", "(" + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-") + (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())) + ")")
@@ -407,7 +420,7 @@ public class BasicTeamMatch extends Match {
 									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
 									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
 									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo()))
-									.replace("<combo>", mmcBoxingComboNew));
+									.replace("<combo>", combo));
 						});
 						return lines;
 					}
