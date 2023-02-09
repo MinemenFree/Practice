@@ -91,10 +91,10 @@ Admin Commands:\
 
 <h2>Holographics Displays - GLOBAL LB</h3>
 
-Name:   {globaltop(0-9)_name}\
-ELO:    {globaltop(0-9)_elo}\
+Name:   <globaltop(0-9)_name}\
+ELO:    <globaltop(0-9)_elo}\
 \
-_eg: 1. {globaltop0_name} - {globaltop0_elo}_
+_eg: 1. <globaltop0_name} - <globaltop0_elo}_
 
 
 <h2>Holographics Displays - Per Ladder LB</h3>
@@ -107,9 +107,9 @@ _eg: 1. {top0_nodebuff_name} - {top0_nodebuff_elo}_\
 
 <h2>Holographics Displays - CLAN LB</h3>
 
-Name:        {clantop(0-4)_name}\
-Catergory:   {clantop(0-4)_category}\
-Points:      {clantop(0-4)_elo}\
+Name:        <clantop(0-4)_name}\
+Catergory:   <clantop(0-4)_category}\
+Points:      <clantop(0-4)_elo}\
 \
-_eg: 1. {clantop0_category} || {clantop0_name} - {clantop(0-4)_elo}_\
+_eg: 1. <clantop0_category} || <clantop0_name} - <clantop(0-4)_elo}_\
 
