@@ -589,13 +589,12 @@ public class BasicTeamMatch extends Match {
 			for (BaseComponent component : inventories) {
 				builder.append((TextComponent) component);
 			}
-		}
 	
 			componentsList.add(builder.create());
 		} else {
 			componentsList.add(inventories);
 		continue;
-
+		}
 			if (line.equalsIgnoreCase("%ELO_CHANGES%")) {
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1 && ranked) {
 					List<String> sectionLines = new MessageFormat(Locale.MATCH_ELO_CHANGES.getStringList(profile.getLocale()))
