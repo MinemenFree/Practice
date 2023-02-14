@@ -582,14 +582,14 @@ public class BasicTeamMatch extends Match {
 					        .add("<winner>", winningParticipant.getConjoinedNames())
 						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
 						.add("<loser>", losingParticipant.getConjoinedNames())
-					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : ""));
+					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : "");
 
 				BaseComponent[] losers = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
 					        .add("<winner>", winningParticipant.getConjoinedNames())
 						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
 						.add("<loser>", losingParticipant.getConjoinedNames())
-					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : ""));
+					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : "");
 
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
