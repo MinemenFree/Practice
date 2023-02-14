@@ -575,42 +575,24 @@ public class BasicTeamMatch extends Match {
 		Profile profile = Profile.get(player.getUniqueId());
 
 		for (String line : Locale.MATCH_END_DETAILS.getStringList(profile.getLocale())) {
-			if (line.equalsIgnoreCase("<match-inventories>")) {
 
-				BaseComponent[] winners = generateInventoriesComponents(
+				BaseComponent[] inventories = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
 					        .add("<winner>", winningParticipant.getConjoinedNames())
 						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
 						.add("<loser>", losingParticipant.getConjoinedNames())
 					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : "");
 
-				BaseComponent[] losers = generateInventoriesComponents(
-					new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
-					        .add("<winner>", winningParticipant.getConjoinedNames())
-						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
-						.add("<loser>", losingParticipant.getConjoinedNames())
-					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : "");
-
-
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
 					ChatComponentBuilder builder = new ChatComponentBuilder("");
 
-					for (BaseComponent component : winners) {
-						builder.append((TextComponent) component);
-					}
-
-					builder.append(new ChatComponentBuilder("&7 §7┃ ").create());
-
-					for (BaseComponent component : losers) {
+					for (BaseComponent component : inventories) {
 						builder.append((TextComponent) component);
 					}
 
 					componentsList.add(builder.create());
 				} else {
-					componentsList.add(winners);
-					componentsList.add(losers);
-				}
-
+					componentsList.add(inventories);
 				continue;
 			}
 
