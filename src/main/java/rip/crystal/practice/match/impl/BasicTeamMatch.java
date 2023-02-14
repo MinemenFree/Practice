@@ -581,7 +581,7 @@ public class BasicTeamMatch extends Match {
 					        .add("<winner>", winningParticipant)
 						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
 						.add("<loser>", losingParticipant)
-					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : "");
+					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : ""));
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
 					ChatComponentBuilder builder = new ChatComponentBuilder("");
