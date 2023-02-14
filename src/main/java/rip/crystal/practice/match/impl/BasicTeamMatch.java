@@ -578,9 +578,9 @@ public class BasicTeamMatch extends Match {
 
 				BaseComponent[] inventories = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
-					        .add("<winner>", winningParticipant.getConjoinedNames())
+					        .add("<winner>", winningParticipant)
 						.add("<winner-context>", participantA.getPlayers().size() == 1 ? "" : "s")
-						.add("<loser>", losingParticipant.getConjoinedNames())
+						.add("<loser>", losingParticipant)
 					        .add("<loser-context>", participantB.getPlayers().size() > 1 ? "s" : "");
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
