@@ -589,7 +589,8 @@ public class BasicTeamMatch extends Match {
 			for (BaseComponent component : inventories) {
 				builder.append((TextComponent) component);
 			}
-
+		}
+	
 			componentsList.add(builder.create());
 		} else {
 			componentsList.add(inventories);
