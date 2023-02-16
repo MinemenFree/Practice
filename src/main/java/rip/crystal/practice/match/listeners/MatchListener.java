@@ -382,7 +382,7 @@ public class MatchListener implements Listener {
 				if (match.getKit().getGameRules().isBoxing()) {
 					BasicConfigurationFile config = cPractice.get().getMainConfig();
 					
-					if (match.getGamePlayer(attacker).getHits() == config.getInteger("MATCH." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".BOXING_MAX_HITS")) {
+					if (match.getGamePlayer(attacker).getHits() == config.getInteger("MATCH." + (match.isRanked() ? "RANKED" : "UNRANKED") + ".BOXING_MAX_HITS")) {
 						match.onDeath(damaged);
 					}
 				}
