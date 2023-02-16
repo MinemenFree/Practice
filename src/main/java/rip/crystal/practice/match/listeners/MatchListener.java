@@ -37,6 +37,7 @@ public class MatchListener implements Listener {
 
 	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	public void onPlayerPickupItemEvent(PlayerPickupItemEvent event) {
+		BasicConfigurationFile config = cPractice.get().getMainConfig();
 		Profile profile = Profile.get(event.getPlayer().getUniqueId());
 
 		if(profile.getState() == ProfileState.SPECTATING) {
@@ -128,7 +129,7 @@ public class MatchListener implements Listener {
 
 			if (match.getKit().getGameRules().isBridge()) event.getDrops().clear();
 
-			if (cPractice.get().getMainConfig().getBoolean("MATCH.DROP_ITEMS_ON_DEATH")) {
+			if (config.getBoolean("MATCH.DROP_ITEMS_ON_DEATH")) {
 				TaskUtil.run(() -> {
 					List<Item> entities = Lists.newArrayList();
 
@@ -192,8 +193,8 @@ public class MatchListener implements Listener {
 						return;
 					}
 
-					if (event.getEntity() instanceof ThrownPotion) {
-						if (cPractice.get().getMainConfig().getBoolean("MATCH.FAST_POTION")) {
+					/*if (event.getEntity() instanceof ThrownPotion) {
+						if (config.getBoolean("MATCH.FAST_POTION")) {
 							Projectile projectile = event.getEntity();
 
 							if (shooter.isSprinting()) {
@@ -204,7 +205,7 @@ public class MatchListener implements Listener {
 							}
 						}
 						match.getGamePlayer(shooter).incrementPotionsThrown();
-					}
+					}*/
 				}
 			}
 		}
@@ -378,7 +379,7 @@ public class MatchListener implements Listener {
 				damagedProfile.getMatch().getGamePlayer(damaged).resetCombo();
 
 				if (match.getKit().getGameRules().isBoxing()) {
-					if (match.getGamePlayer(attacker).getHits() == cPractice.get().getMainConfig().getInteger("MATCH.BOXING_MAX_HITS")) {
+					if (match.getGamePlayer(attacker).getHits() == config.getInteger("MATCH." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".BOXING_MAX_HITS")) {
 						match.onDeath(damaged);
 					}
 				}
