@@ -29,6 +29,7 @@ import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.TaskUtil;
 import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +38,6 @@ public class MatchListener implements Listener {
 
 	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	public void onPlayerPickupItemEvent(PlayerPickupItemEvent event) {
-		BasicConfigurationFile config = cPractice.get().getMainConfig();
 		Profile profile = Profile.get(event.getPlayer().getUniqueId());
 
 		if(profile.getState() == ProfileState.SPECTATING) {
@@ -109,6 +109,7 @@ public class MatchListener implements Listener {
 		event.setDeathMessage(null);
 
 		Profile profile = Profile.get(event.getEntity().getUniqueId());
+		BasicConfigurationFile config = cPractice.get().getMainConfig();
 
 		if (profile.getState() == ProfileState.FIGHTING) {
 			Match match = profile.getMatch();
@@ -379,6 +380,8 @@ public class MatchListener implements Listener {
 				damagedProfile.getMatch().getGamePlayer(damaged).resetCombo();
 
 				if (match.getKit().getGameRules().isBoxing()) {
+					BasicConfigurationFile config = cPractice.get().getMainConfig();
+					
 					if (match.getGamePlayer(attacker).getHits() == config.getInteger("MATCH." + (queue.isRanked() ? "RANKED" : "UNRANKED") + ".BOXING_MAX_HITS")) {
 						match.onDeath(damaged);
 					}
