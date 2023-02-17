@@ -27,9 +27,9 @@ public class RankedButton extends Button {
     public ItemStack getButtonItem(Player player) {
         ArrayList<String> lore = Lists.newArrayList();
         for (String text : this.config.getStringList("QUEUES.TYPES.RANKED.LORE")) {
-            lore.add(text.replace("<kit>", cPractice.get().getMainConfig().getString("FFA.KIT")));
+            lore.add(text.replace("<kit>", config.getString("FFA.KIT")));
         }
-        return new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.TYPES.RANKED.ICON"))).lore(CC.translate(lore)).amount(1).name(CC.translate(cPractice.get().getMainConfig().getString("QUEUES.TYPES.RANKED.NAME"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.TYPES.RANKED.DATA")).build();
+        return new ItemBuilder(Material.valueOf(config.getString("QUEUES.TYPES.RANKED.ICON"))).lore(CC.translate(lore)).amount(1).name(CC.translate(config.getString("QUEUES.TYPES.RANKED.NAME"))).durability(config.getInteger("QUEUES.TYPES.RANKED.DATA")).build();
     }
 
     @Override
