@@ -6,6 +6,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.match.participant.MatchGamePlayer;
 import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.ProfileState;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 public class cPracticeTags extends NametagProvider {
 
@@ -17,9 +18,11 @@ public class cPracticeTags extends NametagProvider {
     public NametagInfo fetchNametag(Player target, Player viewer) {
         Profile targetProfile = Profile.get(target.getUniqueId());
         Profile viewerProfile = Profile.get(viewer.getUniqueId());
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
+        
         if (viewerProfile.getState() == ProfileState.LOBBY || viewerProfile.getState() == ProfileState.QUEUEING) {
             if (viewerProfile.getParty() != null && viewerProfile.getParty().containsPlayer(target.getUniqueId())) {
-                return createNametag(ChatColor.valueOf(cPractice.get().getMainConfig().getString("NAMETAGS.PARTY_COLOR")).toString(), "");
+                return createNametag(ChatColor.valueOf(config.getString("NAMETAGS.PARTY_COLOR")).toString(), "");
             }
         }
         else if (viewerProfile.getState() == ProfileState.FIGHTING) {
@@ -32,7 +35,7 @@ public class cPracticeTags extends NametagProvider {
         }
         else if (viewerProfile.getState() == ProfileState.EVENT) {
             if (targetProfile.getState() == ProfileState.EVENT) {
-                return createNametag(ChatColor.valueOf(cPractice.get().getMainConfig().getString("NAMETAGS.EVENT_COLOR")).toString(), "");
+                return createNametag(ChatColor.valueOf(config.getString("NAMETAGS.EVENT_COLOR")).toString(), "");
             }
         }
         else if (viewerProfile.getState() == ProfileState.SPECTATING) {
@@ -45,21 +48,21 @@ public class cPracticeTags extends NametagProvider {
             }
         }
         else if (targetProfile.getState() == ProfileState.STAFF_MODE) {
-            return createNametag(cPractice.get().getMainConfig().getString("NAMETAGS.STAFF_FORMAT")
+            return createNametag(config.getString("NAMETAGS.STAFF_FORMAT")
                     .replace("%color%", targetProfile.getColor()), "");
         }
 
         if (targetProfile.getClan() != null) {
             return createNametag(
-                    cPractice.get().getMainConfig().getString("NAMETAGS.CLAN_FORMAT")
+                    config.getString("NAMETAGS.CLAN_FORMAT")
                     .replace("%color%", targetProfile.getClan().getColor().toString())
                     .replace("%clan%", targetProfile.getClan().getName())
                     , "");
         }
 
-        return createNametag(cPractice.get().getMainConfig().getString("NAMETAGS.DEFAULT_COLOR").contains("%color%") ?
+        return createNametag(config.getString("NAMETAGS.DEFAULT_COLOR").contains("%color%") ?
                 targetProfile.getColor() :
-                ChatColor.valueOf(cPractice.get().getMainConfig().getString("NAMETAGS.DEFAULT_COLOR")).toString()
+                ChatColor.valueOf(config.getString("NAMETAGS.DEFAULT_COLOR")).toString()
                 , "");
     }
 }
