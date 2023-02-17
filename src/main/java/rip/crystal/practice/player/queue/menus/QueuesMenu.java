@@ -26,7 +26,7 @@ public class QueuesMenu extends Menu {
     public String getTitle(Player player) {
         BasicConfigurationFile config = cPractice.get().getMainConfig();
        
-        return config.getString("QUEUES.TITLE"));
+        return config.getString("QUEUES.TITLE");
     }
 
     @Override
