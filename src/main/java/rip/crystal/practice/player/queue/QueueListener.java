@@ -12,6 +12,7 @@ import rip.crystal.practice.player.profile.ProfileState;
 import rip.crystal.practice.player.profile.hotbar.Hotbar;
 import rip.crystal.practice.player.profile.hotbar.impl.HotbarItem;
 import rip.crystal.practice.player.queue.menus.QueuesMenu;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 public class QueueListener implements Listener {
 
@@ -26,6 +27,8 @@ public class QueueListener implements Listener {
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerInteractEvent(PlayerInteractEvent event) {
+		BasicConfigurationFile config = cPractice.get().getMainConfig();
+		
 		if (event.getItem() != null && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
 			HotbarItem hotbarItem = Hotbar.fromItemStack(event.getItem());
 
@@ -34,12 +37,12 @@ public class QueueListener implements Listener {
 				boolean cancelled = true;
 
 				if (hotbarItem == HotbarItem.QUEUE_JOIN_RANKED) {
-					if (!profile.isBusy() && !cPractice.get().getMainConfig().getBoolean("QUEUES.ENABLED")) {
+					if (!profile.isBusy() && !config.getBoolean("QUEUES.ENABLED")) {
 					    Queue.getRankedMenu().openMenu(event.getPlayer());
 					}
-				} else if (hotbarItem == HotbarItem.QUEUES_JOIN && cPractice.get().getMainConfig().getBoolean("QUEUES.ENABLED")) {
+				} else if (hotbarItem == HotbarItem.QUEUES_JOIN && config.getBoolean("QUEUES.ENABLED")) {
                     new QueuesMenu().openMenu(event.getPlayer());
-                } else if (hotbarItem == HotbarItem.QUEUE_JOIN_UNRANKED && !cPractice.get().getMainConfig().getBoolean("QUEUES.ENABLED")) {
+                } else if (hotbarItem == HotbarItem.QUEUE_JOIN_UNRANKED && !config.getBoolean("QUEUES.ENABLED")) {
 					if (!profile.isBusy()) {
                         Queue.getUnRankedMenu().openMenu(event.getPlayer());
 					}
