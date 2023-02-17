@@ -39,14 +39,17 @@ public class QueueSelectKitMenu extends Menu {
 
 	@Override
 	public String getTitle(Player player) {
-		if (ranked) return cPractice.get().getMainConfig().getString("QUEUE.RANKED.INVENTORY_TITLE");
-		else return cPractice.get().getMainConfig().getString("QUEUE.UNRANKED.INVENTORY_TITLE");
+		BasicConfigurationFile config = cPractice.get().getMainConfig();
+		
+		if (ranked) return config.getString("QUEUE.RANKED.INVENTORY_TITLE");
+		else return config.getString("QUEUE.UNRANKED.INVENTORY_TITLE");
 	}
 
 	@Override
 	public Map<Integer, Button> getButtons(Player player) {
 		HashMap<Integer, Button> buttons = new HashMap<Integer, Button>();
-		ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
+		BasicConfigurationFile config = cPractice.get().getMainConfig();
+		ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(config.getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(config.getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
 
 		this.fillEmptySlots(buttons, PLACEHOLDER_ITEM);
 		for(Kit kit : Kit.getKits()) {
