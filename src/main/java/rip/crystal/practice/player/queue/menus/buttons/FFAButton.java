@@ -26,9 +26,9 @@ public class FFAButton extends Button {
     public ItemStack getButtonItem(Player player) {
         ArrayList<String> lore = Lists.newArrayList();
         for (String text : this.config.getStringList("QUEUES.TYPES.FFA.LORE")) {
-            lore.add(text.replace("<kit>", cPractice.get().getMainConfig().getString("FFA.KIT")).replace("<players>", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size())));
+            lore.add(text.replace("<kit>", config.getString("FFA.KIT")).replace("<players>", String.valueOf(cPractice.get().getFfaManager().getFFAPlayers().size())));
         }
-        return new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.TYPES.FFA.ICON"))).lore(CC.translate(lore)).amount(1).name(CC.translate(cPractice.get().getMainConfig().getString("QUEUES.TYPES.FFA.NAME"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.TYPES.FFA.DATA")).build();
+        return new ItemBuilder(Material.valueOf(config.getString("QUEUES.TYPES.FFA.ICON"))).lore(CC.translate(lore)).amount(1).name(CC.translate(config.getString("QUEUES.TYPES.FFA.NAME"))).durability(config.getInteger("QUEUES.TYPES.FFA.DATA")).build();
     }
 
     @Override
