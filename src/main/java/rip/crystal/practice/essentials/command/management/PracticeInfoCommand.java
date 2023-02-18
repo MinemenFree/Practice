@@ -28,9 +28,9 @@ public class PracticeInfoCommand extends BaseCommand {
                 .add("<rank_core>", cPractice.get().getRankManager().getRankSystem())
                 .add("<spigot>", cPractice.get().getServer().getName())
                 .add("<arenas>", Integer.toString(Arena.getArenas().size()))
-                .add("<kits>", Kit.getKits().size())
-                .add("<ranked_kits>", Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count())
-                .add("<clans>", Clan.getClans().size())
+                .add("<kits>", Integer.toString(Kit.getKits().size()))
+                .add("<ranked_kits>", Integer.toString(Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()))
+                .add("<clans>", Integer.toString(Clan.getClans().size()))
 		.send(player);
     }
 }
