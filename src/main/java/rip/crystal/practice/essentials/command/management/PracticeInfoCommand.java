@@ -29,7 +29,7 @@ public class PracticeInfoCommand extends BaseCommand {
                 .add("<spigot>", cPractice.get().getServer().getName())
                 .add("<arenas>", Integer.toString(Arena.getArenas().size()))
                 .add("<kits>", Integer.toString(Kit.getKits().size()))
-                .add("<ranked_kits>", Integer.toString(Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()))
+                .add("<ranked_kits>", Long.toString(Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()))
                 .add("<clans>", Integer.toString(Clan.getClans().size()))
 		.send(player);
     }
