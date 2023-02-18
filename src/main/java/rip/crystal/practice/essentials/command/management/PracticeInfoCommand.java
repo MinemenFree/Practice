@@ -27,7 +27,7 @@ public class PracticeInfoCommand extends BaseCommand {
                 .add("<practice_license>", cPractice.get().getMainConfig().getString("LICENSE"))
                 .add("<rank_core>", cPractice.get().getRankManager().getRankSystem())
                 .add("<spigot>", cPractice.get().getServer().getName())
-                .add("<arenas>", Arena.getArenas().size())
+                .add("<arenas>", Integer.toString(Arena.getArenas().size()))
                 .add("<kits>", Kit.getKits().size())
                 .add("<ranked_kits>", Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count())
                 .add("<clans>", Clan.getClans().size())
