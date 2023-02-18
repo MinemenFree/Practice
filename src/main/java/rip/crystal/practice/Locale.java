@@ -8,6 +8,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public enum Locale {
 
+	MISC_PRACTICE_INFO("MISC.PRACTICE_INFO"),
+	
 	PLAYER_NOT_FOUND("COMMON_ERRORS.PLAYER_NOT_FOUND"),
 
 	ARENA_REACHED_MAXIMUM("ARENA.REACHED_MAXIMUM"),
