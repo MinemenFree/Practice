@@ -89,9 +89,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().publicChatEnabled(!profile.getOptions().publicChatEnabled());
                 if(profile.getOptions().publicChatEnabled()) {
-                    player.sendMessage(CC.translate("&aYou have enabled public chat!"));
+                    player.sendMessage(CC.translate("&aYou can now see global chat."));
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled public chat!"));
+                    player.sendMessage(CC.translate("&cYou can no longer see global chat."));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -100,9 +100,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().showScoreboard(!profile.getOptions().showScoreboard());
                 if(profile.getOptions().vanillaTab()) {
-                    player.sendMessage(CC.translate("&aYou have enabled scoreboard!"));
+                    player.sendMessage(CC.translate("&aYou can now see the sidebar."));
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled scoreboard!"));
+                    player.sendMessage(CC.translate("&cYou can no longer see the sidebar."));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -111,9 +111,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().allowSpectators(!profile.getOptions().allowSpectators());
                 if(profile.getOptions().allowSpectators()) {
-                    player.sendMessage(CC.translate("&aYou have enabled spectators!"));
+                    player.sendMessage(CC.translate("&aYou are now allowing spectators."));
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled spectators!"));
+                    player.sendMessage(CC.translate("&cYou are no longer allowing spectators."));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -133,9 +133,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().receiveDuelRequests(!profile.getOptions().receiveDuelRequests());
                 if(profile.getOptions().receiveDuelRequests()) {
-                    player.sendMessage(CC.translate("&aYou have enabled duel requests!"));
+                    player.sendMessage(CC.translate("&aYou are now allowing duel requests."));
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled duel requests!"));
+                    player.sendMessage(CC.translate("&cYou are no longer allowing duel requests."));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -143,9 +143,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().playingMessageSounds(!profile.getOptions().playingMessageSounds());
                 if(profile.getOptions().playingMessageSounds()) {
-                    player.sendMessage(CC.translate("&aYou have enabled message sounds!"));
+                    player.sendMessage(CC.translate("&aYou've enabled private messaging sounds."));
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled message sounds!"));
+                    player.sendMessage(CC.translate("&cYou've disabled private messaging sounds."));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
