@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.player.cosmetics.impl.killeffects.menu.KillEffectsMenu;
 import rip.crystal.practice.player.profile.Profile;
@@ -13,6 +14,7 @@ import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.menu.Button;
+import rip.crystal.practice.utilities.MessageFormat;
 import rip.crystal.practice.visual.tablist.TabType;
 
 import java.util.ArrayList;
@@ -89,9 +91,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().publicChatEnabled(!profile.getOptions().publicChatEnabled());
                 if(profile.getOptions().publicChatEnabled()) {
-                    player.sendMessage(CC.translate("&aYou can now see global chat."));
+                    new MessageFormat(Locale.SETTINGS_GLOBAL_CHAT_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou can no longer see global chat."));
+                    new MessageFormat(Locale.SETTINGS_GLOBAL_CHAT_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -99,10 +101,10 @@ public class SettingUpdateButton extends Button {
             case "scoreboardToggled": {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().showScoreboard(!profile.getOptions().showScoreboard());
-                if(profile.getOptions().vanillaTab()) {
-                    player.sendMessage(CC.translate("&aYou can now see the sidebar."));
+                if(profile.getOptions().showScoreboard()) {
+                    new MessageFormat(Locale.SETTINGS_SCOREBOARD_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou can no longer see the sidebar."));
+                    new MessageFormat(Locale.SETTINGS_SCOREBOARD_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -111,9 +113,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().allowSpectators(!profile.getOptions().allowSpectators());
                 if(profile.getOptions().allowSpectators()) {
-                    player.sendMessage(CC.translate("&aYou are now allowing spectators."));
+                    new MessageFormat(Locale.SETTINGS_ALLOW_SPECTATORS_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou are no longer allowing spectators."));
+                    new MessageFormat(Locale.SETTINGS_ALLOW_SPECTATORS_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -122,9 +124,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().receivingNewConversations(!profile.getOptions().receivingNewConversations());
                 if(profile.getOptions().receivingNewConversations()) {
-                    player.sendMessage(CC.translate("&aYou have enabled conversations!"));
+                    new MessageFormat(Locale.SETTINGS_NEW_CONVERSATIONS_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled conversations!"));
+                    new MessageFormat(Locale.SETTINGS_NEW_CONVERSATIONS_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -133,9 +135,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().receiveDuelRequests(!profile.getOptions().receiveDuelRequests());
                 if(profile.getOptions().receiveDuelRequests()) {
-                    player.sendMessage(CC.translate("&aYou are now allowing duel requests."));
+                    new MessageFormat(Locale.SETTINGS_DUEL_REQUESTS_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou are no longer allowing duel requests."));
+                    new MessageFormat(Locale.SETTINGS_DUEL_REQUESTS_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -143,9 +145,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().playingMessageSounds(!profile.getOptions().playingMessageSounds());
                 if(profile.getOptions().playingMessageSounds()) {
-                    player.sendMessage(CC.translate("&aYou've enabled private messaging sounds."));
+                    new MessageFormat(Locale.SETTINGS_PRIVATE_MESSAGE_SOUNDS_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou've disabled private messaging sounds."));
+                    new MessageFormat(Locale.SETTINGS_PRIVATE_MESSAGE_SOUNDS_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -156,9 +158,9 @@ public class SettingUpdateButton extends Button {
                 profile.getOptions().vanillaTab(!profile.getOptions().vanillaTab());
 
                 if(profile.getOptions().vanillaTab()) {
-                    player.sendMessage(CC.translate("&aYou have enabled vanilla tab!"));
+                    new MessageFormat(Locale.SETTINGS_VANILLA_TAB_ON.format(profile.getLocale()))
                 } else {
-                    player.sendMessage(CC.translate("&cYou have disabled vanilla tab!"));
+                    new MessageFormat(Locale.SETTINGS_VANILLA_TAB_OFF.format(profile.getLocale()))
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
