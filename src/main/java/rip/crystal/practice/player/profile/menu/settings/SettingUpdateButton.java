@@ -91,9 +91,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().publicChatEnabled(!profile.getOptions().publicChatEnabled());
                 if(profile.getOptions().publicChatEnabled()) {
-                    new MessageFormat(Locale.SETTINGS_GLOBAL_CHAT_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_GLOBAL_CHAT_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_GLOBAL_CHAT_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_GLOBAL_CHAT_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -102,9 +102,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().showScoreboard(!profile.getOptions().showScoreboard());
                 if(profile.getOptions().showScoreboard()) {
-                    new MessageFormat(Locale.SETTINGS_SCOREBOARD_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_SCOREBOARD_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_SCOREBOARD_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_SCOREBOARD_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -113,9 +113,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().allowSpectators(!profile.getOptions().allowSpectators());
                 if(profile.getOptions().allowSpectators()) {
-                    new MessageFormat(Locale.SETTINGS_ALLOW_SPECTATORS_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_ALLOW_SPECTATORS_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_ALLOW_SPECTATORS_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_ALLOW_SPECTATORS_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -124,9 +124,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().receivingNewConversations(!profile.getOptions().receivingNewConversations());
                 if(profile.getOptions().receivingNewConversations()) {
-                    new MessageFormat(Locale.SETTINGS_NEW_CONVERSATIONS_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_NEW_CONVERSATIONS_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_NEW_CONVERSATIONS_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_NEW_CONVERSATIONS_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -135,9 +135,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().receiveDuelRequests(!profile.getOptions().receiveDuelRequests());
                 if(profile.getOptions().receiveDuelRequests()) {
-                    new MessageFormat(Locale.SETTINGS_DUEL_REQUESTS_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_DUEL_REQUESTS_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_DUEL_REQUESTS_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_DUEL_REQUESTS_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -145,9 +145,9 @@ public class SettingUpdateButton extends Button {
                 Profile profile = Profile.get(player.getUniqueId());
                 profile.getOptions().playingMessageSounds(!profile.getOptions().playingMessageSounds());
                 if(profile.getOptions().playingMessageSounds()) {
-                    new MessageFormat(Locale.SETTINGS_PRIVATE_MESSAGE_SOUNDS_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_PRIVATE_MESSAGE_SOUNDS_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_PRIVATE_MESSAGE_SOUNDS_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_PRIVATE_MESSAGE_SOUNDS_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
@@ -158,9 +158,9 @@ public class SettingUpdateButton extends Button {
                 profile.getOptions().vanillaTab(!profile.getOptions().vanillaTab());
 
                 if(profile.getOptions().vanillaTab()) {
-                    new MessageFormat(Locale.SETTINGS_VANILLA_TAB_ON.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_VANILLA_TAB_ON.format(profile.getLocale()));
                 } else {
-                    new MessageFormat(Locale.SETTINGS_VANILLA_TAB_OFF.format(profile.getLocale()))
+                    new MessageFormat(Locale.SETTINGS_VANILLA_TAB_OFF.format(profile.getLocale()));
                 }
                 SettingUpdateButton.playSuccess(player);
                 break;
