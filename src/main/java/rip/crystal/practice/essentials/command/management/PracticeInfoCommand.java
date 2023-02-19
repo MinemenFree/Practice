@@ -23,6 +23,7 @@ public class PracticeInfoCommand extends BaseCommand {
 	    
         new MessageFormat(Locale.MISC_PRACTICE_INFO.format(profile.getLocale()))
                 .add("<practice_name>", cPractice.get().getName())
+		.add("<practice_author>", cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", ""))
                 .add("<practice_version>", cPractice.get().getDescription().getVersion())
                 .add("<practice_license>", cPractice.get().getMainConfig().getString("LICENSE"))
                 .add("<rank_core>", cPractice.get().getRankManager().getRankSystem())
