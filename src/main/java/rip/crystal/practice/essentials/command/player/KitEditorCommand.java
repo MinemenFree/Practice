@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
-import rip.crystal.practice.player.profile.menu.LangMenu;
+import rip.crystal.practice.game.kit.menu.KitEditorSelectKitMenu;
 
 public class KitEditorCommand extends BaseCommand {
 
@@ -15,3 +15,4 @@ public class KitEditorCommand extends BaseCommand {
 
         new KitEditorSelectKitMenu().openMenu(player);
     }
+}
