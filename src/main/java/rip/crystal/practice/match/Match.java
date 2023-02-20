@@ -81,11 +81,13 @@ public abstract class Match {
 
 	private boolean hasBed = true;
 
-	public Match(Queue queue, Kit kit, Arena arena, boolean ranked) {
+	public Match(Queue queue, Kit kit, Arena arena, boolean ranked, GameParticipant<MatchGamePlayer> participantA, GameParticipant<MatchGamePlayer> participantB) {
 		this.queue = queue;
 		this.kit = kit;
 		this.arena = arena;
 		this.ranked = ranked;
+		this.participantA = participantA;
+		this.participantB = participantB;
 		this.snapshots = new ArrayList<>();
 		this.spectators = new ArrayList<>();
 		this.droppedItems = new ArrayList<>();
