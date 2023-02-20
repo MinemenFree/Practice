@@ -39,6 +39,7 @@ import rip.crystal.practice.player.profile.participant.alone.GameParticipant;
 import rip.crystal.practice.player.profile.visibility.VisibilityLogic;
 import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.*;
+import rip.crystal.practice.utilities.PlayerUtil;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
@@ -137,7 +138,7 @@ public abstract class Match {
 				player.getInventory().setContents(getKit().getKitLoadout().getContents());
 				//player.sendMessage(Locale.MATCH_GIVE_KIT.format("Default"));
 				new MessageFormat(Locale.MATCH_GIVE_KIT.format(profile.getLocale()))
-						.add("<kit_name>", "Default")
+						.add("<kit_book_name>", "Default")
 						.send(player);
 			}
 		}
@@ -153,15 +154,45 @@ public abstract class Match {
 
 		// Set arena as active
 		arena.setActive(true);
+		if (getParticipant(player) != null) {
+			if (state == MatchState.STARTING_ROUND || state == MatchState.PLAYING_ROUND || state == MatchState.ENDING_ROUND) {
+				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
+					GameParticipant<MatchGamePlayer> opponent;
+					GameParticipant<MatchGamePlayer> yours;
 
+					if (participantA.containsPlayer(player.getUniqueId())) {
+						opponent = participantB;
+						yours = participantA;
+					}
+					else {
+						opponent = participantA;
+						yours = participantB;
+					}
+
+					if(opponent.getLeader().getPlayer() == null) {
+						return null;
+					}
+
+					if(yours.getLeader().getPlayer() == null) {
+						return null;
+					}
+			}
+		}
+
+	}
 		// Send arena message
 		if (getArena().getAuthor() != null && !getArena().getAuthor().isEmpty()) {
 			sendMessage(Locale.MATCH_PLAYING_ARENA_AUTHOR, new MessageFormat()
 					.add("<arena_name>", arena.getName())
+				        .add("<opponent_name>", opponent.getLeader().getPlayer().getName())
+			                .add("<opponent_ping>", Integer.toString(PlayerUtil.getPing(opponent.getLeader().getPlayer())))
 					.add("<author>", arena.getAuthor()));
 		} else
-			sendMessage(Locale.MATCH_PLAYING_ARENA_NO_AUTHOR, new MessageFormat().add("<arena_name>", arena.getName()));
-
+			sendMessage(Locale.MATCH_PLAYING_ARENA_NO_AUTHOR, new MessageFormat()
+					.add("<arena_name>", arena.getName())
+				        .add("<opponent_name>", opponent.getLeader().getPlayer().getName())
+			                .add("<opponent_ping>", Integer.toString(PlayerUtil.getPing(opponent.getLeader().getPlayer())))
+					.add("<author>", arena.getAuthor()));
 		// Setup players
 		for (GameParticipant<MatchGamePlayer> gameParticipant : getParticipants()) {
 			for (MatchGamePlayer gamePlayer : gameParticipant.getPlayers()) {
