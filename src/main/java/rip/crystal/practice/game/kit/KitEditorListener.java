@@ -61,7 +61,7 @@ public class KitEditorListener implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.HIGH)
+	/*@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerInteractEvent(PlayerInteractEvent event) {
 		if (event.getItem() != null && (event.getAction() == Action.RIGHT_CLICK_AIR ||
 		                                event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
@@ -83,7 +83,7 @@ public class KitEditorListener implements Listener {
 				event.setCancelled(cancelled);
 			}
 		}
-	}
+	}*/
 
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onInventoryClickEvent(InventoryClickEvent event) {
