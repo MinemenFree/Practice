@@ -148,6 +148,7 @@ public abstract class Match {
 
 	public void start() {
 		// Set state
+		Player player = gamePlayer.getPlayer();
 		state = MatchState.STARTING_ROUND;
 
 		// Start logic task
