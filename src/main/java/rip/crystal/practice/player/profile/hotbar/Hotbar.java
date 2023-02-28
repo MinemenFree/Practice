@@ -73,14 +73,27 @@ public class Hotbar {
 		switch (profile.getState()) {
 			case LOBBY: {
 				if (profile.getParty() == null) {
-					if(cPractice.get().getMainConfig().getBoolean("QUEUES.ENABLED")) {
+					if(cPractice.get().getQueueConfig().getBoolean("QUEUES_JOIN.ENABLED")) {
 						itemStacks[getSlot(HotbarItem.QUEUES_JOIN)] = getItem(HotbarItem.QUEUES_JOIN);
-					} else {
-						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_UNRANKED)] = getItem(HotbarItem.QUEUE_JOIN_UNRANKED);
-						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_RANKED)] = getItem(HotbarItem.QUEUE_JOIN_RANKED);
 					}
-					itemStacks[getSlot(HotbarItem.KIT_EDITOR)] = getItem(HotbarItem.KIT_EDITOR);
-					itemStacks[getSlot(HotbarItem.SETTINGS)] = getItem(HotbarItem.SETTINGS);
+					
+					if(cPractice.get().getQueueConfig().getBoolean("QUEUE_JOIN_UNRANKED.ENABLED")) {
+						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_UNRANKED)] = getItem(HotbarItem.QUEUE_JOIN_UNRANKED);
+					}
+					
+					if(cPractice.get().getQueueConfig().getBoolean("QUEUE_JOIN_RANKED.ENABLED")) {
+						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_RANKED)] = getItem(HotbarItem.QUEUE_JOIN_RANKED);
+					}	
+					
+					if(cPractice.get().getQueueConfig().getBoolean("KIT_EDITOR.ENABLED")) {
+					        itemStacks[getSlot(HotbarItem.KIT_EDITOR)] = getItem(HotbarItem.KIT_EDITOR);
+
+					}
+					
+					if(cPractice.get().getQueueConfig().getBoolean("SETTINGS.ENABLED")) {
+					        itemStacks[getSlot(HotbarItem.SETTINGS)] = getItem(HotbarItem.SETTINGS);
+
+					}
 
 					if (activeRematch && activeEvent) {
 						if (profile.getRematchData().isReceive()) itemStacks[getSlot(HotbarItem.REMATCH_ACCEPT)] = getItem(HotbarItem.REMATCH_ACCEPT);
@@ -118,7 +131,10 @@ public class Hotbar {
 			}
 			break;
 			case QUEUEING: {
-				itemStacks[getSlot(HotbarItem.QUEUE_LEAVE)] = getItem(HotbarItem.QUEUE_LEAVE);
+				if(cPractice.get().getQueueConfig().getBoolean("QUEUE_LEAVE.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.QUEUE_LEAVE)] = getItem(HotbarItem.QUEUE_LEAVE);
+
+				}
 			}
 			break;
 			case TOURNAMENT: {
@@ -132,17 +148,47 @@ public class Hotbar {
 			}
 			break;
 			case EVENT: {
-				itemStacks[getSlot(HotbarItem.EVENT_LEAVE)] = getItem(HotbarItem.EVENT_LEAVE);
+				if(cPractice.get().getQueueConfig().getBoolean("EVENT_LEAVE.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.EVENT_LEAVE)] = getItem(HotbarItem.EVENT_LEAVE);
+
+				}
 			}
 			break;
 			case STAFF_MODE: {
-				itemStacks[getSlot(HotbarItem.RANDOM_TELEPORT)] = getItem(HotbarItem.RANDOM_TELEPORT);
-				itemStacks[getSlot(HotbarItem.HIDE_ALL_PLAYERS)] = getItem(HotbarItem.HIDE_ALL_PLAYERS);
-				itemStacks[getSlot(HotbarItem.RESET)] = getItem(HotbarItem.RESET);
-				itemStacks[getSlot(HotbarItem.ONLINE_STAFF)] = getItem(HotbarItem.ONLINE_STAFF);
-				itemStacks[getSlot(HotbarItem.VIEW_INVENTORYSTAFF)] = getItem(HotbarItem.VIEW_INVENTORYSTAFF);
-				itemStacks[getSlot(HotbarItem.COMPASS)] = getItem(HotbarItem.COMPASS);
-				itemStacks[getSlot(HotbarItem.FREEZE)] = getItem(HotbarItem.FREEZE);
+				if(cPractice.get().getQueueConfig().getBoolean("RANDOM_TELEPORT.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.RANDOM_TELEPORT)] = getItem(HotbarItem.RANDOM_TELEPORT);
+
+				}
+				
+				if(cPractice.get().getQueueConfig().getBoolean("HIDE_ALL_PLAYERS.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.HIDE_ALL_PLAYERS)] = getItem(HotbarItem.HIDE_ALL_PLAYERS);
+
+				}
+				
+				if(cPractice.get().getQueueConfig().getBoolean("RESET.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.RESET)] = getItem(HotbarItem.RESET);
+
+				}
+				
+				if(cPractice.get().getQueueConfig().getBoolean("ONLINE_STAFF.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.ONLINE_STAFF)] = getItem(HotbarItem.ONLINE_STAFF);
+
+				}
+				
+				if(cPractice.get().getQueueConfig().getBoolean("VIEW_INVENTORYSTAFF.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.VIEW_INVENTORYSTAFF)] = getItem(HotbarItem.VIEW_INVENTORYSTAFF);
+
+				}
+				
+				if(cPractice.get().getQueueConfig().getBoolean("COMPASS.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.COMPASS)] = getItem(HotbarItem.COMPASS);
+
+				}
+			
+				if(cPractice.get().getQueueConfig().getBoolean("FREEZE.ENABLED")) {
+					       itemStacks[getSlot(HotbarItem.FREEZE)] = getItem(HotbarItem.FREEZE);
+
+				}
 			}
 			break;
 		}
