@@ -253,8 +253,8 @@ public class BasicTeamRoundMatch extends BasicTeamMatch {
                                 .replace("<duration>", getDuration())
                                 .replace("<opponent-color>", Profile.get(opponent.getLeader().getUuid()).getColor())
                                 .replace("<opponent>", opponent.getLeader().getPlayer().getName())
-                                .replace("<opponent-ping>", String.valueOf(BukkitReflection.getPing(opponent.getLeader().getPlayer())))
-                                .replace("<player-ping>", String.valueOf(BukkitReflection.getPing(player)))
+                                .replace("<opponent-ping>", String.valueOf(PlayerUtil.getPing(opponent.getLeader().getPlayer())))
+                                .replace("<player-ping>", String.valueOf(PlayerUtil.getPing(player)))
                                 .replace("<arena-author>", getArena().getAuthor())
                                 .replace("<kit>", getKit().getName()));
                     });
