@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.kit.Kit;
 import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 import rip.crystal.practice.visual.leaderboard.menu.button.GlobalStatsButton;
@@ -30,6 +31,7 @@ public class LeaderBoardMenu extends Menu {
 
     @Override
     public Map<Integer, Button> getButtons(Player player){
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
         Map<Integer, Button> buttons = Maps.newHashMap();
         Button empty = new Button() {
             @Override
@@ -63,7 +65,7 @@ public class LeaderBoardMenu extends Menu {
             //if (1 + pos.get() == 10) pos.getAndIncrement();
             //if (1 + pos.get() == 18) pos.getAndIncrement();
             //if (1 + pos.get() == 19) pos.getAndIncrement();
-            ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
+            ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(config.getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(config.getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
             this.fillEmptySlots(buttons, PLACEHOLDER_ITEM);
             buttons.put(kit.getSlot() + 9, new KitButton(kit));
         });
@@ -73,6 +75,7 @@ public class LeaderBoardMenu extends Menu {
 
     @Override
     public int getSize() {
-        return cPractice.get().getMainConfig().getInteger("STATS_MENU.SIZE") * 9;
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
+        return config.getInteger("STATS_MENU.SIZE") * 9;
     }
 }

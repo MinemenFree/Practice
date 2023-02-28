@@ -1,14 +1,17 @@
 package rip.crystal.practice.essentials.command.management;
 
 import org.bukkit.entity.Player;
+import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.cPractice;
 import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.game.kit.Kit;
+import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.clan.Clan;
-import rip.crystal.practice.utilities.chat.CC;
+//import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.MessageFormat;
 
 public class PracticeInfoCommand extends BaseCommand {
 
@@ -16,18 +19,19 @@ public class PracticeInfoCommand extends BaseCommand {
     @Override
     public void onCommand(CommandArgs commandArgs) {
         Player player = commandArgs.getPlayer();
-        player.sendMessage(CC.translate("     &9" + cPractice.get().getName()));
-        player.sendMessage(CC.translate(""));
-        player.sendMessage(CC.translate(" &7| &9Author&7: &f" + cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
-        player.sendMessage(CC.translate(" &7| &9Version&7: &f" + cPractice.get().getDescription().getVersion()));
-        player.sendMessage(CC.translate(" &7| &9License&7: &f" + cPractice.get().getMainConfig().getString("LICENSE")));
-        player.sendMessage(CC.translate(" &7| &9Rank System&7: &f" + cPractice.get().getRankManager().getRankSystem()));
-        player.sendMessage(CC.translate(" "));
-        player.sendMessage(CC.translate(" &7| &9Spigot&7: &f" + cPractice.get().getServer().getName()));
-        player.sendMessage(CC.translate(" "));
-        player.sendMessage(CC.translate(" &7| &9Arenas&7: &f" + Arena.getArenas().size()));
-        player.sendMessage(CC.translate(" &7| &9Kits&7: &f" + Kit.getKits().size()));
-        player.sendMessage(CC.translate(" &7| &9Ranked Kits&7: &f" + Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()));
-        player.sendMessage(CC.translate(" &7| &9Clans&7: &f" + Clan.getClans().size()));
+	Profile profile = Profile.get(player.getUniqueId());
+	    
+        new MessageFormat(Locale.MISC_PRACTICE_INFO.format(profile.getLocale()))
+                .add("<practice_name>", cPractice.get().getName())
+		.add("<practice_author>", cPractice.get().getDescription().getAuthors().toString().replace("[", "").replace("]", ""))
+                .add("<practice_version>", cPractice.get().getDescription().getVersion())
+                .add("<practice_license>", cPractice.get().getMainConfig().getString("LICENSE"))
+                .add("<rank_core>", cPractice.get().getRankManager().getRankSystem())
+                .add("<spigot>", cPractice.get().getServer().getName())
+                .add("<arenas>", Integer.toString(Arena.getArenas().size()))
+                .add("<kits>", Integer.toString(Kit.getKits().size()))
+                .add("<ranked_kits>", Long.toString(Kit.getKits().stream().filter(kit -> kit.getGameRules().isRanked()).count()))
+                .add("<clans>", Integer.toString(Clan.getClans().size()))
+		.send(player);
     }
 }

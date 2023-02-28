@@ -27,9 +27,9 @@ public class UnrankedButton extends Button {
         BasicConfigurationFile config = cPractice.get().getMainConfig();
         ArrayList<String> lore = Lists.newArrayList();
         for (String text : config.getStringList("QUEUES.TYPES.UNRANKED.LORE")) {
-            lore.add(text.replace("<kit>", cPractice.get().getMainConfig().getString("FFA.KIT")));
+            lore.add(text.replace("<kit>", config.getString("FFA.KIT")));
         }
-        return new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.TYPES.UNRANKED.ICON"))).lore(CC.translate(lore)).amount(1).name(CC.translate(cPractice.get().getMainConfig().getString("QUEUES.TYPES.UNRANKED.NAME"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.TYPES.UNRANKED.DATA")).build();
+        return new ItemBuilder(Material.valueOf(config.getString("QUEUES.TYPES.UNRANKED.ICON"))).lore(CC.translate(lore)).amount(1).name(CC.translate(config.getString("QUEUES.TYPES.UNRANKED.NAME"))).durability(config.getInteger("QUEUES.TYPES.UNRANKED.DATA")).build();
     }
 
     @Override

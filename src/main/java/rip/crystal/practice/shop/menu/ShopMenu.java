@@ -8,6 +8,7 @@ import rip.crystal.practice.cPractice;
 import rip.crystal.practice.shop.buttons.KillEffectsShopButton;
 import rip.crystal.practice.shop.buttons.TrailsEffectsShopButton;
 import rip.crystal.practice.utilities.ItemBuilder;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 
@@ -32,8 +33,9 @@ public class ShopMenu extends Menu {
 
     @Override
     public Map<Integer, Button> getButtons(Player player) {
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
         Map<Integer, Button> buttons = new HashMap<>();
-        ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
+        ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(config.getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(config.getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
         this.fillEmptySlots(buttons, PLACEHOLDER_ITEM);
 
         buttons.put(11, new KillEffectsShopButton());

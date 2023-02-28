@@ -15,6 +15,7 @@ import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,24 +24,29 @@ public class QueuesMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return CC.translate(cPractice.get().getMainConfig().getString("QUEUES.TITLE"));
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
+       
+        return config.getString("QUEUES.TITLE");
     }
 
     @Override
     public Map<Integer, Button> getButtons(Player player) {
         HashMap<Integer, Button> buttons = new HashMap<>();
-        ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(cPractice.get().getMainConfig().getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(cPractice.get().getMainConfig().getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
+        ItemStack PLACEHOLDER_ITEM = new ItemBuilder(Material.valueOf(config.getString("QUEUES.PLACEHOLDER-ITEM-MATERIAL"))).durability(config.getInteger("QUEUES.PLACEHOLDER-ITEM-DATA")).name("&b").build();
 
         this.fillEmptySlots(buttons, PLACEHOLDER_ITEM);
-        buttons.put(cPractice.get().getMainConfig().getInteger("QUEUES.TYPES.UNRANKED.SLOT"), new UnrankedButton());
-        buttons.put(cPractice.get().getMainConfig().getInteger("QUEUES.TYPES.RANKED.SLOT"), new RankedButton());
-        buttons.put(cPractice.get().getMainConfig().getInteger("QUEUES.TYPES.FFA.SLOT"), new FFAButton());
+        buttons.put(config.getInteger("QUEUES.TYPES.UNRANKED.SLOT"), new UnrankedButton());
+        buttons.put(config.getInteger("QUEUES.TYPES.RANKED.SLOT"), new RankedButton());
+        buttons.put(config.getInteger("QUEUES.TYPES.FFA.SLOT"), new FFAButton());
 
         return buttons;
     }
 
     @Override
     public int getSize() {
-        return cPractice.get().getMainConfig().getInteger("QUEUES.SIZE") * 9;
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
+        
+        return config.getInteger("QUEUES.SIZE") * 9;
     }
 }

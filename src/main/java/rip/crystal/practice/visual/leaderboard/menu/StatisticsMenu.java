@@ -11,6 +11,7 @@ import rip.crystal.practice.player.profile.Profile;
 import rip.crystal.practice.player.profile.meta.ProfileKitData;
 import rip.crystal.practice.utilities.ItemBuilder;
 import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.menu.Button;
 import rip.crystal.practice.utilities.menu.Menu;
 import rip.crystal.practice.visual.scoreboard.BoardAdapter;
@@ -29,7 +30,8 @@ public class StatisticsMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return cPractice.get().getMainConfig().getString("STATS_MENU.TITLE")
+        BasicConfigurationFile config = cPractice.get().getMainConfig();
+        return config.getString("STATS_MENU.TITLE")
             .replace("<player>", this.target.getName());
     }
 
@@ -58,10 +60,11 @@ public class StatisticsMenu extends Menu {
 
         @Override
         public ItemStack getButtonItem(Player player) {
+            BasicConfigurationFile config = cPractice.get().getMainConfig();
             Profile data = Profile.get(target.getUniqueId());
             ProfileKitData kitData = data.getKitData().get(kit);
             List<String> lore = new ArrayList<>();
-            for (String s : cPractice.get().getMainConfig().getStringList("STATS_MENU.DESCRIPTION")) {
+            for (String s : config.getStringList("STATS_MENU.DESCRIPTION")) {
                 lore.add(s.replace("<bars>", CC.MENU_BAR)
                         .replace("<elo>", String.valueOf(kitData.getElo()))
                         .replace("<wins>", String.valueOf(kitData.getWon()))
@@ -69,7 +72,7 @@ public class StatisticsMenu extends Menu {
                         .replace("<losses>", String.valueOf(kitData.getLost())));
             }
             return new ItemBuilder(kit.getDisplayIcon())
-                    .name(cPractice.get().getMainConfig().getString("STATS_MENU.ITEM_NAME").replace("<kit>", kit.getName()))
+                    .name(config.getString("STATS_MENU.ITEM_NAME").replace("<kit>", kit.getName()))
                     .lore(lore)
                     .build();
         }
