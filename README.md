@@ -1,8 +1,8 @@
-# cPractice
+## cPractice
 
-Highly configurable practice plugin. This project was originally closed source and is now open source.
+cPractice is a flexible, easy to use and feature-rich practice plugin.
 
-<h1 align="center">How to use?</h1>
+<h3 align="left">How to use?</h3>
 
 1) Install like any other plugin by dragging it into your server's plugin folder
 2) Start the server & let the plugin load config files
@@ -11,9 +11,9 @@ Highly configurable practice plugin. This project was originally closed source a
 4) Done!\
 ![alt text](https://i.imgur.com/uzRYQI7.png)
 
-<h2 align="center">Commands</h2>
+<h3 align="left">Commands</h3>
 
-<h4>Setup Commands</h4>
+<h3>Setup Commands</h3>
     
 /kit - List kit commands\
 /kits (view kit list)\
@@ -26,7 +26,7 @@ Highly configurable practice plugin. This project was originally closed source a
 
 /setspawn - set Lobby (permission: cpractice.command.setspawn)
 
-<h4>Essential Commands</h4>
+<h3>Essential Commands</h3>
 
 Player commands:\
     /lang - choose language | permission: not required\
@@ -78,18 +78,18 @@ Admin Commands:\
 
 <h3>Cosmetics Shop</h3>
 
-<h4>Kill Effects Shop</h4>
+<h3>Kill Effects Shop</h3>
 
 ![alt text](https://i.imgur.com/7ViLVhi.png)
 
-<h4>Trails Effects Shop</h4>
+<h3>Trails Effects Shop</h3>
 
 ![alt text](https://i.imgur.com/U7NfVtp.png)
 
 
-<h1 align="center">Placeholders</h1>
+<h3 align="left">Placeholders</h3>
 
-<h2>Holographics Displays - GLOBAL LB</h3>
+<h3 align="left">Holographics Displays - GLOBAL LB</h3>
 
 Name:   <globaltop(0-9)_name}\
 ELO:    <globaltop(0-9)_elo}\
@@ -97,7 +97,7 @@ ELO:    <globaltop(0-9)_elo}\
 _eg: 1. <globaltop0_name} - <globaltop0_elo}_
 
 
-<h2>Holographics Displays - Per Ladder LB</h3>
+<h3>Holographics Displays - Per Ladder LB</h3>
 
 Name:   {top(0-9)_kit_name}\
 ELO:    {top(0-9)_kit_elo}\
@@ -105,7 +105,7 @@ ELO:    {top(0-9)_kit_elo}\
 _eg: 1. {top0_nodebuff_name} - {top0_nodebuff_elo}_\
 
 
-<h2>Holographics Displays - CLAN LB</h3>
+<h3>Holographics Displays - CLAN LB</h3>
 
 Name:        <clantop(0-4)_name}\
 Catergory:   <clantop(0-4)_category}\
