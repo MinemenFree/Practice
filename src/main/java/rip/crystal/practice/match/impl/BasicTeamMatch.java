@@ -375,11 +375,11 @@ public class BasicTeamMatch extends Match {
 						actualHits = String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits());
 					}*/
                                         String mmcBoxingCombo = "&f1st to 100!";
-                                        if ((yours.getLeader().getCombo() > 1)) {
+                                        if (yours.getLeader().getCombo() > 1) {
                                             mmcBoxingCombo = "&a" + yours.getLeader().getCombo() + " Combo";
-                                        } else if ((opponent.getLeader().getCombo() > 1)) {
+                                        } else if (opponent.getLeader().getCombo() > 1) {
                                             mmcBoxingCombo = "&c" + opponent.getLeader().getCombo() + " Combo";
-                                        } else if ((opponent.getLeader().getCombo() <= 0 && yours.getLeader().getCombo() <= 0)) {
+                                        } else if (opponent.getLeader().getCombo() <= 0 && yours.getLeader().getCombo() <= 0) {
                                             mmcBoxingCombo = "&f1st to 100!";
                                         }
 
@@ -399,11 +399,12 @@ public class BasicTeamMatch extends Match {
 									//.replace("<hits>", finalActualHits)
 									.replace("<hits-difference>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? String.valueOf(yours.getLeader().getHits() - opponent.getLeader().getHits()) : String.valueOf(opponent.getLeader().getHits() - yours.getLeader().getHits())))
 								  	.replace("<hits-difference-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.GREEN : CC.RED))
-								  	.replace("<hits-difference-symbol>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : "-"))
-								  	.replace("<hits-difference-symbol-other>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : ""))
-								  	.replace("<hits-difference-symbol-other-other>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "" : "-"))
+								  	.replace("<hits-difference-reverse-color>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? CC.RED : CC.GREEN))
+								  	.replace("<hits-difference-plus-symbol>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "+" : ""))
+								  	.replace("<hits-difference-reverse-plus-symbol>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "" : "+"))
+								  	.replace("<hits-difference-minus-symbol>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "" : "-"))
+								  	.replace("<hits-difference-reverse-minus-symbol>", (yours.getLeader().getHits() >= opponent.getLeader().getHits() ? "-" : ""))
 									.replace("<your-hits>", String.valueOf(yours.getLeader().getHits()))
-								        .replace("<opponent-hits-difference-color>", (opponent.getLeader().getHits() >= yours.getLeader().getHits() ? CC.GREEN : CC.RED))
 									.replace("<opponent-hits>", String.valueOf(opponent.getLeader().getHits()))
 									.replace("<your-combo>", String.valueOf(yours.getLeader().getCombo()))
 									.replace("<opponent-combo>", String.valueOf(opponent.getLeader().getCombo()))

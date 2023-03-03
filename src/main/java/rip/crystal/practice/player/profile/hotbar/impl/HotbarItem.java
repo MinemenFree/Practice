@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 
 public enum HotbarItem {
 
-	QUEUE_JOIN_RANKED(null),
-	QUEUE_JOIN_UNRANKED(null),
-	QUEUES_JOIN(null),
-	QUEUE_LEAVE(null),
+	QUEUE_JOIN_RANKED("cpractice:ranked"),
+	QUEUE_JOIN_UNRANKED("cpractice:unranked"),
+	QUEUES_JOIN("cpractice:queues"),
+	QUEUE_LEAVE("cpractice:queue leave"),
 	PARTY_EVENTS(null),
 	PARTY_CREATE("cpractice:party create"),
 	PARTY_DISBAND("cpractice:party disband"),
@@ -44,8 +44,8 @@ public enum HotbarItem {
 	COMPASS("/thru"),
 	FREEZE(null),
 
-	VIEWTOURNAMENT("tournament status"),
-	LEAVETOURNAMENT("tournament leave");
+	VIEWTOURNAMENT("cpractice:tournament status"),
+	LEAVETOURNAMENT("cpractice:tournament leave");
 
 	@Getter private final String command;
 	@Getter @Setter private Pattern pattern;
