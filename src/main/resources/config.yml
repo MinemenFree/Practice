@@ -9,9 +9,10 @@ TABLIST_ENABLE: true
 MESSAGE-REPLY-BOOLEAN: true
 # Lobby Coords
 ESSENTIAL_SPAWN_LOCATION: world:-9999.617585349535:100.63557196779635:245.40600562996698:180.02081:5.390071
-# Default language. Currently Supported: English , Espaniol
+# Default language. Currently Supported: English, Spanish
 DEFAULT_LANG: EN
 MOD_MODE: true
+ENVIROMENT_CHANGER_COMMAND: true
 # You can use 'MONGO' or 'MONGODB' and 'FLATFILE' or 'FILE'
 # If you use the MONGO method you can get information
 # from there for external things like web pages or other statistical things

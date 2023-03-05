@@ -368,6 +368,7 @@ public class cPractice extends JavaPlugin {
             new MessageCommand();
             new ReplyCommand();
         }
+        // Shop and paid Cosmetics commands
         new CosmeticsCommand();
         new ShopCommand();
         new CoinsCommand();
@@ -393,27 +394,33 @@ public class cPractice extends JavaPlugin {
         new PartyCommand();
         new KitCommand();
         new KitsCommand();
+        new KitEditorCommand();
         new ViewInventoryCommand();
         new ToggleScoreboardCommand();
         new ToggleSpectatorsCommand();
         new ToggleDuelRequestsCommand();
         new ClanCommand();
         new TournamentCommand();
+
+        // Time changer / Weather changer commands
+        if (getMainConfig().getBoolean("ENVIROMENT_CHANGER_COMMANDS")) {
         new ClearCommand();
         new DayCommand();
+        new SunsetCommand();
+        new NightCommand();
+        }
+
         new AbilityCommand();
         new cPracticeCommand();
         new LangCommand();
         new LocationCommand();
         new MoreCommand();
-        new NightCommand();
         new RenameCommand();
         new SetSlotsCommand();
         new SetSpawnCommand();
         new ShowAllPlayersCommand();
         new ShowPlayerCommand();
         new SpawnCommand();
-        new SunsetCommand();
         new TeleportWorldCommand();
         new OptionsCommand();
         new ClearChatCommand();
