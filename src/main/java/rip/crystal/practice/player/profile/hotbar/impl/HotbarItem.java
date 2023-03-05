@@ -1,6 +1,6 @@
 package rip.crystal.practice.player.profile.hotbar.impl;
 
-import rip.crystal.practice.Practice;
+import rip.crystal.practice.cPractice;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 import lombok.Getter;
