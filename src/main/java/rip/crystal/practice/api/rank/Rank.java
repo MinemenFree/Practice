@@ -10,8 +10,8 @@ public interface Rank {
     String getPrefix(UUID uuid);
     String getSuffix(UUID uuid);
     String getColor(UUID uuid);
-    String getTag(Player player);
-    String getRealName(Player player);
+    String getTag(UUID uuid);
+    String getRealName(UUID uuid);
 /*  Boolean isRankTemporary(UUID uuid);*/
     int getWeight(UUID uuid);
 }
