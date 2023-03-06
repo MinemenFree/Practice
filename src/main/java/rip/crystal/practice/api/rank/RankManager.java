@@ -14,6 +14,7 @@ public class RankManager {
     private static RankManager instance;
     private Plugin plugin;
     private String rankSystem;
+    private Tag tag;
     private Rank rank;
 
     public RankManager(Plugin plugin) {
