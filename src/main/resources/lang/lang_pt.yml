@@ -7,10 +7,10 @@ SETTINGS:
   ALLOW_SPECTATORS_OFF: '&cJá não estás a permitir espectadores nos teus jogos.'
   NEW_CONVERSATIONS_ON: '&aYou have enabled conversations!'
   NEW_CONVERSATIONS_OFF: '&cYou have disabled conversations!'
-  DUEL_REQUESTS_ON: '&aYou are now allowing duel requests.'
-  DUEL_REQUESTS_OFF: '&cYou are no longer allowing duel requests.'
-  PRIVATE_MESSAGE_SOUNDS_ON: '&aYou've enabled private messaging sounds.'
-  PRIVATE_MESSAGE_SOUNDS_OFF: '&cYou've disabled private messaging sounds.'
+  DUEL_REQUESTS_ON: '&aAgora estás a permitir solicitações de duelo.'
+  DUEL_REQUESTS_OFF: '&cJá não estás a permitir solicitações de duelo.'
+  PRIVATE_MESSAGE_SOUNDS_ON: '&aTu ativaste sons de mensagens privadas.'
+  PRIVATE_MESSAGE_SOUNDS_OFF: '&cTu desativaste sons de mensagens privadas.'
   VANILLA_TAB_ON: '&aYou have enabled vanilla tab!'
   VANILLA_TAB_OFF: '&cYou have disabled vanilla tab!'
 MISC:
@@ -121,12 +121,12 @@ EVENT:
   - '&7██&9█&7████  &r&9&lBom jogo!'
   - '&7██&9███&7██'
   - '&7███████'
-  MATCH_REMAINING: '&cThere are <seconds> second<context> left to finish this round!'
-  MATCH_ITS_THE_BOMB: '<player> it''''s the bomb'
+  MATCH_REMAINING: '&cFaltam <seconds> segundo<context> para terminar a ronda!'
+  MATCH_ITS_THE_BOMB: '<player> tem a bomba'
 TOURNAMENT:
-  NO_TOURNAMENT_FOUND: '&cNo tournament found'
-  CANT_JOIN_IN_STATE: '&cYou may not join the tournament in your state'
-  ALREADY_IN_TOURNAMENT: '&cYou are already in the tournament'
+  NO_TOURNAMENT_FOUND: '&cNenhum tornamento encontrado'
+  CANT_JOIN_IN_STATE: '&cTu não podes entrar no tournamento no teu estado'
+  ALREADY_IN_TOURNAMENT: '&cTu já estás no tournamentoYou are already in the tournament'
   FORCE_STARTED: '&cYou have sucessfully force started the tournament'
 DUEL:
   SENT: '&fYou sent a &c<kit_name> &fduel request to &c<target_name> &fon arena &c<arena_name>&f.'
@@ -136,7 +136,7 @@ DUEL:
   - '&c<sender_name> &fsent you a &c<kit_name> &fduel request on arena &c<arena_name>&f.'
   - '%CLICKABLE%'
   RECEIVED_PARTY:
-  - '&f<sender_name>''''s party &c(&9<party_size>&c) &fsent your party a &c<kit_name>
+  - '&f<sender_name>''s party &c(&9<party_size>&c) &fsent your party a &c<kit_name>
     &fduel request on arena &c<arena_name>&f.'
   - '%CLICKABLE%'
   RECEIVED_HOVER: '&cClick to accept this duel request.'
@@ -169,7 +169,7 @@ QUEUE:
     - '&e&lUnranked <kit_name>'
     - '  &ePing Range: <pingrange>'
     - ' '
-    - '&7A procurar por uma partida...'
+    - '&7Procurando por uma partida...'
     - '&7&m------------------------------------------------'
   LEAVE_UNRANKED:
     - '&7&m------------------------------------------------'
@@ -181,7 +181,7 @@ QUEUE:
     - '&e&lRanked <kit_name>'
     - '  &eElo: <elo>'
     - ' '
-    - '&7Searching for match...'
+    - '&7Procurando por uma partida...'
     - '&7&m------------------------------------------------'
   LEAVE_RANKED:
     - '&7&m------------------------------------------------'
@@ -225,7 +225,7 @@ MATCH:
   END_LOSER_INVENTORY: '&cLoser<context>&7: '
   END_DETAILS_SEPARATOR: '&r &7┃ '
   CLICK_TO_VIEW_NAME: '&d<name>'
-  CLICK_TO_VIEW_HOVER: '&fClick to view &c<name>&f''''s inventory.'
+  CLICK_TO_VIEW_HOVER: '&fClick to view &c<name>&f''s inventory.'
   ELO_CHANGES:
   - '&7&oELO Changes: &9<winning_name> +<winning_elo_mod> (<winning_elo_mod_elo>)
     &c<losser_name> -<losser_elo_mod> (<losser_elo_mod_elo>)'
