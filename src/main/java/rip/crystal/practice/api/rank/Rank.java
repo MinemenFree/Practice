@@ -12,6 +12,6 @@ public interface Rank {
     String getColor(UUID uuid);
     String getTag(Player player);
     String getRealName(Player player);
-    Boolean isRankTemporary(UUID uuid);
+/*  Boolean isRankTemporary(UUID uuid);*/
     int getWeight(UUID uuid);
 }

@@ -43,7 +43,7 @@ public class cCore implements Rank {
         return cCoreAPI.INSTANCE.getTag(player.getUniqueId()).getFormat();
     }
 
-    @Override
+/*  @Override
     public boolean isRankTemporary(UUID uuid) {
         PlayerData data = cCoreAPI.INSTANCE.getPlayerData(uuid);
 
@@ -57,7 +57,7 @@ public class cCore implements Rank {
 
         return false;
     }
-
+*/
     @Override
     public int getWeight(UUID uuid) {
         GlobalPlayer globalPlayer = cCoreAPI.INSTANCE.getGlobalPlayer(uuid);

@@ -67,10 +67,11 @@ public class LuckPerms implements Rank {
         return "Default";
     }
 
-    @Override
+/*    @Override
     public boolean isRankTemporary(UUID uuid) {
         return false;
     }
+    */
     @Override
     public int getWeight(UUID uuid) {
         User user = this.luckPerms.getUserManager().getUser(uuid);
