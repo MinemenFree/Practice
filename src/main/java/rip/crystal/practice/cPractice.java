@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.command.ConsoleCommandSender;
 import rip.crystal.practice.api.command.CommandManager;
 import rip.crystal.practice.api.rank.RankManager;
 import rip.crystal.practice.essentials.Essentials;
@@ -209,7 +210,9 @@ public class cPractice extends JavaPlugin {
         BoardAdapter.hook();
         Leaderboard.init();
         PlayerVersionHandler.init();
-        Chat.setChatFormat(new cPracticeChatFormat());
+        if (mainConfig.getBoolean("CPRACTICE_CHAT_FORMAT")){
+           Chat.setChatFormat(new cPracticeChatFormat());
+        }
         if (mainConfig.getBoolean("TABLIST_ENABLE")) new TabList(this, new TabAdapter());
         placeholderAPI = getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
         if (placeholderAPI) new PlaceholderAPI().register();
@@ -281,13 +284,14 @@ public class cPractice extends JavaPlugin {
                             .getDatabase(databaseConfig.getString("MONGO.DATABASE"));
                 }
             } catch (Exception e) {
-                //System.out.println("The cPractice plugin was disabled as it failed to connect to the MongoDB");
-                Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
-                Bukkit.getConsoleSender().sendMessage(CC.translate("            &4&lMongo Internal Error"));
-                Bukkit.getConsoleSender().sendMessage(CC.translate("        &cMongo is not setup correctly!"));
-                Bukkit.getConsoleSender().sendMessage(CC.translate(     "&cPlease check your mongo and try again."));
-                Bukkit.getConsoleSender().sendMessage(CC.translate("              &4&lDisabling cPractice"));
-                Bukkit.getConsoleSender().sendMessage(CC.translate(CC.CHAT_BAR));
+                ConsoleCommandSender bmsg = Bukkit.getConsoleSender();
+
+                bmsg.sendMessage(CC.translate(CC.CHAT_BAR));
+                bmsg.sendMessage(CC.translate("            &4&lMongoDB Internal Error"));
+                bmsg.sendMessage(CC.translate("        &cYour MongoDB database is not setup correctly!"));
+                bmsg.sendMessage(CC.translate(     "&cPlease check your MongoDB database and try again."));
+                bmsg.sendMessage(CC.translate("              &4&lTurning cPractice off"));
+                bmsg.sendMessage(CC.translate(CC.CHAT_BAR));
                 Bukkit.getServer().getPluginManager().disablePlugin(this);
                 return;
             }
