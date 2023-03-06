@@ -4,6 +4,7 @@ import me.activated.core.api.player.GlobalPlayer;
 import me.activated.core.api.player.PlayerData;
 import me.activated.core.plugin.AquaCoreAPI;
 import rip.crystal.practice.api.rank.Rank;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -31,6 +32,30 @@ public class AquaCore implements Rank {
     public String getColor(UUID uuid) {
         PlayerData data = AquaCoreAPI.INSTANCE.getPlayerData(uuid);
         return data == null ? "No Data" : data.getHighestRank().getColor() + data.getHighestRank().getName();
+    }
+    @Override
+    public String getRealName(Player player) {
+        return AquaCoreAPI.INSTANCE.getRealName(player);
+    }
+
+    @Override
+    public String getTag(Player player) {
+        return AquaCoreAPI.INSTANCE.getTag(player.getUniqueId()).getFormat();
+    }
+
+    @Override
+    public boolean isRankTemporary(UUID uuid) {
+        PlayerData data = AquaCoreAPI.INSTANCE.getPlayerData(uuid);
+
+        if (data == null) return false;
+
+        for (Grant grant : data.getActiveGrants()) {
+            if (data.getHighestRank().equals(grant.getRank())) {
+                return !grant.isPermanent();
+            }
+        }
+
+        return false;
     }
 
     @Override

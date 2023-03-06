@@ -7,6 +7,7 @@ import net.luckperms.api.node.NodeType;
 import net.luckperms.api.node.types.WeightNode;
 import net.luckperms.api.query.QueryOptions;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import rip.crystal.practice.api.rank.Rank;
 
 import java.util.Optional;
@@ -56,6 +57,20 @@ public class LuckPerms implements Rank {
         return user.getCachedData().getMetaData(queryOptions.get());
     }
 
+    @Override
+    public String getRealName(Player player) {
+        return "";
+    }
+
+    @Override
+    public String getTag(Player player) {
+        return "Default";
+    }
+
+    @Override
+    public boolean isRankTemporary(UUID uuid) {
+        return false;
+    }
     @Override
     public int getWeight(UUID uuid) {
         User user = this.luckPerms.getUserManager().getUser(uuid);
