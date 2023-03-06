@@ -1,5 +1,7 @@
 package rip.crystal.practice.api.rank;
 
+import org.bukkit.entity.Player;
+
 import java.util.UUID;
 
 public interface Rank {
