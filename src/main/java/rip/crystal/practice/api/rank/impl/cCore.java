@@ -34,13 +34,13 @@ public class cCore implements Rank {
         return data == null ? "No Data" : data.getHighestRank().getColor() + data.getHighestRank().getName();
     }
     @Override
-    public String getRealName(UUID uuid) {
-        return cCoreAPI.INSTANCE.getRealName(Bukkit.getPlayer(uuid));
+    public String getRealName(Player player) {
+        return cCoreAPI.INSTANCE.getRealName(player);
     }
 
     @Override
-    public String getTag(UUID uuid) {
-        return cCoreAPI.INSTANCE.getTag(Bukkit.getPlayer(uuid).getUniqueId()).getFormat();
+    public String getTag(Player player) {
+        return cCoreAPI.INSTANCE.getTag(player.getUniqueId()).getFormat();
     }
 
 /*  @Override
