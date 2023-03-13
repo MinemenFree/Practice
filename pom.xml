@@ -6,8 +6,8 @@
 
     <groupId>rip.crystal.practice</groupId>
     <artifactId>cPractice</artifactId>
-    <version>1.1.4</version>
-<!--    <version>dev-SNAPSHOT</version>-->
+    <version>1.1.5</version>
+<!--<version>production-RELEASE</version>-->
 
     <build>
         <defaultGoal>clean install</defaultGoal>
