@@ -37,11 +37,11 @@ public class Default implements Rank {
         return "Default";
     }
 
-/*  @Override
+    @Override
     public boolean isRankTemporary(UUID uuid) {
         return false;
     }
-*/
+
     @Override
     public int getWeight(UUID uuid) {
         return 0;
