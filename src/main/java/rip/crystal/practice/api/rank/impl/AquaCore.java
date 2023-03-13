@@ -43,7 +43,7 @@ public class AquaCore implements Rank {
         return AquaCoreAPI.INSTANCE.getTag(player.getUniqueId()).getFormat();
     }
 
-/*  @Override
+    @Override
     public boolean isRankTemporary(UUID uuid) {
         PlayerData data = AquaCoreAPI.INSTANCE.getPlayerData(uuid);
 
@@ -57,7 +57,7 @@ public class AquaCore implements Rank {
 
         return false;
     }
-*/
+
     @Override
     public int getWeight(UUID uuid) {
         GlobalPlayer globalPlayer = AquaCoreAPI.INSTANCE.getGlobalPlayer(uuid);
