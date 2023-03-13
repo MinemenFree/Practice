@@ -41,8 +41,8 @@ public class cPracticeChatFormat implements ChatFormat {
                     .replace("<player>", sender.getName())
                     .replace("<message>", (sender.hasPermission("cpractice.chat.color") ? CC.translate(message) : CC.strip(message)))));
         return CC.translate(cPractice.get().getMainConfig().getString("CHAT.DEFAULT_FORMAT")
-                .replace("<prefix>", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId))
-                .replace("<suffix>", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueID))
+                .replace("<prefix>", cPractice.get().getRankManager().getRank().getPrefix(sender.getUniqueId()))
+                .replace("<suffix>", cPractice.get().getRankManager().getRank().getSuffix(sender.getUniqueId()))
                 .replace("<tag>", cPractice.get().getRankManager().getRank().getTag(sender))
                 .replace("<color>", senderProfile.getColor())
                 .replace("<player>", sender.getName())
