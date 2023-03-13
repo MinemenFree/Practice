@@ -580,14 +580,13 @@ public class BasicTeamMatch extends Match {
 
 				BaseComponent[] winners = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
-						.add("<winner>", participantA.getPlayers().size() == 1 ? "" : "s")
-						.toString(), winningParticipant);
+						.add("<winner>", winningParticipant)
+						.add("<winner_context>", participantA.getPlayers().size() == 1 ? "" : "s");
 
 				BaseComponent[] losers = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
-						.add("<loser>", participantB.getPlayers().size() > 1 ? "s" : "")
-					        .toString(), losingParticipant);
-
+						.add("<loser>", losingParticipant)
+						.add("<loser_context>", participantB.getPlayers().size() > 1 ? "s" : "");
 
 				if (participantA.getPlayers().size() == 1 && participantB.getPlayers().size() == 1) {
 					ChatComponentBuilder builder = new ChatComponentBuilder("");
@@ -596,7 +595,7 @@ public class BasicTeamMatch extends Match {
 						builder.append((TextComponent) component);
 					}
 
-					builder.append(new ChatComponentBuilder("&7  &7▏  &7").create());
+				      /*builder.append(new ChatComponentBuilder("&7  &7▏  &7").create());*/
 
 					for (BaseComponent component : losers) {
 						builder.append((TextComponent) component);
