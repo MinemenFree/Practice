@@ -140,6 +140,8 @@ public class cPractice extends JavaPlugin {
     private FFAManager ffaManager;
     private ShopSystem shopSystem;
 
+    private MongoConnection mongoConnection;
+
     public boolean placeholderAPI = false;
     public int inQueues, inFights, bridgeRounds, rankedSumoRounds;
 
