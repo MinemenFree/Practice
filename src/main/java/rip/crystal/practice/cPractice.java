@@ -12,6 +12,7 @@ import org.bukkit.Difficulty;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.ConsoleCommandSender;
+import rip.crystal.practice.database.MongoConnection;
 import rip.crystal.practice.api.command.CommandManager;
 import rip.crystal.practice.api.rank.RankManager;
 import rip.crystal.practice.essentials.Essentials;
@@ -269,20 +270,24 @@ public class cPractice extends JavaPlugin {
 
         if (Profile.getIProfile() instanceof MongoDBIProfile) {
             try {
-                if (databaseConfig.getBoolean("MONGO.AUTHENTICATION.ENABLED")) {
-                    mongoDatabase = new MongoClient(new ServerAddress(databaseConfig.getString("MONGO.HOST"), databaseConfig.getInteger("MONGO.PORT")
-                            ),
-                            MongoCredential.createCredential(
-                                    databaseConfig.getString("MONGO.AUTHENTICATION.USERNAME"),
-                                    databaseConfig.getString("MONGO.AUTHENTICATION.DATABASE"),
-                                    databaseConfig.getString("MONGO.AUTHENTICATION.PASSWORD").toCharArray()
-                            ),
-                            MongoClientOptions.builder().build()
-                    ).getDatabase(databaseConfig.getString("MONGO.DATABASE"));
-                } else {
-                    mongoDatabase = new MongoClient(databaseConfig.getString("MONGO.HOST"), databaseConfig.getInteger("MONGO.PORT"))
-                            .getDatabase(databaseConfig.getString("MONGO.DATABASE"));
-                }
+              if (databaseConfig.getBoolean("MONGO.URI")) {
+                  this.mongoConnection = new MongoConnection(databaseConfig.getString("MONGO.URI_LINK"));
+              } else if (databaseConfig.getBoolean("MONGO.AUTHENTICATION.ENABLED")) {
+                  this.mongoConnection = new MongoConnection(
+                          databaseConfig.getString("MONGO.HOST"),
+                          databaseConfig.getInteger("MONGO.PORT"),
+                          databaseConfig.getString("MONGO.AUTHENTICATION.USERNAME"),
+                          databaseConfig.getString("MONGO.AUTHENTICATION.PASSWORD"),
+                          databaseConfig.getString("MONGO.AUTHENTICATION.DATABASE")
+                  );
+              } else {
+                  this.mongoConnection = new MongoConnection(
+                          databaseConfig.getString("MONGO.HOST"),
+                          databaseConfig.getInteger("MONGO.PORT"),
+                          databaseConfig.getString("MONGO.DATABASE")
+                  );
+
+              }
             } catch (Exception e) {
                 ConsoleCommandSender bmsg = Bukkit.getConsoleSender();
 
