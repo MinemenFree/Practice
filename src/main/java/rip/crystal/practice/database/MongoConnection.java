@@ -1,4 +1,4 @@
-package com.hysteria.practice.database;
+package rip.crystal.practice.database;
 
 import com.mongodb.*;
 import com.mongodb.client.MongoClient;
