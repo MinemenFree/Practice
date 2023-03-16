@@ -34,7 +34,7 @@ public class cPracticeCommand extends BaseCommand {
             sender.sendMessage(CC.translate("&7▢ &9Events Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             cPractice.get().getKitsConfig().reload();
             sender.sendMessage(CC.translate("&7▢ &9Kits Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
-            cPractice.get().getKiteditorConfig().reload();
+            cPractice.get().getKitEditorConfig().reload();
             sender.sendMessage(CC.translate("&7▢ &9Kit Editor Menu Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             cPractice.get().getLeaderboardConfig().reload();
             sender.sendMessage(CC.translate("&7▢ &9Leaderboard Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
