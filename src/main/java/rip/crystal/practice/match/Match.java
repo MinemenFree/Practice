@@ -203,6 +203,26 @@ public abstract class Match {
 	}
 
 
+	private void clearCooldowns(Player player) {
+		Profile profile = Profile.get(player.getUniqueId());
+
+		profile.getPartneritem().applyCooldown(player, 0);
+		profile.getAntitrapper().cooldownRemove(player);
+		profile.getBeacom().cooldownRemove(player);
+		profile.getCookie().cooldownRemove(player);
+		profile.getEffectdisabler().cooldownRemove(player);
+		profile.getGuardianangel().cooldownRemove(player);
+		profile.getNinjastar().cooldownRemove(player);
+		profile.getPocketbard().cooldownRemove(player);
+		profile.getRocket().cooldownRemove(player);
+		profile.getScrammbler().cooldownRemove(player);
+		profile.getStrength().cooldownRemove(player);
+		profile.getSwapperaxe().cooldownRemove(player);
+		profile.getSwitcher().cooldownRemove(player);
+		profile.getTankingot().cooldownRemove(player);
+		profile.getTimewarp().cooldownRemove(player);
+	}
+
 	public void end() {
 		new MatchEndEvent(this).call();
 
@@ -222,25 +242,7 @@ public abstract class Match {
 						profile.setEnderpearlCooldown(new Cooldown(0));
 						profile.setSelectedKit(null);
 
-						/*
-							Partner Items
-						 */
-
-						profile.getPartneritem().applyCooldown(player, 0);
-						profile.getAntitrapper().cooldownRemove(player);
-						profile.getBeacom().cooldownRemove(player);
-						profile.getCookie().cooldownRemove(player);
-						profile.getEffectdisabler().cooldownRemove(player);
-						profile.getGuardianangel().cooldownRemove(player);
-						profile.getNinjastar().cooldownRemove(player);
-						profile.getPocketbard().cooldownRemove(player);
-						profile.getRocket().cooldownRemove(player);
-						profile.getScrammbler().cooldownRemove(player);
-						profile.getStrength().cooldownRemove(player);
-						profile.getSwapperaxe().cooldownRemove(player);
-						profile.getSwitcher().cooldownRemove(player);
-						profile.getTankingot().cooldownRemove(player);
-						profile.getTimewarp().cooldownRemove(player);
+						clearCooldowns(player);
 
 						if (getKit().getGameRules().isShowHealth()) {
 							Objective objective = player.getScoreboard().getObjective(DisplaySlot.BELOW_NAME);
