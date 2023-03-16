@@ -287,7 +287,6 @@ public class cPractice extends JavaPlugin {
                           databaseConfig.getInteger("MONGO.PORT"),
                           databaseConfig.getString("MONGO.DATABASE")
                   );
-
               }
             } catch (Exception e) {
                 ConsoleCommandSender bmsg = Bukkit.getConsoleSender();
@@ -305,7 +304,6 @@ public class cPractice extends JavaPlugin {
     }
 
     private void runTasks() {
-
         TaskUtil.runTimer(() -> Bukkit.getOnlinePlayers().forEach(player -> Bukkit.getOnlinePlayers().forEach(other -> TaskUtil.runAsync(() -> GxNameTag.reloadPlayer(player, other)))), 20L, 20L);
         TaskUtil.runTimerAsync(new ClassTask(), 5L, 5L);
         TaskUtil.runTimer(new BardEnergyTask(), 15L, 20L);
@@ -318,7 +316,6 @@ public class cPractice extends JavaPlugin {
     }
 
     private void setUpWorld() {
-
         // Set the difficulty for each world to HARD
         // Clear the droppedItems for each world
         getServer().getWorlds().forEach(world -> {
@@ -329,7 +326,6 @@ public class cPractice extends JavaPlugin {
     }
 
     private void removeCrafting() {
-
         Arrays.asList(
                 Material.WORKBENCH,
                 Material.STICK,
@@ -341,7 +337,6 @@ public class cPractice extends JavaPlugin {
     }
 
     private void registerListeners() {
-
         Arrays.asList(
                 new KitEditorListener(),
                 new PartyListener(),
@@ -372,13 +367,13 @@ public class cPractice extends JavaPlugin {
     }
 
     public void registerCommands() {
-
         new CommandManager(this);
+
         if (mainConfig.getBoolean("MESSAGE-REPLY-BOOLEAN")) {
             new MessageCommand();
             new ReplyCommand();
         }
-        // Shop and paid Cosmetics commands
+
         new CosmeticsCommand();
         new ShopCommand();
         new CoinsCommand();
@@ -411,13 +406,13 @@ public class cPractice extends JavaPlugin {
         new ToggleDuelRequestsCommand();
         new ClanCommand();
         new TournamentCommand();
+        new ClearCommand();
 
         // Time changer / Weather changer commands
-        if (getMainConfig().getBoolean("ENVIROMENT_CHANGER_COMMANDS")) {
-        new ClearCommand();
-        new DayCommand();
-        new SunsetCommand();
-        new NightCommand();
+        if (getMainConfig().getBoolean("ENVIRONMENT_CHANGER_COMMANDS")) {
+            new DayCommand();
+            new SunsetCommand();
+            new NightCommand();
         }
 
         new AbilityCommand();
@@ -452,12 +447,11 @@ public class cPractice extends JavaPlugin {
         new ToggleScoreboardCommand();
         new ToggleSoundsCommand();
         new ToggleSpectatorsCommand();
-        //new PingFactorCommand();
+
         if (getMainConfig().getBoolean("MOD_MODE")) new StaffModeCommand();
     }
 
     private void loadEssentials() {
-
         this.bridgeRounds = getMainConfig().getInteger("MATCH.ROUNDS_BRIDGE");
         this.rankedSumoRounds = getMainConfig().getInteger("MATCH.ROUNDS_RANKED_SUMO");
     }

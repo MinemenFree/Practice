@@ -6,7 +6,10 @@ import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
 import rip.crystal.practice.cPractice;
+import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.utilities.chat.CC;
+import rip.crystal.practice.utilities.file.AbstractConfigurationFile;
+import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
 public class cPracticeCommand extends BaseCommand {
 
@@ -18,6 +21,7 @@ public class cPracticeCommand extends BaseCommand {
 
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
             val start = System.currentTimeMillis();
+
             cPractice.get().getMainConfig().reload();
             sender.sendMessage(CC.translate("&7▢ &9Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             cPractice.get().getLang().reload();
@@ -59,6 +63,7 @@ public class cPracticeCommand extends BaseCommand {
             cPractice.get().getEssentials().setMotd(CC.translate(cPractice.get().getLangConfig().getStringList("MOTD")));
             sender.sendMessage(CC.translate("&7▢ &9MOTD Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             val finish = System.currentTimeMillis();
+
             sender.sendMessage(CC.CHAT_BAR);
             sender.sendMessage(CC.translate(" &7▢ &9cPractice &fhas been reloaded. &8(&7" + (finish - start) + "&8) &7▢"));
             sender.sendMessage(CC.CHAT_BAR);
@@ -86,11 +91,10 @@ public class cPracticeCommand extends BaseCommand {
             sender.sendMessage(CC.CHAT_BAR);
             return;
         }
+
         sender.sendMessage(CC.CHAT_BAR);
-        sender.sendMessage(CC.translate("&9cPractice"));
+        sender.sendMessage(CC.translate("&9&lcPRACTICE &7made by &9ziue&7, forked by &9MinemenFree"));
         sender.sendMessage(CC.translate("&7Version: &9" + cPractice.get().getDescription().getVersion()));
-        sender.sendMessage(CC.translate("&7License: &9" + cPractice.get().getMainConfig().getString("LICENSE")));
-        sender.sendMessage(CC.translate("&7Developer: &9" + "MinemenFree"));
         sender.sendMessage(CC.CHAT_BAR);
         sender.sendMessage(CC.translate("&9Admin &7&m-&r &9Help"));
         sender.sendMessage(CC.translate(" &7▢ &9/cpractice reload &8(&7&oReload configs&8&o)"));

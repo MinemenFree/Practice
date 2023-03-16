@@ -52,19 +52,8 @@ public abstract class Match {
 	@Getter protected static List<Match> matches = new ArrayList<>();
 
 	private final UUID matchId = UUID.randomUUID();
-	Map<String, Integer> killstreak;
-	/*private final Queue queue;
-	protected final Kit kit;
-	protected final Arena arena;
-	protected final boolean ranked;
-	@Setter protected MatchState state = MatchState.STARTING_ROUND;
-	protected final List<MatchSnapshot> snapshots;
-	protected final List<UUID> spectators;
-	protected final List<Item> droppedItems;
-	private final List<Location> placedBlocks;
-	private final List<BlockState> changedBlocks;*/
 
-	private Queue queue;
+	private final Queue queue;
 	protected Kit kit;
 	protected Arena arena;
 	protected boolean ranked;
@@ -77,8 +66,6 @@ public abstract class Match {
 
 	protected long timeData;
 	protected MatchLogicTask logicTask;
-
-	private boolean hasBed = true;
 
 	public Match(Queue queue, Kit kit, Arena arena, boolean ranked) {
 		this.queue = queue;
@@ -446,10 +433,6 @@ public abstract class Match {
 
 		if(killer != null) {
 			Profile winner = Profile.get(killer.getUniqueId());
-
-			/*
-				Death Animations
-		 	*/
 
 			KillEffectType effect = winner.getKillEffectType();
 			if (effect != null && effect.getCallable() != null) {
