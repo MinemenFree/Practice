@@ -9,8 +9,8 @@ SETTINGS:
   NEW_CONVERSATIONS_OFF: '&cYou have disabled conversations!'
   DUEL_REQUESTS_ON: '&aYou are now allowing duel requests.'
   DUEL_REQUESTS_OFF: '&cYou are no longer allowing duel requests.'
-  PRIVATE_MESSAGE_SOUNDS_ON: '&aYou've enabled private messaging sounds.'
-  PRIVATE_MESSAGE_SOUNDS_OFF: '&cYou've disabled private messaging sounds.'
+  PRIVATE_MESSAGE_SOUNDS_ON: '&aYou''ve enabled private messaging sounds.'
+  PRIVATE_MESSAGE_SOUNDS_OFF: '&cYou''ve disabled private messaging sounds.'
   VANILLA_TAB_ON: '&aYou have enabled vanilla tab!'
   VANILLA_TAB_OFF: '&cYou have disabled vanilla tab!'
 MISC:
@@ -309,7 +309,7 @@ CHAT:
   CHAT_DELAYED: '&cSlow down! You may chat again in <delay_time> seconds.'
 CLASS:
   CANNOT_USE: '&cYou cannot use this for another <seconds> seconds!'
-  ON_ITEM_EFFECT_USE: '&9You´re giving <effect> effect your team'
+  ON_ITEM_EFFECT_USE: '&9You''re giving <effect> effect your team'
   BARD_ENOUGH_ENERGY: '&cThis effect needs <needed-energy> energy but you only have
     <energy>'
   USE_BACKSTAB: '&cYou Have backstabbed <victim>'
