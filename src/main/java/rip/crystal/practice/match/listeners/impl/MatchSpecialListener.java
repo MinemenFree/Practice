@@ -29,35 +29,34 @@ public class MatchSpecialListener implements Listener {
     @EventHandler
     public void onPlayerInteractSoup(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        Profile profileSoup = Profile.get(player.getUniqueId());
+        Damageable d = event.getPlayer();
+        Profile profile = Profile.get(player.getUniqueId());
 
-        if (profileSoup.getState() == ProfileState.FIGHTING && profileSoup.getMatch().getKit().getGameRules().isSoup()) {
+        if (profile.getState() == ProfileState.FIGHTING && profile.getMatch().getKit().getGameRules().isSoup()) {
             if (event.getItem() != null && event.getItem().getType() == Material.MUSHROOM_SOUP) {
                 if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     event.setCancelled(true);
-                    Player p = event.getPlayer();
-                    Damageable d = event.getPlayer();
                     if (d.getHealth() < d.getMaxHealth() - 7) {
                         d.setHealth(d.getHealth() + 7);
-                        p.setItemInHand(new ItemStack(Material.BOWL));
+                        player.setItemInHand(new ItemStack(Material.BOWL));
                     } else if (d.getHealth() < d.getMaxHealth()) {
                         d.setHealth(d.getMaxHealth());
-                        p.setItemInHand(new ItemStack(Material.BOWL));
-                    } else if (p.getFoodLevel() < 13) {
-                        p.setFoodLevel(p.getFoodLevel() + 7);
-                        p.setItemInHand(new ItemStack(Material.BOWL));
-                        if (p.getSaturation() < 13) {
-                            p.setSaturation(p.getSaturation() + 7);
+                        player.setItemInHand(new ItemStack(Material.BOWL));
+                    } else if (player.getFoodLevel() < 13) {
+                        player.setFoodLevel(player.getFoodLevel() + 7);
+                        player.setItemInHand(new ItemStack(Material.BOWL));
+                        if (player.getSaturation() < 13) {
+                            player.setSaturation(player.getSaturation() + 7);
                         } else {
-                            p.setSaturation(20);
+                            player.setSaturation(20);
                         }
-                    } else if (p.getFoodLevel() < 20) {
-                        p.setFoodLevel(20);
-                        p.setItemInHand(new ItemStack(Material.BOWL));
-                        if (p.getSaturation() < 13) {
-                            p.setSaturation(p.getSaturation() + 7);
+                    } else if (player.getFoodLevel() < 20) {
+                        player.setFoodLevel(20);
+                        player.setItemInHand(new ItemStack(Material.BOWL));
+                        if (player.getSaturation() < 13) {
+                            player.setSaturation(player.getSaturation() + 7);
                         } else {
-                            p.setSaturation(20);
+                            player.setSaturation(20);
                         }
                     }
                 }
@@ -82,7 +81,6 @@ public class MatchSpecialListener implements Listener {
                         e.setLine(2, ChatColor.translateAlternateColorCodes('&', "Down"));
                         e.setLine(3, "");
                     } else {
-                        //Bukkit.broadcastMessage(e.getLine(currentLine + 1));
                         e.getBlock().breakNaturally();
                         e.getPlayer().sendMessage(CC.translate("&cInvalid direction."));
                     }

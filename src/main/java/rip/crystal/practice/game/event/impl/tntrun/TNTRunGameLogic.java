@@ -326,8 +326,6 @@ public class TNTRunGameLogic implements EventGameLogic {
     public void onLeave(Player player) {
         if (isPlaying(player)) onDeath(player, null);
 
-//        participants.remove(getGameParticipant(player));
-
         Iterator<GameParticipant<GamePlayer>> iterator = game.getParticipants().iterator();
 
         while (iterator.hasNext()) {

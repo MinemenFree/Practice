@@ -172,20 +172,13 @@ public class TournamentTeams extends Tournament<Party> {
                     .replace("<state>", getState().getName()));
         });
 
-//        lines.add(CC.SB_BAR);
-//        lines.add("&6&lTeams Tournament");
-//        lines.add("&aKit&7: &f" + getKit().getName());
-//        lines.add("&aTeams&7: &f" + getTeams().size() + "&7/&f" + getLimit());
-//        lines.add("&aState&7: " + getState().getName());
         if (this.getState() == TournamentState.IN_FIGHT) {
-//            lines.add("&aRound&7: &f#" + getRound());
             config.getStringList("TOURNAMENTS.TEAMS.IN-FIGHT").forEach(line -> {
                 lines.add(line.replace("<round>", String.valueOf(getRound())));
             });
         }
         if (this.getState() == TournamentState.ENDED && getWinner() != null) {
             MatchGamePlayer leader = getWinner().getLeader();
-//            lines.add("&2&lWinner: " + Profile.getColorPlayer(leader.getPlayer()) + leader.getPlayer().getName() + " &2team");
             config.getStringList("TOURNAMENTS.TEAMS.ON-END").forEach(line -> {
                 lines.add(line.replace("<color>", Profile.get(leader.getPlayer().getUniqueId()).getColor())
                         .replace("<player>", leader.getPlayer().getName()));

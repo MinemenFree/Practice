@@ -41,17 +41,17 @@ public class KillEffectsShopMenu extends PaginatedMenu
 
     private static class SettingsButton extends Button
     {
-        private KillEffectType type;
+        private final KillEffectType killEffectType;
 
         @Override
         public ItemStack getButtonItem(final Player player) {
             final Profile profile = Profile.get(player.getUniqueId());
-            return new ItemBuilder(type.getMaterial())
-                    .name((this.type.hasPermission(player) ? (CC.translate("&a&l")) : "&c&l") + this.type.getName())
-                    .durability((profile.getKillEffectType() == this.type) ? 5 : (this.type.hasPermission(player) ? 3 : 14))
+            return new ItemBuilder(this.killEffectType.getMaterial())
+                    .name(ChatColor.BLUE + this.killEffectType.getName())
+                    .durability((profile.getKillEffectType() == this.killEffectType) ? 5 : (this.killEffectType.hasPermission(player) ? 3 : 14))
                     .lore(CC.MENU_BAR)
-                    .lore(this.type.hasPermission(player) ? "&aYou already own this death effect!" : "&cYou don't own this death effect.")
-                    .lore(this.type.hasPermission(player) ? "&aPrice: None!" : "&cPrice: &f" + this.type.getPrice())
+                    .lore(this.killEffectType.hasPermission(player) ? "&aYou already own this death effect!" : "&cYou don't own this death effect.")
+                    .lore(this.killEffectType.hasPermission(player) ? "&aPrice: None!" : "&cPrice: &f" + this.killEffectType.getPrice())
                     .lore(CC.MENU_BAR)
                     .build();
         }
@@ -60,15 +60,15 @@ public class KillEffectsShopMenu extends PaginatedMenu
         public void clicked(final Player player, final ClickType clickType) {
             Profile profile = Profile.get(player.getUniqueId());
 
-            if (this.type.hasPermission(player)) { // If player has permission.
+            if (this.killEffectType.hasPermission(player)) { // If player has permission.
                 player.sendMessage(CC.translate("&aYou already own this death effect."));
                 return;
             } else {
-                if(profile.getCoins() == type.getPrice() || profile.getCoins() > type.getPrice()) {
-                    profile.setCoins(profile.getCoins() - type.getPrice());
-                    player.sendMessage(CC.translate("&aYou have purchased &9" + type.getName() + " &ffor &9" + type.getPrice() + " &fcoins."));
+                if(profile.getCoins() == killEffectType.getPrice() || profile.getCoins() > killEffectType.getPrice()) {
+                    profile.setCoins(profile.getCoins() - killEffectType.getPrice());
+                    player.sendMessage(CC.translate("&aYou have purchased &9" + killEffectType.getName() + " &ffor &9" + killEffectType.getPrice() + " &fcoins."));
 
-                    Bukkit.dispatchCommand(player, cPractice.get().getMainConfig().getString("PURCHASE-COSMETICS-CMD").replace("<player>", player.getName()).replace("<effect>", type.getName()));
+                    Bukkit.dispatchCommand(player, cPractice.get().getMainConfig().getString("PURCHASE-COSMETICS-CMD").replace("<player>", player.getName()).replace("<effect>", killEffectType.getName()));
                     return;
                 } else {
                     player.sendMessage(CC.translate("&cYou don't have enough funds to buy this."));
@@ -84,7 +84,7 @@ public class KillEffectsShopMenu extends PaginatedMenu
         }
 
         public SettingsButton(final KillEffectType type) {
-            this.type = type;
+            this.killEffectType = type;
         }
     }
 }

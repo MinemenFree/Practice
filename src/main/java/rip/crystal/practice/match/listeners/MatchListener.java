@@ -191,22 +191,7 @@ public class MatchListener implements Listener {
 
 					if (event.getEntity() instanceof Arrow) {
 						TaskUtil.runLater(() -> shooter.getInventory().addItem(new ItemStack(Material.ARROW, 1)), 20 * 3);
-						return;
 					}
-
-					/*if (event.getEntity() instanceof ThrownPotion) {
-						if (config.getBoolean("MATCH.FAST_POTION")) {
-							Projectile projectile = event.getEntity();
-
-							if (shooter.isSprinting()) {
-								Vector velocity = projectile.getVelocity();
-
-								velocity.setY(-1.1);
-								projectile.setVelocity(velocity);
-							}
-						}
-						match.getGamePlayer(shooter).incrementPotionsThrown();
-					}*/
 				}
 			}
 		}
@@ -472,9 +457,7 @@ public class MatchListener implements Listener {
 				} else if(tournament.getTeams().isEmpty()) {
 					tournament.end(null);
 				} else {
-					if (tournament.getMatches().isEmpty()) {
-						tournament.nextRound();
-					}
+					tournament.nextRound();
 				}
 			}
 		}
