@@ -235,7 +235,7 @@ public class cPractice extends JavaPlugin {
         this.hotbarConfig = new BasicConfigurationFile(this, "features/hotbar");
         this.abilityConfig = new BasicConfigurationFile(this, "features/ability");
 
-        this.kiteditorConfig = new BasicConfigurationFile(this, "settings/kiteditor");
+        this.kitEditorConfig = new BasicConfigurationFile(this, "settings/kiteditor");
         this.coloredRanksConfig = new BasicConfigurationFile(this, "settings/colored-ranks");
         this.eventsConfig = new BasicConfigurationFile(this, "settings/events");
         this.menuConfig = new BasicConfigurationFile(this, "settings/menu");
