@@ -105,11 +105,17 @@ public class MatchListener implements Listener {
 
 	@EventHandler
 	public void onPlayerDeathEvent(PlayerDeathEvent event) {
-		event.getEntity().spigot().respawn();
-		event.setDeathMessage(null);
-
 		Profile profile = Profile.get(event.getEntity().getUniqueId());
-		BasicConfigurationFile config = cPractice.get().getMainConfig();
+
+		if (profile.getState() == ProfileState.FIGHTING) {
+			if (!profile.getMatch().getKit().getGameRules().isBridge()) {
+				TaskUtil.runLater(() -> event.getEntity().spigot().respawn(), 1L);
+			}
+		} else if(profile.getState() == ProfileState.FFA) {
+			TaskUtil.runLater(() -> event.getEntity().spigot().respawn(), 1L);
+		}
+
+		event.setDeathMessage(null);
 
 		if (profile.getState() == ProfileState.FIGHTING) {
 			Match match = profile.getMatch();
@@ -130,6 +136,7 @@ public class MatchListener implements Listener {
 
 			if (match.getKit().getGameRules().isBridge()) event.getDrops().clear();
 
+			BasicConfigurationFile config = cPractice.get().getMainConfig();
 			if (config.getBoolean("MATCH.DROP_ITEMS_ON_DEATH")) {
 				TaskUtil.run(() -> {
 					List<Item> entities = Lists.newArrayList();
@@ -161,11 +168,6 @@ public class MatchListener implements Listener {
 				if (player.getLocation().getBlockY() <= 30) {
 					Player killer = PlayerUtil.getLastAttacker(event.getPlayer());
 					match.sendDeathMessage(event.getPlayer(), killer);
-					profile.getMatch().onDeath(player);
-				}
-			}
-			if (match.getKit().getGameRules().isBuild()) {
-				if (player.getLocation().getBlockY() <= 30) {
 					profile.getMatch().onDeath(player);
 				}
 			}
