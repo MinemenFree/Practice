@@ -17,11 +17,17 @@
       <option name="url" value="https://jitpack.io" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="enginehub-maven" />
+      <option name="name" value="enginehub-maven" />
+      <option name="url" value="https://maven.enginehub.org/repo/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="codemc-repo" />
       <option name="name" value="codemc-repo" />
       <option name="url" value="https://repo.codemc.io/repository/maven-public/" />
     </remote-repository>
-    <option name="id" value="placeholderapi" />
+    <remote-repository>
+      <option name="id" value="placeholderapi" />
       <option name="name" value="placeholderapi" />
       <option name="url" value="https://repo.extendedclip.com/content/repositories/placeholderapi/" />
     </remote-repository>
@@ -29,21 +35,6 @@
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="sk89q-repo" />
-      <option name="name" value="sk89q-repo" />
-      <option name="url" value="https://maven.enginehub.org/repo/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="citizens-repo" />
-      <option name="name" value="citizens-repo" />
-      <option name="url" value="https://repo.citizensnpcs.co" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="everything" />
-      <option name="name" value="everything" />
-      <option name="url" value="http://repo.citizensnpcs.co/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
@@ -54,11 +45,6 @@
       <option name="id" value="dmulloy2-repo" />
       <option name="name" value="dmulloy2-repo" />
       <option name="url" value="http://repo.dmulloy2.net/nexus/repository/public/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="everything" />
-      <option name="name" value="everything" />
-      <option name="url" value="https://repo.citizensnpcs.co/" />
     </remote-repository>
   </component>
 </project>
