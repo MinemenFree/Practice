@@ -41,7 +41,9 @@ public class Hotbar {
 				if (slot > 0) hotbarEntry = new HotbarEntry(builder.build(), slot - 1);
 				else hotbarEntry = new HotbarEntry(builder.build(), -1);
 
-				items.put(hotbarItem, hotbarEntry);
+				if(config.getBoolean(path + "ENABLED")) {
+                    			items.put(hotbarItem, hotbarEntry);
+                		}
 			} catch (Exception e) {
 				System.out.print("Failed to parse item " + hotbarItem.name());
 			}
@@ -73,28 +75,10 @@ public class Hotbar {
 		switch (profile.getState()) {
 			case LOBBY: {
 				if (profile.getParty() == null) {
-					if(cPractice.get().getHotbatConfig().getBoolean("QUEUES_JOIN.ENABLED")) {
-						itemStacks[getSlot(HotbarItem.QUEUES_JOIN)] = getItem(HotbarItem.QUEUES_JOIN);
-					}
-					
-					if(cPractice.get().getHotbarConfig().getBoolean("QUEUE_JOIN_UNRANKED.ENABLED")) {
-						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_UNRANKED)] = getItem(HotbarItem.QUEUE_JOIN_UNRANKED);
-					}
-					
-					if(cPractice.get().getHotbarConfig().getBoolean("QUEUE_JOIN_RANKED.ENABLED")) {
-						itemStacks[getSlot(HotbarItem.QUEUE_JOIN_RANKED)] = getItem(HotbarItem.QUEUE_JOIN_RANKED);
-					}	
-					
-					if(cPractice.get().getHotbarConfig().getBoolean("KIT_EDITOR.ENABLED")) {
-					        itemStacks[getSlot(HotbarItem.KIT_EDITOR)] = getItem(HotbarItem.KIT_EDITOR);
-
-					}
-					
-					if(cPractice.get().getHotbarConfig().getBoolean("SETTINGS.ENABLED")) {
-					        itemStacks[getSlot(HotbarItem.SETTINGS)] = getItem(HotbarItem.SETTINGS);
-
-					}
-
+					itemStacks[getSlot(HotbarItem.QUEUES_JOIN)] = getItem(HotbarItem.QUEUES_JOIN);
+					itemStacks[getSlot(HotbarItem.QUEUE_JOIN_UNRANKED)] = getItem(HotbarItem.QUEUE_JOIN_UNRANKED);					
+					itemStacks[getSlot(HotbarItem.QUEUE_JOIN_RANKED)] = getItem(HotbarItem.QUEUE_JOIN_RANKED);					
+					itemStacks[getSlot(HotbarItem.KIT_EDITOR)] = getItem(HotbarItem.KIT_EDITOR);					
 					if (activeRematch && activeEvent) {
 						if (profile.getRematchData().isReceive()) itemStacks[getSlot(HotbarItem.REMATCH_ACCEPT)] = getItem(HotbarItem.REMATCH_ACCEPT);
 						else itemStacks[getSlot(HotbarItem.REMATCH_REQUEST)] = getItem(HotbarItem.REMATCH_REQUEST);
@@ -131,10 +115,7 @@ public class Hotbar {
 			}
 			break;
 			case QUEUEING: {
-				if(cPractice.get().getHotbarConfig().getBoolean("QUEUE_LEAVE.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.QUEUE_LEAVE)] = getItem(HotbarItem.QUEUE_LEAVE);
-
-				}
+				itemStacks[getSlot(HotbarItem.QUEUE_LEAVE)] = getItem(HotbarItem.QUEUE_LEAVE);
 			}
 			break;
 			case TOURNAMENT: {
@@ -148,47 +129,17 @@ public class Hotbar {
 			}
 			break;
 			case EVENT: {
-				if(cPractice.get().getHotbarConfig().getBoolean("EVENT_LEAVE.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.EVENT_LEAVE)] = getItem(HotbarItem.EVENT_LEAVE);
-
-				}
+				itemStacks[getSlot(HotbarItem.EVENT_LEAVE)] = getItem(HotbarItem.EVENT_LEAVE);
 			}
 			break;
 			case STAFF_MODE: {
-				if(cPractice.get().getHotbarConfig().getBoolean("RANDOM_TELEPORT.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.RANDOM_TELEPORT)] = getItem(HotbarItem.RANDOM_TELEPORT);
-
-				}
-				
-				if(cPractice.get().getHotbarConfig().getBoolean("HIDE_ALL_PLAYERS.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.HIDE_ALL_PLAYERS)] = getItem(HotbarItem.HIDE_ALL_PLAYERS);
-
-				}
-				
-				if(cPractice.get().getHotbarConfig().getBoolean("RESET.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.RESET)] = getItem(HotbarItem.RESET);
-
-				}
-				
-				if(cPractice.get().getHotbarConfig().getBoolean("ONLINE_STAFF.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.ONLINE_STAFF)] = getItem(HotbarItem.ONLINE_STAFF);
-
-				}
-				
-				if(cPractice.get().getHotbarConfig().getBoolean("VIEW_INVENTORYSTAFF.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.VIEW_INVENTORYSTAFF)] = getItem(HotbarItem.VIEW_INVENTORYSTAFF);
-
-				}
-				
-				if(cPractice.get().getHotbarConfig().getBoolean("COMPASS.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.COMPASS)] = getItem(HotbarItem.COMPASS);
-
-				}
-			
-				if(cPractice.get().getHotbarConfig().getBoolean("FREEZE.ENABLED")) {
-					       itemStacks[getSlot(HotbarItem.FREEZE)] = getItem(HotbarItem.FREEZE);
-
-				}
+				itemStacks[getSlot(HotbarItem.RANDOM_TELEPORT)] = getItem(HotbarItem.RANDOM_TELEPORT);
+				itemStacks[getSlot(HotbarItem.HIDE_ALL_PLAYERS)] = getItem(HotbarItem.HIDE_ALL_PLAYERS);
+				itemStacks[getSlot(HotbarItem.RESET)] = getItem(HotbarItem.RESET);	
+				itemStacks[getSlot(HotbarItem.ONLINE_STAFF)] = getItem(HotbarItem.ONLINE_STAFF);
+				itemStacks[getSlot(HotbarItem.VIEW_INVENTORYSTAFF)] = getItem(HotbarItem.VIEW_INVENTORYSTAFF);
+				itemStacks[getSlot(HotbarItem.COMPASS)] = getItem(HotbarItem.COMPASS);
+				itemStacks[getSlot(HotbarItem.FREEZE)] = getItem(HotbarItem.FREEZE);
 			}
 			break;
 		}
