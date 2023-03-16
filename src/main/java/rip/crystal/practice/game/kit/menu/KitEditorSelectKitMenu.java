@@ -21,7 +21,7 @@ public class KitEditorSelectKitMenu extends Menu {
 
 	@Override
 	public String getTitle(Player player) {
-		return cPractice.get().getKiteditorConfig().getString("KITEDITOR.SELECT-KIT.TITLE");
+		return cPractice.get().getKitEditorConfig().getString("KITEDITOR.SELECT-KIT.TITLE");
 	}
 
 	@Override
@@ -61,8 +61,8 @@ public class KitEditorSelectKitMenu extends Menu {
 					.addItemFlag(ItemFlag.HIDE_ATTRIBUTES)
 					.addItemFlag(ItemFlag.HIDE_ENCHANTS)
 					.addItemFlag(ItemFlag.HIDE_POTION_EFFECTS)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.SELECT-KIT.NAMECOLOR") + kit.getName())
-					.lore(cPractice.get().getKiteditorConfig().getStringList("KITEDITOR.SELECT-KIT.LORE"))
+					.name(cPractice.get().getKitEditorConfig().getString("KITEDITOR.SELECT-KIT.NAMECOLOR") + kit.getName())
+					.lore(cPractice.get().getKitEditorConfig().getStringList("KITEDITOR.SELECT-KIT.LORE"))
 					.build();
 		}
 

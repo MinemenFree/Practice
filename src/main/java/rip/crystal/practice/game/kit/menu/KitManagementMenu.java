@@ -35,7 +35,7 @@ public class KitManagementMenu extends Menu {
 
 	@Override
 	public String getTitle(Player player) {
-		return cPractice.get().getKiteditorConfig().getString("KITEDITOR.MANAGE.TITLE").replace("<kit>", kit.getName());
+		return cPractice.get().getKitEditorConfig().getString("KITEDITOR.MANAGE.TITLE").replace("<kit>", kit.getName());
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class KitManagementMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.STAINED_CLAY)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.DeleteKitButton.NAME"))
+					.name(cPractice.get().getKitEditorConfig().getString("KITEDITOR.DeleteKitButton.NAME"))
 					.durability(14)
 					.lore(Arrays.asList(
 							"&9Click to delete this kit.",
@@ -110,7 +110,7 @@ public class KitManagementMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.IRON_SWORD)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.CreateKitButton.NAME"))
+					.name(cPractice.get().getKitEditorConfig().getString("KITEDITOR.CreateKitButton.NAME"))
 					.build();
 		}
 
@@ -154,8 +154,8 @@ public class KitManagementMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.SIGN)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.RenameKitButton.NAME"))
-					.lore(cPractice.get().getKiteditorConfig().getString("KITEDITOR.RenameKitButton.LORE"))
+					.name(cPractice.get().getKitEditorConfig().getString("KITEDITOR.RenameKitButton.NAME"))
+					.lore(cPractice.get().getKitEditorConfig().getString("KITEDITOR.RenameKitButton.LORE"))
 					.build();
 		}
 
@@ -188,8 +188,8 @@ public class KitManagementMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.BOOK)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.LoadKitButton.NAME"))
-					.lore(cPractice.get().getKiteditorConfig().getString("KITEDITOR.LoadKitButton.LORE"))
+					.name(cPractice.get().getKitEditorConfig().getString("KITEDITOR.LoadKitButton.NAME"))
+					.lore(cPractice.get().getKitEditorConfig().getString("KITEDITOR.LoadKitButton.LORE"))
 					.build();
 		}
 
@@ -227,7 +227,7 @@ public class KitManagementMenu extends Menu {
 		@Override
 		public ItemStack getButtonItem(Player player) {
 			return new ItemBuilder(Material.BOOK)
-					.name(cPractice.get().getKiteditorConfig().getString("KITEDITOR.KitDisplayButton.NAME").replace("<kit>", kitLoadout.getCustomName()))
+					.name(cPractice.get().getKitEditorConfig().getString("KITEDITOR.KitDisplayButton.NAME").replace("<kit>", kitLoadout.getCustomName()))
 					.build();
 		}
 
