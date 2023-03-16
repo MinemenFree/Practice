@@ -94,14 +94,6 @@ public abstract class Match {
 		matches.add(this);
 	}
 
-	public void destroyBed() {
-		this.hasBed = false;
-	}
-
-	public boolean HasBed() {
-		return this.hasBed;
-	}
-
 	public void setupPlayer(Player player) {
 		// Set the player as alive
 		MatchGamePlayer gamePlayer = getGamePlayer(player);

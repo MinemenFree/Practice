@@ -49,46 +49,6 @@ public class MatchPearlListener implements Listener {
     }
 
     @EventHandler
-    public void onPearl(PlayerInteractEvent event) {
-        Player player = event.getPlayer();
-        Profile profile = Profile.get(player.getUniqueId());
-        ItemStack itemStack = event.getItem();
-
-        /*if(profile.getState() == ProfileState.FIGHTING || profile.getState() == ProfileState.FFA) {
-
-            Match match = profile.getMatch();
-
-            if(match == null) {
-                return;
-            }
-
-            if(itemStack == null) {
-                return;
-            }
-
-            if (itemStack.getType() == Material.ENDER_PEARL) {
-                if (match.getState() != MatchState.PLAYING_ROUND) {
-                    player.sendMessage(CC.RED + "You can't throw pearls right now!");
-                    event.setCancelled(true);
-                    return;
-                }
-            }
-
-            if (event.getAction() != Action.RIGHT_CLICK_BLOCK && event.getAction() != Action.RIGHT_CLICK_AIR || !event.hasItem()) {
-                return;
-            }
-
-            if (event.getItem().getType() == Material.ENDER_PEARL) {
-                if (!profile.getEnderpearlCooldown().hasExpired()) {
-                    event.setCancelled(true);
-                    String time = TimeUtil.millisToSeconds(profile.getEnderpearlCooldown().getRemaining());
-                    new MessageFormat(Locale.MATCH_ENDERPEARL_COOLDOWN.format(profile.getLocale())).add("<context>", (time.equalsIgnoreCase("1.0") ? "" : "s")).add("<time>", time).send(player);
-                }
-            }
-        }*/
-    }
-
-    @EventHandler
     public void onPearlLaunch(ProjectileLaunchEvent event) {
         Player player = (Player) event.getEntity().getShooter();
 

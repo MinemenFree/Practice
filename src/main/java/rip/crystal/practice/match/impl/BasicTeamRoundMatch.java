@@ -102,7 +102,6 @@ public class BasicTeamRoundMatch extends BasicTeamMatch {
 
         if (!canEndMatch()) {
             if (!getKit().getGameRules().isBridge()) cleanup();
-            //int roundsToWin = (ranked ? 3 : 1) - winningParticipant.getRoundWins();
             if (cPractice.get().getMainConfig().getBoolean("MATCH.REMOVE_BLOCKS_ON_ROUND_END_BRIDGE")) {
                     EditSession editSession = new EditSession(BukkitUtil.getLocalWorld(getArena().getSpawnA().getWorld()), 500);
                     editSession.setFastMode(true);
