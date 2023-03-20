@@ -130,7 +130,7 @@ public class cPractice extends JavaPlugin {
             scoreboardConfig, coloredRanksConfig, tabLobbyConfig, tabEventConfig, tabSingleFFAFightConfig,
             tabSingleTeamFightConfig, tabPartyFFAFightConfig, tabPartyTeamFightConfig, leaderboardConfig,
             langConfig, hotbarConfig, playersConfig, clansConfig, abilityConfig, kitEditorConfig,
-            tabFFAConfig;
+            tabFFAConfig, menuConfig;
     private Essentials essentials;
     private MongoClient mongoClient;
     private MongoDatabase mongoDatabase;
@@ -238,7 +238,7 @@ public class cPractice extends JavaPlugin {
         this.kitEditorConfig = new BasicConfigurationFile(this, "settings/kiteditor");
         this.coloredRanksConfig = new BasicConfigurationFile(this, "settings/colored-ranks");
         this.eventsConfig = new BasicConfigurationFile(this, "settings/events");
-        /*this.menuConfig = new BasicConfigurationFile(this, "settings/menu");*/
+        this.menuConfig = new BasicConfigurationFile(this, "settings/menu");
 
         this.tabEventConfig = new BasicConfigurationFile(this, "tablist/event");
         this.tabLobbyConfig = new BasicConfigurationFile(this, "tablist/lobby");
