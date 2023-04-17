@@ -17,6 +17,7 @@ public class EventInfoCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
+		Profile profile = Profile.get(event.getPlayer().getUniqueId());
 
 		if (EventGame.getActiveGame() == null) {
 			new MessageFormat(Locale.EVENT_NO_ACTIVE_EVENT.format(profile.getLocale()));
@@ -43,6 +44,7 @@ public class EventInfoCommand extends BaseCommand {
 				.add("<event_type>", game.getEvent().getName())
                 		.add("<remaining_players>", Integer.toString(game.getRemainingPlayers()))
                 		.add("<game_state>", game.getGameState().getReadable())
+				.add("<sumo_round>", game.getGameLogic().getRoundNumber())
 				.send(player);
 			player.sendMessage(CC.RED + "Round: " + CC.WHITE + game.getGameLogic().getRoundNumber());
 		}
