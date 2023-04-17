@@ -18,7 +18,7 @@ public class EventInfoCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
-		Profile profile = Profile.get(Event.getPlayer().getUniqueId());
+		Profile profile = Profile.get(player.getUniqueId());
 
 		if (EventGame.getActiveGame() == null) {
 			new MessageFormat(Locale.EVENT_NO_ACTIVE_EVENT.format(profile.getLocale()));
