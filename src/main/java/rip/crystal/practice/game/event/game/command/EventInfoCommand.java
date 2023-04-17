@@ -17,7 +17,7 @@ public class EventInfoCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
-		Profile profile = Profile.get(event.getPlayer().getUniqueId());
+		Profile profile = Profile.get(getPlayer().getUniqueId());
 
 		if (EventGame.getActiveGame() == null) {
 			new MessageFormat(Locale.EVENT_NO_ACTIVE_EVENT.format(profile.getLocale()));
@@ -32,11 +32,11 @@ public class EventInfoCommand extends BaseCommand {
                 	.add("<remaining_players>", Integer.toString(game.getRemainingPlayers()))
                 	.add("<game_state>", game.getGameState().getReadable())
 			.send(player);
-		player.sendMessage(CC.translate("&7(*) &c&lEvent &7(*)"));
+		/*player.sendMessage(CC.translate("&7(*) &c&lEvent &7(*)"));
 		player.sendMessage(CC.RED + "Player Limit: " + CC.WHITE + game.getMaximumPlayers());
 		player.sendMessage(CC.RED + "Event Type: " + CC.WHITE + game.getEvent().getName());
 		player.sendMessage(CC.RED + "Players: " + CC.WHITE + game.getRemainingPlayers());
-		player.sendMessage(CC.RED + "State: " + CC.WHITE + game.getGameState().getReadable());
+		player.sendMessage(CC.RED + "State: " + CC.WHITE + game.getGameState().getReadable());*/
 
 		if (game.getEvent() instanceof SumoEvent) {
 			new MessageFormat(Locale.EVENT_SUMO_ROUND.format(profile.getLocale()))
@@ -44,9 +44,9 @@ public class EventInfoCommand extends BaseCommand {
 				.add("<event_type>", game.getEvent().getName())
                 		.add("<remaining_players>", Integer.toString(game.getRemainingPlayers()))
                 		.add("<game_state>", game.getGameState().getReadable())
-				.add("<sumo_round>", game.getGameLogic().getRoundNumber())
+				.add("<sumo_round>", Integer.toString(game.getGameLogic().getRoundNumber()))
 				.send(player);
-			player.sendMessage(CC.RED + "Round: " + CC.WHITE + game.getGameLogic().getRoundNumber());
+			//player.sendMessage(CC.RED + "Round: " + CC.WHITE + game.getGameLogic().getRoundNumber());
 		}
 	}
 }
