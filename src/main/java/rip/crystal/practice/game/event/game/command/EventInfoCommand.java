@@ -5,6 +5,7 @@ import rip.crystal.practice.Locale;
 import rip.crystal.practice.api.command.BaseCommand;
 import rip.crystal.practice.api.command.Command;
 import rip.crystal.practice.api.command.CommandArgs;
+import rip.crystal.practice.game.event.Event;
 import rip.crystal.practice.game.event.game.EventGame;
 import rip.crystal.practice.game.event.impl.sumo.SumoEvent;
 import rip.crystal.practice.player.profile.Profile;
@@ -17,7 +18,7 @@ public class EventInfoCommand extends BaseCommand {
 	@Override
 	public void onCommand(CommandArgs commandArgs) {
 		Player player = commandArgs.getPlayer();
-		Profile profile = Profile.get(getPlayer().getUniqueId());
+		Profile profile = Profile.get(Event.getPlayer().getUniqueId());
 
 		if (EventGame.getActiveGame() == null) {
 			new MessageFormat(Locale.EVENT_NO_ACTIVE_EVENT.format(profile.getLocale()));
