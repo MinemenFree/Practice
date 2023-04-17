@@ -1,6 +1,8 @@
-## cPractice
+<h1 align="center">cPractice</h1>
 
 cPractice is a flexible, easy to use and feature-rich practice plugin.
+
+<img alt="Spigot compatible" align="center" src="https://user-images.githubusercontent.com/68158102/232617711-db2d74d0-f796-4012-a978-9f0a6cd8c323.png" width="25%">
 
 <h3 align="left">How to use?</h3>
 
