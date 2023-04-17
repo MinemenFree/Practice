@@ -79,6 +79,8 @@ PARTY:
     KICK: been kicked from
     QUIT: left
 EVENT:
+  FIELD_DOES_NOT_EXIST: '&cThe specified field does not exist'
+  MAP_DOES_NOT_EXIST: '&cThe specified map does not exist'
   CANT_JOIN_IN_PARTY: '&cYou cannot join an event while in a party'
   MUST_JOIN_IN_LOBBY: '&cYou must be in the lobby to join an event'
   IS_FULL: '&cThe event is full'
