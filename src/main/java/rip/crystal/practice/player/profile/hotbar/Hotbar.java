@@ -55,7 +55,7 @@ public class Hotbar {
 
 		for (Map.Entry<HotbarItem, String> entry : dynamicContent.entrySet()) {
 			//String voteName = Hotbar.getItems().get(entry.getKey()).getItemStack().getItemMeta().getDisplayName();
-			String[] nameSplit = voteName.split(entry.getValue());
+			//String[] nameSplit = voteName.split(entry.getValue());
 
 			entry.getKey().setPattern(
 					Pattern.compile("(" + nameSplit[0] + ")(.*)(" + (nameSplit.length > 1 ? nameSplit[1] : "") + ")"));
