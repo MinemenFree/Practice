@@ -54,7 +54,7 @@ public class Hotbar {
 		dynamicContent.put(HotbarItem.KIT_SELECTION, "%KIT%");
 
 		for (Map.Entry<HotbarItem, String> entry : dynamicContent.entrySet()) {
-			String voteName = Hotbar.getItems().get(entry.getKey()).getItemStack().getItemMeta().getDisplayName();
+			//String voteName = Hotbar.getItems().get(entry.getKey()).getItemStack().getItemMeta().getDisplayName();
 			String[] nameSplit = voteName.split(entry.getValue());
 
 			entry.getKey().setPattern(
