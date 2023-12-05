@@ -39,7 +39,7 @@ public enum HotbarItem {
 
 	RANDOM_TELEPORT(null),
 	HIDE_ALL_PLAYERS(null),
-	VIEW_INVENTORYSTAFF(null),
+	VIEW_INVENTORY_STAFF(null),
 	SETTINGS(cPractice.get().getHotbarConfig().getString("SETTINGS.COMMAND")),
 	//FFA_JOIN("ffa join"),
 	RESET(null),
@@ -47,8 +47,8 @@ public enum HotbarItem {
 	COMPASS(cPractice.get().getHotbarConfig().getString("COMPASS.COMMAND")),
 	FREEZE(null),
 
-	VIEWTOURNAMENT(cPractice.get().getHotbarConfig().getString("VIEWTOURNAMENT.COMMAND")),
-	LEAVETOURNAMENT(cPractice.get().getHotbarConfig().getString("LEAVETOURNAMENT.COMMAND"));
+	VIEW_TOURNAMENT(cPractice.get().getHotbarConfig().getString("VIEW_TOURNAMENT.COMMAND")),
+	LEAVE_TOURNAMENT(cPractice.get().getHotbarConfig().getString("LEAVE_TOURNAMENT.COMMAND"));
 
 	@Getter private final String command;
 	@Getter @Setter private Pattern pattern;
