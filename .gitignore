@@ -1,11 +1,17 @@
-
-*.iml
+# Build output
 /target/
+
+# IDE
+*.iml
 .idea/misc.xml
 .idea/compiler.xml
+.idea/workspace.xml
+.idea/shelf/
+
+# Misc
 *.class
-*.jar
 *.log
-.idea/misc.xml
-.idea/misc.xml
-*.xml
+
+# NOTE: libs/*.jar are intentionally tracked. They are system-scoped Maven
+# dependencies (cSpigot, WindSpigot, FoxSpigot, ProtocolLib, ...) and the build
+# fails without them, so they must stay in the repository.

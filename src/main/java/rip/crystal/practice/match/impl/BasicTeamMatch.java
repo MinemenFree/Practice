@@ -27,6 +27,8 @@ import rip.crystal.practice.player.queue.Queue;
 import rip.crystal.practice.utilities.*;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
+import rip.crystal.practice.utilities.chat.JSONMessage;
+import rip.crystal.practice.utilities.sound.Sounds;
 import rip.crystal.practice.utilities.elo.EloUtil;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 
@@ -207,23 +209,9 @@ public class BasicTeamMatch extends Match {
 		losingParticipant = participantA.isAllDead() ? participantA : participantB;
 		losingParticipant.setEliminated(true);
 
-		if(canEndMatch()) {
-			/*winningParticipant.getPlayers().forEach(matchGamePlayer -> {
-				Profile profile = Profile.get(matchGamePlayer.getUuid());
-				matchGamePlayer.getPlayer().sendTitle(new Title(
-						new MessageFormat(Locale.MATCH_WINNER_TITLE.format(profile.getLocale())).getMessage(),
-						new MessageFormat(Locale.MATCH_WINNER_SUBTITLE.format(profile.getLocale()))
-								.add("<winner>", winningParticipant.getLeader().getUsername()).getMessage(),
-						20, 40, 20));
-					});
-			/*losingParticipant.getPlayers().forEach(matchGamePlayer -> {
-				Profile profile = Profile.get(matchGamePlayer.getUuid());
-				matchGamePlayer.getPlayer().sendTitle(new Title(
-						new MessageFormat(Locale.MATCH_LOSER_TITLE.format(profile.getLocale())).getMessage(),
-						new MessageFormat(Locale.MATCH_LOSER_SUBTITLE.format(profile.getLocale()))
-								.add("<winner>", winningParticipant.getLeader().getUsername()).getMessage(),
-						20, 40, 20));
-			});*/
+		if (canEndMatch()) {
+			sendResultFeedback(winningParticipant, losingParticipant, true);
+			sendResultFeedback(losingParticipant, winningParticipant, false);
 		}
 
 		if (kit.getGameRules().isSumo()) {
@@ -570,22 +558,66 @@ public class BasicTeamMatch extends Match {
 		}
 	}
 
+	/**
+	 * Sends the VICTORY/DEFEAT title, subtitle and result sound to one side of the match.
+	 *
+	 * @param side     the participants receiving the feedback
+	 * @param opponent the other side, used to fill the {@code <winner>}/{@code <opponent>} placeholders
+	 * @param won      true for the winning side
+	 */
+	private void sendResultFeedback(GameParticipant<MatchGamePlayer> side,
+	                                GameParticipant<MatchGamePlayer> opponent,
+	                                boolean won) {
+		if (side == null || opponent == null) return;
+
+		String opponentNames = opponent.getConjoinedNames();
+
+		for (MatchGamePlayer gamePlayer : side.getPlayers()) {
+			if (gamePlayer.isDisconnected()) continue;
+
+			Player player = gamePlayer.getPlayer();
+			if (player == null) continue;
+
+			Profile profile = Profile.get(gamePlayer.getUuid());
+
+			String title = (won ? Locale.MATCH_WINNER_TITLE : Locale.MATCH_LOSER_TITLE)
+				.getString(profile.getLocale());
+			String subtitle = new MessageFormat(
+				(won ? Locale.MATCH_WINNER_SUBTITLE : Locale.MATCH_LOSER_SUBTITLE)
+					.getString(profile.getLocale()))
+				.add("<opponent>", opponentNames)
+				.add("<winner>", opponentNames)
+				.toString();
+
+			// The subtitle packet only takes effect on the next title packet, so it goes first.
+			if (subtitle != null && !subtitle.isEmpty()) {
+				JSONMessage.create(subtitle).subtitle(player);
+			}
+
+			if (title != null && !title.isEmpty()) {
+				JSONMessage.create(title).title(10, 40, 10, player);
+			}
+
+			Sounds.play(player, won ? "match-result.match-win" : "match-result.match-loss");
+		}
+	}
+
 	@Override
 	public List<BaseComponent[]> generateEndComponents(Player player) {
 		List<BaseComponent[]> componentsList = new ArrayList<>();
 		Profile profile = Profile.get(player.getUniqueId());
 
 		for (String line : Locale.MATCH_END_DETAILS.getStringList(profile.getLocale())) {
-			if (line.equalsIgnoreCase("<match-inventories>")) {
+			if (line.equalsIgnoreCase("%INVENTORIES%")) {
 
 				BaseComponent[] winners = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_WINNER_INVENTORY.format(profile.getLocale()))
-						.add("<winner>", participantA.getPlayers().size() == 1 ? "" : "s")
+						.add("<context>", winningParticipant.getPlayers().size() == 1 ? "" : "S")
 						.toString(), winningParticipant);
 
 				BaseComponent[] losers = generateInventoriesComponents(
 					new MessageFormat(Locale.MATCH_END_LOSER_INVENTORY.format(profile.getLocale()))
-						.add("<loser>", participantB.getPlayers().size() > 1 ? "s" : "")
+						.add("<context>", losingParticipant.getPlayers().size() == 1 ? "" : "S")
 					        .toString(), losingParticipant);
 
 
@@ -596,7 +628,10 @@ public class BasicTeamMatch extends Match {
 						builder.append((TextComponent) component);
 					}
 
-					builder.append(new ChatComponentBuilder("&7  &7▏  &7").create());
+					// Older lang files on disk may not have this key yet.
+					String separator = Locale.MATCH_DETAILS_SEPARATOR.getString(profile.getLocale());
+					builder.append(new ChatComponentBuilder(
+						separator == null ? CC.translate("&r &8┃ &r") : separator).create());
 
 					for (BaseComponent component : losers) {
 						builder.append((TextComponent) component);

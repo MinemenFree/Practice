@@ -1,0 +1,136 @@
+# cPractice - sound settings
+#
+# IMPORTANT: this plugin runs on Minecraft 1.8.8, which uses the OLD Bukkit sound names.
+# Names like ENTITY_PLAYER_LEVELUP or UI_BUTTON_CLICK are 1.9+ only and will NOT work here.
+# Use 1.8 names such as: LEVEL_UP, CLICK, ORB_PICKUP, NOTE_PLING, NOTE_BASS, VILLAGER_NO,
+# VILLAGER_DEATH, ITEM_BREAK, ITEM_PICKUP, CHEST_OPEN, CHEST_CLOSE, ANVIL_LAND, ANVIL_USE,
+# ENDERDRAGON_GROWL, FIREWORK_BLAST, FIREWORK_LAUNCH, EAT, SUCCESSFUL_HIT, WITHER_SPAWN,
+# ZOMBIE_WOODBREAK, MINECART_INSIDE, BAT_TAKEOFF, BLAZE_HIT, DIG_WOOD, GLASS, EXPLODE.
+#
+# An unknown sound name is logged once on startup and then silently skipped, so a typo
+# never breaks a match.
+#
+# volume: 0.0 - 1.0 (higher is allowed, it increases the audible radius)
+# pitch:  0.5 - 2.0
+
+match-start:
+  countdown:
+    enabled: true
+    sound: "NOTE_PLING"
+    volume: 1.0
+    pitch: 1.0
+  fight:
+    enabled: true
+    sound: "ENDERDRAGON_GROWL"
+    volume: 1.0
+    pitch: 1.0
+
+match-result:
+  # Played to everyone on the winning side.
+  match-win:
+    enabled: true
+    sound: "LEVEL_UP"
+    volume: 1.0
+    pitch: 1.2
+  # Played to everyone on the losing side.
+  match-loss:
+    enabled: true
+    sound: "ITEM_BREAK"
+    volume: 1.0
+    pitch: 0.8
+  # Round wins/losses in multi-round kits (sumo, bridge, bedfight).
+  round-win:
+    enabled: true
+    sound: "ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.5
+  round-loss:
+    enabled: true
+    sound: "ITEM_BREAK"
+    volume: 0.8
+    pitch: 0.8
+
+duel:
+  invite:
+    enabled: true
+    sound: "ORB_PICKUP"
+    volume: 0.8
+    pitch: 1.2
+  accept:
+    enabled: true
+    sound: "LEVEL_UP"
+    volume: 1.0
+    pitch: 1.0
+  deny:
+    enabled: true
+    sound: "VILLAGER_NO"
+    volume: 0.7
+    pitch: 0.8
+
+queue:
+  join:
+    enabled: true
+    sound: "NOTE_PLING"
+    volume: 0.8
+    pitch: 1.0
+  leave:
+    enabled: true
+    sound: "CLICK"
+    volume: 0.5
+    pitch: 0.8
+
+party:
+  create:
+    enabled: true
+    sound: "LEVEL_UP"
+    volume: 0.8
+    pitch: 1.2
+  invite:
+    enabled: true
+    sound: "ORB_PICKUP"
+    volume: 0.7
+    pitch: 1.0
+  join:
+    enabled: true
+    sound: "LEVEL_UP"
+    volume: 0.8
+    pitch: 1.1
+
+gui:
+  click:
+    enabled: true
+    sound: "CLICK"
+    volume: 0.5
+    pitch: 1.0
+  error:
+    enabled: true
+    sound: "VILLAGER_NO"
+    volume: 0.6
+    pitch: 0.8
+  success:
+    enabled: true
+    sound: "LEVEL_UP"
+    volume: 0.7
+    pitch: 1.2
+
+kiteditor:
+  open:
+    enabled: true
+    sound: "CHEST_OPEN"
+    volume: 0.6
+    pitch: 1.1
+  save:
+    enabled: true
+    sound: "LEVEL_UP"
+    volume: 0.5
+    pitch: 1.0
+  reset:
+    enabled: true
+    sound: "CLICK"
+    volume: 0.5
+    pitch: 0.8
+  leave:
+    enabled: true
+    sound: "CLICK"
+    volume: 0.5
+    pitch: 1.0
