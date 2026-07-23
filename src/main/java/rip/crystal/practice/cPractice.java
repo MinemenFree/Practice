@@ -112,6 +112,7 @@ import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
 import rip.crystal.practice.utilities.lag.LagRunnable;
 import rip.crystal.practice.utilities.menu.MenuListener;
 import rip.crystal.practice.utilities.playerversion.PlayerVersionHandler;
+import rip.crystal.practice.utilities.sound.Sounds;
 import rip.crystal.practice.visual.leaderboard.Leaderboard;
 import rip.crystal.practice.visual.leaderboard.LeaderboardListener;
 import rip.crystal.practice.visual.leaderboard.PlaceholderAPI;
@@ -130,7 +131,7 @@ public class cPractice extends JavaPlugin {
             scoreboardConfig, coloredRanksConfig, tabLobbyConfig, tabEventConfig, tabSingleFFAFightConfig,
             tabSingleTeamFightConfig, tabPartyFFAFightConfig, tabPartyTeamFightConfig, leaderboardConfig,
             langConfig, hotbarConfig, playersConfig, clansConfig, abilityConfig, kitEditorConfig,
-            tabFFAConfig, menuConfig;
+            tabFFAConfig, menuConfig, soundsConfig;
     private Essentials essentials;
     private MongoClient mongoClient;
     private MongoDatabase mongoDatabase;
@@ -212,6 +213,7 @@ public class cPractice extends JavaPlugin {
         BoardAdapter.hook();
         Leaderboard.init();
         PlayerVersionHandler.init();
+        Sounds.init();
         if (mainConfig.getBoolean("CPRACTICE_CHAT_FORMAT")){
            Chat.setChatFormat(new cPracticeChatFormat());
         }
@@ -230,23 +232,26 @@ public class cPractice extends JavaPlugin {
         this.langConfig = new BasicConfigurationFile(this, "lang/global-lang");
         this.lang = new LanguageConfigurationFile(this, "lang/lang");
 
-        this.scoreboardConfig = new BasicConfigurationFile(this, "features/scoreboard");
+        // Read-only files that sit in hot paths (scoreboard/tablist redraws) are read-cached;
+        // the cache is dropped by BasicConfigurationFile#reload.
+        this.scoreboardConfig = new BasicConfigurationFile(this, "features/scoreboard", false, true);
         this.leaderboardConfig = new BasicConfigurationFile(this, "features/leaderboard");
-        this.hotbarConfig = new BasicConfigurationFile(this, "features/hotbar");
+        this.hotbarConfig = new BasicConfigurationFile(this, "features/hotbar", false, true);
         this.abilityConfig = new BasicConfigurationFile(this, "features/ability");
 
         this.kitEditorConfig = new BasicConfigurationFile(this, "settings/kiteditor");
         this.coloredRanksConfig = new BasicConfigurationFile(this, "settings/colored-ranks");
         this.eventsConfig = new BasicConfigurationFile(this, "settings/events");
-        this.menuConfig = new BasicConfigurationFile(this, "settings/menu");
+        this.menuConfig = new BasicConfigurationFile(this, "settings/menu", false, true);
+        this.soundsConfig = new BasicConfigurationFile(this, "settings/sounds");
 
-        this.tabEventConfig = new BasicConfigurationFile(this, "tablist/event");
-        this.tabLobbyConfig = new BasicConfigurationFile(this, "tablist/lobby");
-        this.tabFFAConfig = new BasicConfigurationFile(this, "tablist/ffa");
-        this.tabSingleFFAFightConfig = new BasicConfigurationFile(this, "tablist/SingleFFAFight");
-        this.tabSingleTeamFightConfig = new BasicConfigurationFile(this, "tablist/SingleTeamFight");
-        this.tabPartyFFAFightConfig = new BasicConfigurationFile(this, "tablist/PartyFFAFight");
-        this.tabPartyTeamFightConfig = new BasicConfigurationFile(this, "tablist/PartyTeamFight");
+        this.tabEventConfig = new BasicConfigurationFile(this, "tablist/event", false, true);
+        this.tabLobbyConfig = new BasicConfigurationFile(this, "tablist/lobby", false, true);
+        this.tabFFAConfig = new BasicConfigurationFile(this, "tablist/ffa", false, true);
+        this.tabSingleFFAFightConfig = new BasicConfigurationFile(this, "tablist/SingleFFAFight", false, true);
+        this.tabSingleTeamFightConfig = new BasicConfigurationFile(this, "tablist/SingleTeamFight", false, true);
+        this.tabPartyFFAFightConfig = new BasicConfigurationFile(this, "tablist/PartyFFAFight", false, true);
+        this.tabPartyTeamFightConfig = new BasicConfigurationFile(this, "tablist/PartyTeamFight", false, true);
 
         if (mainConfig.getString("SAVE_METHOD").equals("FILE") || mainConfig.getString("SAVE_METHOD").equals("FLATFILE")) {
             this.playersConfig = new BasicConfigurationFile(this, "cache/players");

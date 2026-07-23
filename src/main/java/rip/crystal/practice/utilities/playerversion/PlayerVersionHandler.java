@@ -16,9 +16,17 @@ public class PlayerVersionHandler {
 
         /* Detect plugin */
         if (pluginManager.getPlugin("ViaVersion") != null) {
-            version = new PlayerVersionViaVersionImpl();
+            PlayerVersionViaVersionImpl via = new PlayerVersionViaVersionImpl();
+
+            // ViaVersion is installed but its API package is unrecognised - fall through
+            // to ProtocolLib rather than returning a wrong version for every player.
+            if (via.isAvailable()) {
+                version = via;
+                return;
+            }
         }
-        else if (pluginManager.getPlugin("ProtocolLib") != null) {
+
+        if (pluginManager.getPlugin("ProtocolLib") != null) {
             version = new PlayerVersionProtocolLibImpl();
         }
     }

@@ -10,6 +10,7 @@ import rip.crystal.practice.game.arena.Arena;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.file.AbstractConfigurationFile;
 import rip.crystal.practice.utilities.file.type.BasicConfigurationFile;
+import rip.crystal.practice.utilities.sound.Sounds;
 
 public class cPracticeCommand extends BaseCommand {
 
@@ -60,6 +61,9 @@ public class cPracticeCommand extends BaseCommand {
             sender.sendMessage(CC.translate("&7▢ &9FFA Tablist Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             cPractice.get().getMenuConfig().reload();
             sender.sendMessage(CC.translate("&7▢ &9Menu Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
+            cPractice.get().getSoundsConfig().reload();
+            Sounds.init();
+            sender.sendMessage(CC.translate("&7▢ &9Sounds Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             cPractice.get().getEssentials().setMotd(CC.translate(cPractice.get().getLangConfig().getStringList("MOTD")));
             sender.sendMessage(CC.translate("&7▢ &9MOTD Config reloaded in &8(&7" + (System.currentTimeMillis() - start) + "ms &8) &7▢"));
             val finish = System.currentTimeMillis();

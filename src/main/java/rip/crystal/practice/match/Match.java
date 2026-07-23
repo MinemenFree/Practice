@@ -42,6 +42,7 @@ import rip.crystal.practice.utilities.*;
 import rip.crystal.practice.utilities.chat.CC;
 import rip.crystal.practice.utilities.chat.ChatComponentBuilder;
 import rip.crystal.practice.utilities.chat.ChatHelper;
+import rip.crystal.practice.utilities.sound.Sounds;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -671,6 +672,26 @@ public abstract class Match {
 		for (Player player : getSpectatorsAsPlayers()) {
 			messageFormat.setMessage(lang.format(Profile.get(player.getUniqueId()).getLocale()));
 			messageFormat.send(player);
+		}
+	}
+
+	/**
+	 * Plays a sound configured in {@code settings/sounds.yml} to everyone watching this match.
+	 *
+	 * @param key category and name joined by a dot, e.g. {@code match-start.fight}
+	 */
+	public void sendSound(String key) {
+		for (GameParticipant<MatchGamePlayer> gameParticipant : getParticipants()) {
+			for (MatchGamePlayer gamePlayer : gameParticipant.getPlayers()) {
+				if (gamePlayer.isDisconnected()) continue;
+
+				Player player = gamePlayer.getPlayer();
+				if (player != null) Sounds.play(player, key);
+			}
+		}
+
+		for (Player player : getSpectatorsAsPlayers()) {
+			Sounds.play(player, key);
 		}
 	}
 

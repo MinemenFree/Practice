@@ -38,14 +38,14 @@ public class MatchLogicTask extends BukkitRunnable {
 				TaskUtil.run(match::onRoundStart);
 				match.setState(MatchState.PLAYING_ROUND);
 				match.sendMessage(Locale.MATCH_STARTED, new MessageFormat());
-				match.sendSound(Sound.ORB_PICKUP, 1.0F, 1.0F);
+				match.sendSound("match-start.fight");
 				match.sendMessage(Locale.MATCH_WARNING, new MessageFormat());
 			} else {
 				match.sendMessage(Locale.MATCH_START_TIMER, new MessageFormat()
 					.add("<time>", String.valueOf(nextAction))
 					.add("<context>", nextAction == 1 ? "" : "s")
 				);
-				match.sendSound(Sound.ORB_PICKUP, 1.0F, 15F);
+				match.sendSound("match-start.countdown");
 			}
 		}
 		else if (match.getState() == MatchState.ENDING_ROUND) {
